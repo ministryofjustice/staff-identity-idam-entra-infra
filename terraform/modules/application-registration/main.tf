@@ -3,6 +3,7 @@ resource "azuread_application" "entra_app_reg" {
   owners           = var.owners
   sign_in_audience = "AzureADMyOrg"
   prevent_duplicate_names = true
+  group_membership_claims = var.group_membership_claims
 
   app_role {
     allowed_member_types = ["User"]
