@@ -1,8 +1,3 @@
-variable "subscription_id" {
-  type        = string
-  description = "Azure Subscription ID."
-}
-
 variable "tenant_id" {
   type        = string
   description = "Azure Tenant ID."
@@ -18,28 +13,10 @@ variable "client_secret" {
   description = "Client Secret for authentication."
 }
 
-variable "project" {
-  type        = string
-  default     = "entra-app-reg"
-  description = "Short name for the project. Used for name prefixing of resources."
-}
-
 variable "location" {
   type        = string
   default     = "uksouth"
   description = "Azure region for resources to be deployed to."
-}
-
-variable "department" {
-  type        = string
-  default     = "eucs"
-  description = "Department name."
-}
-
-variable "team" {
-  type        = string
-  default     = "idam"
-  description = "Team Name."
 }
 
 variable "state_storage_account_name" {
