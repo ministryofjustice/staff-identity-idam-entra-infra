@@ -15,6 +15,14 @@ locals {
       logout_url              = "https://example.com/logout"
       redirect_uris           = ["https://example.com/account"]
       group_membership_claims = ["SecurityGroup"]
+    },
+    "moj-opg-casemanagement" = {
+      display_name            = "moj-opg-casemanagement"
+      owners                  = ["02acc612-0cc1-4231-a44d-b1bbfcd132f7", "02acc612-0cc1-4231-a44d-b1bbfcd132f7"]
+      homepage_url            = "https://example.com"
+      logout_url              = "https://example.com/logout"
+      redirect_uris           = ["https://example.com/account"]
+      group_membership_claims = ["SecurityGroup"]
     }
   }
 }
