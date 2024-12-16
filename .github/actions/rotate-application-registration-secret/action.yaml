@@ -24,25 +24,25 @@ runs:
     - id: rotate-secret      
       shell: bash      
       run: |
-        my_app_id=${{ inputs.client-id }}
+        client_id=${{ inputs.client-id }}
         secret_validity_in_days=${{ inputs.secret-validity-in-days }}
         current_date=$(date -u +"%Y-%m-%dT%H:%M:%S")
         client_secret_end_date=$(date -d "+$secret_validity_in_days days" -u +"%Y-%m-%dT%H:%M:%S")
         client_secret_name=ghaction_rotate_$current_date
 
         # add new secret
-        secret_value=$(az ad app credential reset --id $my_app_id --append --display-name $client_secret_name --end-date $client_secret_end_date --query password --only-show-errors --output tsv)
+        secret_value=$(az ad app credential reset --id $client_id --append --display-name $client_secret_name --end-date $client_secret_end_date --query password --only-show-errors --output tsv)
         echo "::add-mask::$secret_value"
         echo "secret_value=$secret_value" >> $GITHUB_OUTPUT
         
         # get secret id
-        secret_id=$(az ad app credential list --id $my_app_id --query "[0].keyId" --output tsv)
+        secret_id=$(az ad app credential list --id $client_id --query "[0].keyId" --output tsv)
         echo "secret_id=$secret_id" >> $GITHUB_OUTPUT
 
         # delete expired secrets
-        for keyId in $(az ad app credential list --id $my_app_id --query "[].keyId" -o tsv); do
-          endDateTime=$(az ad app credential list --id $my_app_id --query "[?keyId=='$keyId'].endDateTime" -o tsv)
+        for keyId in $(az ad app credential list --id $client_id --query "[].keyId" -o tsv); do
+          endDateTime=$(az ad app credential list --id $client_id --query "[?keyId=='$keyId'].endDateTime" -o tsv)
           if [[ $(date -d "$endDateTime") < $(date -u +%s) ]]; then
-            az ad app credential delete --id $my_app_id --key-id $keyId
+            az ad app credential delete --id $client_id --key-id $keyId
           fi
         done

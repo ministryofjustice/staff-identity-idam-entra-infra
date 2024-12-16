@@ -1,0 +1,23 @@
+name: 'Delete Entra ID Application Registration secret'
+description: 'Delete an old Entra ID Application Registration secret. Requires Federated credentials against the repository to be configured.'
+branding:
+  icon: rotate-cw
+  color: white
+inputs:
+  client-id:
+    description: 'The client/application id'
+    required: true
+  secret-id:
+    description: 'The secret ID to be deleted'
+    required: true
+runs:
+  using: "composite"
+  steps:   
+    - id: delete-secret      
+      shell: bash      
+      run: |
+        client_id=${{ inputs.client-id }}
+        secret_id=${{ inputs.secret-id }}
+
+        # delete secret
+        az ad app credential delete --id $client_id --key-id $secret_id
