@@ -1,5 +1,6 @@
 name: Example secret action
 on:
+  workflow_dispatch:
   push:
     branches:
       - "fed-actions-test"
