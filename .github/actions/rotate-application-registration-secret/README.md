@@ -14,11 +14,12 @@ Once connected, you will need to set your `Client/Application ID` and `Tenant ID
 
 ## Inputs
 
+* client-id - The client/application id of the Application Registration that is subject to secret rotation.
 * secret-validity-in-days - Desired validity, in days, of the new secret. The default is 90 days.
 
 ## Outputs
 
-* new-secret - The newly generated secret for the provided service principal
+* new-secret - The newly generated secret for the provided Application Registration
 
 ## Example
 
@@ -48,6 +49,7 @@ jobs:
       uses: ./.github/actions/rotate-application-registration-secret/action.yaml
       id: rotate-secret
       with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
         secret-validity-in-days: 30
     - name: Use the new secret    
       run: |

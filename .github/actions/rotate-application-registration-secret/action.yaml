@@ -4,6 +4,9 @@ branding:
   icon: rotate-cw
   color: white
 inputs:
+  client-id:
+    description: 'The client/application id to rotate'
+    required: true    
   secret-validity-in-days:
     description: 'New secret validity in days'
     required: true
@@ -17,8 +20,8 @@ runs:
   steps:   
     - id: rotate-secret      
       shell: bash      
-      run: |      
-        my_app_id=${{ secrets.AZURE_CLIENT_ID }}      
+      run: |
+        my_app_id=${{ inputs.client-id }}
         secret_validity_in_days=${{ inputs.secret-validity-in-days }}
         current_date=$(date -u +"%Y-%m-%dT%H:%M:%S")
         client_secret_end_date=$(date -d "+$secret_validity_in_days days" -u +"%Y-%m-%dT%H:%M:%S")
