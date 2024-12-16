@@ -12,9 +12,12 @@ inputs:
     required: true
     default: '90'
 outputs:
-  new-secret:
-    description: "The newly generated secret"
-    value: ${{ steps.rotate-secret.outputs.my_secret }}
+  secret-value:
+    description: "The newly generated secret value"
+    value: ${{ steps.rotate-secret.outputs.secret_value }}
+  secret-id:
+    description: "The ID of the secret"
+    value: ${{ steps.rotate-secret.outputs.secret_id }}
 runs:
   using: "composite"
   steps:   
@@ -28,9 +31,13 @@ runs:
         client_secret_name=ghaction_rotate_$current_date
 
         # add new secret
-        my_secret=$(az ad app credential reset --id $my_app_id --append --display-name $client_secret_name --end-date $client_secret_end_date --query password --only-show-errors --output tsv)
-        echo "::add-mask::$my_secret"
-        echo "my_secret=$my_secret" >> $GITHUB_OUTPUT
+        secret_value=$(az ad app credential reset --id $my_app_id --append --display-name $client_secret_name --end-date $client_secret_end_date --query password --only-show-errors --output tsv)
+        echo "::add-mask::$secret_value"
+        echo "secret_value=$secret_value" >> $GITHUB_OUTPUT
+        
+        # get secret id
+        secret_id=$(az ad app credential list --id $my_app_id --query "[0].keyId" --output tsv)
+        echo "secret_id=$secret_id" >> $GITHUB_OUTPUT
 
         # delete expired secrets
         for keyId in $(az ad app credential list --id $my_app_id --query "[].keyId" -o tsv); do
