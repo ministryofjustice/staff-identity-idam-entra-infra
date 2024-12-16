@@ -19,7 +19,8 @@ Once connected, you will need to set your `Client/Application ID` and `Tenant ID
 
 ## Outputs
 
-* new-secret - The newly generated secret for the provided Application Registration
+* secret-value - The newly generated secret for the provided Application Registration
+* secret-id - The ID of the secret generated
 
 ## Example
 
@@ -53,5 +54,6 @@ jobs:
         secret-validity-in-days: 30
     - name: Use the new secret    
       run: |
-        echo "${{ steps.rotate-secret.outputs.new-secret }}"
+        echo "${{ steps.rotate-secret.outputs.secret-value }}"
+        echo "${{ steps.rotate-secret.outputs.secret-id }}"
 ```
