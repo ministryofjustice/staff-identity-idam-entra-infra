@@ -1,12 +1,13 @@
 data "azuread_user" "owners" {
-  for_each = { for user in var.owners : user => user }
+  for_each            = { for user in var.owners : user => user }
   user_principal_name = each.value
 }
 
 resource "azuread_application" "entra_app_reg" {
-  display_name     = var.display_name
-  owners           = values(data.azuread_user.owners).*.id
-  sign_in_audience = "AzureADMyOrg"
+  display_name            = var.display_name
+  notes                   = var.notes
+  owners                  = values(data.azuread_user.owners).*.id
+  sign_in_audience        = "AzureADMyOrg"
   prevent_duplicate_names = true
   group_membership_claims = var.group_membership_claims
 
