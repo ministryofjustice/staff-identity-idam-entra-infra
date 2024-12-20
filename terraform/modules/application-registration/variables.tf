@@ -12,6 +12,10 @@ variable "notes" {
   type = string
 }
 
+variable "service_management_reference" {
+  type = string
+}
+
 variable "owners" {
   type        = list(any)
   description = "UPNs of owners. Should be a minimum of 2 people."

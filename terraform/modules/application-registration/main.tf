@@ -4,12 +4,13 @@ data "azuread_user" "owners" {
 }
 
 resource "azuread_application" "entra_app_reg" {
-  display_name            = var.display_name
-  notes                   = var.notes
-  owners                  = values(data.azuread_user.owners).*.id
-  sign_in_audience        = "AzureADMyOrg"
-  prevent_duplicate_names = true
-  group_membership_claims = var.group_membership_claims
+  display_name                 = var.display_name
+  notes                        = var.notes
+  service_management_reference = var.service_management_reference
+  owners                       = values(data.azuread_user.owners).*.id
+  sign_in_audience             = "AzureADMyOrg"
+  prevent_duplicate_names      = true
+  group_membership_claims      = var.group_membership_claims
 
   app_role {
     allowed_member_types = ["User"]
