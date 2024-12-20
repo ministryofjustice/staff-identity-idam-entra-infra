@@ -10,7 +10,7 @@ variable "display_name" {
 
 variable "owners" {
 	type  = list
-    description = "UUIDs of the Owners. Should be a minimum of 2 people."
+    description = "UPNs of owners. Should be a minimum of 2 people."
 
     validation {
         condition     = length(var.owners) > 1
