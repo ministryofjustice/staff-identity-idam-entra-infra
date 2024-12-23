@@ -19,6 +19,18 @@ variable "location" {
   description = "Azure region for resources to be deployed to."
 }
 
+variable "department" {
+  type        = string
+  default     = "eucs"
+  description = "Department name."
+}
+
+variable "team" {
+  type        = string
+  default     = "idam"
+  description = "Team Name."
+}
+
 variable "state_storage_account_name" {
   type        = string
   default     = "stidamappregtfstate"
