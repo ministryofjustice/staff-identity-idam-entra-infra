@@ -73,8 +73,8 @@ resource "azuread_service_principal" "entra_app_service_principle" {
   }
 }
 
-module "access-package" {
-  source = "../access-package"
+module "application-registration-access-package" {
+  source = "../application-registration-access-package"
   count  = var.create_access_package == true ? 1 : 0
 
   department_name  = var.department_name
