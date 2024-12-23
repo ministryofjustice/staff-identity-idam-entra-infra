@@ -17,7 +17,7 @@ variable "service_management_reference" {
 }
 
 variable "owners" {
-  type        = list(any)
+  type        = list(string)
   description = "UPNs of owners. Should be a minimum of 2 people."
 
   validation {
@@ -49,7 +49,12 @@ variable "app_roles" {
   }))
 }
 
-variable "required_resource_access" {
-  default = null
-  type    = map(any)
+variable "required_resource_access_roles" {
+  default = []
+  type    = list(string)
+}
+
+variable "required_resource_access_scopes" {
+  default = []
+  type    = list(string)
 }

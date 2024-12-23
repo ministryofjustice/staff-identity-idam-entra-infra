@@ -10,8 +10,6 @@ resource "azuread_service_principal" "msgraph" {
   use_existing = true
 }
 
-
-
 resource "azuread_application" "entra_app_reg" {
   display_name                 = var.display_name
   notes                        = var.notes
@@ -24,10 +22,18 @@ resource "azuread_application" "entra_app_reg" {
     resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
 
     dynamic "resource_access" {
-      for_each = var.required_resource_access
+      for_each = { for role_perm in var.required_resource_access_roles : role_perm => role_perm }
       content {
-        id   = azuread_service_principal.msgraph.app_role_ids[resource_access.value.id]
-        type = resource_access.value.type
+        id   = azuread_service_principal.msgraph.app_role_ids[resource_access.value]
+        type = "Role"
+      }
+    }
+
+    dynamic "resource_access" {
+      for_each = { for scope_perm in var.required_resource_access_scopes : scope_perm => scope_perm }
+      content {
+        id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids[resource_access.value]
+        type = "Scope"
       }
     }
   }

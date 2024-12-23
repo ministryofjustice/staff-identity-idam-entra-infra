@@ -10,12 +10,8 @@ locals {
       redirect_uris                = ["https://example.com/account"]
       app_roles                    = {}
 
-      required_resource_access = {
-        user_read = {
-          id   = "User.Read"
-          type = "Role"
-        }
-      }
+      required_resource_access_scopes = ["User.Read"]
+      required_resource_access_roles  = []
     },
     eucs_idam_tf_test_app_reg2 = {
       display_name                 = "eucs-idam-tf-test-app-reg2"
@@ -26,20 +22,8 @@ locals {
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
 
-      required_resource_access = {
-        user_read = {
-          id   = "User.Read"
-          type = "Role"
-        },
-        user_read_all = {
-          id   = "User.Read.All"
-          type = "Role"
-        },
-        user_readwrite = {
-          id   = "User.ReadWrite"
-          type = "Scope"
-        }
-      }
+      required_resource_access_roles  = ["User.Read.All"]
+      required_resource_access_scopes = ["User.Read", "User.ReadWrite"]
 
       app_roles = {
         read_only = {
@@ -54,7 +38,7 @@ locals {
           description          = "Administrator roles"
           display_name         = "Administrator"
           id                   = "${random_uuid.eucs_idam_tf_test_app_reg2_admin.result}"
-          value                = "User"
+          value                = "Admin"
         }
       }
     }
