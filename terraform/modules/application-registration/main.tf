@@ -38,6 +38,18 @@ resource "azuread_application" "entra_app_reg" {
     }
   }
 
+  dynamic "app_role" {
+    for_each = var.app_roles
+    content {
+      allowed_member_types = app_role.value.allowed_member_types
+      description          = app_role.value.description
+      display_name         = app_role.value.display_name
+      value                = app_role.value.value
+      enabled              = true
+      id                   = app_role.value.id
+    }
+  }
+
   web {
     homepage_url  = var.homepage_url
     logout_url    = var.logout_url
@@ -50,13 +62,30 @@ resource "azuread_application" "entra_app_reg" {
   }
 }
 
-resource "azuread_application_app_role" "entra_app_roles" {
-  for_each             = var.app_roles
-  allowed_member_types = each.value.allowed_member_types
-  description          = each.value.description
-  display_name         = each.value.display_name
-  value                = each.value.value
+resource "azuread_service_principal" "entra_app_service_principle" {
+  client_id                    = azuread_application.entra_app_reg.client_id
+  app_role_assignment_required = true
+  owners                       = values(data.azuread_user.owners).*.id
 
-  application_id = azuread_application.entra_app_reg.id
-  role_id        = each.value.id
+  feature_tags {
+    enterprise = true
+    gallery    = false
+  }
+}
+
+module "access-package" {
+  source = "../access-package"
+  count  = var.create_access_package == true ? 1 : 0
+
+  catalog_display_name        = "app-${var.department_name}"
+  catalog_description         = "Catalog for ${var.department_name} Applications"
+  access_package_display_name = "app-${var.department_name}-${var.team_name}"
+  access_package_description  = "Access Package for ${var.department_name} - ${var.team_name} to manage Application Access."
+  owners                      = var.owners
+  application_id              = azuread_application.entra_app_reg.id
+
+  depends_on = [
+    azuread_application.entra_app_reg,
+    azuread_service_principal.entra_app_service_principle
+  ]
 }

@@ -16,6 +16,23 @@ variable "service_management_reference" {
   type = string
 }
 
+variable "department_name" {
+  type = string
+}
+
+variable "team_name" {
+  type = string
+}
+
+variable "application_name" {
+  type = string
+}
+
+variable "create_access_package" {
+  type    = bool
+  default = false
+}
+
 variable "owners" {
   type        = list(string)
   description = "UPNs of owners. Should be a minimum of 2 people."
@@ -40,7 +57,7 @@ variable "redirect_uris" {
 
 variable "app_roles" {
   default = null
-  type = map(object({
+  type = list(object({
     allowed_member_types = list(string)
     description          = string
     display_name         = string

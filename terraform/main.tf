@@ -4,6 +4,10 @@ module "application-registration" {
   for_each = local.app_registration_list
 
   display_name                    = each.value.display_name
+  department_name                 = each.value.department_name
+  team_name                       = each.value.team_name
+  application_name                = each.value.application_name
+  create_access_package           = each.value.create_access_package
   service_management_reference    = each.value.service_management_reference
   notes                           = each.value.notes
   owners                          = each.value.owners
