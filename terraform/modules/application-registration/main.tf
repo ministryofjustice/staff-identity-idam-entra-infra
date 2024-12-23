@@ -77,12 +77,13 @@ module "access-package" {
   source = "../access-package"
   count  = var.create_access_package == true ? 1 : 0
 
-  catalog_display_name        = "app-${var.department_name}"
-  catalog_description         = "Catalog for ${var.department_name} Applications"
-  access_package_display_name = "app-${var.department_name}-${var.team_name}"
-  access_package_description  = "Access Package for ${var.department_name} - ${var.team_name} to manage Application Access."
-  owners                      = var.owners
-  application_id              = azuread_application.entra_app_reg.id
+  department_name  = var.department_name
+  team_name        = var.team_name
+  application_name = var.application_name
+
+  owners         = var.owners
+  app_roles      = var.app_roles
+  application_id = azuread_application.entra_app_reg.id
 
   depends_on = [
     azuread_application.entra_app_reg,

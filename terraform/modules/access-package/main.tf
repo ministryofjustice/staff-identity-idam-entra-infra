@@ -1,30 +1,38 @@
+locals {
+  access_package_display_name = "app-${var.department_name}-${var.team_name}"
+  catalog_display_name        = "app-${var.department_name}"
+  roles                       = var.app_roles[*].display_name
+}
+
 data "azuread_user" "owners" {
   for_each            = { for user in var.owners : user => user }
   user_principal_name = each.value
 }
 
 resource "azuread_group" "access_package_sg_reviewers" {
-  display_name     = "${var.access_package_display_name}-Reviewers"
+  display_name     = "app-${var.department_name}-${var.team_name}-Reviewers"
   owners           = values(data.azuread_user.owners).*.id
   security_enabled = true
   members          = values(data.azuread_user.owners).*.id
 }
 
 resource "azuread_access_package_catalog" "access_package_catalog" {
-  display_name = var.catalog_display_name
-  description  = var.catalog_description
+  display_name = local.catalog_display_name
+  description  = "Catalog for ${var.department_name} Applications"
 }
 
 resource "azuread_access_package" "access_package" {
+  for_each     = { for role in local.roles : role => role }
   catalog_id   = azuread_access_package_catalog.access_package_catalog.id
-  display_name = var.access_package_display_name
-  description  = var.access_package_description
+  display_name = "${local.access_package_display_name}-${each.value}"
+  description  = "Access Package for ${var.department_name}, ${var.team_name} to manage Application Access for ${var.application_name} as Role ${each.value}."
 }
 
 resource "azuread_access_package_assignment_policy" "package_policy" {
-  access_package_id = azuread_access_package.access_package.id
-  display_name      = "${var.access_package_display_name}-assignment-policy"
-  description       = "Assignment policy for ${var.access_package_display_name}"
+  for_each          = azuread_access_package.access_package
+  access_package_id = each.value.id
+  display_name      = "${local.access_package_display_name}-${each.key}-assignment-policy"
+  description       = "Assignment policy for ${local.access_package_display_name} ${each.key}"
   duration_in_days  = 365
 
   requestor_settings {

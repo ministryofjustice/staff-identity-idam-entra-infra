@@ -1,24 +1,12 @@
-variable "catalog_display_name" {
-  type = string
-  validation {
-    condition     = length(var.catalog_display_name) > 7 && can(regex("^[a-z\\-]+$", var.catalog_display_name))
-    error_message = "Catalog Display Name must be at least 8 characters long, lowercase alpha."
-  }
-}
-
-variable "catalog_description" {
+variable "department_name" {
   type = string
 }
 
-variable "access_package_display_name" {
+variable "team_name" {
   type = string
-  validation {
-    condition     = length(var.access_package_display_name) > 7 && can(regex("^[a-z\\-]+$", var.access_package_display_name))
-    error_message = "Access Package Display Name must be at least 8 characters long, lowercase alpha."
-  }
 }
 
-variable "access_package_description" {
+variable "application_name" {
   type = string
 }
 
@@ -29,4 +17,15 @@ variable "owners" {
 
 variable "application_id" {
   type = string
+}
+
+variable "app_roles" {
+  default = null
+  type = list(object({
+    allowed_member_types = list(string)
+    description          = string
+    display_name         = string
+    id                   = string
+    value                = string
+  }))
 }
