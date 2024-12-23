@@ -3,6 +3,15 @@ data "azuread_user" "owners" {
   user_principal_name = each.value
 }
 
+data "azuread_application_published_app_ids" "well_known" {}
+
+resource "azuread_service_principal" "msgraph" {
+  client_id    = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
+  use_existing = true
+}
+
+
+
 resource "azuread_application" "entra_app_reg" {
   display_name                 = var.display_name
   notes                        = var.notes
@@ -12,11 +21,14 @@ resource "azuread_application" "entra_app_reg" {
   prevent_duplicate_names      = true
 
   required_resource_access {
-    resource_app_id = "00000003-0000-0000-c000-000000000000" # Microsoft Graph
+    resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
 
-    resource_access {
-      id   = "df021288-bdef-4463-88db-98f22de89214" # User.Read.All
-      type = "Role"
+    dynamic "resource_access" {
+      for_each = var.required_resource_access
+      content {
+        id   = azuread_service_principal.msgraph.app_role_ids[resource_access.value.id]
+        type = resource_access.value.type
+      }
     }
   }
 

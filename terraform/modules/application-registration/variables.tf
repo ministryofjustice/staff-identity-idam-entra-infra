@@ -49,3 +49,7 @@ variable "app_roles" {
   }))
 }
 
+variable "required_resource_access" {
+  default = null
+  type    = map(any)
+}

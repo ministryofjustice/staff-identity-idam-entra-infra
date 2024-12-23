@@ -11,4 +11,5 @@ module "application-registration" {
   logout_url                   = each.value.logout_url
   redirect_uris                = each.value.redirect_uris
   app_roles                    = each.value.app_roles
+  required_resource_access     = each.value.required_resource_access
 }

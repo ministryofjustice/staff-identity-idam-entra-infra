@@ -8,8 +8,14 @@ locals {
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
-      group_membership_claims      = ["None"]
       app_roles                    = {}
+
+      required_resource_access = {
+        user_read = {
+          id   = "User.Read"
+          type = "Role"
+        }
+      }
     },
     eucs_idam_tf_test_app_reg2 = {
       display_name                 = "eucs-idam-tf-test-app-reg2"
@@ -19,7 +25,21 @@ locals {
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
-      group_membership_claims      = ["SecurityGroup"]
+
+      required_resource_access = {
+        user_read = {
+          id   = "User.Read"
+          type = "Role"
+        },
+        user_read_all = {
+          id   = "User.Read.All"
+          type = "Role"
+        },
+        user_readwrite = {
+          id   = "User.ReadWrite"
+          type = "Scope"
+        }
+      }
 
       app_roles = {
         read_only = {
