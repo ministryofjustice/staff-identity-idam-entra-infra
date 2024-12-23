@@ -38,8 +38,14 @@ variable "redirect_uris" {
   type = list(any)
 }
 
-variable "group_membership_claims" {
-  type        = list(any)
-  description = "Optionally send the users group memberships with the claim. Options are None, SecurityGroup, DirectoryRole, ApplicationGroup or All"
+variable "app_roles" {
+  default = null
+  type = map(object({
+    allowed_member_types = list(string)
+    description          = string
+    display_name         = string
+    id                   = string
+    value                = string
+  }))
 }
 

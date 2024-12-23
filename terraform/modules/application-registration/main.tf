@@ -10,16 +10,6 @@ resource "azuread_application" "entra_app_reg" {
   owners                       = values(data.azuread_user.owners).*.id
   sign_in_audience             = "AzureADMyOrg"
   prevent_duplicate_names      = true
-  group_membership_claims      = var.group_membership_claims
-
-  app_role {
-    allowed_member_types = ["User"]
-    description          = "ReadOnly roles have limited query access"
-    display_name         = "ReadOnly"
-    enabled              = true
-    id                   = "497406e4-012a-4267-bf18-45a1cb148a01"
-    value                = "User"
-  }
 
   required_resource_access {
     resource_app_id = "00000003-0000-0000-c000-000000000000" # Microsoft Graph
@@ -40,4 +30,15 @@ resource "azuread_application" "entra_app_reg" {
       id_token_issuance_enabled     = true
     }
   }
+}
+
+resource "azuread_application_app_role" "entra_app_roles" {
+  for_each             = var.app_roles
+  allowed_member_types = each.value.allowed_member_types
+  description          = each.value.description
+  display_name         = each.value.display_name
+  value                = each.value.value
+
+  application_id = azuread_application.entra_app_reg.id
+  role_id        = each.value.id
 }

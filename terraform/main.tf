@@ -10,5 +10,5 @@ module "application-registration" {
   homepage_url                 = each.value.homepage_url
   logout_url                   = each.value.logout_url
   redirect_uris                = each.value.redirect_uris
-  group_membership_claims      = each.value.group_membership_claims
+  app_roles                    = each.value.app_roles
 }
