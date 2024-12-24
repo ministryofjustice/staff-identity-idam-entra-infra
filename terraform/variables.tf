@@ -1,23 +1,3 @@
-variable "rm_subscription_id" {
-  type        = string
-  description = "Azure Subscription ID."
-}
-
-variable "rm_tenant_id" {
-  type        = string
-  description = "Azure Tenant ID."
-}
-
-variable "rm_client_id" {
-  type        = string
-  description = "Client ID for authentication."
-}
-
-variable "rm_client_secret" {
-  type        = string
-  description = "Client Secret for authentication."
-}
-
 variable "tenant_id" {
   type        = string
   description = "Azure Tenant ID."

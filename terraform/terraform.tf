@@ -19,11 +19,6 @@ terraform {
 
 provider "azurerm" {
   features {}
-
-  subscription_id = var.rm_subscription_id
-  tenant_id       = var.rm_tenant_id
-  client_id       = var.rm_client_id
-  client_secret   = var.rm_client_secret
 }
 
 data "azurerm_subscription" "primary" {
