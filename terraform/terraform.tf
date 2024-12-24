@@ -4,7 +4,24 @@ terraform {
       source  = "hashicorp/azuread"
       version = "~>2.7"
     }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>3.0"
+    }
   }
+  backend "azurerm" {
+    resource_group_name  = "rg-eucs-idam-observability"
+    storage_account_name = "steucsidamentratf"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+data "azurerm_subscription" "primary" {
 }
 
 provider "azuread" {
@@ -14,3 +31,11 @@ provider "azuread" {
 }
 
 data "azuread_client_config" "current" {}
+
+locals {
+  tags = {
+    department = var.department
+    team       = var.team
+    source     = "terraform"
+  }
+}
