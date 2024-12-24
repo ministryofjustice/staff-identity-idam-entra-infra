@@ -26,6 +26,7 @@ resource "azuread_access_package" "access_package" {
   catalog_id   = azuread_access_package_catalog.access_package_catalog.id
   display_name = "${local.access_package_display_name}-${each.value}"
   description  = "Access Package for ${var.department_name}, ${var.team_name} to manage Application Access for ${var.application_name} as Role ${each.value}."
+  hidden       = false
 }
 
 resource "azuread_access_package_assignment_policy" "package_policy" {
@@ -34,9 +35,11 @@ resource "azuread_access_package_assignment_policy" "package_policy" {
   display_name      = "${local.access_package_display_name}-${each.key}-assignment-policy"
   description       = "Assignment policy for ${local.access_package_display_name} ${each.key}"
   duration_in_days  = 365
+  extension_enabled = true
 
   requestor_settings {
-    scope_type = "AllExistingDirectoryMemberUsers"
+    scope_type        = "AllExistingDirectoryMemberUsers"
+    requests_accepted = true
   }
 
   approval_settings {
