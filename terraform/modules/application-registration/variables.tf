@@ -1,12 +1,3 @@
-variable "display_name" {
-  type        = string
-  description = "Name of your application. This should be at least 8 characters long, lowercase, alphanumeric in the following pattern: organisation-team-applicationname"
-  validation {
-    condition     = length(var.display_name) > 8 && can(regex("^[a-z0-9\\-]+$", var.display_name))
-    error_message = "Application Name must be at least 8 characters long, lowercase, alphanumeric in the following pattern: organisation-team-applicationname."
-  }
-}
-
 variable "notes" {
   description = "Description of the applications purpose and any further information to help identify the use case of the application."
   type        = string

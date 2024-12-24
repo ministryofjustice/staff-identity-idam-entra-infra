@@ -1,3 +1,7 @@
+locals {
+  display_name = "${var.department_name}-${var.team_name}-${var.application_name}"
+}
+
 data "azuread_user" "owners" {
   for_each            = { for user in var.owners : user => user }
   user_principal_name = each.value
@@ -16,7 +20,7 @@ resource "azuread_service_principal" "msgraph" {
 }
 
 resource "azuread_application" "entra_app_reg" {
-  display_name                 = var.display_name
+  display_name                 = local.display_name
   notes                        = var.notes
   service_management_reference = var.service_management_reference
   owners                       = values(data.azuread_user.owners).*.id
