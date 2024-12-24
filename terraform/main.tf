@@ -3,7 +3,6 @@ module "application-registration" {
 
   for_each = local.app_registration_list
 
-  display_name                    = each.value.display_name
   department_name                 = each.value.department_name
   team_name                       = each.value.team_name
   application_name                = each.value.application_name

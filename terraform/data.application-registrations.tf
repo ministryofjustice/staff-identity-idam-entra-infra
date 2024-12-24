@@ -1,7 +1,6 @@
 locals {
   app_registration_list = {
     eucs_idam_tf_test_app_reg = {
-      display_name                 = "eucs-idam-tf-test-app-reg"
       department_name              = "eucs"
       team_name                    = "idam"
       application_name             = "app-reg"
@@ -23,7 +22,6 @@ locals {
       create_access_package = false
     },
     eucs_idam_tf_test_app_reg2 = {
-      display_name                 = "eucs-idam-tf-test-app-reg2"
       department_name              = "eucs"
       team_name                    = "idam"
       application_name             = "app-reg-2"
