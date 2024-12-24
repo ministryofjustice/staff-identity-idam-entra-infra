@@ -60,6 +60,12 @@ variable "owners" {
   }
 }
 
+variable "allowed_groups" {
+  default     = []
+  type        = list(string)
+  description = "(Optional) List of Security Groups to manage access for people to the application."
+}
+
 variable "homepage_url" {
   description = "The URL to this application’s home page or the URL where users can sign-in and use this application."
   type        = string

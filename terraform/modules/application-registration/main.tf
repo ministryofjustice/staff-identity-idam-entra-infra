@@ -3,6 +3,11 @@ data "azuread_user" "owners" {
   user_principal_name = each.value
 }
 
+data "azuread_group" "groups" {
+  for_each     = { for group in var.allowed_groups : group => group }
+  display_name = each.value
+}
+
 data "azuread_application_published_app_ids" "well_known" {}
 
 resource "azuread_service_principal" "msgraph" {
@@ -50,6 +55,15 @@ resource "azuread_application" "entra_app_reg" {
     }
   }
 
+  app_role {
+    allowed_member_types = ["Application", "User"]
+    description          = "Standard internal users role for Group assignment"
+    display_name         = "Internal.User"
+    enabled              = true
+    id                   = "00000000-0000-0000-0000-222222222222"
+    value                = "Internal.User"
+  }
+
   web {
     homepage_url  = var.homepage_url
     logout_url    = var.logout_url
@@ -71,6 +85,18 @@ resource "azuread_service_principal" "entra_app_service_principle" {
     enterprise = true
     gallery    = false
   }
+}
+
+resource "azuread_app_role_assignment" "internal_allowed_groups" {
+  for_each            = data.azuread_group.groups
+  app_role_id         = azuread_service_principal.entra_app_service_principle.app_role_ids["Internal.User"]
+  principal_object_id = each.value.object_id
+  resource_object_id  = azuread_service_principal.entra_app_service_principle.object_id
+
+  depends_on = [
+    azuread_application.entra_app_reg,
+    azuread_service_principal.entra_app_service_principle
+  ]
 }
 
 module "application-registration-access-package" {

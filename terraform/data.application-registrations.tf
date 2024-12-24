@@ -7,7 +7,9 @@ locals {
       application_name             = "app-reg"
       notes                        = "Test IDAM Team Terraform Test 1"
       service_management_reference = "SCTASK0000123"
-      owners                       = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_nle                   = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
@@ -15,6 +17,8 @@ locals {
 
       required_resource_access_scopes = ["User.Read"]
       required_resource_access_roles  = []
+
+      allowed_groups = ["MoJO - Users - All"]
 
       create_access_package = false
     },
@@ -25,13 +29,17 @@ locals {
       application_name             = "app-reg-2"
       notes                        = "Test IDAM Team Terraform Test 2"
       service_management_reference = ""
-      owners                       = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_nle                   = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
 
       required_resource_access_roles  = ["User.Read.All"]
       required_resource_access_scopes = ["User.Read", "User.ReadWrite"]
+
+      allowed_groups = ["MoJO - Users - All"]
 
       create_access_package = true
       app_roles = [
