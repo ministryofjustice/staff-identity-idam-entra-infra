@@ -69,8 +69,12 @@ eucs_idam_tf_test_app_reg = {
 
     allowed_groups = ["MoJO - Users - All"]
 
-    create_access_package = false
     create_access_package = true
+    access_package_reviewers = {
+        devl = ["xxx.xxx@devl.justice.gov.uk", "xxx.xxx@devl.justice.gov.uk"]
+        nle  = ["xxx.xxx@test.justice.gov.uk", "xxx.xxx@test.justice.gov.uk"]
+        live = ["xxx.xxx@justice.gov.uk", "xxx.xxx@justice.gov.uk"]
+    }
     app_roles = [
         {
             allowed_member_types = ["User"]
@@ -78,6 +82,7 @@ eucs_idam_tf_test_app_reg = {
             display_name         = "ReadOnly"
             id                   = "${random_uuid.eucs_idam_tf_test_app_reg2_readonly.result}"
             value                = "User"
+            access_package_hidden = false
         },
         {
             allowed_member_types = ["User"]
@@ -85,6 +90,7 @@ eucs_idam_tf_test_app_reg = {
             display_name         = "Administrator"
             id                   = "${random_uuid.eucs_idam_tf_test_app_reg2_admin.result}"
             value                = "Admin"
+            access_package_hidden = true
         }
     ]
 }
@@ -110,6 +116,7 @@ eucs_idam_tf_test_app_reg = {
 | `required_resource_access_scopes` | Graph Delegated Permissions required on the Application such as `User.Read`. | `required_resource_access_scopes = ["User.Read"]` |
 | `allowed_groups` | (Optional) List of Security Groups to manage access for people to the application. | `allowed_groups = ["MoJO - Users - All"]` |
 | `create_access_package` | Create access packages for managing user access to your application. This requires App Roles to be setup. | `create_access_package = true` |
+| `access_package_reviewers` | Assign your business user reviewers who will grant, deny and review access to the application and roles assigned. | See example above |
 | `app_roles` | App roles are custom roles to assign permissions to users or apps. The application defines and publishes the app roles and interprets them as permissions during authorization. | See table below |
 
 ### App Roles
@@ -121,3 +128,4 @@ eucs_idam_tf_test_app_reg = {
 | `display_name` | Display name for this role. | `display_name = "ReadOnly"` |
 | `id` | UUID associated with the role. This is defined first in [../../terraform/app-role-uuids.tf](../../terraform/app-role-uuids.tf) and assigned here. | `id = "${random_uuid.eucs_idam_tf_test_app_reg2_readonly.result}"` |
 | `value` | Value that will be passed in the users authentication token if assigned. | `value = "User"` |
+| `access_package_hidden` | Should the Access Package be visible for all users to request access. | `access_package_hidden = false` |
