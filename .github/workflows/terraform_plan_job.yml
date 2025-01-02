@@ -99,10 +99,10 @@ jobs:
         with:
           github-token: ${{ secrets.github_access_token }}
           script: |
-            const output = `#### Terraform Format and Style <img draggable="false" role="img" class="emoji" alt="🖌" src="https://s.w.org/images/core/emoji/15.0.3/svg/1f58c.svg">\`${{ steps.terraform_fmt.outcome }}\`
-            #### Terraform Initialization <img draggable="false" role="img" class="emoji" alt="🤖" src="https://s.w.org/images/core/emoji/15.0.3/svg/1f916.svg">\`${{ steps.terraform_init.outcome }}\`
-            #### Terraform Validation <img draggable="false" role="img" class="emoji" alt="🤖" src="https://s.w.org/images/core/emoji/15.0.3/svg/1f916.svg">\`${{ steps.terraform_validate.outcome }}\`
-            #### Terraform Plan <img draggable="false" role="img" class="emoji" alt="📖" src="https://s.w.org/images/core/emoji/15.0.3/svg/1f4d6.svg">\`${{ steps.terraform_plan.outcome }}\`
+            const output = `#### Terraform Format and Style <img draggable="false" width="15px" role="img" class="emoji" alt="🖌" src="https://s.w.org/images/core/emoji/15.0.3/svg/1f58c.svg">\`${{ steps.terraform_fmt.outcome }}\`
+            #### Terraform Initialization <img draggable="false" width="15px" role="img" class="emoji" alt="🤖" src="https://s.w.org/images/core/emoji/15.0.3/svg/1f916.svg">\`${{ steps.terraform_init.outcome }}\`
+            #### Terraform Validation <img draggable="false" width="15px" role="img" class="emoji" alt="🤖" src="https://s.w.org/images/core/emoji/15.0.3/svg/1f916.svg">\`${{ steps.terraform_validate.outcome }}\`
+            #### Terraform Plan <img draggable="false" width="15px" role="img" class="emoji" alt="📖" src="https://s.w.org/images/core/emoji/15.0.3/svg/1f4d6.svg">\`${{ steps.terraform_plan.outcome }}\`
             <details><summary>Show Plan</summary>
       
             \`\`\`\n
