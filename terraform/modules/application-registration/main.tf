@@ -23,7 +23,7 @@ resource "azuread_application" "entra_app_reg" {
   display_name                 = local.display_name
   notes                        = var.notes
   service_management_reference = var.service_management_reference
-  owners                       = values(data.azuread_user.owners).*.id
+  owners                       = values(data.azuread_user.owners).*.object_id
   sign_in_audience             = "AzureADMyOrg"
   prevent_duplicate_names      = true
 
@@ -83,7 +83,7 @@ resource "azuread_application" "entra_app_reg" {
 resource "azuread_service_principal" "entra_app_service_principle" {
   client_id                    = azuread_application.entra_app_reg.client_id
   app_role_assignment_required = true
-  owners                       = values(data.azuread_user.owners).*.id
+  owners                       = values(data.azuread_user.owners).*.object_id
 
   feature_tags {
     enterprise = true
