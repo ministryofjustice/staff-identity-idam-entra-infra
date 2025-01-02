@@ -17,6 +17,7 @@ MoJO_Admin_EUCS_Security = {
     role_name       = "Engineers"
 
     roles = ["Security Reader", "Reports Reader"]
+    tenants_required = ["DEVL", "NLE", "LIVE"]
 }
 ```
 
@@ -28,3 +29,4 @@ MoJO_Admin_EUCS_Security = {
 | `team_name` | Team name acronym such as IDAM, MWP, AP, etc. | `team_name = "Security"` |
 | `role_name` | The Role of the teams Access Package such as Security, Engineers, etc. | `role_name = "Engineers"` |
 | `roles` | List of Built-in Entra Roles to give Eligible permissions such as Security Reader, Reports Reader, User Administrator, etc. | `roles = ["Security Reader", "Reports Reader"]` |
+| `tenants_required` | Which tenants you want this Access Package to be available on. For testing you may initially only require DEVL to be setup and subsequent Pull Requests can release to other tenants. This is a list of strings, "DEVL", "NLE" and "LIVE". | `tenants_required = ["DEVL", "NLE", "LIVE"]` |

@@ -98,7 +98,7 @@ variable "required_resource_access_scopes" {
 
 variable "tenants_required" {
   default     = ["DEVL"]
-  description = "List of tenants the Application should be setup on. Can be DELV, NLE and LIVE'."
+  description = "List of tenants the Application should be setup on. Can be DEVL, NLE and LIVE'."
   type        = list(string)
 
   validation {
