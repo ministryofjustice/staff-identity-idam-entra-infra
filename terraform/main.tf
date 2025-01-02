@@ -17,6 +17,7 @@ module "application-registration" {
   required_resource_access_scopes = each.value.required_resource_access_scopes
   required_resource_access_roles  = each.value.required_resource_access_roles
   allowed_groups                  = each.value.allowed_groups
+  access_package_reviewers        = each.value.access_package_reviewers
 }
 
 module "admin-access-packages" {

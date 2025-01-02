@@ -26,7 +26,7 @@ resource "azuread_access_package" "access_package" {
   catalog_id   = azuread_access_package_catalog.access_package_catalog.id
   display_name = "${local.access_package_display_name}-${each.value}"
   description  = "Access Package for ${var.department_name}, ${var.team_name} to manage Application Access for ${var.application_name} as Role ${each.value}."
-  hidden       = false
+  hidden       = var.app_roles[index(var.app_roles.*.display_name, each.value)].access_package_hidden
 }
 
 resource "azuread_access_package_assignment_policy" "package_policy" {

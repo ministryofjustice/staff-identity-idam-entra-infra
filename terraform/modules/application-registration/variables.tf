@@ -41,6 +41,16 @@ variable "create_access_package" {
   default     = false
 }
 
+variable "access_package_reviewers" {
+  type = map(list(string))
+  default = {
+    devl = []
+    nle  = []
+    live = []
+  }
+  description = "UPNs of reviewers. Should be a minimum of 2 people."
+}
+
 variable "owners" {
   type        = list(string)
   description = "UPNs of owners. Should be a minimum of 2 people."
@@ -76,11 +86,12 @@ variable "app_roles" {
   default     = null
   description = "App roles are custom roles to assign permissions to users or apps. The application defines and publishes the app roles and interprets them as permissions during authorization."
   type = list(object({
-    allowed_member_types = list(string)
-    description          = string
-    display_name         = string
-    id                   = string
-    value                = string
+    allowed_member_types  = list(string)
+    description           = string
+    display_name          = string
+    id                    = string
+    value                 = string
+    access_package_hidden = bool
   }))
 }
 

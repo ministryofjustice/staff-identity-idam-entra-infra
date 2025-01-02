@@ -21,6 +21,12 @@ locals {
       allowed_groups = ["MoJO - Users - All"]
 
       create_access_package = false
+      access_package_hidden = false
+      access_package_reviewers = {
+        devl = []
+        nle  = []
+        live = []
+      }
     },
     eucs_idam_tf_test_app_reg2 = {
       department_name              = "eucs"
@@ -39,23 +45,31 @@ locals {
       required_resource_access_roles  = ["User.Read.All"]
       required_resource_access_scopes = ["User.Read", "User.ReadWrite"]
 
-      allowed_groups = ["MoJO - Users - All"]
+      allowed_groups = []
 
       create_access_package = true
+      access_package_reviewers = {
+        devl = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+        nle  = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+        live = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
+      }
+
       app_roles = [
         {
-          allowed_member_types = ["User"]
-          description          = "ReadOnly roles have limited query access"
-          display_name         = "ReadOnly"
-          id                   = "${random_uuid.eucs_idam_tf_test_app_reg2_readonly.result}"
-          value                = "User"
+          allowed_member_types  = ["User"]
+          description           = "ReadOnly roles have limited query access"
+          display_name          = "ReadOnly"
+          id                    = "${random_uuid.eucs_idam_tf_test_app_reg2_readonly.result}"
+          value                 = "User"
+          access_package_hidden = false
         },
         {
-          allowed_member_types = ["User"]
-          description          = "Administrator roles"
-          display_name         = "Administrator"
-          id                   = "${random_uuid.eucs_idam_tf_test_app_reg2_admin.result}"
-          value                = "Admin"
+          allowed_member_types  = ["User"]
+          description           = "Administrator roles"
+          display_name          = "Administrator"
+          id                    = "${random_uuid.eucs_idam_tf_test_app_reg2_admin.result}"
+          value                 = "Admin"
+          access_package_hidden = true
         }
       ]
     }
