@@ -63,7 +63,7 @@ variable "homepage_url" {
 }
 
 variable "logout_url" {
-  description = "This is where we send a request to have the application clear the user's session data. This is required for single sign-out to work correctly."
+  description = "Where we send a request to have the application clear the user's session data. This is required for single sign-out to work correctly."
   type        = string
 }
 
