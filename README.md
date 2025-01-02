@@ -10,6 +10,10 @@ This repository holds the configuration for managing various end user facing con
 
 Ability to create and manage Application Registrations in code. For a detailed overview see the [Application Registration Runbook](./docs/runbooks/application_registration.md).
 
+### Application Roles and Access Packages for Authorisation
+
+Ability to manage your users access via App Roles and Access Packages. For a detailed overview see the [App Roles Runbook](./docs/runbooks/app_roles.md).
+
 ### Administrator Access Packages
 
 Ability to create and manage Administrator Access Packages in code. For a detailed overview see the [Application Registration Runbook](./docs/runbooks/admin-access-package.md).
