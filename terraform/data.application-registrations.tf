@@ -13,6 +13,7 @@ locals {
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
       app_roles                    = []
+      tenants_required             = ["DEVL", "NLE", "LIVE"]
 
       required_resource_access_scopes = ["User.Read"]
       required_resource_access_roles  = []
@@ -33,6 +34,7 @@ locals {
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
+      tenants_required             = ["DEVL"]
 
       required_resource_access_roles  = ["User.Read.All"]
       required_resource_access_scopes = ["User.Read", "User.ReadWrite"]

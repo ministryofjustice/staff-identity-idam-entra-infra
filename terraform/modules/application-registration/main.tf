@@ -2,14 +2,14 @@ locals {
   display_name = "${var.department_name}-${var.team_name}-${var.application_name}"
 }
 
+data "azuread_groups" "groups" {
+  display_names    = var.allowed_groups
+  security_enabled = true
+}
+
 data "azuread_user" "owners" {
   for_each            = { for user in var.owners : user => user }
   user_principal_name = each.value
-}
-
-data "azuread_group" "groups" {
-  for_each     = { for group in var.allowed_groups : group => group }
-  display_name = each.value
 }
 
 data "azuread_application_published_app_ids" "well_known" {}
@@ -92,9 +92,9 @@ resource "azuread_service_principal" "entra_app_service_principle" {
 }
 
 resource "azuread_app_role_assignment" "internal_allowed_groups" {
-  for_each            = data.azuread_group.groups
+  for_each            = { for x in data.azuread_groups.groups.object_ids : x => x }
   app_role_id         = azuread_service_principal.entra_app_service_principle.app_role_ids["Internal.User"]
-  principal_object_id = each.value.object_id
+  principal_object_id = each.value
   resource_object_id  = azuread_service_principal.entra_app_service_principle.object_id
 
   depends_on = [

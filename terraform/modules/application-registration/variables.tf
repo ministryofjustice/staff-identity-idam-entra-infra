@@ -95,3 +95,14 @@ variable "required_resource_access_scopes" {
   description = "Graph Delegated Permissions required on the Application such as 'User.Read'."
   type        = list(string)
 }
+
+variable "tenants_required" {
+  default     = ["DEVL"]
+  description = "List of tenants the Application should be setup on. Can be DELV, NLE and LIVE'."
+  type        = list(string)
+
+  validation {
+    condition     = length(var.tenants_required) > 0
+    error_message = "This application requires at least one tenant to release to."
+  }
+}
