@@ -11,9 +11,9 @@ data "azuread_user" "owners" {
 
 resource "azuread_group" "access_package_sg_reviewers" {
   display_name     = "app-${var.department_name}-${var.team_name}-Reviewers"
-  owners           = values(data.azuread_user.owners).*.id
+  owners           = values(data.azuread_user.owners).*.object_id
   security_enabled = true
-  members          = values(data.azuread_user.owners).*.id
+  members          = values(data.azuread_user.owners).*.object_id
 }
 
 resource "azuread_access_package_catalog" "access_package_catalog" {
