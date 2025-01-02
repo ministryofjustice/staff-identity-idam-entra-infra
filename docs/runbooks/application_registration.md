@@ -29,7 +29,6 @@ eucs_idam_tf_test_app_reg = {
     homepage_url                 = "https://example.com"
     logout_url                   = "https://example.com/logout"
     redirect_uris                = ["https://example.com/account"]
-    app_roles                    = []
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
     required_resource_access_scopes = ["User.Read"]
@@ -38,6 +37,7 @@ eucs_idam_tf_test_app_reg = {
     allowed_groups = ["MoJO - Users - All"]
 
     create_access_package = false
+    app_roles                    = []
 }
 ```
 
@@ -62,7 +62,6 @@ eucs_idam_tf_test_app_reg = {
     homepage_url                 = "https://example.com"
     logout_url                   = "https://example.com/logout"
     redirect_uris                = ["https://example.com/account"]
-    app_roles                    = []
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
     required_resource_access_scopes = ["User.Read"]

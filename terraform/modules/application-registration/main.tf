@@ -21,7 +21,7 @@ resource "azuread_service_principal" "msgraph" {
 
 resource "azuread_application" "entra_app_reg" {
   display_name                 = local.display_name
-  notes                        = var.notes
+  notes                        = "${var.notes}\n\nManaged by IDAM Entra Infra Terraform"
   service_management_reference = var.service_management_reference
   owners                       = values(data.azuread_user.owners).*.object_id
   sign_in_audience             = "AzureADMyOrg"
