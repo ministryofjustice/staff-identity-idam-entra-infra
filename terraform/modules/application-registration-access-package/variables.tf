@@ -37,10 +37,11 @@ variable "application_id" {
 variable "app_roles" {
   default = null
   type = list(object({
-    allowed_member_types = list(string)
-    description          = string
-    display_name         = string
-    id                   = string
-    value                = string
+    allowed_member_types  = list(string)
+    description           = string
+    display_name          = string
+    id                    = string
+    value                 = string
+    access_package_hidden = bool
   }))
 }

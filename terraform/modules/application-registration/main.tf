@@ -1,5 +1,6 @@
 locals {
   display_name = "${var.department_name}-${var.team_name}-${var.application_name}"
+  owners       = terraform.workspace == "LIVE" ? var.access_package_reviewers.live : terraform.workspace == "NLE" ? var.access_package_reviewers.nle : var.access_package_reviewers.devl
 }
 
 data "azuread_groups" "groups" {
@@ -111,7 +112,7 @@ module "application-registration-access-package" {
   team_name        = var.team_name
   application_name = var.application_name
 
-  owners         = var.owners
+  owners         = local.owners
   app_roles      = var.app_roles
   application_id = azuread_application.entra_app_reg.id
 
