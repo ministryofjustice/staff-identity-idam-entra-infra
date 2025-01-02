@@ -22,7 +22,7 @@ module "application-registration" {
 module "admin-access-packages" {
   source = "./modules/admin-access-packages"
 
-  for_each = local.admin_access_packages
+  for_each = { for s, v in local.admin_access_packages : s => v if contains(v.tenants_required, terraform.workspace) }
 
   department_name = each.value.department_name
   team_name       = each.value.team_name

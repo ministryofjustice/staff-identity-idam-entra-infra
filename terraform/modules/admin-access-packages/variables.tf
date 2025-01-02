@@ -33,3 +33,14 @@ variable "roles" {
   type        = list(string)
   description = "List of Built-in Entra Roles to give Eligible permissions such as Security Reader, Reports Reader, User Administrator, etc."
 }
+
+variable "tenants_required" {
+  default     = ["DEVL"]
+  description = "List of tenants the Access Package should be setup on. Can be DEVL, NLE and LIVE'."
+  type        = list(string)
+
+  validation {
+    condition     = length(var.tenants_required) > 0
+    error_message = "This Access Package requires at least one tenant to release to."
+  }
+}

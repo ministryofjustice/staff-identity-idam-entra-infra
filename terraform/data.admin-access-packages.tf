@@ -5,7 +5,8 @@ locals {
       department_name = "EUCS"
       role_name       = "Engineers"
 
-      roles = ["Security Reader", "Reports Reader"]
+      roles            = ["Security Reader", "Reports Reader"]
+      tenants_required = ["DEVL", "NLE"]
     }
   }
 }
