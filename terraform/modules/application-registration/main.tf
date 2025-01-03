@@ -12,6 +12,11 @@ data "azuread_user" "owners" {
   user_principal_name = each.value
 }
 
+data "azuread_application_template" "app_template" {
+  count        = var.application_template_name != null ? 1 : 0
+  display_name = var.application_template_name
+}
+
 data "azuread_application_published_app_ids" "well_known" {}
 
 resource "azuread_service_principal" "msgraph" {
@@ -26,6 +31,8 @@ resource "azuread_application" "entra_app_reg" {
   owners                       = values(data.azuread_user.owners).*.object_id
   sign_in_audience             = "AzureADMyOrg"
   prevent_duplicate_names      = true
+
+  template_id = var.application_template_name != null ? data.azuread_application_template.app_template[0].template_id : null
 
   required_resource_access {
     resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
@@ -84,6 +91,7 @@ resource "azuread_service_principal" "entra_app_service_principle" {
   client_id                    = azuread_application.entra_app_reg.client_id
   app_role_assignment_required = true
   owners                       = values(data.azuread_user.owners).*.object_id
+  use_existing                 = var.application_template_name != null ? true : false
 
   feature_tags {
     enterprise = true

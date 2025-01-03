@@ -20,4 +20,5 @@ module "application-registration" {
   allowed_groups                 = each.value.allowed_groups
   access_package_reviewers       = each.value.access_package_reviewers
   federated_identity_credentials = each.value.federated_identity_credentials
+  application_template_name      = each.value.application_template_name
 }

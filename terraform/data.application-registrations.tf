@@ -15,6 +15,7 @@ locals {
       redirect_uris                  = ["https://example.com/account"]
       app_roles                      = []
       tenants_required               = ["DEVL", "NLE", "LIVE"]
+      application_template_name      = null
       federated_identity_credentials = []
 
       graph_delegated_permissions   = ["User.Read"]
@@ -43,6 +44,7 @@ locals {
       logout_url                     = "https://example.com/logout"
       redirect_uris                  = ["https://example.com/account"]
       tenants_required               = ["DEVL"]
+      application_template_name      = null
       federated_identity_credentials = []
 
       graph_application_permissions = ["User.Read.All"]
@@ -90,6 +92,7 @@ locals {
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
       app_roles                    = []
+      application_template_name    = null
       tenants_required             = ["DEVL"]
 
       federated_identity_credentials = [
@@ -118,6 +121,66 @@ locals {
           subject_suffix = "pull_request"
         }
       ]
+
+      graph_delegated_permissions   = ["User.Read"]
+      graph_application_permissions = []
+
+      allowed_groups = []
+
+      create_access_package = false
+      access_package_reviewers = {
+        devl = []
+        nle  = []
+        live = []
+      }
+    },
+    eucs_idam_google_cloud = {
+      display_name                   = "Google Cloud"
+      department_name                = "eucs"
+      team_name                      = "idam"
+      application_name               = "google-cloud"
+      notes                          = "Google Cloud Identity Federation Integration"
+      service_management_reference   = "IDAM-1702"
+      owners_devl                    = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_nle                     = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_live                    = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
+      homepage_url                   = "https://example.com"
+      logout_url                     = "https://example.com/logout"
+      redirect_uris                  = ["https://example.com/account"]
+      app_roles                      = []
+      tenants_required               = ["DEVL"]
+      application_template_name      = "Google Cloud / G Suite Connector by Microsoft"
+      federated_identity_credentials = []
+
+      graph_delegated_permissions   = ["User.Read"]
+      graph_application_permissions = []
+
+      allowed_groups = []
+
+      create_access_package = false
+      access_package_reviewers = {
+        devl = []
+        nle  = []
+        live = []
+      }
+    },
+    eucs_idam_google_cloud_provisioning = {
+      display_name                   = "Google Cloud (Provisioning)"
+      department_name                = "eucs"
+      team_name                      = "idam"
+      application_name               = "google-cloud-provisioning"
+      notes                          = "Google Cloud Identity Provisioning Integration"
+      service_management_reference   = "IDAM-1701"
+      owners_devl                    = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_nle                     = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_live                    = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
+      homepage_url                   = "https://example.com"
+      logout_url                     = "https://example.com/logout"
+      redirect_uris                  = ["https://example.com/account"]
+      app_roles                      = []
+      tenants_required               = ["DEVL"]
+      application_template_name      = "Google Cloud / G Suite Connector by Microsoft"
+      federated_identity_credentials = []
 
       graph_delegated_permissions   = ["User.Read"]
       graph_application_permissions = []
