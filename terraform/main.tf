@@ -20,15 +20,3 @@ module "application-registration" {
   access_package_reviewers        = each.value.access_package_reviewers
   federated_identity_credentials  = each.value.federated_identity_credentials
 }
-
-module "admin-access-packages" {
-  source = "./modules/admin-access-packages"
-
-  for_each = { for s, v in local.admin_access_packages : s => v if contains(v.tenants_required, terraform.workspace) }
-
-  department_name = each.value.department_name
-  team_name       = each.value.team_name
-  role_name       = each.value.role_name
-  roles           = each.value.roles
-  catalogue_id    = azuread_access_package_catalog.admin_access_package_catalog.id
-}

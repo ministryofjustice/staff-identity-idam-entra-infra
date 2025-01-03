@@ -14,12 +14,6 @@ Ability to create and manage Application Registrations in code. For a detailed o
 
 Ability to manage your users access via App Roles and Access Packages. For a detailed overview see the [App Roles Runbook](./docs/runbooks/app_roles.md).
 
-### Administrator Access Packages
-
-Ability to create and manage Administrator Access Packages in code. For a detailed overview see the [Application Registration Runbook](./docs/runbooks/admin-access-package.md).
-
-This currently does not support the assignment of users to the Access Packages. This should continue to be a manual process using Entitlement Management features within Entra ID.
-
 ## Documentation
 
 ### ADRs
