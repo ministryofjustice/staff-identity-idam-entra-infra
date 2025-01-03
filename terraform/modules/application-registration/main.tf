@@ -104,6 +104,21 @@ resource "azuread_app_role_assignment" "internal_allowed_groups" {
   ]
 }
 
+resource "azuread_application_federated_identity_credential" "federated_credentials" {
+  for_each       = { for cred in var.federated_identity_credentials : cred.subject_suffix => cred }
+  application_id = azuread_application.entra_app_reg.id
+  display_name   = "${each.value.repo_name}-${each.value.subject_suffix}"
+  description    = each.value.description
+  audiences      = ["api://AzureADTokenExchange"]
+  issuer         = "https://token.actions.githubusercontent.com"
+  subject        = "repo:my-organization/${each.value.repo_name}:${each.value.subject_suffix}"
+
+  depends_on = [
+    azuread_application.entra_app_reg,
+    azuread_service_principal.entra_app_service_principle
+  ]
+}
+
 module "application-registration-access-package" {
   source = "../application-registration-access-package"
   count  = var.create_access_package == true ? 1 : 0

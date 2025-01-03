@@ -42,7 +42,8 @@ variable "create_access_package" {
 }
 
 variable "access_package_reviewers" {
-  type = map(list(string))
+  type     = map(list(string))
+  nullable = true
   default = {
     devl = []
     nle  = []
@@ -96,13 +97,15 @@ variable "app_roles" {
 }
 
 variable "required_resource_access_roles" {
-  default     = []
+  default     = null
+  nullable    = true
   description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
   type        = list(string)
 }
 
 variable "required_resource_access_scopes" {
-  default     = []
+  default     = null
+  nullable    = true
   description = "Graph Delegated Permissions required on the Application such as 'User.Read'."
   type        = list(string)
 }
@@ -116,4 +119,15 @@ variable "tenants_required" {
     condition     = length(var.tenants_required) > 0
     error_message = "This application requires at least one tenant to release to."
   }
+}
+
+variable "federated_identity_credentials" {
+  default     = []
+  nullable    = true
+  description = "Manages a federated identity credential associated with an application within Azure Active Directory."
+  type = list(object({
+    repo_name      = string
+    description    = string
+    subject_suffix = string
+  }))
 }
