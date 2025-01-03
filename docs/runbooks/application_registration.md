@@ -18,6 +18,7 @@ To create a Application Registration that will allow your application to use Ent
 
 ```
 eucs_idam_tf_test_app_reg = {
+    display_name                 = "EUCS IDAM App Reg Test 1"
     department_name              = "eucs"
     team_name                    = "idam"
     application_name             = "app-reg"
@@ -51,6 +52,7 @@ For more information on App Roles, Access Packages and how to consume these in y
 
 ```
 eucs_idam_tf_test_app_reg = {
+    display_name                 = "EUCS IDAM App Reg Test 2 (App Roles)"
     department_name              = "eucs"
     team_name                    = "idam"
     application_name             = "app-reg"
@@ -145,6 +147,7 @@ eucs_idam_tf_app_reg_fed_identitity = {
 
 | Property Name | Description | Example |
 | --- | --- | --- |
+| `display_name` | Friendly display name of the Application. | `display_name = "EUCS IDAM App Reg Test 2 (App Roles)"` |
 | `department_name` | Department name such as EUCS, OPG, LAA, etc. | `department_name = "eucs"` |
 | `team_name` | Team name acronym such as IDAM, MWP, AP, etc. | `team_name = "idam"` |
 | `application_name` | Application name Application Registration refers to such as ServiceNow, Slack, Ml-Flow, Intranet, etc. | `application_name = "app-reg-2"` |

@@ -1,6 +1,7 @@
 locals {
   app_registration_list = {
     eucs_idam_tf_test_app_reg = {
+      display_name                   = "EUCS IDAM App Reg Test 1"
       department_name                = "eucs"
       team_name                      = "idam"
       application_name               = "app-reg"
@@ -29,6 +30,7 @@ locals {
       }
     },
     eucs_idam_tf_test_app_reg2 = {
+      display_name                   = "EUCS IDAM App Reg Test 2 (App Roles)"
       department_name                = "eucs"
       team_name                      = "idam"
       application_name               = "app-reg-2"
@@ -75,6 +77,7 @@ locals {
       ]
     },
     eucs_idam_tf_app_reg_fed_identitity = {
+      display_name                 = "EUCS IDAM App Reg Test 3 (Federation)"
       department_name              = "eucs"
       team_name                    = "idam"
       application_name             = "federated-identity"

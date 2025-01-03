@@ -8,6 +8,11 @@ variable "service_management_reference" {
   type        = string
 }
 
+variable "display_name" {
+  description = "Friendly display name of the Application."
+  type        = string
+}
+
 variable "department_name" {
   type        = string
   description = "Department name such as EUCS, OPG, LAA, etc."

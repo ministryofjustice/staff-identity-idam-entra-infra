@@ -1,6 +1,5 @@
 locals {
-  display_name = "${var.department_name}-${var.team_name}-${var.application_name}"
-  owners       = terraform.workspace == "LIVE" ? var.access_package_reviewers.live : terraform.workspace == "NLE" ? var.access_package_reviewers.nle : var.access_package_reviewers.devl
+  owners = terraform.workspace == "LIVE" ? var.access_package_reviewers.live : terraform.workspace == "NLE" ? var.access_package_reviewers.nle : var.access_package_reviewers.devl
 }
 
 data "azuread_groups" "groups" {
@@ -21,7 +20,7 @@ resource "azuread_service_principal" "msgraph" {
 }
 
 resource "azuread_application" "entra_app_reg" {
-  display_name                 = local.display_name
+  display_name                 = var.display_name
   notes                        = "${var.notes}\n\nManaged by IDAM Entra Infra Terraform"
   service_management_reference = var.service_management_reference
   owners                       = values(data.azuread_user.owners).*.object_id

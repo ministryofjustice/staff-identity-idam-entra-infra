@@ -22,6 +22,7 @@ You are first requried to create a new Application Registration like the example
 
 ```
 eucs_idam_tf_test_app_reg = {
+    display_name                 = "EUCS IDAM App Reg Test 2 (App Roles)"
     department_name              = "eucs"
     team_name                    = "idam"
     application_name             = "app-reg"
