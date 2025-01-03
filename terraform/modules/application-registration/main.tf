@@ -1,6 +1,5 @@
 locals {
-  display_name = "${var.department_name}-${var.team_name}-${var.application_name}"
-  owners       = terraform.workspace == "LIVE" ? var.access_package_reviewers.live : terraform.workspace == "NLE" ? var.access_package_reviewers.nle : var.access_package_reviewers.devl
+  owners = terraform.workspace == "LIVE" ? var.access_package_reviewers.live : terraform.workspace == "NLE" ? var.access_package_reviewers.nle : var.access_package_reviewers.devl
 }
 
 data "azuread_groups" "groups" {
@@ -21,7 +20,7 @@ resource "azuread_service_principal" "msgraph" {
 }
 
 resource "azuread_application" "entra_app_reg" {
-  display_name                 = local.display_name
+  display_name                 = var.display_name
   notes                        = "${var.notes}\n\nManaged by IDAM Entra Infra Terraform"
   service_management_reference = var.service_management_reference
   owners                       = values(data.azuread_user.owners).*.object_id
@@ -32,7 +31,7 @@ resource "azuread_application" "entra_app_reg" {
     resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph
 
     dynamic "resource_access" {
-      for_each = { for role_perm in var.required_resource_access_roles : role_perm => role_perm }
+      for_each = { for role_perm in var.graph_application_permissions : role_perm => role_perm }
       content {
         id   = azuread_service_principal.msgraph.app_role_ids[resource_access.value]
         type = "Role"
@@ -40,7 +39,7 @@ resource "azuread_application" "entra_app_reg" {
     }
 
     dynamic "resource_access" {
-      for_each = { for scope_perm in var.required_resource_access_scopes : scope_perm => scope_perm }
+      for_each = { for scope_perm in var.graph_delegated_permissions : scope_perm => scope_perm }
       content {
         id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids[resource_access.value]
         type = "Scope"

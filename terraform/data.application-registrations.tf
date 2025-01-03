@@ -1,6 +1,7 @@
 locals {
   app_registration_list = {
     eucs_idam_tf_test_app_reg = {
+      display_name                   = "EUCS IDAM App Reg Test 1"
       department_name                = "eucs"
       team_name                      = "idam"
       application_name               = "app-reg"
@@ -16,8 +17,8 @@ locals {
       tenants_required               = ["DEVL", "NLE", "LIVE"]
       federated_identity_credentials = []
 
-      required_resource_access_scopes = ["User.Read"]
-      required_resource_access_roles  = []
+      graph_delegated_permissions   = ["User.Read"]
+      graph_application_permissions = []
 
       allowed_groups = ["MoJO - Users - All"]
 
@@ -29,6 +30,7 @@ locals {
       }
     },
     eucs_idam_tf_test_app_reg2 = {
+      display_name                   = "EUCS IDAM App Reg Test 2 (App Roles)"
       department_name                = "eucs"
       team_name                      = "idam"
       application_name               = "app-reg-2"
@@ -43,8 +45,8 @@ locals {
       tenants_required               = ["DEVL"]
       federated_identity_credentials = []
 
-      required_resource_access_roles  = ["User.Read.All"]
-      required_resource_access_scopes = ["User.Read", "User.ReadWrite"]
+      graph_application_permissions = ["User.Read.All"]
+      graph_delegated_permissions   = ["User.Read", "User.ReadWrite"]
 
       allowed_groups = []
 
@@ -75,6 +77,7 @@ locals {
       ]
     },
     eucs_idam_tf_app_reg_fed_identitity = {
+      display_name                 = "EUCS IDAM App Reg Test 3 (Federation)"
       department_name              = "eucs"
       team_name                    = "idam"
       application_name             = "federated-identity"
@@ -116,8 +119,8 @@ locals {
         }
       ]
 
-      required_resource_access_scopes = ["User.Read"]
-      required_resource_access_roles  = []
+      graph_delegated_permissions   = ["User.Read"]
+      graph_application_permissions = []
 
       allowed_groups = []
 
