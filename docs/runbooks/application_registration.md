@@ -96,6 +96,47 @@ eucs_idam_tf_test_app_reg = {
 }
 ```
 
+### GitHub Federated Identity Credentials (Workload Identity)
+
+This feature allows you to create a trust relationship between GitHub and Entra ID to use a workload identity via OIDC for authentication rather than managing client secrets or certificates. For GitHub pipelines that require access to Azure or Entra ID resources, this provides a managed and secure way of maintaining a connection.
+
+> This only works for repositories within the `ministryofjustice` GitHub Organisation.
+
+Further information on Workload Identities and Federated Identity Credentials for GitHub can be found here [https://learn.microsoft.com/en-gb/entra/workload-id/workload-identity-federation](https://learn.microsoft.com/en-gb/entra/workload-id/workload-identity-federation).
+
+To use the Federated Managed Identity in GitHub, see the following article [https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect).
+
+```
+eucs_idam_tf_app_reg_fed_identitity = {
+    department_name              = "eucs"
+    ...
+
+    federated_identity_credentials = [
+        {
+            repo_name      = "staff-identity-idam-entra-infra"
+            description    = "Example federated credential to staff-identity-idam-entra-infra branch example-federated."
+            subject_suffix = "ref:refs/heads/example-federated"
+        },
+        {
+            repo_name      = "staff-identity-idam-entra-infra"
+            description    = "Example federated credential to staff-identity-idam-entra-infra Environment example-federated."
+            subject_suffix = "environment:example-federated"
+        },
+        {
+            repo_name      = "staff-identity-idam-entra-infra"
+            description    = "Example federated credential to staff-identity-idam-entra-infra Tag example-federated."
+            subject_suffix = "ref:refs/tags/example-federated"
+        },
+        {
+            repo_name      = "staff-identity-idam-entra-infra"
+            description    = "Example federated credential to staff-identity-idam-entra-infra pull requests."
+            subject_suffix = "pull_request"
+        }
+    ]
+    ...
+}
+```
+
 ## Argument Reference
 
 | Property Name | Description | Example |
@@ -118,6 +159,7 @@ eucs_idam_tf_test_app_reg = {
 | `create_access_package` | Create access packages for managing user access to your application. This requires App Roles to be setup. | `create_access_package = true` |
 | `access_package_reviewers` | Assign your business user reviewers who will grant, deny and review access to the application and roles assigned. | See example above |
 | `app_roles` | App roles are custom roles to assign permissions to users or apps. The application defines and publishes the app roles and interprets them as permissions during authorization. | See table below |
+| `federated_identity_credentials` | Manages a federated identity credential associated with an application within Azure Active Directory. | See table below |
 
 ### App Roles
 
@@ -129,3 +171,11 @@ eucs_idam_tf_test_app_reg = {
 | `id` | UUID associated with the role. This is defined first in [../../terraform/app-role-uuids.tf](../../terraform/app-role-uuids.tf) and assigned here. | `id = "${random_uuid.eucs_idam_tf_test_app_reg2_readonly.result}"` |
 | `value` | Value that will be passed in the users authentication token if assigned. | `value = "User"` |
 | `access_package_hidden` | Should the Access Package be visible for all users to request access. | `access_package_hidden = false` |
+
+### Federated Identity Credentials
+
+| Property Name | Description | Example |
+| --- | --- | --- |
+| `repo_name` | The name of your repository in GitHub. | `repo_name = "staff-identity-idam-entra-infra"` |
+| `description` | Description of this role. | `description = "Example federated credential to staff-identity-idam-entra-infra pull requests."` |
+| `subject_suffix` | Display name for this role. | `subject_suffix = "pull_request"` |
