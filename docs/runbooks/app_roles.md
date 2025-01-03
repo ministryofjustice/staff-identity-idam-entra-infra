@@ -35,8 +35,8 @@ eucs_idam_tf_test_app_reg = {
     redirect_uris                = ["https://example.com/account"]
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
-    required_resource_access_scopes = ["User.Read"]
-    required_resource_access_roles  = []
+    graph_delegated_permissions = ["User.Read"]
+    graph_application_permissions  = []
 
     allowed_groups = []
 

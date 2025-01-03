@@ -31,8 +31,8 @@ eucs_idam_tf_test_app_reg = {
     redirect_uris                = ["https://example.com/account"]
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
-    required_resource_access_scopes = ["User.Read"]
-    required_resource_access_roles  = []
+    graph_delegated_permissions = ["User.Read"]
+    graph_application_permissions  = []
 
     allowed_groups = ["MoJO - Users - All"]
 
@@ -64,8 +64,8 @@ eucs_idam_tf_test_app_reg = {
     redirect_uris                = ["https://example.com/account"]
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
-    required_resource_access_scopes = ["User.Read"]
-    required_resource_access_roles  = []
+    graph_delegated_permissions = ["User.Read"]
+    graph_application_permissions  = []
 
     allowed_groups = ["MoJO - Users - All"]
 
@@ -157,8 +157,8 @@ eucs_idam_tf_app_reg_fed_identitity = {
 | `logout_url` | Where we send a request to have the application clear the user's session data. This is required for single sign-out to work correctly. | `logout_url = "https://example.com/logout"` |
 | `redirect_uris` | The URIs we will accept as destinations when returning authentication responses (tokens) after successfully authenticating or signing out users. The redirect URI you send in the request to the login server should match one listed here. Also referred to as reply URLs. | `redirect_uris = ["https://example.com/account"]` |
 | `tenants_required` | Which tenants you want this application to be available on. For testing you may initially only require DEVL to be setup and subsequent Pull Requests can release to other tenants. This is a list of strings, "DEVL", "NLE" and "LIVE". | `tenants_required = ["DEVL", "NLE", "LIVE"]` |
-| `required_resource_access_roles` | Graph Application Permissions required on the Application such as `User.Read.All`. | `required_resource_access_roles = ["User.Read.All"]` |
-| `required_resource_access_scopes` | Graph Delegated Permissions required on the Application such as `User.Read`. | `required_resource_access_scopes = ["User.Read"]` |
+| `graph_application_permissions` | Graph Application Permissions required on the Application such as `User.Read.All`. | `graph_application_permissions = ["User.Read.All"]` |
+| `graph_delegated_permissions` | Graph Delegated Permissions required on the Application such as `User.Read`. | `graph_delegated_permissions = ["User.Read"]` |
 | `allowed_groups` | (Optional) List of Security Groups to manage access for people to the application. | `allowed_groups = ["MoJO - Users - All"]` |
 | `create_access_package` | Create access packages for managing user access to your application. This requires App Roles to be setup. | `create_access_package = true` |
 | `access_package_reviewers` | Assign your business user reviewers who will grant, deny and review access to the application and roles assigned. | See example above |

@@ -96,14 +96,14 @@ variable "app_roles" {
   }))
 }
 
-variable "required_resource_access_roles" {
+variable "graph_application_permissions" {
   default     = null
   nullable    = true
   description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
   type        = list(string)
 }
 
-variable "required_resource_access_scopes" {
+variable "graph_delegated_permissions" {
   default     = null
   nullable    = true
   description = "Graph Delegated Permissions required on the Application such as 'User.Read'."

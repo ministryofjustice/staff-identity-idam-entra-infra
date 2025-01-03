@@ -16,8 +16,8 @@ locals {
       tenants_required               = ["DEVL", "NLE", "LIVE"]
       federated_identity_credentials = []
 
-      required_resource_access_scopes = ["User.Read"]
-      required_resource_access_roles  = []
+      graph_delegated_permissions   = ["User.Read"]
+      graph_application_permissions = []
 
       allowed_groups = ["MoJO - Users - All"]
 
@@ -43,8 +43,8 @@ locals {
       tenants_required               = ["DEVL"]
       federated_identity_credentials = []
 
-      required_resource_access_roles  = ["User.Read.All"]
-      required_resource_access_scopes = ["User.Read", "User.ReadWrite"]
+      graph_application_permissions = ["User.Read.All"]
+      graph_delegated_permissions   = ["User.Read", "User.ReadWrite"]
 
       allowed_groups = []
 
@@ -116,8 +116,8 @@ locals {
         }
       ]
 
-      required_resource_access_scopes = ["User.Read"]
-      required_resource_access_roles  = []
+      graph_delegated_permissions   = ["User.Read"]
+      graph_application_permissions = []
 
       allowed_groups = []
 
