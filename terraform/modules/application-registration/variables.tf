@@ -127,6 +127,7 @@ variable "federated_identity_credentials" {
   description = "Manages a federated identity credential associated with an application within Azure Active Directory."
   type = list(object({
     repo_name      = string
+    display_name   = string
     description    = string
     subject_suffix = string
   }))
