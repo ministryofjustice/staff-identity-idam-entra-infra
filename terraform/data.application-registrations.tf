@@ -92,21 +92,25 @@ locals {
       federated_identity_credentials = [
         {
           repo_name      = "staff-identity-idam-entra-infra"
+          display_name   = "staff-identity-idam-entra-infra-branch"
           description    = "Example federated credential to staff-identity-idam-entra-infra branch example-federated."
           subject_suffix = "ref:refs/heads/example-federated"
         },
         {
           repo_name      = "staff-identity-idam-entra-infra"
+          display_name   = "staff-identity-idam-entra-infra-environment"
           description    = "Example federated credential to staff-identity-idam-entra-infra Environment example-federated."
           subject_suffix = "environment:example-federated"
         },
         {
           repo_name      = "staff-identity-idam-entra-infra"
+          display_name   = "staff-identity-idam-entra-infra-tags"
           description    = "Example federated credential to staff-identity-idam-entra-infra Tag example-federated."
           subject_suffix = "ref:refs/tags/example-federated"
         },
         {
           repo_name      = "staff-identity-idam-entra-infra"
+          display_name   = "staff-identity-idam-entra-infra-pull-request"
           description    = "Example federated credential to staff-identity-idam-entra-infra pull requests."
           subject_suffix = "pull_request"
         }
