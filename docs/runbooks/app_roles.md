@@ -6,11 +6,11 @@ As well as using Entra ID for your Authentication, you can also take advantage o
 
 Managing users this way over Security Groups or custom Authorisation layers in your application have multiple advantages
 
-* JML processes will automatically remove access from your application when a user is deleted within Entra ID
-* Approvals are handled through the Microsoft My Access portal requiring user authentication before assignment
-* Audit trail of access requests
-* Automated Access Reviews to ensure users have the right access
-* Integration with wider Azure and Entra permissions and groups for automated assignment (future)
+- JML processes will automatically remove access from your application when a user is deleted within Entra ID
+- Approvals are handled through the Microsoft My Access portal requiring user authentication before assignment
+- Audit trail of access requests
+- Automated Access Reviews to ensure users have the right access
+- Integration with wider Azure and Entra permissions and groups for automated assignment (future)
 
 This document provides an overview of how this works and setup to enable this functionality.
 
@@ -70,11 +70,11 @@ eucs_idam_tf_test_app_reg = {
 
 The two key properties to enable App Roles and Access Packages are
 
-* `create_access_package`
-* `access_package_reviewers`
-* `app_roles/access_package_hidden`
-* `app_roles`
-* `owners_devl-nle-live`
+- `create_access_package`
+- `access_package_reviewers`
+- `app_roles/access_package_hidden`
+- `app_roles`
+- `owners_devl-nle-live`
 
 You must ensure `create_access_package` is set to `true` and you have defined the relevant `app_roles`. The `access_package_reviewers` will be set as the Access Package maintainers and will be responsible for the maintenance of authorised users. This will allow those users to manage users who have access to the application.
 
@@ -90,19 +90,19 @@ Now you have your Application Registration setup with defined App Roles and asso
 
 ### Get link for new user to be assigned to Access Package/Role
 
-* Go to [https://myaccess.microsoft.com/](https://myaccess.microsoft.com/)
-* Sign in with your justice identity
-* Click on `Access packages`
-* Find the relevant package for the role required and click the row
-* In the popup click `Copy link`
-* Send this link to the user who would like access
+- Go to [https://myaccess.microsoft.com/](https://myaccess.microsoft.com/)
+- Sign in with your justice identity
+- Click on `Access packages`
+- Find the relevant package for the role required and click the row
+- In the popup click `Copy link`
+- Send this link to the user who would like access
 
 ### Approving a new request
 
-* Go to [https://myaccess.microsoft.com/](https://myaccess.microsoft.com/)
-* Sign in with your justice identity
-* Click on `Approvals`
-* Select the user requesting access and choose `Approve` or `Deny`
+- Go to [https://myaccess.microsoft.com/](https://myaccess.microsoft.com/)
+- Sign in with your justice identity
+- Click on `Approvals`
+- Select the user requesting access and choose `Approve` or `Deny`
 
 ### Access Reviews
 
