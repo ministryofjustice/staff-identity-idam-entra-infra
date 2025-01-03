@@ -14,9 +14,7 @@ Managing users this way over Security Groups or custom Authorisation layers in y
 
 This document provides an overview of how this works and setup to enable this functionality.
 
-To learn more about Access Packages and App Roles, use the following links.
-
-[Add app roles to your application and receive them in the token](https://learn.microsoft.com/en-us/entra/identity-platform/howto-add-app-roles-in-apps)
+To learn more about Access Packages and App Roles, use the following link [Add app roles to your application and receive them in the token](https://learn.microsoft.com/en-us/entra/identity-platform/howto-add-app-roles-in-apps)
 
 ## Setting up an Application Registration with App Roles and Access Package management
 
