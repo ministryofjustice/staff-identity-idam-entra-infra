@@ -128,5 +128,33 @@ locals {
         live = []
       }
     },
+    eucs_idam_tf_test_app_reg = {
+      department_name                 = "eucs"
+      team_name                      = "idam"
+      application_name               = "app-reg44"
+      notes                          = "Example IDAM Team Terraform Test 1"
+      service_management_reference   = "SCTASK0000123"
+      owners_devl                    = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_nle                     = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_live                    = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
+      homepage_url                   = "https://example.com"
+      logout_url                     = "https://example.com/logout"
+      redirect_uris                       = ["https://example.com/account"]
+      app_roles                      = []
+      tenants_required               = ["DEVL", "NLE", "LIVE"]
+      federated_identity_credentials = []
+
+      required_resource_access_scopes = ["User.Read"]
+      required_resource_access_roles         = []
+
+      allowed_groups = ["MoJO - Users - All"]
+
+      create_access_package = false
+      access_package_reviewers =        {
+        devl = []
+        nle  = []
+        live = []
+      }
+    },
   }
 }
