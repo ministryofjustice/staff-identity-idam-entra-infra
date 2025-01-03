@@ -8,6 +8,11 @@ variable "service_management_reference" {
   type        = string
 }
 
+variable "application_template_name" {
+  description = "Name of the template for creating an application registration and associated service principal from a gallery template."
+  type        = string
+}
+
 variable "display_name" {
   description = "Friendly display name of the Application."
   type        = string
