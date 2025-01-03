@@ -18,6 +18,7 @@ module "application-registration" {
   required_resource_access_roles  = each.value.required_resource_access_roles
   allowed_groups                  = each.value.allowed_groups
   access_package_reviewers        = each.value.access_package_reviewers
+  federated_identity_credentials  = each.value.federated_identity_credentials
 }
 
 module "admin-access-packages" {
