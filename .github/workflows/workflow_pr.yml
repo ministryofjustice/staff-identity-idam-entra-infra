@@ -25,7 +25,11 @@ defaults:
     shell: bash
 
 jobs:
-  
+
+  format_code:
+    name: Format Code
+    uses: ./.github/workflows/format_code_job.yml
+
   terraform_plan_workflow:
     strategy:
       matrix:
