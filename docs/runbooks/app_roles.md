@@ -37,9 +37,6 @@ eucs_idam_tf_test_app_reg = {
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
     graph_delegated_permissions = ["User.Read"]
-    graph_application_permissions  = []
-
-    allowed_groups = []
 
     create_access_package = true
     access_package_reviewers = {

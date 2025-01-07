@@ -33,12 +33,10 @@ eucs_idam_tf_test_app_reg = {
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
     graph_delegated_permissions = ["User.Read"]
-    graph_application_permissions  = []
 
     allowed_groups = ["MoJO - Users - All"]
 
     create_access_package = false
-    app_roles                    = []
 }
 ```
 
@@ -67,7 +65,6 @@ eucs_idam_tf_test_app_reg = {
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
     graph_delegated_permissions = ["User.Read"]
-    graph_application_permissions  = []
 
     allowed_groups = ["MoJO - Users - All"]
 
