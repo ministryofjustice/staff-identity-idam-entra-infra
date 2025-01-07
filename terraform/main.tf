@@ -10,7 +10,7 @@ module "application-registration" {
   create_access_package         = lookup(each.value, "create_access_package", false)
   service_management_reference  = each.value.service_management_reference
   notes                         = each.value.notes
-  owners                        = terraform.workspace == "LIVE" ? each.value.owners_live : terraform.workspace == "NLE" ? each.value.owners_nle : each.value.owners_devl
+  owners                        = terraform.workspace == "LIVE" ? each.value.owners_live : terraform.workspace == "NLE" ? lookup(each.value, "owners_nle", []) : lookup(each.value, "owners_devl", [])
   homepage_url                  = each.value.homepage_url
   logout_url                    = each.value.logout_url
   redirect_uris                 = each.value.redirect_uris

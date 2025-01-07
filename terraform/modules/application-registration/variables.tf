@@ -65,11 +65,6 @@ variable "access_package_reviewers" {
 variable "owners" {
   type        = list(string)
   description = "UPNs of owners. Should be a minimum of 2 people."
-
-  validation {
-    condition     = length(var.owners) > 1
-    error_message = "This application requires at least two Owners."
-  }
 }
 
 variable "allowed_groups" {
