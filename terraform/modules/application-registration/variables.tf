@@ -8,11 +8,6 @@ variable "service_management_reference" {
   type        = string
 }
 
-variable "application_template_name" {
-  description = "Name of the template for creating an application registration and associated service principal from a gallery template."
-  type        = string
-}
-
 variable "display_name" {
   description = "Friendly display name of the Application."
   type        = string
@@ -138,38 +133,25 @@ variable "federated_identity_credentials" {
   }))
 }
 
-variable "app_role_assignment_required" {
-  default     = true
-  nullable    = true
-  description = "If this option is set to true, then users and other apps or services must first be assigned this application before being able to access it."
-  type        = bool
-}
-
-variable "account_enabled" {
-  default     = true
-  nullable    = true
-  description = "If this option is set to true, then assigned users will be able to sign in to this application, either from My Apps, the User access URL, or by navigating to the application URL directly."
-  type        = bool
-}
-
-variable "hide" {
-  default     = null
-  nullable    = true
-  description = "If this option is set to true, then assigned users will see the application on My Apps and O365 app launcher. If this option is set to false, then no users will see this application on their My Apps and O365 launcher."
-  type        = bool
-}
-
 variable "service_principle" {
   default = {
     login_url                     = null,
     notification_email_addresses  = [],
-    preferred_single_sign_on_mode = null
+    preferred_single_sign_on_mode = null,
+    app_role_assignment_required  = true,
+    account_enabled               = true,
+    application_template_name     = null,
+    hide                          = null,
   }
   description = "Service Principle specific properties."
   type = object({
     login_url                     = string
     notification_email_addresses  = list(string)
     preferred_single_sign_on_mode = string
+    app_role_assignment_required  = bool
+    account_enabled               = bool
+    application_template_name     = string
+    hide                          = bool
   })
 }
 

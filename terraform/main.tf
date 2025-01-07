@@ -25,13 +25,13 @@ module "application-registration" {
     live = []
   })
   federated_identity_credentials = lookup(each.value, "federated_identity_credentials", [])
-  application_template_name      = lookup(each.value, "application_template_name", null)
-  app_role_assignment_required   = lookup(each.value, "app_role_assignment_required", true)
-  account_enabled                = lookup(each.value, "account_enabled", true)
-  hide                           = lookup(each.value, "hide", null)
   service_principle = lookup(each.value, "service_principle", {
-    login_url                     = null,
-    notification_email_addresses  = [],
-    preferred_single_sign_on_mode = null
+    login_url                     = lookup(each.value, "login_url", null),
+    notification_email_addresses  = lookup(each.value, "notification_email_addresses", []),
+    preferred_single_sign_on_mode = lookup(each.value, "preferred_single_sign_on_mode", null),
+    app_role_assignment_required  = lookup(each.value, "app_role_assignment_required", true)
+    account_enabled               = lookup(each.value, "account_enabled", true),
+    application_template_name     = lookup(each.value, "application_template_name", null),
+    hide                          = lookup(each.value, "hide", null)
   })
 }
