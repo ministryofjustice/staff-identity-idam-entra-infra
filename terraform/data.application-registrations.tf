@@ -122,6 +122,8 @@ locals {
       tenants_required             = ["DEVL", "NLE"]
       application_template_name    = "Google Cloud / G Suite Connector by Microsoft"
 
+      allowed_groups = ["google-cloud-allowed"]
+
       graph_delegated_permissions   = ["User.Read"]
       graph_application_permissions = ["User.Read.All", "GroupMember.Read.All"]
     },
