@@ -153,7 +153,7 @@ locals {
       federated_identity_credentials = []
 
       graph_delegated_permissions   = ["User.Read"]
-      graph_application_permissions = []
+      graph_application_permissions = ["User.Read.All", "GroupMember.Read.All"]
 
       allowed_groups = []
 
