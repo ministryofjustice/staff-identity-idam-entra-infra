@@ -89,13 +89,15 @@ resource "azuread_application" "entra_app_reg" {
 
 resource "azuread_service_principal" "entra_app_service_principle" {
   client_id                    = azuread_application.entra_app_reg.client_id
-  app_role_assignment_required = true
+  app_role_assignment_required = var.app_role_assignment_required
   owners                       = values(data.azuread_user.owners).*.object_id
   use_existing                 = var.application_template_name != null ? true : false
+  account_enabled              = var.account_enabled
 
   feature_tags {
     enterprise = true
     gallery    = false
+    hide       = var.hide
   }
 }
 

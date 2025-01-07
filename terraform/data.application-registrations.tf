@@ -1,56 +1,41 @@
 locals {
   app_registration_list = {
     eucs_idam_tf_test_app_reg = {
-      display_name                   = "EUCS IDAM App Reg Test 1"
-      department_name                = "eucs"
-      team_name                      = "idam"
-      application_name               = "app-reg"
-      notes                          = "Example IDAM Team Terraform Test 1"
-      service_management_reference   = "SCTASK0000123"
-      owners_devl                    = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
-      owners_nle                     = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
-      owners_live                    = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
-      homepage_url                   = "https://example.com"
-      logout_url                     = "https://example.com/logout"
-      redirect_uris                  = ["https://example.com/account"]
-      app_roles                      = []
-      tenants_required               = ["DEVL", "NLE", "LIVE"]
-      application_template_name      = null
-      federated_identity_credentials = []
+      display_name                 = "EUCS IDAM App Reg Test 1"
+      department_name              = "eucs"
+      team_name                    = "idam"
+      application_name             = "app-reg"
+      notes                        = "Example IDAM Team Terraform Test 1"
+      service_management_reference = "SCTASK0000123"
+      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_nle                   = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
+      homepage_url                 = "https://example.com"
+      logout_url                   = "https://example.com/logout"
+      redirect_uris                = ["https://example.com/account"]
+      tenants_required             = ["DEVL", "NLE", "LIVE"]
 
-      graph_delegated_permissions   = ["User.Read"]
-      graph_application_permissions = []
+      graph_delegated_permissions = ["User.Read"]
 
       allowed_groups = ["MoJO - Users - All"]
-
-      create_access_package = false
-      access_package_reviewers = {
-        devl = []
-        nle  = []
-        live = []
-      }
     },
     eucs_idam_tf_test_app_reg2 = {
-      display_name                   = "EUCS IDAM App Reg Test 2 (App Roles)"
-      department_name                = "eucs"
-      team_name                      = "idam"
-      application_name               = "app-reg-2"
-      notes                          = "Example IDAM Team Terraform Test 2"
-      service_management_reference   = ""
-      owners_devl                    = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
-      owners_nle                     = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
-      owners_live                    = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
-      homepage_url                   = "https://example.com"
-      logout_url                     = "https://example.com/logout"
-      redirect_uris                  = ["https://example.com/account"]
-      tenants_required               = ["DEVL"]
-      application_template_name      = null
-      federated_identity_credentials = []
+      display_name                 = "EUCS IDAM App Reg Test 2 (App Roles)"
+      department_name              = "eucs"
+      team_name                    = "idam"
+      application_name             = "app-reg-2"
+      notes                        = "Example IDAM Team Terraform Test 2"
+      service_management_reference = ""
+      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_nle                   = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
+      homepage_url                 = "https://example.com"
+      logout_url                   = "https://example.com/logout"
+      redirect_uris                = ["https://example.com/account"]
+      tenants_required             = ["DEVL"]
 
       graph_application_permissions = ["User.Read.All"]
       graph_delegated_permissions   = ["User.Read", "User.ReadWrite"]
-
-      allowed_groups = []
 
       create_access_package = true
       access_package_reviewers = {
@@ -91,8 +76,6 @@ locals {
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
-      app_roles                    = []
-      application_template_name    = null
       tenants_required             = ["DEVL"]
 
       federated_identity_credentials = [
@@ -122,77 +105,48 @@ locals {
         }
       ]
 
-      graph_delegated_permissions   = ["User.Read"]
-      graph_application_permissions = []
-
-      allowed_groups = []
-
-      create_access_package = false
-      access_package_reviewers = {
-        devl = []
-        nle  = []
-        live = []
-      }
+      graph_delegated_permissions = ["User.Read"]
     },
     eucs_idam_google_cloud = {
-      display_name                   = "Google Cloud"
-      department_name                = "eucs"
-      team_name                      = "idam"
-      application_name               = "google-cloud"
-      notes                          = "Google Cloud Identity Federation Integration"
-      service_management_reference   = "IDAM-1702"
-      owners_devl                    = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
-      owners_nle                     = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
-      owners_live                    = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
-      homepage_url                   = "https://example.com"
-      logout_url                     = "https://example.com/logout"
-      redirect_uris                  = ["https://example.com/account"]
-      app_roles                      = []
-      tenants_required               = ["DEVL"]
-      application_template_name      = "Google Cloud / G Suite Connector by Microsoft"
-      federated_identity_credentials = []
+      display_name                 = "Google Cloud"
+      department_name              = "eucs"
+      team_name                    = "idam"
+      application_name             = "google-cloud"
+      notes                        = "Google Cloud Identity Federation Integration"
+      service_management_reference = "IDAM-1702"
+      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_nle                   = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
+      homepage_url                 = "https://example.com"
+      logout_url                   = "https://example.com/logout"
+      redirect_uris                = ["https://example.com/account"]
+      tenants_required             = ["DEVL"]
+      application_template_name    = "Google Cloud / G Suite Connector by Microsoft"
 
       graph_delegated_permissions   = ["User.Read"]
-      graph_application_permissions = []
-
-      allowed_groups = []
-
-      create_access_package = false
-      access_package_reviewers = {
-        devl = []
-        nle  = []
-        live = []
-      }
+      graph_application_permissions = ["User.Read.All", "GroupMember.Read.All"]
     },
     eucs_idam_google_cloud_provisioning = {
-      display_name                   = "Google Cloud (Provisioning)"
-      department_name                = "eucs"
-      team_name                      = "idam"
-      application_name               = "google-cloud-provisioning"
-      notes                          = "Google Cloud Identity Provisioning Integration"
-      service_management_reference   = "IDAM-1701"
-      owners_devl                    = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
-      owners_nle                     = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
-      owners_live                    = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
-      homepage_url                   = "https://example.com"
-      logout_url                     = "https://example.com/logout"
-      redirect_uris                  = ["https://example.com/account"]
-      app_roles                      = []
-      tenants_required               = ["DEVL"]
-      application_template_name      = "Google Cloud / G Suite Connector by Microsoft"
-      federated_identity_credentials = []
+      display_name                 = "Google Cloud (Provisioning)"
+      department_name              = "eucs"
+      team_name                    = "idam"
+      application_name             = "google-cloud-provisioning"
+      notes                        = "Google Cloud Identity Provisioning Integration"
+      service_management_reference = "IDAM-1701"
+      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
+      owners_nle                   = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
+      homepage_url                 = "https://example.com"
+      logout_url                   = "https://example.com/logout"
+      redirect_uris                = ["https://example.com/account"]
+      tenants_required             = ["DEVL"]
+      application_template_name    = "Google Cloud / G Suite Connector by Microsoft"
 
-      graph_delegated_permissions   = ["User.Read"]
-      graph_application_permissions = []
+      graph_delegated_permissions = ["User.Read"]
 
-      allowed_groups = []
-
-      create_access_package = false
-      access_package_reviewers = {
-        devl = []
-        nle  = []
-        live = []
-      }
+      hide                         = true
+      app_role_assignment_required = false
+      account_enabled              = false
     },
   }
 }
