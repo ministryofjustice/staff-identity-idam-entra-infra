@@ -114,13 +114,12 @@ locals {
       application_name             = "google-cloud"
       notes                        = "Google Cloud Identity Federation Integration"
       service_management_reference = "IDAM-1702"
-      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
-      owners_nle                   = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk"]
       owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
-      tenants_required             = ["DEVL"]
+      tenants_required             = ["DEVL", "NLE"]
       application_template_name    = "Google Cloud / G Suite Connector by Microsoft"
 
       graph_delegated_permissions   = ["User.Read"]
@@ -133,13 +132,12 @@ locals {
       application_name             = "google-cloud-provisioning"
       notes                        = "Google Cloud Identity Provisioning Integration"
       service_management_reference = "IDAM-1701"
-      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
-      owners_nle                   = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
+      owners_devl                  = ["jnolan-admin@devl.justice.gov.uk"]
       owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
-      tenants_required             = ["DEVL"]
+      tenants_required             = ["DEVL", "NLE"]
       application_template_name    = "Google Cloud / G Suite Connector by Microsoft"
 
       graph_delegated_permissions = ["User.Read"]
