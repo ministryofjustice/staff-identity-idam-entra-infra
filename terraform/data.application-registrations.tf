@@ -118,14 +118,21 @@ locals {
       owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
-      redirect_uris                = ["https://example.com/account"]
-      tenants_required             = ["DEVL", "NLE"]
+      redirect_uris                = ["https://accounts.google.com/samlrp/03f6vr1n0hxwhz4/acs"]
+      identifier_uris              = ["https://accounts.google.com/samlrp/03f6vr1n0hxwhz4"]
+      tenants_required             = ["NLE"]
       application_template_name    = "Google Cloud / G Suite Connector by Microsoft"
 
       allowed_groups = ["google-cloud-allowed"]
 
       graph_delegated_permissions   = ["User.Read"]
       graph_application_permissions = ["User.Read.All", "GroupMember.Read.All"]
+
+      service_principle = {
+        login_url                     = "https://www.google.com/a/test.digital.justice.gov.uk/ServiceLogin?continue=https://console.cloud.google.com/"
+        notification_email_addresses  = ["John.nolan@TestJusticeUK.onmicrosoft.com"]
+        preferred_single_sign_on_mode = "saml"
+      }
     },
     eucs_idam_google_cloud_provisioning = {
       display_name                 = "Google Cloud (Provisioning)"
@@ -139,7 +146,7 @@ locals {
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
       redirect_uris                = ["https://example.com/account"]
-      tenants_required             = ["DEVL", "NLE"]
+      tenants_required             = ["NLE"]
       application_template_name    = "Google Cloud / G Suite Connector by Microsoft"
 
       graph_delegated_permissions = ["User.Read"]
