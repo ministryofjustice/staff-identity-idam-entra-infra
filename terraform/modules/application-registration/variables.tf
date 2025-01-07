@@ -142,3 +142,24 @@ variable "federated_identity_credentials" {
     subject_suffix = string
   }))
 }
+
+variable "app_role_assignment_required" {
+  default     = true
+  nullable    = true
+  description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
+  type        = bool
+}
+
+variable "account_enabled" {
+  default     = true
+  nullable    = true
+  description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
+  type        = bool
+}
+
+variable "hide" {
+  default     = null
+  nullable    = true
+  description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
+  type        = bool
+}

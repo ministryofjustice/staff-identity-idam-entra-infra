@@ -185,6 +185,10 @@ locals {
       graph_delegated_permissions   = ["User.Read"]
       graph_application_permissions = []
 
+      hide                         = true
+      app_role_assignment_required = false
+      account_enabled              = false
+
       allowed_groups = []
 
       create_access_package = false
