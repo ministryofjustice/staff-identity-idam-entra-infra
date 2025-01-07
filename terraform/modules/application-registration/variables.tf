@@ -146,20 +146,20 @@ variable "federated_identity_credentials" {
 variable "app_role_assignment_required" {
   default     = true
   nullable    = true
-  description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
+  description = "If this option is set to true, then users and other apps or services must first be assigned this application before being able to access it."
   type        = bool
 }
 
 variable "account_enabled" {
   default     = true
   nullable    = true
-  description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
+  description = "If this option is set to true, then assigned users will be able to sign in to this application, either from My Apps, the User access URL, or by navigating to the application URL directly."
   type        = bool
 }
 
 variable "hide" {
   default     = null
   nullable    = true
-  description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
+  description = "If this option is set to true, then assigned users will see the application on My Apps and O365 app launcher. If this option is set to false, then no users will see this application on their My Apps and O365 launcher."
   type        = bool
 }
