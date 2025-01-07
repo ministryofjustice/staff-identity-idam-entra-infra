@@ -31,6 +31,7 @@ resource "azuread_application" "entra_app_reg" {
   owners                       = values(data.azuread_user.owners).*.object_id
   sign_in_audience             = "AzureADMyOrg"
   prevent_duplicate_names      = true
+  identifier_uris              = var.identifier_uris
 
   template_id = var.application_template_name != null ? data.azuread_application_template.app_template[0].template_id : null
 
@@ -88,11 +89,14 @@ resource "azuread_application" "entra_app_reg" {
 }
 
 resource "azuread_service_principal" "entra_app_service_principle" {
-  client_id                    = azuread_application.entra_app_reg.client_id
-  app_role_assignment_required = var.app_role_assignment_required
-  owners                       = values(data.azuread_user.owners).*.object_id
-  use_existing                 = var.application_template_name != null ? true : false
-  account_enabled              = var.account_enabled
+  client_id                     = azuread_application.entra_app_reg.client_id
+  app_role_assignment_required  = var.app_role_assignment_required
+  owners                        = values(data.azuread_user.owners).*.object_id
+  use_existing                  = var.application_template_name != null ? true : false
+  account_enabled               = var.account_enabled
+  login_url                     = var.service_principle.login_url
+  notification_email_addresses  = var.service_principle.notification_email_addresses
+  preferred_single_sign_on_mode = var.service_principle.preferred_single_sign_on_mode
 
   feature_tags {
     enterprise = true

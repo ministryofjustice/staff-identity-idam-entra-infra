@@ -14,6 +14,7 @@ module "application-registration" {
   homepage_url                  = each.value.homepage_url
   logout_url                    = each.value.logout_url
   redirect_uris                 = each.value.redirect_uris
+  identifier_uris               = lookup(each.value, "identifier_uris", [])
   app_roles                     = lookup(each.value, "app_roles", [])
   graph_delegated_permissions   = lookup(each.value, "graph_delegated_permissions", [])
   graph_application_permissions = lookup(each.value, "graph_application_permissions", [])
@@ -28,4 +29,9 @@ module "application-registration" {
   app_role_assignment_required   = lookup(each.value, "app_role_assignment_required", true)
   account_enabled                = lookup(each.value, "account_enabled", true)
   hide                           = lookup(each.value, "hide", null)
+  service_principle = lookup(each.value, "service_principle", {
+    login_url                     = null,
+    notification_email_addresses  = [],
+    preferred_single_sign_on_mode = null
+  })
 }
