@@ -29,7 +29,11 @@ eucs_idam_tf_test_app_reg = {
     owners_live                  = ["xxx.xxx@justice.gov.uk", "xxx.xxx@justice.gov.uk"]
     homepage_url                 = "https://example.com"
     logout_url                   = "https://example.com/logout"
-    redirect_uris                = ["https://example.com/account"]
+    redirect_uris                = {
+        devl = ["https://example.com/account"]
+        nle  = ["https://example.com/account"]
+        live = ["https://example.com/account"]
+    }
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
     graph_delegated_permissions = ["User.Read"]
@@ -61,7 +65,11 @@ eucs_idam_tf_test_app_reg = {
     owners_live                  = ["xxx.xxx@justice.gov.uk", "xxx.xxx@justice.gov.uk"]
     homepage_url                 = "https://example.com"
     logout_url                   = "https://example.com/logout"
-    redirect_uris                = ["https://example.com/account"]
+    redirect_uris                = {
+        devl = ["https://example.com/account"]
+        nle  = ["https://example.com/account"]
+        live = ["https://example.com/account"]
+    }
     tenants_required             = ["DEVL", "NLE", "LIVE"]
 
     graph_delegated_permissions = ["User.Read"]
