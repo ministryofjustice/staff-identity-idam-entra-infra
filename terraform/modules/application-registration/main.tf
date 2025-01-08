@@ -1,7 +1,7 @@
 locals {
-  owners = terraform.workspace == "LIVE" ? var.access_package_reviewers.live : terraform.workspace == "NLE" ? var.access_package_reviewers.nle : var.access_package_reviewers.devl
+  owners          = terraform.workspace == "LIVE" ? var.access_package_reviewers.live : terraform.workspace == "NLE" ? var.access_package_reviewers.nle : var.access_package_reviewers.devl
   identifier_uris = terraform.workspace == "LIVE" ? var.identifier_uris.live : terraform.workspace == "NLE" ? var.identifier_uris.nle : var.identifier_uris.devl
-  redirect_uris = terraform.workspace == "LIVE" ? var.redirect_uris.live : terraform.workspace == "NLE" ? var.redirect_uris.nle : var.redirect_uris.devl
+  redirect_uris   = terraform.workspace == "LIVE" ? var.redirect_uris.live : terraform.workspace == "NLE" ? var.redirect_uris.nle : var.redirect_uris.devl
 }
 
 data "azuread_groups" "groups" {
