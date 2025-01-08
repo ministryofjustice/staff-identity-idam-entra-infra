@@ -150,7 +150,7 @@ locals {
       service_principle = {
         application_template_name     = "Google Cloud / G Suite Connector by Microsoft"
         login_url                     = "https://www.google.com/a/test.digital.justice.gov.uk/ServiceLogin?continue=https://console.cloud.google.com/"
-        notification_email_addresses  = ["John.nolan@TestJusticeUK.onmicrosoft.com"]
+        notification_email_addresses  = ["idamteam@justice.gov.uk"]
         preferred_single_sign_on_mode = "saml"
         hide                          = false
         app_role_assignment_required  = true
