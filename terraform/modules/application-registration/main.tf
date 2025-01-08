@@ -1,5 +1,7 @@
 locals {
   owners = terraform.workspace == "LIVE" ? var.access_package_reviewers.live : terraform.workspace == "NLE" ? var.access_package_reviewers.nle : var.access_package_reviewers.devl
+  identifier_uris = terraform.workspace == "LIVE" ? var.identifier_uris.live : terraform.workspace == "NLE" ? var.identifier_uris.nle : var.identifier_uris.devl
+  redirect_uris = terraform.workspace == "LIVE" ? var.redirect_uris.live : terraform.workspace == "NLE" ? var.redirect_uris.nle : var.redirect_uris.devl
 }
 
 data "azuread_groups" "groups" {
@@ -31,7 +33,7 @@ resource "azuread_application" "entra_app_reg" {
   owners                       = values(data.azuread_user.owners).*.object_id
   sign_in_audience             = "AzureADMyOrg"
   prevent_duplicate_names      = true
-  identifier_uris              = var.identifier_uris
+  identifier_uris              = local.identifier_uris
 
   template_id = var.service_principle.application_template_name != null ? data.azuread_application_template.app_template[0].template_id : null
 
@@ -79,7 +81,7 @@ resource "azuread_application" "entra_app_reg" {
   web {
     homepage_url  = var.homepage_url
     logout_url    = var.logout_url
-    redirect_uris = var.redirect_uris
+    redirect_uris = local.redirect_uris
 
     implicit_grant {
       access_token_issuance_enabled = true

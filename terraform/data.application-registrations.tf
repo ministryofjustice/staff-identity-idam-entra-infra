@@ -12,8 +12,12 @@ locals {
       owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
-      redirect_uris                = ["https://example.com/account"]
-      tenants_required             = ["DEVL", "NLE", "LIVE"]
+      redirect_uris = {
+        devl = ["https://example.com/account"]
+        nle  = ["https://example.com/account"]
+        live = ["https://example.com/account"]
+      }
+      tenants_required = ["DEVL", "NLE", "LIVE"]
 
       graph_delegated_permissions = ["User.Read"]
 
@@ -31,8 +35,12 @@ locals {
       owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
-      redirect_uris                = ["https://example.com/account"]
-      tenants_required             = ["DEVL"]
+      redirect_uris = {
+        devl = ["https://example.com/account"]
+        nle  = ["https://example.com/account"]
+        live = ["https://example.com/account"]
+      }
+      tenants_required = ["DEVL"]
 
       graph_application_permissions = ["User.Read.All"]
       graph_delegated_permissions   = ["User.Read", "User.ReadWrite"]
@@ -75,8 +83,12 @@ locals {
       owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
-      redirect_uris                = ["https://example.com/account"]
-      tenants_required             = ["DEVL"]
+      redirect_uris = {
+        devl = ["https://example.com/account"]
+        nle  = ["https://example.com/account"]
+        live = ["https://example.com/account"]
+      }
+      tenants_required = ["DEVL"]
 
       federated_identity_credentials = [
         {
@@ -118,9 +130,17 @@ locals {
       owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
-      redirect_uris                = ["https://accounts.google.com/samlrp/03f6vr1n0hxwhz4/acs"]
-      identifier_uris              = ["https://accounts.google.com/samlrp/03f6vr1n0hxwhz4"]
-      tenants_required             = ["NLE"]
+      redirect_uris = {
+        devl = ["https://accounts.google.com/samlrp/047gzjif17t5ybk/acs"]
+        nle  = ["https://accounts.google.com/samlrp/03f6vr1n0hxwhz4/acs"]
+        live = null
+      }
+      identifier_uris = {
+        devl = ["https://accounts.google.com/samlrp/047gzjif17t5ybk"]
+        nle  = ["https://accounts.google.com/samlrp/03f6vr1n0hxwhz4"]
+        live = null
+      }
+      tenants_required = ["DEVL", "NLE"]
 
       allowed_groups = ["google-cloud-allowed"]
 
@@ -148,8 +168,12 @@ locals {
       owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
       homepage_url                 = "https://example.com"
       logout_url                   = "https://example.com/logout"
-      redirect_uris                = ["https://example.com/account"]
-      tenants_required             = ["NLE"]
+      redirect_uris = {
+        devl = ["https://example.com/account"]
+        nle  = ["https://example.com/account"]
+        live = ["https://example.com/account"]
+      }
+      tenants_required = ["DEVL", "NLE"]
 
       graph_delegated_permissions = ["User.Read"]
 

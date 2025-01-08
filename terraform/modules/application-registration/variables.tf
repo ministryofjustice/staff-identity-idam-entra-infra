@@ -69,7 +69,7 @@ variable "allowed_groups" {
 }
 
 variable "homepage_url" {
-  description = "The URL to this application’s home page or the URL where users can sign-in and use this application."
+  description = "The URL to this application's home page or the URL where users can sign-in and use this application."
   type        = string
 }
 
@@ -80,7 +80,12 @@ variable "logout_url" {
 
 variable "redirect_uris" {
   description = "The URIs we will accept as destinations when returning authentication responses (tokens) after successfully authenticating or signing out users. The redirect URI you send in the request to the login server should match one listed here. Also referred to as reply URLs."
-  type        = list(any)
+  type        = map(list(string))
+  default = {
+    devl = []
+    nle  = []
+    live = []
+  }
 }
 
 variable "app_roles" {
@@ -156,8 +161,12 @@ variable "service_principle" {
 }
 
 variable "identifier_uris" {
-  default     = null
   nullable    = true
   description = "The globally unique URI used to identify this web API. It is the prefix for scopes and in access tokens, it is the value of the audience claim. Also referred to as an identifier URI."
-  type        = list(string)
+  type        = map(list(string))
+  default = {
+    devl = []
+    nle  = []
+    live = []
+  }
 }
