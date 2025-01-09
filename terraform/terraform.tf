@@ -14,6 +14,10 @@ terraform {
     storage_account_name = "steucsidamentratf"
     container_name       = "tfstate"
     key                  = "terraform.tfstate"
+    use_oidc             = true
+    subscription_id      = var.state_subscription_id
+    tenant_id            = var.state_tenant_id
+    client_id            = var.state_client_id
   }
 }
 

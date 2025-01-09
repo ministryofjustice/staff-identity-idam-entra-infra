@@ -11,9 +11,6 @@ on:
       arm_client_id:
         description: 'Azure ARM Client ID'
         required: true
-      arm_client_secret:
-        description: 'Azure ARM Client Secret'
-        required: true
       arm_tenant_id:
         description: 'ARM Tenant ID'
         required: true
@@ -46,7 +43,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.arm_client_id }}
-      ARM_CLIENT_SECRET: ${{ secrets.arm_client_secret }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.arm_subscription_id }}
       ARM_TENANT_ID: ${{ secrets.arm_tenant_id }}
     steps:

@@ -13,6 +13,21 @@ variable "client_secret" {
   description = "Client Secret for authentication."
 }
 
+variable "state_tenant_id" {
+  type        = string
+  description = "TF State Azure Tenant ID."
+}
+
+variable "state_client_id" {
+  type        = string
+  description = "TF State Client ID for authentication."
+}
+
+variable "state_subscription_id" {
+  type        = string
+  description = "TF State Subscription ID for authentication."
+}
+
 variable "location" {
   type        = string
   default     = "uksouth"

@@ -1,8 +1,6 @@
-rm_subscription_id ""
-rm_tenant_id = ""
-rm_client_id = ""
-rm_client_secret = ""
-
 tenant_id = ""
 client_id = ""
 client_secret = ""
+state_tenant_id = ""
+state_client_id = ""
+state_subscription_id = ""
