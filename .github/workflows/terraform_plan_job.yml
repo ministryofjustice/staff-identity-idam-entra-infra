@@ -11,9 +11,6 @@ on:
       arm_client_id:
         description: 'Azure ARM Client ID'
         required: true
-      arm_client_secret:
-        description: 'Azure ARM Client Secret'
-        required: true
       arm_tenant_id:
         description: 'ARM Tenant ID'
         required: true
@@ -22,9 +19,6 @@ on:
         required: true
       workspace_client_id:
         description: 'Azure ARM Client ID for TF Workspace'
-        required: true
-      workspace_client_secret:
-        description: 'Azure ARM Client Secret for TF Workspace'
         required: true
       workspace_tenant_id:
         description: 'ARM Tenant ID for TF Workspace'
@@ -46,9 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.arm_client_id }}
-      ARM_CLIENT_SECRET: ${{ secrets.arm_client_secret }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.arm_subscription_id }}
       ARM_TENANT_ID: ${{ secrets.arm_tenant_id }}
+      ARM_USE_OIDC: true
     steps:
       - uses: actions/checkout@v4
 
@@ -68,7 +62,7 @@ jobs:
           TF_WORKSPACE: ${{ inputs.workspace_name }}
           TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
           TF_VAR_client_id: ${{ secrets.workspace_client_id }}
-          TF_VAR_client_secret: ${{ secrets.workspace_client_secret }}
+          ARM_USE_OIDC: true
         working-directory: ./terraform
 
       - name: Terraform Validate
@@ -77,7 +71,7 @@ jobs:
           TF_WORKSPACE: ${{ inputs.workspace_name }}
           TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
           TF_VAR_client_id: ${{ secrets.workspace_client_id }}
-          TF_VAR_client_secret: ${{ secrets.workspace_client_secret }}
+          ARM_USE_OIDC: true
         working-directory: ./terraform
 
       - name: Terraform Plan
@@ -86,7 +80,7 @@ jobs:
           TF_WORKSPACE: ${{ inputs.workspace_name }}
           TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
           TF_VAR_client_id: ${{ secrets.workspace_client_id }}
-          TF_VAR_client_secret: ${{ secrets.workspace_client_secret }}
+          ARM_USE_OIDC: true
         run: |
           terraform plan -lock-timeout=300s -input=false
         working-directory: ./terraform
