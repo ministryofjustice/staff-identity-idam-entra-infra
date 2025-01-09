@@ -14,13 +14,11 @@ terraform {
     storage_account_name = "steucsidamentratf"
     container_name       = "tfstate"
     key                  = "terraform.tfstate"
-    use_oidc             = true
   }
 }
 
 provider "azurerm" {
   features {}
-  use_oidc = true
 }
 
 data "azurerm_subscription" "primary" {
