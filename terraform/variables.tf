@@ -9,6 +9,7 @@ variable "client_id" {
 }
 
 variable "client_secret" {
+  default = null
   type        = string
   description = "Client Secret for authentication."
 }
