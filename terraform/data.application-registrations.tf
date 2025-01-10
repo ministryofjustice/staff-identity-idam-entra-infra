@@ -33,8 +33,8 @@ locals {
       owners_devl                  = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
       owners_nle                   = ["testuser01@test.justice.gov.uk", "testuser02@test.justice.gov.uk"]
       owners_live                  = ["john.nolan@justice.gov.uk", "arron.ruecroft2@justice.gov.uk"]
-      homepage_url                 = "https://example.com"
-      logout_url                   = "https://example.com/logout"
+      homepage_url                 = "https://examples.com"
+      logout_url                   = "https://examples.com/logout"
       redirect_uris = {
         devl = ["https://example.com/account"]
         nle  = ["https://example.com/account"]
