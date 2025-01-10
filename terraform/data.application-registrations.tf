@@ -1,6 +1,6 @@
 locals {
-  app_registration_list = {
-    eucs_idam_tf_test_app_reg = {
+  app_registration_list = [
+    {
       display_name                 = "EUCS IDAM App Reg Test 1"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -23,7 +23,7 @@ locals {
 
       allowed_groups = ["MoJO - Users - All"]
     },
-    eucs_idam_tf_test_app_reg2 = {
+    {
       display_name                 = "EUCS IDAM App Reg Test 2 (App Roles)"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -71,7 +71,7 @@ locals {
         }
       ]
     },
-    eucs_idam_tf_app_reg_fed_identitity = {
+    {
       display_name                 = "EUCS IDAM App Reg Test 3 (Federation)"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -119,7 +119,7 @@ locals {
 
       graph_delegated_permissions = ["User.Read"]
     },
-    eucs_idam_google_cloud = {
+    {
       display_name                 = "Google Cloud"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -157,7 +157,7 @@ locals {
         account_enabled               = true
       }
     },
-    eucs_idam_google_cloud_provisioning = {
+    {
       display_name                 = "Google Cloud (Provisioning)"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -187,5 +187,5 @@ locals {
         account_enabled               = false
       }
     },
-  }
+  ]
 }
