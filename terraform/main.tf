@@ -1,7 +1,11 @@
+locals {
+  app_registrations = { for s in local.app_registration_list : s.display_name => s }
+}
+
 module "application-registration" {
   source = "./modules/application-registration"
 
-  for_each = { for s, v in local.app_registration_list : s => v if contains(v.tenants_required, terraform.workspace) }
+  for_each = { for s, v in local.app_registrations : s => v if contains(v.tenants_required, terraform.workspace) }
 
   display_name                 = each.value.display_name
   department_name              = each.value.department_name
