@@ -133,12 +133,12 @@ locals {
       redirect_uris = {
         devl = ["https://accounts.google.com/samlrp/047gzjif17t5ybk/acs"]
         nle  = ["https://accounts.google.com/samlrp/03f6vr1n0hxwhz4/acs"]
-        live = null
+        live = ["https://accounts.google.com/samlrp/03ddmehe2teh9fk/acs"]
       }
       identifier_uris = {
         devl = ["https://accounts.google.com/samlrp/047gzjif17t5ybk"]
         nle  = ["https://accounts.google.com/samlrp/03f6vr1n0hxwhz4"]
-        live = null
+        live = ["https://accounts.google.com/samlrp/03ddmehe2teh9fk"]
       }
       tenants_required = ["DEVL", "NLE", "LIVE"]
 
