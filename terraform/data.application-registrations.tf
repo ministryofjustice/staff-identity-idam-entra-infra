@@ -140,7 +140,7 @@ locals {
         nle  = ["https://accounts.google.com/samlrp/03f6vr1n0hxwhz4"]
         live = null
       }
-      tenants_required = ["DEVL", "NLE"]
+      tenants_required = ["DEVL", "NLE", "LIVE"]
 
       allowed_groups = ["google-cloud-allowed"]
 
@@ -173,7 +173,7 @@ locals {
         nle  = ["https://example.com/account"]
         live = ["https://example.com/account"]
       }
-      tenants_required = ["DEVL", "NLE"]
+      tenants_required = ["DEVL", "NLE", "LIVE"]
 
       graph_delegated_permissions = ["User.Read"]
 
