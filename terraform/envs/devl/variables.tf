@@ -19,15 +19,3 @@ variable "location" {
   type        = string
   default     = "uksouth"
 }
-
-variable "department" {
-  description = "Department name."
-  type        = string
-  default     = "eucs"
-}
-
-variable "team" {
-  description = "Team Name."
-  type        = string
-  default     = "idam"
-}
