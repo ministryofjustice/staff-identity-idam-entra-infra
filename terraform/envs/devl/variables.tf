@@ -31,9 +31,3 @@ variable "team" {
   type        = string
   default     = "idam"
 }
-
-variable "state_storage_account_name" {
-  description = "Storage account name for TF state file."
-  type        = string
-  default     = "stidamappregtfstate"
-}
