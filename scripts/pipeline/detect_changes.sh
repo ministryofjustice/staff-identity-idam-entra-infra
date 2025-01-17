@@ -5,7 +5,7 @@ envs_folder="./terraform/envs"
 
 default_branch="main"
 
-merge_base=$(git merge-base HEAD $default_branch)
+merge_base=$(git merge-base HEAD origin/$default_branch)
 
 for env in "${environments[@]}"; do
   folder_path="$envs_folder/$env"
