@@ -14,6 +14,9 @@ for env in "$(environments[@])"; do
     echo "ENV_ENVIRONMENT_NAME"=$env >> $GITHUB_ENV
     echo "ENV_ENVIRONMENT_PATH"=$folder_path >> $GITHUB_ENV
 
+    echo "::set-output name=env_environment_name::$env"
+    echo "::set-output name=env_envrionment_path::$folder_path"
+
     echo "Changes detected in: $env ($folder_path)"
     exit 0
   fi

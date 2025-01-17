@@ -31,28 +31,35 @@ permissions:
 
 jobs:
 
-  detect-changes:
+  detect_changes:
     runs-on: ubuntu-latest
+
+    outputs:
+      env_environment_name: ${{ steps.detect_changed_env.env_environment_name }}
+      env_envrionment_path: ${{ steps.detect_changed_env.env_envrionment_path }}
     
     steps:
-      - name: Find Changed Environment
+      - name: checkout code
         uses: actions/checkout@v3
 
-      - name: Find Changed Environment
+      - name: detect_changed_env
         run: |
           ./scripts/pipeline/detect_changes.sh
       
-      - name: Output Detected Environment
+      - name: detected changes output debug
         run : |
           echo "Detected changes in environment folder": $ENV_ENVIRONMENT_NAME
           echo "Full Path: $ENV_ENVIRONMENT_PATH"
 
   validate_code:
-    name: Validate Code
+    name: validate code
     uses: ./.github/workflows/validate_code.yml
+    needs: detect_changes
+    with:
+      environment: ${{ needs.detect_changes.outputs.env_environment_name }}
 
   terraform_plan_workflow:
-    name: TF Plan ${{ inputs.environment }}
+    name: tf plan ${{ inputs.environment }}
     uses: ./.github/workflows/terraform_plan_job.yml
     needs: validate_code
     with:
