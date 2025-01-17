@@ -1,6 +1,11 @@
 name: "[Validation] Validate Code"
 on:
   workflow_call:
+    inputs:
+      environment:
+        description: 'Azure Environment'
+        required: true
+        type: string
 
 defaults:
   run:
@@ -14,7 +19,23 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        
-      - uses: ministryofjustice/github-actions/code-formatter@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: terraform-linters/setup-tflint@v4
+        name: Setup TFLint
+
+      - name: Format Terraform
+        working-directory: ${{ inputs.environment }}
+        run: terrafrorm fmt -check -recursive
+
+      
+      - name: Terraform Lint 
+        working-directory: ${{ inputs.environment }}
+        run: tflint --recursive
+  
+
+      - name: Terraform Validate 
+        working-directory: ${{ inputs.environment }}
+        run: |
+          terraform --version
+          terraform init
+          terraform validate
