@@ -55,10 +55,10 @@ jobs:
           echo "changed_env=${changed_env}" >> $GITHUB_ENV
           echo "::set-output name=changed_env::${changed_env}"
       
-      # - name: detected changes output debug
-      #   run : |
-      #     echo "Detected changes in environment folder": $ENV_ENVIRONMENT_NAME
-      #     echo "Full Path: $ENV_ENVIRONMENT_PATH"
+      - name: detected changes output debug
+        run : |
+          echo "Detected changes in environment folder": ${{ steps.detect.outputs.changed_env }}
+          # echo "Full Path: $ENV_ENVIRONMENT_PATH"
 
   # validate_code:
   #   name: validate code
