@@ -46,6 +46,7 @@ jobs:
 
           changed_files=$(git diff --name-only origin/main...HEAD)
           changed_env="none"
+          enviroment_path="none"
 
           if echo "$changed_files" | grep -q "^terraform/envs/devl/";  then
             changed_env="devel"
@@ -59,6 +60,7 @@ jobs:
           fi
 
           echo "changed_env=${changed_env}" >> $GITHUB_ENV
+          echo "environment_path=${environment_path}" >> $GITHUB_ENV
           echo "::set-output name=changed_env::${changed_env}"
           echo "::set-output name=environment_path::${environment_path}"
       
