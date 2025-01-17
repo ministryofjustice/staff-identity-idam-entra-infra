@@ -31,6 +31,22 @@ permissions:
 
 jobs:
 
+  detect-changes:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Find Changed Environment
+        uses: actions/checkout@v3
+
+      - name: Find Changed Environment
+        run: |
+          CHANGED_ENV
+      
+      - name: Output Detected Environment
+        run : |
+          echo "Detected environment folder": $ENV_ENVIRONMENT_NAME
+          echo "Full Path: $ENV_ENVIRONMENT_PATH"
+
   validate_code:
     name: Validate Code
     uses: ./.github/workflows/validate_code.yml
