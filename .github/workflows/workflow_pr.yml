@@ -1,7 +1,11 @@
 name: "[Workflow] PR"
 
 on:
-  pull_request:
+  push:
+    paths:
+      - 'terraform/env/devl/**'
+      - 'terraform/env/nle/**'
+      - 'terraform/env/live/**'
 
 defaults:
   run:
@@ -26,8 +30,8 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      env_environment_name: ${{ steps.detect.env_environment_name }}
-      env_envrionment_path: ${{ steps.detect.env_envrionment_path }}
+      changed_env: ${{ steps.detect.changed_env }}
+      # env_envrionment_path: ${{ steps.detect.env_envrionment_path }}
     
     steps:
       - name: checkout code
@@ -35,35 +39,47 @@ jobs:
         with: 
           fetch-depth: 0
 
-      - name: detect
+      - name: detect fist changed
+        id: detect
         run: |
-          ./scripts/pipeline/detect_changes.sh
+          changed_env="none"
+
+          if git diff --quiet HEAD^ HEAD -- 'terraform/envs/devl/**';  then
+            changed_env="devel"
+          elif git diff --quiet HEAD^ HEAD -- 'terraform/envs/nle/**';  then
+            changed_env="nle"
+          elif git diff --quiet HEAD^ HEAD -- 'terraform/envs/live/**'; then
+            changed_env="live"
+          fi
+
+          echo "changed_env=${changed_env}" >> $GITHUB_ENV
+          echo "::set-output name=changed_env::${changed_env}"
       
-      - name: detected changes output debug
-        run : |
-          echo "Detected changes in environment folder": $ENV_ENVIRONMENT_NAME
-          echo "Full Path: $ENV_ENVIRONMENT_PATH"
+      # - name: detected changes output debug
+      #   run : |
+      #     echo "Detected changes in environment folder": $ENV_ENVIRONMENT_NAME
+      #     echo "Full Path: $ENV_ENVIRONMENT_PATH"
 
-  validate_code:
-    name: validate code
-    uses: ./.github/workflows/validate_code.yml
-    needs: detect_changes
-    with:
-      environment_path: ${{ needs.detect_changes.outputs.env_envrionment_path }}
+  # validate_code:
+  #   name: validate code
+  #   uses: ./.github/workflows/validate_code.yml
+  #   needs: detect_changes
+  #   with:
+  #     environment_path: ${{ needs.detect_changes.outputs.env_envrionment_path }}
 
-  terraform_plan_workflow:
-    name: tf plan ${{ needs.detect_changes.outputs.env_environment_name }}
-    uses: ./.github/workflows/terraform_plan_job.yml
-    needs: 
-      - detect_changes
-      - validate_code
-    with:
-      environment: ${{ needs.detect_changes.outputs.env_environment_name }}
-      environment_path: ${{ needs.detect_changes.outputs.env_envrionment_path }}
-    secrets:
-      arm_subscription_id: ${{ secrets.arm_subscription_id }}
-      arm_tenant_id: ${{ secrets.arm_tenant_id }}
-      arm_client_id: ${{ secrets.arm_client_id }}
-      workspace_tenant_id: ${{ secrets.workspace_tenant_id }}
-      workspace_client_id: ${{ secrets.workspace_client_id }}
-      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+  # terraform_plan_workflow:
+  #   name: tf plan ${{ needs.detect_changes.outputs.env_environment_name }}
+  #   uses: ./.github/workflows/terraform_plan_job.yml
+  #   needs: 
+  #     - detect_changes
+  #     - validate_code
+  #   with:
+  #     environment: ${{ needs.detect_changes.outputs.env_environment_name }}
+  #     environment_path: ${{ needs.detect_changes.outputs.env_envrionment_path }}
+  #   secrets:
+  #     arm_subscription_id: ${{ secrets.arm_subscription_id }}
+  #     arm_tenant_id: ${{ secrets.arm_tenant_id }}
+  #     arm_client_id: ${{ secrets.arm_client_id }}
+  #     workspace_tenant_id: ${{ secrets.workspace_tenant_id }}
+  #     workspace_client_id: ${{ secrets.workspace_client_id }}
+  #     github_access_token: ${{ secrets.GITHUB_TOKEN }}
