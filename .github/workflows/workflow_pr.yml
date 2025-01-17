@@ -69,26 +69,26 @@ jobs:
           echo "Detected changes in environment folder": ${{ steps.detect.outputs.changed_env }}
           echo "Full Path: ${{ steps.detect.outputs.environment_path }}"
 
-  # validate_code:
-  #   name: validate code
-  #   uses: ./.github/workflows/validate_code.yml
-  #   needs: detect_changes
-  #   with:
-  #     environment_path: ${{ needs.detect_changes.outputs.env_envrionment_path }}
+  validate_code:
+    name: validate code
+    uses: ./.github/workflows/validate_code.yml
+    needs: detect_changes
+    with:
+      environment_path: ${{ needs.detect.outputs.environment_path }}
 
-  # terraform_plan_workflow:
-  #   name: tf plan ${{ needs.detect_changes.outputs.env_environment_name }}
-  #   uses: ./.github/workflows/terraform_plan_job.yml
-  #   needs: 
-  #     - detect_changes
-  #     - validate_code
-  #   with:
-  #     environment: ${{ needs.detect_changes.outputs.env_environment_name }}
-  #     environment_path: ${{ needs.detect_changes.outputs.env_envrionment_path }}
-  #   secrets:
-  #     arm_subscription_id: ${{ secrets.arm_subscription_id }}
-  #     arm_tenant_id: ${{ secrets.arm_tenant_id }}
-  #     arm_client_id: ${{ secrets.arm_client_id }}
-  #     workspace_tenant_id: ${{ secrets.workspace_tenant_id }}
-  #     workspace_client_id: ${{ secrets.workspace_client_id }}
-  #     github_access_token: ${{ secrets.GITHUB_TOKEN }}
+  terraform_plan_workflow:
+    name: tf plan ${{ needs.detect_changes.outputs.env_environment_name }}
+    uses: ./.github/workflows/terraform_plan_job.yml
+    needs: 
+      - detect_changes
+      - validate_code
+    with:
+      environment: ${{ needs.detect.outputs.changed_env }}
+      environment_path: ${{ needs.detect.outputs.environment_path }}
+    secrets:
+      arm_subscription_id: ${{ secrets.arm_subscription_id }}
+      arm_tenant_id: ${{ secrets.arm_tenant_id }}
+      arm_client_id: ${{ secrets.arm_client_id }}
+      workspace_tenant_id: ${{ secrets.workspace_tenant_id }}
+      workspace_client_id: ${{ secrets.workspace_client_id }}
+      github_access_token: ${{ secrets.GITHUB_TOKEN }}
