@@ -11,7 +11,7 @@ for env in "${environments[@]}"; do
   folder_path="$envs_folder/$env"
 
   # check for changed files within the current env dir
-  if git diff --quiet "$merge_base" -- "$folder_path"; then
+  if git diff main -- $folder_path ; then
     continue
   fi
     echo "ENV_ENVIRONMENT_NAME"=$env >> $GITHUB_ENV
