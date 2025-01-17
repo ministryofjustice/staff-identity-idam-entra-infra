@@ -31,15 +31,15 @@ jobs:
           ARM_USE_OIDC: true
         working-directory: ${{ inputs.environment_path }}
 
-      - name: Format Terraform
+      - name: format terraform
         working-directory: ${{ inputs.environment_path }}
-        run: terrafrorm fmt -check -recursive
+        run: terraforrm fmt -check -recursive
 
-      - name: Terraform Lint 
+      - name: terraform lint 
         working-directory: ${{ inputs.environment_path }}
         run: tflint --recursive
   
-      - name: Terraform Validate 
+      - name: terraform validate 
         working-directory: ${{ inputs.environment_path }}
         run: |
           terraform --version
