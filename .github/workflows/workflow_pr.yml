@@ -31,17 +31,14 @@ permissions:
 
 jobs:
 
-  format_code:
-    name: Format Code
+  validate_code:
+    name: Validate Code
     uses: ./.github/workflows/format_code_job.yml
 
   terraform_plan_workflow:
-    strategy:
-      matrix:
-        environment: ["DEVL", "NLE", "LIVE"]
-    name: TF Plan ${{ matrix.environment }}
+    name: TF Plan ${{ inputs.environment }}
     uses: ./.github/workflows/terraform_plan_job.yml
-    needs: format_code 
+    needs: validate_code
     with:
       workspace_name: ${{ matrix.environment }}
     secrets:
