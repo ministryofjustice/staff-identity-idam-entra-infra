@@ -18,7 +18,6 @@ for env in "$(environments[@])"; do
 
     echo "Changes detected in: $env ($folder_path)"
     exit 0
-  fi
 done
 
 # output if no changes are detected
