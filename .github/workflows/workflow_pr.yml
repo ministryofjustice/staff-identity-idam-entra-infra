@@ -1,16 +1,7 @@
 name: "[Workflow] PR"
 
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: "Environment to deploy to (DEVL, NLE, LIVE)"
-        required: true
-        type: choice
-        options:
-          - DEVL
-          - NLE
-          - LIVE
+  pull_request:
 
 defaults:
   run:
@@ -59,11 +50,14 @@ jobs:
       environment: ${{ needs.detect_changes.outputs.env_envrionment_path }}
 
   terraform_plan_workflow:
-    name: tf plan ${{ inputs.environment }}
+    name: tf plan ${{ needs.detect_changes.outputs.env_environment_name }}
     uses: ./.github/workflows/terraform_plan_job.yml
-    needs: validate_code
+    needs: 
+      - detect_changes
+      - validate_code
     with:
-      workspace_name: ${{ matrix.environment }}
+      environment: ${{ needs.detect_changes.outputs.env_environment_name }}
+      environment_path: ${{ needs.detect_changes.outputs.env_envrionment_path }}
     secrets:
       arm_subscription_id: ${{ secrets.arm_subscription_id }}
       arm_tenant_id: ${{ secrets.arm_tenant_id }}
