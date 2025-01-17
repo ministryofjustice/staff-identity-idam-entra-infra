@@ -42,13 +42,16 @@ jobs:
       - name: detect fist changed
         id: detect
         run: |
+          git fetch origin main
+
+          changed_files=$(git diff --name-only origin/main...HEAD)
           changed_env="none"
 
-          if git diff --quiet HEAD^ HEAD -- 'terraform/envs/devl/**';  then
+          if echo "$changed_files" | grep -q "^terraform/envs/devl/";  then
             changed_env="devel"
-          elif git diff --quiet HEAD^ HEAD -- 'terraform/envs/nle/**';  then
+          elif echo "$changed_files" | grep -q "^terraform/envs/nle/";  then
             changed_env="nle"
-          elif git diff --quiet HEAD^ HEAD -- 'terraform/envs/live/**'; then
+          elif echo "$changed_files" | grep -q "^terraform/envs/live/"; then
             changed_env="live"
           fi
 
