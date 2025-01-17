@@ -31,7 +31,7 @@ jobs:
 
     outputs:
       changed_env: ${{ steps.detect.outputs.changed_env }}
-      # env_envrionment_path: ${{ steps.detect.env_envrionment_path }}
+      envrionment_path: ${{ steps.detect.envrionment_path }}
     
     steps:
       - name: checkout code
@@ -49,14 +49,18 @@ jobs:
 
           if echo "$changed_files" | grep -q "^terraform/envs/devl/";  then
             changed_env="devel"
+            environment_path="terraform/envs/devel"
           elif echo "$changed_files" | grep -q "^terraform/envs/nle/";  then
             changed_env="nle"
+            environment_path="terraform/envs/nle"
           elif echo "$changed_files" | grep -q "^terraform/envs/live/"; then
             changed_env="live"
+            environment_path="terraform/envs/live"
           fi
 
           echo "changed_env=${changed_env}" >> $GITHUB_ENV
           echo "::set-output name=changed_env::${changed_env}"
+          echo "::set-output name=environment_path::${environment_path}"
       
       - name: detected changes output debug
         run : |
