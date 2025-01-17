@@ -56,7 +56,7 @@ jobs:
     uses: ./.github/workflows/validate_code.yml
     needs: detect_changes
     with:
-      environment: ${{ needs.detect_changes.outputs.env_environment_name }}
+      environment: ${{ needs.detect_changes.outputs.env_envrionment_path }}
 
   terraform_plan_workflow:
     name: tf plan ${{ inputs.environment }}

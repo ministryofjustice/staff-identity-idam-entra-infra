@@ -2,7 +2,7 @@ name: "[Validation] Validate Code"
 on:
   workflow_call:
     inputs:
-      environment:
+      environment_path:
         description: 'Azure Environment'
         required: true
         type: string
@@ -24,17 +24,17 @@ jobs:
         name: Setup TFLint
 
       - name: Format Terraform
-        working-directory: ${{ inputs.environment }}
+        working-directory: ${{ inputs.environment_path }}
         run: terrafrorm fmt -check -recursive
 
       
       - name: Terraform Lint 
-        working-directory: ${{ inputs.environment }}
+        working-directory: ${{ inputs.environment_path }}
         run: tflint --recursive
   
 
       - name: Terraform Validate 
-        working-directory: ${{ inputs.environment }}
+        working-directory: ${{ inputs.environment_path }}
         run: |
           terraform --version
           terraform init
