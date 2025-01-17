@@ -3,14 +3,13 @@
 enviroments=("devl" "nle" "live")
 envs_folder="./terraform/envs"
 
-# fetch the list of changed files compared to the default branch
-change_files=$(git diff --name-only origin/main)
-
 for env in "$(environments[@])"; do
   folder_path="$envs_folder/$env/"
 
   # check for changed files within the current env dir
-  if echo "$changed_files" | grep -q "^folder_path"; then
+  if git diff --quiet HEAD~1 -- "$folder_path"; then
+    continue
+  fi
     echo "ENV_ENVIRONMENT_NAME"=$env >> $GITHUB_ENV
     echo "ENV_ENVIRONMENT_PATH"=$folder_path >> $GITHUB_ENV
 
