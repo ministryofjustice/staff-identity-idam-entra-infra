@@ -35,12 +35,10 @@ jobs:
         working-directory: ${{ inputs.environment_path }}
         run: terrafrorm fmt -check -recursive
 
-      
       - name: Terraform Lint 
         working-directory: ${{ inputs.environment_path }}
         run: tflint --recursive
   
-
       - name: Terraform Validate 
         working-directory: ${{ inputs.environment_path }}
         run: |
