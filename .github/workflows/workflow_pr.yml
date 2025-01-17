@@ -40,7 +40,7 @@ jobs:
 
       - name: Find Changed Environment
         run: |
-          CHANGED_ENV
+          ./scripts/pipeline/detect_changes.sh
       
       - name: Output Detected Environment
         run : |
