@@ -31,7 +31,7 @@ jobs:
 
     outputs:
       changed_env: ${{ steps.detect.outputs.changed_env }}
-      envrionment_path: ${{ steps.detect.outputs.envrionment_path }}
+      environment_path: ${{ steps.detect.outputs.environment_path }}
     
     steps:
       - name: checkout code
@@ -67,7 +67,7 @@ jobs:
       - name: detected changes output debug
         run : |
           echo "Detected changes in environment folder": ${{ steps.detect.outputs.changed_env }}
-          echo "Full Path: ${{ steps.detect.outputs.envrionment_path }}"
+          echo "Full Path: ${{ steps.detect.outputs.environment_path }}"
 
   # validate_code:
   #   name: validate code
