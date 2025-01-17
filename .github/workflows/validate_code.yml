@@ -1,14 +1,20 @@
-name: "[Validation] Format Code"
+name: "[Validation] Validate Code"
 on:
   workflow_call:
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   format-code:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
+        
       - uses: ministryofjustice/github-actions/code-formatter@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
