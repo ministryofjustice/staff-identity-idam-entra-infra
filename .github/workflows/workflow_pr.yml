@@ -50,13 +50,13 @@ jobs:
 
           if echo "$changed_files" | grep -q "^terraform/envs/devl/";  then
             changed_env="devel"
-            environment_path="terraform/envs/devel"
+            environment_path="terraform/envs/devel/"
           elif echo "$changed_files" | grep -q "^terraform/envs/nle/";  then
             changed_env="nle"
-            environment_path="terraform/envs/nle"
+            environment_path="terraform/envs/nle/"
           elif echo "$changed_files" | grep -q "^terraform/envs/live/"; then
             changed_env="live"
-            environment_path="terraform/envs/live"
+            environment_path="terraform/envs/live/"
           fi
 
           echo "changed_env=${changed_env}" >> $GITHUB_ENV
