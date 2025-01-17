@@ -41,6 +41,7 @@ jobs:
         environment: ["DEVL", "NLE", "LIVE"]
     name: TF Plan ${{ matrix.environment }}
     uses: ./.github/workflows/terraform_plan_job.yml
+    needs: format_code 
     with:
       workspace_name: ${{ matrix.environment }}
     secrets:
