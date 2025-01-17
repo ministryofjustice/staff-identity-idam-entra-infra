@@ -7,6 +7,10 @@ on:
     paths:
       - terraform/**
 
+defaults:
+  run:
+    shell: bash
+
 permissions:
   id-token: write
   contents: write
@@ -19,10 +23,6 @@ permissions:
   packages: none
   repository-projects: none
   statuses: none
-
-defaults:
-  run:
-    shell: bash
 
 jobs:
 
