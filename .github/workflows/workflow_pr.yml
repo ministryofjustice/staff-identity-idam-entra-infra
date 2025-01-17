@@ -26,16 +26,42 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      env_environment_name: ${{ steps.detect_changed_env.env_environment_name }}
-      env_envrionment_path: ${{ steps.detect_changed_env.env_envrionment_path }}
+      env_environment_name: ${{ steps.detect.env_environment_name }}
+      env_envrionment_path: ${{ steps.detect.env_envrionment_path }}
     
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+        with: 
+          fetch-depth: 0
 
-      - name: detect_changed_env
+      - name: detect
         run: |
-          ./scripts/pipeline/detect_changes.sh
+          enviroments=("devl" "nle" "live")
+          envs_folder="./terraform/envs"
+
+          default_branch="main"
+
+          for env in "${environments[@]}"; do
+            folder_path="$envs_folder/$env"
+
+            # check for changed files within the current env dir
+            if git diff --quiet HEAD~1 -- "$env_folder/$env"; then
+              continue
+            fi
+              echo "ENV_ENVIRONMENT_NAME"=$env >> $GITHUB_ENV
+              echo "ENV_ENVIRONMENT_PATH"=$folder_path >> $GITHUB_ENV
+
+              echo "::set-output name=env_environment_name::$env"
+              echo "::set-output name=env_envrionment_path::$folder_path"
+
+              echo "Changes detected in: $env ($folder_path)"
+              exit 0
+          done
+
+          # output if no changes are detected
+          echo "No changes detected in any Environment"
+          exit 1
       
       - name: detected changes output debug
         run : |
