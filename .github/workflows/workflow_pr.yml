@@ -1,11 +1,16 @@
 name: "[Workflow] PR"
 
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - terraform/**
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy to (DEVL, NLE, LIVE)"
+        required: true
+        type: choice
+        options:
+          - DEVL
+          - NLE
+          - LIVE
 
 defaults:
   run:
