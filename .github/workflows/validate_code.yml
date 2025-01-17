@@ -33,7 +33,7 @@ jobs:
 
       - name: format terraform
         working-directory: ${{ inputs.environment_path }}
-        run: terraforrm fmt -check -recursive
+        run: terraform fmt -check -recursive
 
       - name: terraform lint 
         working-directory: ${{ inputs.environment_path }}
