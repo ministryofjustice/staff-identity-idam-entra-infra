@@ -3,9 +3,9 @@ name: "[Workflow] PR"
 on:
   push:
     paths:
-      - 'terraform/env/devl/**'
-      - 'terraform/env/nle/**'
-      - 'terraform/env/live/**'
+      - 'terraform/envs/devl/**'
+      - 'terraform/envs/nle/**'
+      - 'terraform/envs/live/**'
 
 defaults:
   run:
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      changed_env: ${{ steps.detect.changed_env }}
+      changed_env: ${{ steps.detect.outputs.changed_env }}
       # env_envrionment_path: ${{ steps.detect.env_envrionment_path }}
     
     steps:
