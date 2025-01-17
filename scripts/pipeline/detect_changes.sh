@@ -3,11 +3,15 @@
 enviroments=("devl" "nle" "live")
 envs_folder="./terraform/envs"
 
-for env in "$(environments[@])"; do
-  folder_path="$envs_folder/$env/"
+default_branch="main"
+
+merge_base=$(git merge-base HEAD origin/$default_branch)
+
+for env in "${environments[@]}"; do
+  folder_path="$envs_folder/$env"
 
   # check for changed files within the current env dir
-  if git diff --quiet HEAD~1 -- "$folder_path"; then
+  if git diff --quiet "$merge_base" -- "$folder_path"; then
     continue
   fi
     echo "ENV_ENVIRONMENT_NAME"=$env >> $GITHUB_ENV
