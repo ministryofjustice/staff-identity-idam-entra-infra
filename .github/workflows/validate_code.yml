@@ -2,8 +2,8 @@ name: "[Validation] Validate Code"
 on:
   workflow_call:
     inputs:
-      environment_path:
-        description: 'Environment Path'
+      environment:
+        description: 'Environment'
         required: true
         type: string
 
@@ -14,6 +14,7 @@ defaults:
 jobs:
   format-code:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
       - uses: actions/checkout@v4
 
@@ -30,10 +31,10 @@ jobs:
           TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
           TF_VAR_client_id: ${{ secrets.workspace_client_id }}
           ARM_USE_OIDC: true
-        working-directory: ${{ inputs.environment_path }}
+        working-directory: "./terraform/envs/${{ inputs.environment }}"
 
       - name: format terraform
-        working-directory: ${{ inputs.environment_path }}
+        working-directory: "./terraform/envs/${{ inputs.environment }}"
         run: terraform fmt -check -recursive
 
       # - name: terraform lint 
@@ -41,7 +42,7 @@ jobs:
       #   run: tflint --recursive
   
       - name: terraform validate 
-        working-directory: ${{ inputs.environment_path }}
+        working-directory: "./terraform/envs/${{ inputs.environment }}"
         run: |
           terraform --version
           terraform init

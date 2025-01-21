@@ -1,11 +1,16 @@
 name: "[Workflow] PR"
 
 on:
-  pull_request:
-    paths:
-      - 'terraform/envs/devl/**'
-      - 'terraform/envs/nle/**'
-      - 'terraform/envs/live/**' 
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Select the environment
+        required: true
+        options:
+          - devl
+          - nle
+          - live
 
 defaults:
   run:
@@ -29,27 +34,24 @@ jobs:
   validate_code:
     name: validate code
     uses: ./.github/workflows/validate_code.yml
-    strategy:
-      matrix:
-        environment: [devl, nle, live]
     with:
-      environment_path: './terraform/envs/${{ matrix.environment }}'
+      environment: ${{ inputs.environment }}
 
-  terraform_plan_workflow:
-    name: tf plan ${{ matrix.environment }}
-    uses: ./.github/workflows/terraform_plan_job.yml
-    needs: 
-      - validate_code
-    strategy:
-      matrix:
-        environment: [devl, nle, live]
-    with:
-      environment: ${{ matrix.environment}}
-      environment_path: './terraform/envs/${{ matrix.environment }}'
-    secrets:
-      arm_subscription_id: ${{ secrets.arm_subscription_id }}
-      arm_tenant_id: ${{ secrets.arm_tenant_id }}
-      arm_client_id: ${{ secrets.arm_client_id }}
-      workspace_tenant_id: ${{ secrets.workspace_tenant_id }}
-      workspace_client_id: ${{ secrets.workspace_client_id }}
-      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+  # terraform_plan_workflow:
+  #   name: tf plan ${{ matrix.environment }}
+  #   uses: ./.github/workflows/terraform_plan_job.yml
+  #   needs: 
+  #     - validate_code
+  #   strategy:
+  #     matrix:
+  #       environment: [devl, nle, live]
+  #   with:
+  #     environment: ${{ matrix.environment}}
+  #     environment_path: './terraform/envs/${{ matrix.environment }}'
+  #   secrets:
+  #     arm_subscription_id: ${{ secrets.arm_subscription_id }}
+  #     arm_tenant_id: ${{ secrets.arm_tenant_id }}
+  #     arm_client_id: ${{ secrets.arm_client_id }}
+  #     workspace_tenant_id: ${{ secrets.workspace_tenant_id }}
+  #     workspace_client_id: ${{ secrets.workspace_client_id }}
+  #     github_access_token: ${{ secrets.GITHUB_TOKEN }}
