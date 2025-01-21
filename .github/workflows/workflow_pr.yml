@@ -44,6 +44,10 @@ jobs:
     outputs:
       environment: ${{ matrix.environment }}
       path: ${{ matrix.path }}
+
+    steps:
+      - name: output env and path
+        run: echo ${{ matrix.environment }} ${{ matrix.path }}  
     
   validate_code:
     name: validate code
