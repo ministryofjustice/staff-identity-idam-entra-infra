@@ -3,8 +3,12 @@ name: "[Job] Azure Terraform Plan"
 on:
   workflow_call:
     inputs:
-      workspace_name:
-        description: 'The terraform workspace to target for environment actions'
+      environment:
+        description: 'The terraform environment to target'
+        required: true
+        type: string
+      environment_path:
+        description: 'The terraform environment path'
         required: true
         type: string
     secrets:
@@ -35,8 +39,8 @@ permissions:
 
 jobs:
   terraform_plan_workflow:
-    environment: ${{ inputs.workspace_name }}
-    name: "${{ inputs.workspace_name }} plan"
+    environment: ${{ inputs.environment}}
+    name: "${{ inputs.environment}} plan"
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.arm_client_id }}
@@ -51,36 +55,21 @@ jobs:
         with:
           terraform_wrapper: false
 
-      - name: Check formatting
-        run: terraform fmt -check -recursive
-        working-directory: ./terraform
-        continue-on-error: true
-        
       - name: Terraform Init
         run: terraform init -input=false
         env:
-          TF_WORKSPACE: ${{ inputs.workspace_name }}
           TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
           TF_VAR_client_id: ${{ secrets.workspace_client_id }}
           ARM_USE_OIDC: true
-        working-directory: ./terraform
-
-      - name: Terraform Validate
-        run: terraform validate
-        env:
-          TF_WORKSPACE: ${{ inputs.workspace_name }}
-          TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
-          TF_VAR_client_id: ${{ secrets.workspace_client_id }}
-          ARM_USE_OIDC: true
-        working-directory: ./terraform
+        working-directory: ${{ inputs.environment_path }}
 
       - name: Terraform Plan
         id: terraform_plan
         env:
-          TF_WORKSPACE: ${{ inputs.workspace_name }}
           TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
           TF_VAR_client_id: ${{ secrets.workspace_client_id }}
           ARM_USE_OIDC: true
+        working-directory: ${{ inputs.environment_path }}
         run: |
           terraform plan -lock-timeout=300s -input=false
-        working-directory: ./terraform
+      

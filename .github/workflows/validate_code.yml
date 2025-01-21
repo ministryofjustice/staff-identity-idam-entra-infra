@@ -1,0 +1,49 @@
+name: "[Validation] Validate Code"
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: 'Environment'
+        required: true
+        type: string
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  format-code:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - uses: terraform-linters/setup-tflint@v4
+        name: Setup TFLint
+        continue-on-error: true
+
+      - name: terraform init
+        run: terraform init -input=false
+        env:
+          TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
+          TF_VAR_client_id: ${{ secrets.workspace_client_id }}
+          ARM_USE_OIDC: true
+        working-directory: "./terraform/envs/${{ inputs.environment }}"
+
+      - name: format terraform
+        working-directory: "./terraform/envs/${{ inputs.environment }}"
+        run: terraform fmt -check -recursive
+
+      # - name: terraform lint 
+      #   working-directory: ${{ inputs.environment_path }}
+      #   run: tflint --recursive
+  
+      - name: terraform validate 
+        working-directory: "./terraform/envs/${{ inputs.environment }}"
+        run: |
+          terraform --version
+          terraform init
+          terraform validate
