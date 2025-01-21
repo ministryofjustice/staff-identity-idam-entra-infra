@@ -25,52 +25,27 @@ permissions:
   statuses: none
 
 jobs:
-
-  detect_changes:
-    runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        include:
-          - environment: devl
-            path: terraform/envs/devl
-          - environment: nle
-            path: terraform/envs/nle
-          - environment: live
-            path: terraform/envs/live
-
-            if: contains(github.event.pull_request.changed_files, matrix.path)
-    
-    outputs:
-      environment: ${{ matrix.environment }}
-      path: ${{ matrix.path }}
-
-    steps:
-      - name: output env and path
-        run: echo ${{ matrix.environment }} ${{ matrix.path }}  
-    
+  
   validate_code:
     name: validate code
     uses: ./.github/workflows/validate_code.yml
-    needs: detect_changes
     strategy:
       matrix:
-        include: ${{ fromJson(needs.detect_changes.outputs) }}
+        environment: [devl, nle, live]
     with:
-      environment_path: ${{ matrix.path }}
+      environment_path: './terraform/envs/${{ matrix.environment }}'
 
   terraform_plan_workflow:
     name: tf plan ${{ matrix.environment }}
     uses: ./.github/workflows/terraform_plan_job.yml
     needs: 
-      - detect_changes
       - validate_code
     strategy:
       matrix:
-        include: ${{ fromJson(needs.detect_changes.outputs) }}
+        environment: [devl, nle, live]
     with:
       environment: ${{ matrix.environment}}
-      environment_path: ${{ matrix.path }}
+      environment_path: './terraform/envs/${{ matrix.environment }}'
     secrets:
       arm_subscription_id: ${{ secrets.arm_subscription_id }}
       arm_tenant_id: ${{ secrets.arm_tenant_id }}
