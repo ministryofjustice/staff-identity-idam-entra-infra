@@ -1,11 +1,11 @@
 name: "[Workflow] PR"
 
 on:
-  push:
+  pull_request:
     paths:
       - 'terraform/envs/devl/**'
       - 'terraform/envs/nle/**'
-      - 'terraform/envs/live/**'
+      - 'terraform/envs/live/**' 
 
 defaults:
   run:
@@ -28,63 +28,45 @@ jobs:
 
   detect_changes:
     runs-on: ubuntu-latest
-
-    outputs:
-      changed_env: ${{ steps.detect.outputs.changed_env }}
-      environment_path: ${{ steps.detect.outputs.environment_path }}
     
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v4
-        with: 
-          fetch-depth: 0
+    strategy:
+      matrix:
+        include:
+          - environment: devl
+            path: terraform/envs/devl
+          - environment: nle
+            path: terraform/envs/nle
+          - environment: live
+            path: terraform/envs/live
 
-      - name: detect fist changed
-        id: detect
-        run: |
-          git fetch origin main
-
-          changed_files=$(git diff --name-only origin/main...HEAD)
-          changed_env="none"
-          enviroment_path="none"
-
-          if echo "$changed_files" | grep -q "^terraform/envs/devl/";  then
-            changed_env="devel"
-            environment_path="terraform/envs/devel/"
-          elif echo "$changed_files" | grep -q "^terraform/envs/nle/";  then
-            changed_env="nle"
-            environment_path="terraform/envs/nle/"
-          elif echo "$changed_files" | grep -q "^terraform/envs/live/"; then
-            changed_env="live"
-            environment_path="terraform/envs/live/"
-          fi
-
-          echo "changed_env=${changed_env}" >> $GITHUB_ENV
-          echo "environment_path=${environment_path}" >> $GITHUB_ENV
-          echo "::set-output name=changed_env::${changed_env}"
-          echo "::set-output name=environment_path::${environment_path}"
-      
-      - name: detected changes output debug
-        run : |
-          echo "Detected changes in environment folder": ${{ steps.detect.outputs.changed_env }}
-          echo "Full Path: ${{ steps.detect.outputs.environment_path }}"
-
+            if: contains(github.event.pull_request.changed_files, matrix.path)
+    
+    outputs:
+      environment: ${{ matrix.environment }}
+      path: ${{ matrix.path }}
+    
   validate_code:
     name: validate code
     uses: ./.github/workflows/validate_code.yml
     needs: detect_changes
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.detect_changes.outputs) }}
     with:
-      environment_path: ${{ needs.detect.outputs.environment_path }}
+      environment_path: ${{ matrix.path }}
 
   terraform_plan_workflow:
-    name: tf plan ${{ needs.detect_changes.outputs.env_environment_name }}
+    name: tf plan ${{ matrix.environment }}
     uses: ./.github/workflows/terraform_plan_job.yml
     needs: 
       - detect_changes
       - validate_code
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.detect_changes.outputs) }}
     with:
-      environment: ${{ needs.detect.outputs.changed_env }}
-      environment_path: ${{ needs.detect.outputs.environment_path }}
+      environment: ${{ matrix.environment}}
+      environment_path: ${{ matrix.path }}
     secrets:
       arm_subscription_id: ${{ secrets.arm_subscription_id }}
       arm_tenant_id: ${{ secrets.arm_tenant_id }}
