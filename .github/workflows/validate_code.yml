@@ -34,11 +34,6 @@ jobs:
   format-code:
     runs-on: ubuntu-latest
     environment: DEVL
-    env:
-      ARM_CLIENT_ID: ${{ secrets.arm_client_id }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.arm_subscription_id }}
-      ARM_TENANT_ID: ${{ secrets.arm_tenant_id }}
-      ARM_USE_OIDC: true
     steps:
       - uses: actions/checkout@v4
 
