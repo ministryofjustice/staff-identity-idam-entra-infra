@@ -21,7 +21,7 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name  = "rg-eucs-idam-observability"
-    storage_account_name = "steucsidamentratf"
+    storage_account_name = "stidamobservetfstate"
     container_name       = "tfstate-env"
     key                  = "terraform-devl.tfstate"
   }
