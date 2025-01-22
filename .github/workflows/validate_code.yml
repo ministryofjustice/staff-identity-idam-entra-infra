@@ -6,6 +6,25 @@ on:
         description: 'Environment'
         required: true
         type: string
+    secrets:
+      arm_client_id:
+        description: 'Azure ARM Client ID'
+        required: true
+      arm_tenant_id:
+        description: 'ARM Tenant ID'
+        required: true
+      arm_subscription_id:
+        description: 'ARM Subscription ID'
+        required: true
+      workspace_client_id:
+        description: 'Azure ARM Client ID for TF Workspace'
+        required: true
+      workspace_tenant_id:
+        description: 'ARM Tenant ID for TF Workspace'
+        required: true
+      github_access_token:
+        description: 'Github Token'
+        required: true
 
 defaults:
   run:
@@ -15,6 +34,11 @@ jobs:
   format-code:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
+    env:
+      ARM_CLIENT_ID: ${{ secrets.arm_client_id }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.arm_subscription_id }}
+      ARM_TENANT_ID: ${{ secrets.arm_tenant_id }}
+      ARM_USE_OIDC: true
     steps:
       - uses: actions/checkout@v4
 
