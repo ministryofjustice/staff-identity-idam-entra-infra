@@ -47,7 +47,7 @@ jobs:
   #       environment: [devl, nle, live]
   #   with:
   #     environment: ${{ matrix.environment}}
-  #     environment_path: './terraform/envs/${{ matrix.environment }}'
+  #     environment_path: 'terraform/envs/${{ matrix.environment }}'
   #   secrets:
   #     arm_subscription_id: ${{ secrets.arm_subscription_id }}
   #     arm_tenant_id: ${{ secrets.arm_tenant_id }}

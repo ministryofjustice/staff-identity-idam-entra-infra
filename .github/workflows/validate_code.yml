@@ -31,10 +31,10 @@ jobs:
           TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
           TF_VAR_client_id: ${{ secrets.workspace_client_id }}
           ARM_USE_OIDC: true
-        working-directory: "./terraform/envs/${{ inputs.environment }}"
+        working-directory: "terraform/envs/${{ inputs.environment }}"
 
       - name: format terraform
-        working-directory: "./terraform/envs/${{ inputs.environment }}"
+        working-directory: "terraform/envs/${{ inputs.environment }}"
         run: terraform fmt -check -recursive
 
       # - name: terraform lint 
@@ -42,7 +42,7 @@ jobs:
       #   run: tflint --recursive
   
       - name: terraform validate 
-        working-directory: "./terraform/envs/${{ inputs.environment }}"
+        working-directory: "terraform/envs/${{ inputs.environment }}"
         run: |
           terraform --version
           terraform init
