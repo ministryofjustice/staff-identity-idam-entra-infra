@@ -33,7 +33,7 @@ defaults:
 jobs:
   format-code:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    environment: DEVL
     env:
       ARM_CLIENT_ID: ${{ secrets.arm_client_id }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.arm_subscription_id }}
