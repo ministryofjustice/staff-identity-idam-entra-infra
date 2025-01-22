@@ -26,7 +26,12 @@ jobs:
         continue-on-error: true
 
       - name: terraform init
-        run: terraform init -input=false
+        run: |
+          echo "working dir files:"
+          ls 
+          echo "PWD"
+          pwd
+          terraform init -input=false
         env:
           TF_VAR_tenant_id: ${{ secrets.workspace_tenant_id }}
           TF_VAR_client_id: ${{ secrets.workspace_client_id }}
