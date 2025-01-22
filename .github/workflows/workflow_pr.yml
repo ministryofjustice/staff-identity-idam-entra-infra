@@ -8,9 +8,9 @@ on:
         description: Select the environment
         required: true
         options:
-          - DEVL
-          - NLE
-          - LIVE
+          - devl
+          - nle
+          - live
 
 defaults:
   run:
