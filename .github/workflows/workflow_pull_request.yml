@@ -31,12 +31,12 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Azure CLI script
-        uses: azure/cli@v2.1.0
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az account show
+      # - name: Azure CLI script
+      #   uses: azure/cli@v2.1.0
+      #   with:
+      #     azcliversion: latest
+      #     inlineScript: |
+      #       az account show
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
