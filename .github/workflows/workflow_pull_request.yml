@@ -27,6 +27,7 @@ jobs:
           client-id: ${{ secrets.ARM_CLIENT_ID }}
           tenant-id: ${{ secrets.ARM_TENANT_ID }}
           subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          allow-no-subscriptions: true  
 
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -43,4 +44,3 @@ jobs:
       
       # - name: Terraform Init
       #   run: terraform init
-
