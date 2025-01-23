@@ -9,6 +9,11 @@ variable "client_id" {
   type        = string
 }
 
+variable "client_secret" {
+  description = "Azure client secret"
+  type        = string
+}
+
 variable "tenant_id" {
   description = "Azure tenant id"
   type        = string
