@@ -1,4 +1,5 @@
 provider "azurerm" {
+  use_oidc = true
   features {}
 }
 
@@ -21,5 +22,6 @@ terraform {
     storage_account_name = "steucsidamentratf"
     container_name       = "tfstate-env"
     key                  = "terraform.tfstate"
+    use_oidc             = true
   }
 }
