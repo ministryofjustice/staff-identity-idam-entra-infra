@@ -39,7 +39,7 @@ jobs:
             az account show
 
       - name: Setup Terraform
-        uses: actions/setup-terraform@v3
+        uses: hashicorp/setup-terraform@v3
       
       - name: Terraform Init
         run: terraform init
