@@ -43,3 +43,16 @@ jobs:
       - name: Terraform Init
         working-directory: ./terraform/envs/devl
         run: terraform init -input=false
+
+      - name: Terraform Validate
+        working-directory: ./terraform/envs/devl
+        run: terraform validate
+
+      - name: Terraform Format
+        working-directory: ./terraform/envs/devl
+        run: terraform fmt
+
+      - name: Terraform Plan
+        working-directory: ./terraform/envs/devl
+        run: terraform plan -lock-timeout=300s -input=false
+
