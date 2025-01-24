@@ -41,5 +41,5 @@ jobs:
         uses: hashicorp/setup-terraform@v3
       
       - name: Terraform Init
-        run: terraform init
         working-directory: ./terraform/envs/devl
+        run: terraform init -input=false
