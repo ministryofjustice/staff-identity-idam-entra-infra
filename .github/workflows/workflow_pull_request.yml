@@ -35,7 +35,7 @@ jobs:
       
       - name: Terraform Init
         working-directory: ./terraform/envs/nle
-        run: terraform init -backend-config="./state.config"
+        run: terraform init -backend-config="./state.config" -reconfigure
 
       - name: Terraform Validate
         working-directory: ./terraform/envs/nle
