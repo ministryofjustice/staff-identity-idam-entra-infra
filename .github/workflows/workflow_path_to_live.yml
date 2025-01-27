@@ -8,36 +8,90 @@ on:
       - terraform/**
 
 permissions:
+  contents: read
   id-token: write
-  contents: write
   security-events: write
   pull-requests: write
-  actions: none
-  checks: none
-  deployments: none
-  issues: write
-  packages: none
-  repository-projects: none
-  statuses: none
 
 defaults:
   run:
     shell: bash
 
 jobs:
+    terraform:
+      runs-on: ubuntu-latest
 
-  terraform_apply_workflow:
-    strategy:
-      matrix:
-        environment: ["DEVL", "NLE", "LIVE"]
-    name: TF Apply ${{ matrix.environment }}
-    uses: ./.github/workflows/terraform_apply_job.yml
-    with:
-      workspace_name: ${{ matrix.environment }}
-    secrets:
-      arm_subscription_id: ${{ secrets.arm_subscription_id }}
-      arm_tenant_id: ${{ secrets.arm_tenant_id }}
-      arm_client_id: ${{ secrets.arm_client_id }}
-      workspace_tenant_id: ${{ secrets.workspace_tenant_id }}
-      workspace_client_id: ${{ secrets.workspace_client_id }}
-      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      strategy:
+        matrix:
+          include: 
+            - environment: DEVL
+              working_directory: ./terraform/envs/devl
+            - environment: NLE
+              working_directory: ./terraform/envs/nle
+            - environment: LIVE
+              working_directory: ./terraform/envs/live
+
+      environment: ${{ matrix.environment }}
+
+      env:
+        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+
+      steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+      
+      - name: Terraform Init
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform init -backend-config="./state.config"
+
+      - name: Terraform Validate
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform validate
+
+      - name: Terraform Format
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform fmt
+
+      - name: Terraform Plan
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform plan -lock-timeout=300s -input=false -out=tfplan
+
+    apply:
+      name: Terraform Apply
+      needs: terraform
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          include: 
+            - environment: DEVL
+              working_directory: ./terraform/envs/devl
+            - environment: NLE
+              working_directory: ./terraform/envs/nle
+            - environment: LIVE
+              working_directory: ./terraform/envs/live
+
+      environment: ${{ matrix.environment }}
+
+      env:
+        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4
+
+        - name: Setup Terraform
+          uses: hashicorp/setup-terraform@v3
+
+        - name: Terraform Apply
+          working-directory: ${{ matrix.working_directory }}
+          run: terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30 tfplan
