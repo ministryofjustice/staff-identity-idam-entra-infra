@@ -17,7 +17,7 @@ jobs:
     terraform:
       runs-on: ubuntu-latest
 
-      environment: NLE
+      environment: DEVL
 
       env:
         ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
@@ -34,18 +34,18 @@ jobs:
         uses: hashicorp/setup-terraform@v3
       
       - name: Terraform Init
-        working-directory: ./terraform/envs/nle
+        working-directory: ./terraform/envs/devl
         run: terraform init -backend-config="./state.config"
 
       - name: Terraform Validate
-        working-directory: ./terraform/envs/nle
+        working-directory: ./terraform/envs/devl
         run: terraform validate
 
       - name: Terraform Format
-        working-directory: ./terraform/envs/nle
+        working-directory: ./terraform/envs/devl
         run: terraform fmt
 
       - name: Terraform Plan
-        working-directory: ./terraform/envs/nle
+        working-directory: ./terraform/envs/devl
         run: terraform plan -lock-timeout=300s -input=false
 
