@@ -17,6 +17,12 @@ defaults:
   run:
     shell: bash
 
+env:
+  ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+
 jobs:
     terraform:
       runs-on: ubuntu-latest
@@ -32,12 +38,6 @@ jobs:
               working_directory: ./terraform/envs/live
 
       environment: ${{ matrix.environment }}
-
-      env:
-        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
 
       steps:
 
@@ -63,7 +63,7 @@ jobs:
         working-directory: ${{ matrix.working_directory }}
         run: terraform plan -lock-timeout=300s -input=false -out=tfplan
 
-    apply:
+    terraform_apply:
       name: Terraform Apply
       needs: terraform
       runs-on: ubuntu-latest
@@ -78,12 +78,6 @@ jobs:
               working_directory: ./terraform/envs/live
 
       environment: ${{ matrix.environment }}
-
-      env:
-        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
 
       steps:
         - name: Checkout Code
