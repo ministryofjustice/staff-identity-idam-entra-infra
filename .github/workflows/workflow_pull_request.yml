@@ -19,8 +19,11 @@ jobs:
 
       strategy:
         matrix:
-          environment: [DEVL, NLE, LIVE]
-          working_directory: [./terraform/envs/devl, ./terraform/envs/nle, ./terraform/envs/live]
+          include: 
+            - environment: DEVL
+              working_directory: ./terraform/envs/devl
+            - environment: NLE
+              working_directory: ./terraform/envs/nle
 
       environment: ${{ matrix.environment }}
 
