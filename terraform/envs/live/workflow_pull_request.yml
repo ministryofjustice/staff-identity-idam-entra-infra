@@ -1,0 +1,61 @@
+name: "[Workflow] Pull Request"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  security-events: write
+  pull-requests: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+    terraform:
+      runs-on: ubuntu-latest
+
+      strategy:
+        matrix:
+          include: 
+            - environment: DEVL
+              working_directory: ./terraform/envs/devl
+            - environment: NLE
+              working_directory: ./terraform/envs/nle
+            - environment: LIVE
+              working_directory: ./terraform/envs/live
+
+      environment: ${{ matrix.environment }}
+
+      env:
+        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+
+      steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+      
+      - name: Terraform Init
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform init -backend-config="./state.config"
+
+      - name: Terraform Validate
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform validate
+
+      - name: Terraform Format
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform fmt
+
+      - name: Terraform Plan
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform plan -lock-timeout=300s -input=false
+
