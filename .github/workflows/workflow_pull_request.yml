@@ -46,6 +46,6 @@ jobs:
         run: terraform fmt
 
       - name: Terraform Plan
-        working-directory: ./terraform/envs/devl
+        working-directory: ./terraform/envs/nle
         run: terraform plan -lock-timeout=300s -input=false
 
