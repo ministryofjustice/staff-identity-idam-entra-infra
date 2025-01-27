@@ -24,6 +24,8 @@ jobs:
               working_directory: ./terraform/envs/devl
             - environment: NLE
               working_directory: ./terraform/envs/nle
+            - environment: LIVE
+              working_directory: ./terraform/envs/live
 
       environment: ${{ matrix.environment }}
 
