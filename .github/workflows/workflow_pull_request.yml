@@ -34,15 +34,15 @@ jobs:
         uses: hashicorp/setup-terraform@v3
       
       - name: Terraform Init
-        working-directory: ./terraform/envs/devl
+        working-directory: ./terraform/envs/nle
         run: terraform init -backend-config="./state.config"
 
       - name: Terraform Validate
-        working-directory: ./terraform/envs/devl
+        working-directory: ./terraform/envs/nle
         run: terraform validate
 
       - name: Terraform Format
-        working-directory: ./terraform/envs/devl
+        working-directory: ./terraform/envs/nle
         run: terraform fmt
 
       - name: Terraform Plan
