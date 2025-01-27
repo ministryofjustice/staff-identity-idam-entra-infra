@@ -17,7 +17,12 @@ jobs:
     terraform:
       runs-on: ubuntu-latest
 
-      environment: DEVL
+      strategy:
+        matrix:
+          environment: [DEVL, NLE, LIVE]
+          working_directory: [./terraform/envs/devl, ./terraform/envs/nle, ./terraform/envs/live]
+
+      environment: ${{ matrix.environment }}
 
       env:
         ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
@@ -34,18 +39,18 @@ jobs:
         uses: hashicorp/setup-terraform@v3
       
       - name: Terraform Init
-        working-directory: ./terraform/envs/devl
+        working-directory: ${{ matrix.working_directory }}
         run: terraform init -backend-config="./state.config"
 
       - name: Terraform Validate
-        working-directory: ./terraform/envs/devl
+        working-directory: ${{ matrix.working_directory }}
         run: terraform validate
 
       - name: Terraform Format
-        working-directory: ./terraform/envs/devl
+        working-directory: ${{ matrix.working_directory }}
         run: terraform fmt
 
       - name: Terraform Plan
-        working-directory: ./terraform/envs/devl
+        working-directory: ${{ matrix.working_directory }}
         run: terraform plan -lock-timeout=300s -input=false
 
