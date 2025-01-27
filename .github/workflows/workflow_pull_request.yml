@@ -35,7 +35,7 @@ jobs:
       
       - name: Terraform Init
         working-directory: ./terraform/envs/devl
-        run: terraform init -input=false
+        run: terraform init -backend-config="./state.config"
 
       - name: Terraform Validate
         working-directory: ./terraform/envs/devl

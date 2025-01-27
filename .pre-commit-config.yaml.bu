@@ -1,0 +1,26 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: 73c57635b18635a478fe6f47531507c5c0a7a9e2
+  hooks:
+    - id: trailing-whitespace
+    - id: end-of-file-fixer
+      exclude: '^\.idea/'
+    - id: check-yaml
+    - id: check-json
+    - id: no-commit-to-branch
+      args: [main, master]
+- repo: https://github.com/awslabs/git-secrets
+  rev: 5357e18bc27b42a827b6780564ea873a72ca1f01
+  hooks:
+    - id: git-secrets
+
+- repo: https://github.com/terraform-linters/tflint
+  rev: v0.55.0
+  hooks:
+    - id: tflint
+
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: 980a129d326bcc4ac3da94a1936eb767a5633180 
+  hooks:
+    - id: terraform_fmt
+    - id: terraform_validate
