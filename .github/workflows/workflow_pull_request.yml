@@ -42,9 +42,9 @@ jobs:
       - name: Azure Login via OIDC
         uses: azure/login@v2
         with: 
-          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          tenant-id: ${{ secrets.ARM_TENANT_ID }}
+          client-id: ${{ secrets.ARM_CLIENT_ID }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
