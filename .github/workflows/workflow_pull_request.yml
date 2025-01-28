@@ -17,28 +17,51 @@ jobs:
     terraform:
       runs-on: ubuntu-latest
 
-      steps:
+      strategy:
+        matrix:
+          include: 
+            - environment: DEVL
+              working_directory: ./terraform/envs/devl
+            - environment: NLE
+              working_directory: ./terraform/envs/nle
+            - environment: LIVE
+              working_directory: ./terraform/envs/live
 
-      - name: Azure Login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      environment: ${{ matrix.environment }}
+
+      env:
+        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+
+      steps:
 
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Azure CLI script
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az account show
+      - name: Azure Login via OIDC
+        uses: azure/login@v2
+        with: 
+          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          tenant-id: ${{ secrets.ARM_TENANT_ID }}
+          client-id: ${{ secrets.ARM_CLIENT_ID }}
 
-      # - name: Setup Terraform
-      #   uses: actions/setup-terraform@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
       
-      # - name: Terraform Init
-      #   run: terraform init
+      - name: Terraform Init
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform init -backend-config="./state.config"
+
+      - name: Terraform Validate
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform validate
+
+      - name: Terraform Format
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform fmt
+
+      - name: Terraform Plan
+        working-directory: ${{ matrix.working_directory }}
+        run: terraform plan -lock-timeout=300s -input=false
 
