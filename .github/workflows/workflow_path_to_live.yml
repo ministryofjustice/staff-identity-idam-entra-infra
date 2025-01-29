@@ -111,7 +111,7 @@ jobs:
           uses: actions/download-artifact@v4
           with: 
             name: terraform-plan
-            path: .ß
+            path: .
 
         - name: Terraform Apply
           working-directory: ${{ matrix.working_directory }}
