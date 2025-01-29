@@ -28,18 +28,18 @@ on:
 permissions:
   id-token: write
   contents: read
-      
-jobs: 
+
+jobs:
   login-and-rotate:
     runs-on: ubuntu-latest
-    steps:        
+    steps:
     - uses: actions/checkout@v4
     - name: 'Az CLI login with Federation credential'
       uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        allow-no-subscriptions: true        
+        allow-no-subscriptions: true
     - name: 'Rotate Application secret'
       uses: ./.github/actions/delete-application-registration-secret
       id: delete-secret

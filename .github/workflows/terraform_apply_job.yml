@@ -50,7 +50,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_wrapper: false
-        
+
       - name: Terraform Init
         run: terraform init -input=false
         env:
@@ -79,5 +79,5 @@ jobs:
           TF_VAR_client_id: ${{ secrets.workspace_client_id }}
           ARM_USE_OIDC: true
         run: |
-          terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30 
+          terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30
         working-directory: ./terraform
