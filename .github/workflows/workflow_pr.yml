@@ -30,7 +30,7 @@ permissions:
   statuses: none
 
 jobs:
-  
+
   validate_code:
     name: validate code
     uses: ./.github/workflows/validate_code.yml
@@ -40,7 +40,7 @@ jobs:
   # terraform_plan_workflow:
   #   name: tf plan ${{ matrix.environment }}
   #   uses: ./.github/workflows/terraform_plan_job.yml
-  #   needs: 
+  #   needs:
   #     - validate_code
   #   strategy:
   #     matrix:

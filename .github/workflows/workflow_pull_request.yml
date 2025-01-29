@@ -19,7 +19,7 @@ jobs:
 
       strategy:
         matrix:
-          include: 
+          include:
             - environment: DEVL
               working_directory: ./terraform/envs/devl
             - environment: NLE
@@ -41,14 +41,14 @@ jobs:
 
       - name: Azure Login via OIDC
         uses: azure/login@v2
-        with: 
+        with:
           subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           tenant-id: ${{ secrets.ARM_TENANT_ID }}
           client-id: ${{ secrets.ARM_CLIENT_ID }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-      
+
       - name: Terraform Init
         working-directory: ${{ matrix.working_directory }}
         run: terraform init -backend-config="./state.config"
@@ -64,4 +64,3 @@ jobs:
       - name: Terraform Plan
         working-directory: ${{ matrix.working_directory }}
         run: terraform plan -lock-timeout=300s -input=false
-

@@ -72,4 +72,3 @@ jobs:
         working-directory: ${{ inputs.environment_path }}
         run: |
           terraform plan -lock-timeout=300s -input=false
-      

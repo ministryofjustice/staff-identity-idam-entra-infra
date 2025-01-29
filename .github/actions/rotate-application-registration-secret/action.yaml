@@ -6,7 +6,7 @@ branding:
 inputs:
   client-id:
     description: 'The client/application id to rotate'
-    required: true    
+    required: true
   secret-validity-in-days:
     description: 'New secret validity in days'
     required: true
@@ -20,9 +20,9 @@ outputs:
     value: ${{ steps.rotate-secret.outputs.secret_id }}
 runs:
   using: "composite"
-  steps:   
-    - id: rotate-secret      
-      shell: bash      
+  steps:
+    - id: rotate-secret
+      shell: bash
       run: |
         client_id=${{ inputs.client-id }}
         secret_validity_in_days=${{ inputs.secret-validity-in-days }}
@@ -34,7 +34,7 @@ runs:
         secret_value=$(az ad app credential reset --id $client_id --append --display-name $client_secret_name --end-date $client_secret_end_date --query password --only-show-errors --output tsv)
         echo "::add-mask::$secret_value"
         echo "secret_value=$secret_value" >> $GITHUB_OUTPUT
-        
+
         # get secret id
         secret_id=$(az ad app credential list --id $client_id --query "[0].keyId" --output tsv)
         echo "secret_id=$secret_id" >> $GITHUB_OUTPUT

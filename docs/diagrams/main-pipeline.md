@@ -5,14 +5,14 @@ title: Merge to main pipeline
 flowchart TD
     A[Pull Request] -->|Merged into| B[/main/]
     B --> tf[/Run Terraform/]
-    
+
     tf --> devl(DEVL)
 
     devl --> tfinit_devl(Terraform Initiate)
     tfinit_devl --> tfvalidate_devl(Terraform Validate)
     tfvalidate_devl --> tfplan_devl(Terraform Plan)
     tfplan_devl --> approve_devl{Manual Approval Passed?}
-    
+
     approve_devl{Manual Approval Passed?}
     approve_devl -- Yes --> nle
 

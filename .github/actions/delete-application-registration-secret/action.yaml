@@ -12,9 +12,9 @@ inputs:
     required: true
 runs:
   using: "composite"
-  steps:   
-    - id: delete-secret      
-      shell: bash      
+  steps:
+    - id: delete-secret
+      shell: bash
       run: |
         client_id=${{ inputs.client-id }}
         secret_id=${{ inputs.secret-id }}

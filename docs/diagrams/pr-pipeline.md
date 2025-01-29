@@ -11,7 +11,7 @@ flowchart TD
     tf --> devl(DEVL)
     tf --> nle(NLE)
     tf --> live(LIVE)
-    devl --> tfinit(Terraform Initiate)    
+    devl --> tfinit(Terraform Initiate)
     nle --> tfinit(Terraform Initiate)
     live --> tfinit(Terraform Initiate)
     tfinit --> tfvalidate(Terraform Validate)
@@ -22,7 +22,7 @@ flowchart TD
     D -->|Results| final
     E -->|Results| final
     F -->|Results| final
-    tfsecresults -->|Results| final[Actions Output]    
+    tfsecresults -->|Results| final[Actions Output]
     final --> pipelineresult{Pipeline Passed?}
     pipelineresult -- Yes --> pipelineend[/end/]
     pipelineresult -- No --> A
