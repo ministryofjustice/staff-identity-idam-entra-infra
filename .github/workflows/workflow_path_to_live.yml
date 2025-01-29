@@ -67,7 +67,15 @@ jobs:
 
       - name: Terraform Plan
         working-directory: ${{ matrix.working_directory }}
-        run: terraform plan -lock-timeout=300s -input=false -out=tfplan
+        run: terraform plan -lock-timeout=300s -input=false -out=terraform-plan.tfplan
+
+      - name: Upload Terraform Plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-plan
+          path: terraform-plan.tfplan
+          retention-days: 1 
+
 
     terraform_apply:
       name: Terraform Apply
@@ -99,6 +107,12 @@ jobs:
         - name: Setup Terraform
           uses: hashicorp/setup-terraform@v3
 
+        - name: Download Terraform Plan
+          uses: actions/download-artifact@v4
+          with: 
+            name: terraform-plan
+            path: .
+
         - name: Terraform Apply
           working-directory: ${{ matrix.working_directory }}
-          run: terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30 tfplan
+          run: terraform apply terraform-plan.tfplan -lock-timeout=300s -input=false -auto-approve -parallelism=30
