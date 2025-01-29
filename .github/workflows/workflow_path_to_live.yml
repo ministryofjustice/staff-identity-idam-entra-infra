@@ -114,6 +114,19 @@ jobs:
             name: terraform-plan-${{ matrix.environment }}
             path: ${{ matrix.working_directory }}
 
+
+        - name: Terraform Init
+          working-directory: ${{ matrix.working_directory }}
+          run: terraform init -backend-config="./state.config"
+  
+        - name: Terraform Validate
+          working-directory: ${{ matrix.working_directory }}
+          run: terraform validate
+  
+        - name: Terraform Format
+          working-directory: ${{ matrix.working_directory }}
+          run: terraform fmt
+
         - name: Terraform Apply
           working-directory: ${{ matrix.working_directory }}
           run: terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30 terraform-plan.tfplan
