@@ -116,4 +116,4 @@ jobs:
 
         - name: Terraform Apply
           working-directory: ${{ matrix.working_directory }}
-          run: terraform apply terraform-plan.tfplan -lock-timeout=300s -input=false -auto-approve -parallelism=30
+          run: terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30 terraform-plan.tfplan
