@@ -1,4 +1,4 @@
-name: TFSec Static analysis
+name: Trivy Static analysis
 
 on:
   pull_request:
