@@ -10,6 +10,10 @@ permissions:
   security-events: write
   contents: read
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   trivy-terraform-scan:
     name: Run Trivy Static Code Analysis
