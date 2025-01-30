@@ -15,7 +15,7 @@
     {
       "matchManagers": ["terraform"],
       "matchDepTypes": ["version"],
-      "groupname": "Terraform version",
+      "groupName": "Terraform version",
       "automerge": false,
       "stabilityDays": 5,
       "branchPrefix": "renovate-"
@@ -23,7 +23,7 @@
     {
       "matchManagers": ["terraform"],
       "matchDepTypes": ["provider"],
-      "groupname": "Terraform Providers",
+      "groupName": "Terraform Providers",
       "automerge": false,
       "stabilityDays": 5,
       "branchPrefix": "renovate-"
@@ -31,7 +31,7 @@
     {
       "matchManagers": ["terraform"],
       "matchDepTypes": ["module"],
-      "groupname": "Terraform Modules",
+      "groupName": "Terraform Modules",
       "automerge": false,
       "stabilityDays": 5,
       "branchPrefix": "renovate-"
