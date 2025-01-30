@@ -8,7 +8,7 @@ on:
 
 permissions:
   security-events: write
-  contents: read
+  contents: write
   actions: read
 
 defaults:
