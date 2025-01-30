@@ -31,7 +31,6 @@ jobs:
           severity: "HIGH,CRITICAL"
           format: "sarif"
           output: "trivy-results.sarif"
-          security-checks: "config"
           exit-code: 1
           ignore-unfixed: true
 
