@@ -1,0 +1,36 @@
+name: TFSec Static analysis
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "**.tf"
+
+permissions:
+  security-events: write
+
+jobs:
+  trivy-terraform-scan:
+    name: Run Trivy Static Code Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Trivy and Run Scan
+        uses: aquasecurity/trivy-action@v0.29.0
+        with:
+          scan-type: "config"
+          scan-ref: "."
+          severity: "HIGH,CRITICAL"
+          format: "sarif"
+          output: "trivy-results.sarif"
+          security-checks: "config"
+          exit-code: 1
+          ignore-unfixed: true
+
+      - name: Upload SARIF Report to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: "trivy-results.sarif"
