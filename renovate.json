@@ -1,0 +1,44 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+
+  "enabledManagers": ["terraform"],
+
+  "terraform": {
+    "commitMessageTopic": "Terraform {{depName}}",
+    "fileMatch": [
+      "\\.tf$"
+    ],
+    "pinDigests": false
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["terraform"],
+      "matchDepTypes": ["version"],
+      "groupName": "Terraform version",
+      "automerge": false,
+      "stabilityDays": 5,
+      "branchPrefix": "renovate-"
+    },
+    {
+      "matchManagers": ["terraform"],
+      "matchDepTypes": ["provider"],
+      "groupName": "Terraform Providers",
+      "automerge": false,
+      "stabilityDays": 5,
+      "branchPrefix": "renovate-"
+    },
+    {
+      "matchManagers": ["terraform"],
+      "matchDepTypes": ["module"],
+      "groupName": "Terraform Modules",
+      "automerge": false,
+      "stabilityDays": 5,
+      "branchPrefix": "renovate-"
+    }
+  ],
+
+  "prCreation": "immediate",
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 5
+}
