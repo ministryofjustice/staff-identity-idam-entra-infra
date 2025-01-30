@@ -8,6 +8,12 @@ on:
 
 permissions:
   security-events: write
+  contents: write
+  actions: read
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   trivy-terraform-scan:
@@ -19,14 +25,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Trivy and Run Scan
-        uses: aquasecurity/trivy-action@v0.29.0
+        uses: aquasecurity/trivy-action@master
         with:
           scan-type: "config"
           scan-ref: "."
           severity: "HIGH,CRITICAL"
           format: "sarif"
           output: "trivy-results.sarif"
-          security-checks: "config"
           exit-code: 1
           ignore-unfixed: true
 
