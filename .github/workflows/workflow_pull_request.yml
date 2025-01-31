@@ -44,6 +44,9 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
+    - name: debug
+      run: echo pwd
+
     - name: Terraform Init
       working-directory: ./terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
       run: terraform init -backend-config="./state.config"
