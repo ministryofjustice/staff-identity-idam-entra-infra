@@ -53,17 +53,17 @@ jobs:
       uses: hashicorp/setup-terraform@v3
 
     - name: Terraform Init
-      working-directory: ${{ matrix.working_directory }}
+      working-directory: ${{ matrix.working_directory }}/${{ matrix.customers }}
       run: terraform init -backend-config="./state.config"
 
     - name: Terraform Validate
-      working-directory: ${{ matrix.working_directory }}
+      working-directory: ${{ matrix.working_directory }}/${{ matrix.customers }}
       run: terraform validate
 
     - name: Terraform Format
-      working-directory: ${{ matrix.working_directory }}
+      working-directory: ${{ matrix.working_directory }}/${{ matrix.customers }}
       run: terraform fmt
 
     - name: Terraform Plan
-      working-directory: ${{ matrix.working_directory }}
+      working-directory: ${{ matrix.working_directory }}/${{ matrix.customers }}
       run: terraform plan -lock-timeout=300s -input=false
