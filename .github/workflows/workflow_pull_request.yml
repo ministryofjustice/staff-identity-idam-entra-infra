@@ -45,17 +45,17 @@ jobs:
       uses: hashicorp/setup-terraform@v3
 
     - name: Terraform Init
-      working-directory: terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
+      working-directory: ./terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
       run: terraform init -backend-config="./state.config"
 
     - name: Terraform Validate
-      working-directory: terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
+      working-directory: ./terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
       run: terraform validate
 
     - name: Terraform Format
-      working-directory: terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
+      working-directory: ./terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
       run: terraform fmt
 
     - name: Terraform Plan
-      working-directory: terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
+      working-directory: ./terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
       run: terraform plan -lock-timeout=300s -input=false
