@@ -14,53 +14,56 @@ defaults:
     shell: bash
 
 jobs:
-    terraform:
-      runs-on: ubuntu-latest
 
-      strategy:
-        matrix:
-          include:
-            - environment: DEVL
-              working_directory: ./terraform/envs/devl
-            - environment: NLE
-              working_directory: ./terraform/envs/nle
-            - environment: LIVE
-              working_directory: ./terraform/envs/live
+  terraform:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - environment: DEVL
+            working_directory: ./terraform/envs/devl
+            customers: [idam-internal]
+          - environment: NLE
+            working_directory: ./terraform/envs/nle
+            customers: [idam-internal]
+          - environment: LIVE
+            working_directory: ./terraform/envs/live
+            customers: [idam-internal]
 
-      environment: ${{ matrix.environment }}
+    environment: ${{ matrix.environment }}
 
-      env:
-        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+    env:
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
 
-      steps:
+    steps:
 
-      - name: Checkout Code
-        uses: actions/checkout@v4
+    - name: Checkout Code
+      uses: actions/checkout@v4
 
-      - name: Azure Login via OIDC
-        uses: azure/login@v2
-        with:
-          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-          tenant-id: ${{ secrets.ARM_TENANT_ID }}
-          client-id: ${{ secrets.ARM_CLIENT_ID }}
+    - name: Azure Login via OIDC
+      uses: azure/login@v2
+      with:
+        subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        tenant-id: ${{ secrets.ARM_TENANT_ID }}
+        client-id: ${{ secrets.ARM_CLIENT_ID }}
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init
-        working-directory: ${{ matrix.working_directory }}
-        run: terraform init -backend-config="./state.config"
+    - name: Terraform Init
+      working-directory: ${{ matrix.working_directory }}
+      run: terraform init -backend-config="./state.config"
 
-      - name: Terraform Validate
-        working-directory: ${{ matrix.working_directory }}
-        run: terraform validate
+    - name: Terraform Validate
+      working-directory: ${{ matrix.working_directory }}
+      run: terraform validate
 
-      - name: Terraform Format
-        working-directory: ${{ matrix.working_directory }}
-        run: terraform fmt
+    - name: Terraform Format
+      working-directory: ${{ matrix.working_directory }}
+      run: terraform fmt
 
-      - name: Terraform Plan
-        working-directory: ${{ matrix.working_directory }}
-        run: terraform plan -lock-timeout=300s -input=false
+    - name: Terraform Plan
+      working-directory: ${{ matrix.working_directory }}
+      run: terraform plan -lock-timeout=300s -input=false
