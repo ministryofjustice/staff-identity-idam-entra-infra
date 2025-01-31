@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        environment: [devl, nle, live]
+        environment: [DEVL, NLE, LIVE]
         customers: [idam-internal]
 
     environment: ${{ matrix.environment }}
