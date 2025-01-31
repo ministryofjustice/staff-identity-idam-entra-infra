@@ -19,16 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-          - environment: DEVL
-            working_directory: ./terraform/envs/devl
-            customers: [idam-internal]
-          - environment: NLE
-            working_directory: ./terraform/envs/nle
-            customers: [idam-internal]
-          - environment: LIVE
-            working_directory: ./terraform/envs/live
-            customers: [idam-internal]
+        environment: [DEVL, NLE, LIVE]
+        customers: [idam-internal]
 
     environment: ${{ matrix.environment }}
 
@@ -53,17 +45,17 @@ jobs:
       uses: hashicorp/setup-terraform@v3
 
     - name: Terraform Init
-      working-directory: ${{ matrix.working_directory }}/${{ matrix.customers }}
+      working-directory: ./terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
       run: terraform init -backend-config="./state.config"
 
     - name: Terraform Validate
-      working-directory: ${{ matrix.working_directory }}/${{ matrix.customers }}
+      working-directory: ./terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
       run: terraform validate
 
     - name: Terraform Format
-      working-directory: ${{ matrix.working_directory }}/${{ matrix.customers }}
+      working-directory: ./terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
       run: terraform fmt
 
     - name: Terraform Plan
-      working-directory: ${{ matrix.working_directory }}/${{ matrix.customers }}
+      working-directory: ./terraform/envs/${{matrix.environment}}/${{ matrix.customers }}
       run: terraform plan -lock-timeout=300s -input=false
