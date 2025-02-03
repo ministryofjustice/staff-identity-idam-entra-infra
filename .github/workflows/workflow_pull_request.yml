@@ -15,28 +15,11 @@ defaults:
 
 jobs:
 
-  setup-matrix:
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.generate-matrix.outputs.matrix }}
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Gemerate environment customer matrix
-        id: generate-matrix
-        run: |
-          MATRIX=$(find terraform/envs -mindepth 2 -maxdepth 2 -type d | \
-            awk -F'/' '{print "{\"env\":\""$3"\", \"customer\":\""$4"\"}"}' | \
-            jq -s '{include: .}')
-          echo "matrix=$MATRIX" >> $GITHUB_ENV
-          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
-
   terraform:
     runs-on: ubuntu-latest
-    needs: setup-matrix
     strategy:
-      matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
+      matrix:
+        environment: [DEVL, NLE, LIVE]
 
     environment: ${{ matrix.environment }}
 
@@ -60,21 +43,18 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
-    - name: debug
-      run: echo pwd
-
     - name: Terraform Init
       working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
-      run: terraform init -backend-config="./state.config"
+      run: pwsh ./scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config="./state.config"
 
-    - name: Terraform Validate
-      working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
-      run: terraform validate
+    # - name: Terraform Validate
+    #   working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
+    #   run: terraform validate
 
-    - name: Terraform Format
-      working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
-      run: terraform fmt
+    # - name: Terraform Format
+    #   working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
+    #   run: terraform fmt
 
-    - name: Terraform Plan
-      working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
-      run: terraform plan -lock-timeout=300s -input=false
+    # - name: Terraform Plan
+    #   working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
+    #   run: terraform plan -lock-timeout=300s -input=false
