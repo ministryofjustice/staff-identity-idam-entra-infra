@@ -9,7 +9,7 @@ param (
 
 # Global Vars
 $env = $Env.ToLower()
-$baseDir = "terraform/envs/$env"
+$baseDir = "./terraform/envs/$env"
 
 # Get all customers dirs per env
 Set-Location $baseDir
