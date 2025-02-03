@@ -19,7 +19,7 @@ Set-Location $PSScriptRoot
 
 # Run a Terraform command for each customer
 foreach ($customer in $customers) {
-    $workingDir = "$baseDir/$customer"
+    $workingDir = Resolve-Path -Path "$baseDir/$customer"
     Set-Location -Path $workingDir
     Write-Host "Running terraform $TerraformCommand for: [$customer]"
     terraform $TerraformCommand
