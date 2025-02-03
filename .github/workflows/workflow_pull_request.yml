@@ -45,7 +45,7 @@ jobs:
 
     - name: Terraform Init
       working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
-      run: pwsh ./scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand 'init -backend-config="./state.config"'
+      run: pwsh -File ./scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand 'init -backend-config="./state.config"'
 
     # - name: Terraform Validate
     #   working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
