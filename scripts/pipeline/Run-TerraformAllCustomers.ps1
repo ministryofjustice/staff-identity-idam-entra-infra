@@ -9,11 +9,13 @@ param (
 
 # Global Vars
 $env = $Env.ToLower()
-$baseDir = "terraform/envs/$Env"
+$baseDir = "terraform/envs/$env"
 
 # Get all customers dirs per env
 Set-Location $baseDir
 $customers = Get-ChildItem -Directory | Select-Object -ExpandProperty Name
+
+Set-Location $PSScriptRoot
 
 # Run a Terraform command for each customer
 foreach ($customer in $customers) {
