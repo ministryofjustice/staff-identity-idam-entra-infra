@@ -47,14 +47,14 @@ jobs:
       shell: pwsh
       run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
 
-    # - name: Terraform Validate
-    #   working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
-    #   run: terraform validate
+    - name: Terraform Validate
+      shell: pwsh
+      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "validate"
 
-    # - name: Terraform Format
-    #   working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
-    #   run: terraform fmt
+    - name: Terraform Format
+      shell: pwsh
+      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "fmt"
 
-    # - name: Terraform Plan
-    #   working-directory: terraform/envs/${{ matrix.env }}/${{ matrix.customer }}
-    #   run: terraform plan -lock-timeout=300s -input=false
+    - name: Terraform Plan
+      shell: pwsh
+      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false"
