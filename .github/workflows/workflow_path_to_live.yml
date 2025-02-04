@@ -106,13 +106,6 @@ jobs:
         - name: Setup Terraform
           uses: hashicorp/setup-terraform@v3
 
-        - name: Download Terraform Plan
-          uses: actions/download-artifact@v4
-          with:
-            name: terraform-plan-${{ matrix.environment }}
-            path: ${{ matrix.working_directory }}
-
-
         - name: Terraform Init
           shell: pwsh
           run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
