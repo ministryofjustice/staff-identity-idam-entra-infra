@@ -30,13 +30,7 @@ jobs:
 
       strategy:
         matrix:
-          include:
-            - environment: DEVL
-              working_directory: ./terraform/envs/devl
-            - environment: NLE
-              working_directory: ./terraform/envs/nle
-            - environment: LIVE
-              working_directory: ./terraform/envs/live
+          environment: [DEVL, NLE, LIVE]
 
       environment: ${{ matrix.environment }}
 
@@ -56,27 +50,20 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
-        working-directory: ${{ matrix.working_directory }}
-        run: terraform init -backend-config="./state.config"
+        shell: pwsh
+        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
 
       - name: Terraform Validate
-        working-directory: ${{ matrix.working_directory }}
-        run: terraform validate
+        shell: pwsh
+        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "validate"
 
       - name: Terraform Format
-        working-directory: ${{ matrix.working_directory }}
-        run: terraform fmt
+        shell: pwsh
+        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "fmt"
 
       - name: Terraform Plan
-        working-directory: ${{ matrix.working_directory }}
-        run: terraform plan -lock-timeout=300s -input=false -out=terraform-plan.tfplan
-
-      - name: Upload Terraform Plan
-        uses: actions/upload-artifact@v4
-        with:
-          name: terraform-plan-${{ matrix.environment }}
-          path: ${{ matrix.working_directory }}/terraform-plan.tfplan
-          retention-days: 0
+        shell: pwsh
+        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false"
 
     manual_approval:
       name: Manual Approval
@@ -101,13 +88,7 @@ jobs:
       runs-on: ubuntu-latest
       strategy:
         matrix:
-          include:
-            - environment: DEVL
-              working_directory: ./terraform/envs/devl
-            - environment: NLE
-              working_directory: ./terraform/envs/nle
-            - environment: LIVE
-              working_directory: ./terraform/envs/live
+          environment: [DEVL, NLE, LIVE]
 
       environment: ${{ matrix.environment }}
 
@@ -133,17 +114,17 @@ jobs:
 
 
         - name: Terraform Init
-          working-directory: ${{ matrix.working_directory }}
-          run: terraform init -backend-config="./state.config"
+          shell: pwsh
+          run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
 
         - name: Terraform Validate
-          working-directory: ${{ matrix.working_directory }}
-          run: terraform validate
+          shell: pwsh
+          run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "validate"
 
         - name: Terraform Format
-          working-directory: ${{ matrix.working_directory }}
-          run: terraform fmt
+          shell: pwsh
+          run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "fmt"
 
-        - name: Terraform Apply
-          working-directory: ${{ matrix.working_directory }}
-          run: terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30 terraform-plan.tfplan
+        - name: Terraform Plan and Apply
+          shell: pwsh
+          run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformPlanAndApply
