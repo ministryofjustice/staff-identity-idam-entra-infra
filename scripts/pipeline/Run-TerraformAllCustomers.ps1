@@ -24,5 +24,5 @@ foreach ($customer in $customers) {
     Set-Location -Path $workingDir
     Write-Host "Running terraform $TerraformCommand for: [$customer]"
     terraform $TerraformCommand
-    Set-Location $baseDir
+    cd ..
 }
