@@ -32,7 +32,7 @@ try {
         Set-Location -Path $workingDir
         Write-Host "Running terraform $TerraformCommand for: [$customer]"
         Invoke-Expression $command
-        Set-Location $baseDir
+        cd ..
     }
 } catch {
     throw $_
