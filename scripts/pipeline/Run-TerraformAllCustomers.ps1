@@ -10,6 +10,7 @@ param (
 # Global Vars
 $env = $Env.ToLower()
 $baseDir = "./terraform/envs/$env"
+$command = "terraform $TerraformCommand"
 
 # Get all customers dirs per env
 Set-Location $baseDir
@@ -23,7 +24,6 @@ foreach ($customer in $customers) {
     $workingDir = Resolve-Path -Path "$customer"
     Set-Location -Path $workingDir
     Write-Host "Running terraform $TerraformCommand for: [$customer]"
-    $command = "terraform $TerraformCommand"
     Invoke-Expression $command
     cd ..
 }
