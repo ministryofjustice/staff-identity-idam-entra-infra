@@ -23,6 +23,6 @@ foreach ($customer in $customers) {
     $workingDir = Resolve-Path -Path "$customer"
     Set-Location -Path $workingDir
     Write-Host "Running terraform $TerraformCommand for: [$customer]"
-    terraform init -backend-config='./state.config'
+    terraform $TerraformCommand
     cd ..
 }
