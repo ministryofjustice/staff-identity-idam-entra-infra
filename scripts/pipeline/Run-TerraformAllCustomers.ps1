@@ -14,7 +14,8 @@ $baseDir = "./terraform/envs/$env"
 # Get all customers dirs per env
 Set-Location $baseDir
 Write-Host $(Get-Location)
-# $customers = Get-ChildItem -Directory | Select-Object -ExpandProperty Name
+$customers = Get-ChildItem -Directory | Select-Object -ExpandProperty Name
+Write-Host $customers
 
 # Set-Location $PSScriptRoot
 
