@@ -40,7 +40,7 @@ variable "applications" {
     service_principle = object({
       login_url                     = string
       notification_email_addresses  = list(string)
-      preferred_single_sign-on_mode = string
+      preferred_single_sign_on_mode = string
       app_role_assignment_required  = bool
       account_enabled               = bool
       application_template_name     = string
@@ -71,7 +71,7 @@ variable "applications" {
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
-        preferred_single_sign-on_mode = "saml"
+        preferred_single_sign_on_mode = null
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
