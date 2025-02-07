@@ -71,7 +71,7 @@ variable "applications" {
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
-        preferred_single_sign-on_mode = null
+        preferred_single_sign-on_mode = "saml"
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
