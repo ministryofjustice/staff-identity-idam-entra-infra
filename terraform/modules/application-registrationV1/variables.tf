@@ -14,8 +14,8 @@ variable "display_name" {
 }
 
 variable "department_name" {
-  type        = string
   description = "Department name such as EUCS, OPG, LAA, etc."
+  type        = string
   validation {
     condition     = can(regex("^[a-zA-Z0-9\\-]+$", var.department_name))
     error_message = "Depeartment Name must be, alphanumeric in the following type of pattern: EUCS, Justice-Digital etc."
@@ -23,8 +23,8 @@ variable "department_name" {
 }
 
 variable "team_name" {
-  type        = string
   description = "Team name acronym such as IDAM, MWP, AP, etc."
+  type        = string
   validation {
     condition     = can(regex("^[a-zA-Z0-9\\-]+$", var.team_name))
     error_message = "Team Name must be, alphanumeric in the following type of pattern: IDAM, MWP, AP, OPG, LAA, etc."
@@ -32,8 +32,8 @@ variable "team_name" {
 }
 
 variable "application_name" {
-  type        = string
   description = "Application name Application Registration refers to such as ServiceNow, Slack, Ml-Flow, Intranet, etc."
+  type        = string
   validation {
     condition     = can(regex("^[a-zA-Z0-9\\-]+$", var.application_name))
     error_message = "Application Name alphanumeric in the following type of pattern: ServiceNow, Slack, Ml-Flow, Intranet, etc."
@@ -41,8 +41,8 @@ variable "application_name" {
 }
 
 variable "create_access_package" {
-  type        = bool
   description = "Create access packages for managing user access to your application. This requires App Roles to be setup."
+  type        = bool
   default     = false
 }
 
@@ -53,14 +53,14 @@ variable "access_package_reviewers" {
 }
 
 variable "owners" {
-  type        = list(string)
   description = "UPNs of owners. Should be a minimum of 2 people."
+  type        = list(string)
 }
 
 variable "allowed_groups" {
-  default     = []
-  type        = list(string)
   description = "(Optional) List of Security Groups to manage access for people to the application."
+  type        = list(string)
+  default     = []
 }
 
 variable "homepage_url" {
@@ -79,7 +79,6 @@ variable "redirect_uris" {
 }
 
 variable "app_roles" {
-  default     = null
   description = "App roles are custom roles to assign permissions to users or apps. The application defines and publishes the app roles and interprets them as permissions during authorization."
   type = list(object({
     allowed_member_types  = list(string)
@@ -89,26 +88,27 @@ variable "app_roles" {
     value                 = string
     access_package_hidden = bool
   }))
+  default = null
 }
 
 variable "graph_application_permissions" {
-  default     = null
-  nullable    = true
   description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
   type        = list(string)
+  nullable    = true
+  default     = null
 }
 
 variable "graph_delegated_permissions" {
-  default     = null
-  nullable    = true
   description = "Graph Delegated Permissions required on the Application such as 'User.Read'."
   type        = list(string)
+  nullable    = true
+  default     = null
 }
 
 variable "tenants_required" {
-  default     = ["DEVL"]
   description = "List of tenants the Application should be setup on. Can be DEVL, NLE and LIVE'."
   type        = list(string)
+  default     = ["DEVL"]
 
   validation {
     condition     = length(var.tenants_required) > 0
@@ -117,8 +117,6 @@ variable "tenants_required" {
 }
 
 variable "federated_identity_credentials" {
-  default     = []
-  nullable    = true
   description = "Manages a federated identity credential associated with an application within Azure Active Directory."
   type = list(object({
     repo_name      = string
@@ -126,18 +124,11 @@ variable "federated_identity_credentials" {
     description    = string
     subject_suffix = string
   }))
+  nullable = true
+  default  = []
 }
 
 variable "service_principle" {
-  default = {
-    login_url                     = null,
-    notification_email_addresses  = [],
-    preferred_single_sign_on_mode = null,
-    app_role_assignment_required  = true,
-    account_enabled               = true,
-    application_template_name     = null,
-    hide                          = null,
-  }
   description = "Service Principle specific properties."
   type = object({
     login_url                     = string
@@ -148,10 +139,19 @@ variable "service_principle" {
     application_template_name     = string
     hide                          = bool
   })
+  default = {
+    login_url                     = null,
+    notification_email_addresses  = [],
+    preferred_single_sign_on_mode = null,
+    app_role_assignment_required  = true,
+    account_enabled               = true,
+    application_template_name     = null,
+    hide                          = null,
+  }
 }
 
 variable "identifier_uris" {
-  nullable    = true
   description = "The globally unique URI used to identify this web API. It is the prefix for scopes and in access tokens, it is the value of the audience claim. Also referred to as an identifier URI."
   type        = list(string)
+  nullable    = true
 }
