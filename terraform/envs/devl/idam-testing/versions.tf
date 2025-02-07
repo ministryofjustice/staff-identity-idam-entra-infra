@@ -14,10 +14,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "rg-eucs-idam-observability"
-    storage_account_name = "stidamobservetfstate"
-    container_name       = "tfstate-env"
-    key                  = "terraform-idam-testing.tfstate"
+    resource_group_name  = ""
+    storage_account_name = ""
+    container_name       = ""
+    key                  = ""
     use_oidc             = true
   }
 }
