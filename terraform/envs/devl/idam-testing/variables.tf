@@ -60,9 +60,9 @@ variable "applications" {
       access_package_reviewers       = []
       owners                         = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
-      homepage_url                   = "https://example.com"
-      logout_url                     = "https://example.com/logout"
-      redirect_uris                  = ["https://example.com/redirect"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
@@ -77,7 +77,7 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = ["https://example.com/uri1"]
+      identifier_uris = null
     }
   }
 }
