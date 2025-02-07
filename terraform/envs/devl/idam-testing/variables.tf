@@ -60,9 +60,9 @@ variable "applications" {
       access_package_reviewers       = []
       owners                         = ["jnolan-admin@devl.justice.gov.uk", "IDAMTestUser1@devl.justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
-      homepage_url                   = "https://example.com"
-      logout_url                     = "https://example.com/logout"
-      redirect_uris                  = ["https://example.com/redirect"]
+      homepage_url                   = "https://idam-test.devl.justice.gov.uk"
+      logout_url                     = "https:/idam-test.devl.justice.gov.uk/logout"
+      redirect_uris                  = ["https://idam-test.devl.justice.gov.uk/redirect"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
@@ -77,7 +77,7 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = ["https://app1.example.com/uri1"]
+      identifier_uris = ["https://idam-test.devl.justice.gov.uk/uri1"]
     }
   }
 }
