@@ -93,7 +93,7 @@ variable "enterprise_app" {
   default = {
     "idam-test" = { 
       display_name    = "idam-test-tf-enterprise-app"
-      identifier_uris = []
+      identifier_uris = ["https://example.com"]
       owners          = ["jgillett-admin@devl.justice.gov.uk"]
       sso_mode        = "SAML"  
     }      
