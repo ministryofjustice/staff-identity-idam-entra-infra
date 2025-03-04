@@ -81,3 +81,21 @@ variable "applications" {
     }
   }
 }
+
+variable "enterprise_app" {
+  description = "Configuration for the Azure AD Application."
+  type = object({
+    display_name    = string
+    identifier_uris = list(string)
+    owners          = list(string)
+    sso_mode        = string
+  })
+  default = {
+    "idam-test" = { 
+      display_name    = "idam-test-tf-enterprise-app"
+      identifier_uris = []
+      owners          = ["jgillett-admin@devl.justice.gov.uk"]
+      sso_mode        = "SAML"  
+    }      
+  }
+}
