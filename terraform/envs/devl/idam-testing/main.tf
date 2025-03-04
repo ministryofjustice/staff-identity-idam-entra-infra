@@ -37,3 +37,14 @@ module "application-registration" {
   identifier_uris                = each.value.identifier_uris
 }
 #endregion
+
+#region Enterprise Apps
+module "enterprise_app" {
+  source          = "../../../modules/enterprise-applicationV1"
+  for_each        = var.enterprise_app
+  display_name    = each.value.display_name 
+  identifier_uris = each.value.identifier_uris 
+  owners          = each.value.owners
+  sso_mode        = each.value.sso_mode
+}
+#endregion
