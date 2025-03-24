@@ -50,15 +50,15 @@ variable "applications" {
   }))
   default = {
     "app1" = {
-      notes                          = "FDS_SharePoint_Reporting"
+      notes                          = "FDS SharePoint Reporting"
       service_management_reference   = "IDAM-2615"
-      display_name                   = "FDS_SharePoint_Reporting"
+      display_name                   = "FDS-SharePoint-Reporting"
       department_name                = "eucs"
-      team_name                      = "f&d"
+      team_name                      = "FandD"
       application_name               = "FDS_SharePoint_Reporting"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Craig.Hand@justice.gov.uk", "John.Murray1@justice.gov.uk"]
+      owners                         = []
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null

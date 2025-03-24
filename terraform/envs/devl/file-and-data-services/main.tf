@@ -1,7 +1,7 @@
 locals {
   tags = {
     department = "eucs"
-    team       = "idam"
+    team       = "FandD"
     source     = "terraform"
   }
 }
