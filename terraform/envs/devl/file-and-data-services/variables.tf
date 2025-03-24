@@ -49,13 +49,13 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "app1" = {
+    "file_and_data_graph" = {
       notes                          = "FDS SharePoint Reporting"
       service_management_reference   = "IDAM-2615"
       display_name                   = "FDS-SharePoint-Reporting"
       department_name                = "eucs"
       team_name                      = "FandD"
-      application_name               = "FDS_SharePoint_Reporting"
+      application_name               = "FDS-SharePoint-Reporting"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = []
