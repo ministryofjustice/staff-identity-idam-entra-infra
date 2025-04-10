@@ -49,7 +49,7 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "app1" = {
+    "data_engineering_sharepoint_downloader" = {
       notes                          = "Data Engineering SharePoint Downloader App"
       service_management_reference   = "IDAM-2726"
       display_name                   = "SharePointDownloaderApp"
@@ -65,7 +65,7 @@ variable "applications" {
       redirect_uris                  = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = []
+      graph_delegated_permissions    = ["Sites.Selected"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
