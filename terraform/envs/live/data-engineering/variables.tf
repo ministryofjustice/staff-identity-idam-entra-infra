@@ -53,8 +53,8 @@ variable "applications" {
       notes                          = "Data Engineering SharePoint Downloader App"
       service_management_reference   = "IDAM-2726"
       display_name                   = "SharePointDownloaderApp"
-      department_name                = "Data and Analytics Engineering Hub"
-      team_name                      = "Data Engineering"
+      department_name                = "Data-and-Analytics-Engineering-Hub"
+      team_name                      = "Data-Engineering"
       application_name               = "moj-de-sharepointdownloaderapp"
       create_access_package          = false
       access_package_reviewers       = []
