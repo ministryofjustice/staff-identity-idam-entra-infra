@@ -49,7 +49,7 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "file_and_data_graph" = {
+    "modern_workplace_genesys" = {
       notes                          = "HMCTS-SCTContactcentre-Genesys"
       service_management_reference   = "IDAM-2828"
       display_name                   = "HMCTS-SCTContactcentre-Genesys"
