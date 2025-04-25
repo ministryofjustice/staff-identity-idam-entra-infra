@@ -3,7 +3,6 @@ variable "location" {
   type        = string
   default     = "uksouth"
 }
-
 variable "applications" {
   description = "Map of application details"
   type = map(object({
@@ -49,23 +48,23 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "voice_graph_access" = {
-      notes                          = "Provides the Hosted Voice team permissions to run PowerShell via graph"
-      service_management_reference   = "IDAM-2685"
-      display_name                   = "PowerShell-Access"
-      department_name                = "Digital-Infrastructure-Security-Operations"
-      team_name                      = "Hosted-Voice"
-      application_name               = ""
+    "data_engineering_sharepoint_downloader" = {
+      notes                          = "Data Engineering SharePoint Downloader App"
+      service_management_reference   = "IDAM-2726"
+      display_name                   = "SharePointDownloaderApp"
+      department_name                = "Data-and-Analytics-Engineering-Hub"
+      team_name                      = "Data-Engineering"
+      application_name               = "DISO-Hosted-Voice-Teams-Routing"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Shanmugapriya.basker@justice.gov.uk"]
+      owners                         = []
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = [""]
+      graph_delegated_permissions    = ["User.ReadWrite.All", "Directory.ReadWrite.All", "Group.ReadWrite.All"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
