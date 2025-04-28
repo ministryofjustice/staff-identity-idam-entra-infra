@@ -65,7 +65,7 @@ variable "applications" {
       redirect_uris                  = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["User.Read", "SMTP.SendAsApp"]
+      graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["NLE"]
       federated_identity_credentials = []
       service_principle = {
