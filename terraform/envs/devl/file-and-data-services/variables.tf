@@ -65,7 +65,7 @@ variable "applications" {
       redirect_uris                  = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["Sites.Read.All", "Reports.Read.All", "User.Read.All", "Groups.Read.All", "Files.Read.All"]
+      graph_delegated_permissions    = ["Sites.Read.All", "Reports.Read.All", "User.Read.All", "Group.ReadWrite.All", "Files.Read.All"]
       tenants_required               = ["DEVL"]
       federated_identity_credentials = []
       service_principle = {
