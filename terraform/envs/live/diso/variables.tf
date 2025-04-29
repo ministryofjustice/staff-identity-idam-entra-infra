@@ -49,12 +49,12 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "data_engineering_sharepoint_downloader" = {
-      notes                          = "Data Engineering SharePoint Downloader App"
-      service_management_reference   = "IDAM-2726"
-      display_name                   = "SharePointDownloaderApp"
-      department_name                = "Data-and-Analytics-Engineering-Hub"
-      team_name                      = "Data-Engineering"
+    "diso_teams_routing" = {
+      notes                          = "DISO Team Teams Routing"
+      service_management_reference   = "IDAM-2685"
+      display_name                   = "TeamsRoutingApp"
+      department_name                = "Digital-Infrastructure-Security-Operations"
+      team_name                      = "Hosted-Voice"
       application_name               = "DISO-Hosted-Voice-Teams-Routing"
       create_access_package          = false
       access_package_reviewers       = []
