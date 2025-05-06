@@ -52,7 +52,7 @@ variable "applications" {
     "diso_teams_routing" = {
       notes                          = "DISO Team Teams Routing"
       service_management_reference   = "IDAM-2685"
-      display_name                   = "TeamsRoutingApp"
+      display_name                   = "DISO-Hosted-Voice-Teams-Routing"
       department_name                = "Digital-Infrastructure-Security-Operations"
       team_name                      = "Hosted-Voice"
       application_name               = "DISO-Hosted-Voice-Teams-Routing"
