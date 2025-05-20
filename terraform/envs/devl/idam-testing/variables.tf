@@ -84,18 +84,18 @@ variable "applications" {
 
 variable "enterprise_app" {
   description = "Configuration for the Azure AD Application."
-  type =  map(object({
+  type = map(object({
     display_name    = string
     identifier_uris = list(string)
     owners          = list(string)
     sso_mode        = string
   }))
   default = {
-    "idam-test" = { 
+    "idam-test" = {
       display_name    = "idam-test-tf-enterprise-app"
       identifier_uris = ["https://example.com"]
       owners          = ["jgillett-admin@devl.justice.gov.uk"]
-      sso_mode        = "SAML"  
-    }      
+      sso_mode        = "SAML"
+    }
   }
 }
