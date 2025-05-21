@@ -49,7 +49,7 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "diso_teams_routing" = {
+    "justice-ai-magic-mail" = {
       notes                          = "Justice AI Team Magic Mail"
       service_management_reference   = "IDAM-2889"
       display_name                   = "justice-ai-magic-mail"
