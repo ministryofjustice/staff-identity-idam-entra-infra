@@ -62,7 +62,7 @@ variable "applications" {
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = "https://seventhacademytest-dev-example.azurewebsites.net/.auth/login/aad/callback"
+      redirect_uris                  = ["https://seventhacademytest-dev-example.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = []
