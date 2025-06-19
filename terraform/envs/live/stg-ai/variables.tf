@@ -58,11 +58,11 @@ variable "applications" {
       application_name               = "STG-AI-Justice-Transcribe"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = []
+      owners                         = ["dan.james@justice.gov.uk","sam.lhuillier@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = null
+      redirect_uris                  = "https://seventhacademytest-dev-example.azurewebsites.net/.auth/login/aad/callback"
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = []
