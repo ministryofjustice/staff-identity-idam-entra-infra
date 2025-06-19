@@ -49,7 +49,7 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "diso_teams_routing" = {
+    "justice_transcribe" = {
       notes                          = "Transcription and summarisation tool for probation officers"
       service_management_reference   = "IDAM-3355"
       display_name                   = "STG-AI-Justice-Transcribe"
