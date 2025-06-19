@@ -49,7 +49,7 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "vds_packer_images" = {
+    "diso_teams_routing" = {
       notes                          = "EUCS VDS Packer used for creating VM Images, via Packer"
       service_management_reference   = "IDAM-2685"
       display_name                   = "MoJ-OFFICIAL-Prod-EUCS-VDS-Packer"
