@@ -54,7 +54,7 @@ variable "applications" {
       service_management_reference   = "IDAM-3355"
       display_name                   = "STG-AI-Justice-Transcribe"
       department_name                = "Service-Transformation"
-      team_name                      = "AI Unit"
+      team_name                      = "AIUnit"
       application_name               = "STG-AI-Justice-Transcribe"
       create_access_package          = false
       access_package_reviewers       = []
