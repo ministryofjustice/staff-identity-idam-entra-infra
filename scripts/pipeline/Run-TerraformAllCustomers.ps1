@@ -30,7 +30,7 @@ try {
     foreach ($customer in $customers) {
         $workingDir = Resolve-Path -Path "$customer"
         Set-Location -Path $workingDir
-        Write-Host "Running terraform $TerraformCommand for: [$customer]"
+        Write-Host "Running terraform $TerraformCommand for: [$customer]" -ForegroundColor Green
         Invoke-Expression $command
         cd ..
     }
