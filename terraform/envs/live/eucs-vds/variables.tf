@@ -94,7 +94,7 @@ variable "applications" {
       logout_url                     = null
       redirect_uris                  = null
       app_roles                      = []
-      graph_application_permissions  = ["Directory.Read.All", "User.Read", "Group.Create", "Group.ReadWrite.All"]
+      graph_application_permissions  = ["Directory.Read.All", "User.Read.All", "Group.Create", "Group.ReadWrite.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
@@ -124,7 +124,7 @@ variable "applications" {
       logout_url                     = null
       redirect_uris                  = null
       app_roles                      = []
-      graph_application_permissions  = ["Directory.Read.All", "User.Read", "Group.Create", "Group.ReadWrite.All"]
+      graph_application_permissions  = ["Directory.Read.All", "User.Read.All", "Group.Create", "Group.ReadWrite.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
