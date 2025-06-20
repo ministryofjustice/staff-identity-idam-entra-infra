@@ -58,7 +58,7 @@ variable "applications" {
       application_name               = "MoJ-OFFICIAL-Prod-EUCS-VDS-Packer"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = []
+      owners                         = ["Lee.Parkerwalsh@justiceuk.onmicrosoft.com", "David.Close@JusticeUK.onmicrosoft.com", "Dragan.letic1@JusticeUK.onmicrosoft.com", "Ian.Hegarty@JusticeUK.onmicrosoft.com", "Paul.Colegate@JusticeUK.onmicrosoft.com", "Michael.Kirkpatrick@JusticeUK.onmicrosoft.com"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
