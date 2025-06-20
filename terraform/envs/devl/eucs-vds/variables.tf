@@ -118,7 +118,7 @@ variable "applications" {
       application_name               = "MoJ-OFFICIAL-DEVL-EUCS-VDS-HousekeepingF"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
+      owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
