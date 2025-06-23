@@ -50,7 +50,6 @@ _Reference any related issues, JIRA tickets, or documentation._
 
 🛡️ **Security is everyone's responsibility. Please ensure all IAM changes are reviewed carefully.**
 
-
 ## ✅ Reviewer Checklist
 - [ ] I have reviewed the code and confirm it meets the project’s IAM, security and automation standards.
 - [ ] I have verified that no sensitive data is exposed in logs or code.
