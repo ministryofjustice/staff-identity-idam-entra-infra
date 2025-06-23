@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        environment: [DEVL, NLE, LIVE]
+        environment: [DEVL, NLE, LIVE, DEVLEXTERNAL]
 
     environment: ${{ matrix.environment }}
 

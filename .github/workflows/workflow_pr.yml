@@ -11,6 +11,7 @@ on:
           - devl
           - nle
           - live
+          - devlexternal
 
 defaults:
   run:
