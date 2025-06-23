@@ -20,6 +20,7 @@ variable "applications" {
     homepage_url                 = string
     logout_url                   = string
     redirect_uris                = list(string)
+    mobile_desktop_redirect_uris = list(string)
     app_roles = list(object({
       allowed_member_types  = list(string)
       description           = string
