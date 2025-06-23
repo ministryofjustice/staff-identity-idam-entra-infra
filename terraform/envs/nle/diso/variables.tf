@@ -63,6 +63,7 @@ variable "applications" {
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
+      mobile_desktop_redirect_uris   = ["http://localhost/"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.ReadWrite.All", "Directory.ReadWrite.All", "Group.ReadWrite.All"]
