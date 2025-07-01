@@ -50,7 +50,7 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "soc_l1" = {
+    "ost_read_only" = {
       notes                          = "Used to grant access to Graph API scopes - read only for OST Teams"
       service_management_reference   = "IDAM-1811"
       display_name                   = "MOJO-OST-Graph-Permissions"
