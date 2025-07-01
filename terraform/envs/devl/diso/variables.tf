@@ -80,6 +80,98 @@ variable "applications" {
         hide                          = true
       }
       identifier_uris = null
+    },
+    "diso-networks-vv-graph-permissions" = {
+      notes                          = "Used to grant access to Graph API scopes"
+      service_management_reference   = "IDAM-1811"
+      display_name                   = "MOJO-DISO-VV-Graph-Permissions"
+      department_name                = "DISO"
+      team_name                      = "Video and Voice"
+      application_name               = "MOJO-DISO-VV-Graph-PermissionsF"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = []      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["DEVL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+      }
+      identifier_uris = null
+    },
+    "diso-networks-vmrt-graph-permissions" = {
+      notes                          = "Used to grant access to Graph API scopes"
+      service_management_reference   = "IDAM-1811"
+      display_name                   = "MOJO-DISO-VV-Graph-Permissions"
+      department_name                = "DISO"
+      team_name                      = "Video for Microsoft Teams Rooms and Digital Signage Engineers"
+      application_name               = "MOJO-DISO-VV-Graph-PermissionsF"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = []      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["DEVL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+      }
+      identifier_uris = null
+    },"diso-networks-vmrt-graph-permissions" = {
+      notes                          = "Used to grant access to Graph API scopes"
+      service_management_reference   = "IDAM-1811"
+      display_name                   = "MOJO-DISO-HostedVoice-Graph-Permissions"
+      department_name                = "DISO"
+      team_name                      = "HostedVoice"
+      application_name               = "MOJO-DISO-HostedVoice-Graph-Permissions"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = []      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["DEVL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+      }
+      identifier_uris = null
     }
   }
 }
