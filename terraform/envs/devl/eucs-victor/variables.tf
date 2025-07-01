@@ -56,7 +56,7 @@ variable "applications" {
       display_name                   = "MOJO-EUCS-VICTOR-Graph-Permissions"
       department_name                = "EUCS-Victor"
       team_name                      = "EUCS-Victor"
-      application_name               = "MoJ-OFFICIAL-Devl-Spoke-EUCSVD01-TF"
+      application_name               = "MOJO-EUCS-VICTOR-Graph-Permissions"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = []      
