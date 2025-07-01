@@ -86,7 +86,7 @@ variable "applications" {
       service_management_reference   = "IDAM-1811"
       display_name                   = "MOJO-DISO-VV-Graph-Permissions"
       department_name                = "DISO"
-      team_name                      = "Video and Voice"
+      team_name                      = "Video-and-Voice"
       application_name               = "MOJO-DISO-VV-Graph-PermissionsF"
       create_access_package          = false
       access_package_reviewers       = []
@@ -117,7 +117,7 @@ variable "applications" {
       service_management_reference   = "IDAM-1811"
       display_name                   = "MOJO-DISO-VV-Graph-Permissions"
       department_name                = "DISO"
-      team_name                      = "Video for Microsoft Teams Rooms and Digital Signage Engineers"
+      team_name                      = "Video-for-Microsoft-Teams-Rooms-and-Digital-Signage-Engineers"
       application_name               = "MOJO-DISO-VV-Graph-PermissionsF"
       create_access_package          = false
       access_package_reviewers       = []
@@ -147,7 +147,7 @@ variable "applications" {
       service_management_reference   = "IDAM-1811"
       display_name                   = "MOJO-DISO-HostedVoice-Graph-Permissions"
       department_name                = "DISO"
-      team_name                      = "HostedVoice"
+      team_name                      = "Hosted-Voice"
       application_name               = "MOJO-DISO-HostedVoice-Graph-Permissions"
       create_access_package          = false
       access_package_reviewers       = []
