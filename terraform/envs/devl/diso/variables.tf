@@ -56,7 +56,7 @@ variable "applications" {
       display_name                   = "MOJO-DISO-Networks-Engineers-Graph-Permissions"
       department_name                = "DISO"
       team_name                      = "Networks"
-      application_name               = "MoJ-OFFICIAL-Devl-Spoke-EUCSVD01-TF"
+      application_name               = "MOJO-DISO-Networks-Engineers-Graph-Permissions"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = []      
@@ -87,7 +87,7 @@ variable "applications" {
       display_name                   = "MOJO-DISO-VV-Graph-Permissions"
       department_name                = "DISO"
       team_name                      = "Video-and-Voice"
-      application_name               = "MOJO-DISO-VV-Graph-PermissionsF"
+      application_name               = "MOJO-DISO-VV-Graph-Permissions"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = []      
@@ -115,10 +115,10 @@ variable "applications" {
     "diso-networks-vmrt-graph-permissions" = {
       notes                          = "Used to grant access to Graph API scopes"
       service_management_reference   = "IDAM-1811"
-      display_name                   = "MOJO-DISO-VV-Graph-Permissions"
+      display_name                   = "MOJO-DISO-vmrt-Graph-Permissions"
       department_name                = "DISO"
       team_name                      = "Video-for-Microsoft-Teams-Rooms-and-Digital-Signage-Engineers"
-      application_name               = "MOJO-DISO-VV-Graph-PermissionsF"
+      application_name               = "MOJO-DISO-vmrt-Graph-Permissions"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = []      
