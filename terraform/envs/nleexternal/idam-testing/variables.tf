@@ -50,14 +50,14 @@ variable "applications" {
   default = {
     "app1" = {
       notes                          = "EUCS IDAM App Reg Test 1 terraform"
-      service_management_reference   = "SCTASK0000123"
+      service_management_reference   = "IDAM-2974"
       display_name                   = "EUCS IDAM App Reg Test 1 terraform"
       department_name                = "eucs"
       team_name                      = "idam"
       application_name               = "app-reg-tf"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["jnolan-admin@devl.justice.gov.uk", "john.nolan@devlexternal.onmicrosoft.com"]
+      owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
       allowed_groups                 = ["MoJO-M365-IDAM-3LS-PIM"]
       homepage_url                   = null
       logout_url                     = null
