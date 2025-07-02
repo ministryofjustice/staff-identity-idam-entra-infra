@@ -30,7 +30,7 @@ jobs:
 
       strategy:
         matrix:
-          environment: [DEVL, NLE, LIVE]
+          environment: [DEVL, NLE, LIVE, NLEEXTERNAL]
 
       environment: ${{ matrix.environment }}
 
