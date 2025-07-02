@@ -50,13 +50,13 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "eucs-Prisoner-Facing-Services" = {
-      notes                          = "Used to grant access to Graph API scopes - EUCS Prisoner Facing Services"
+    "eucs-Out-Of-Hours" = {
+      notes                          = "Used to grant access to Graph API scopes - EUCS Out of Hours"
       service_management_reference   = "IDAM-1811"
-      display_name                   = "MOJO-EUCS-Prisoner-Facing-Services-Graph-Permissions"
+      display_name                   = "MOJO-EUCS-Out-Of-Hours-Graph-Permissions"
       department_name                = "EUCS"
-      team_name                      = "Prisoner-Facing-Services"
-      application_name               = "MOJO-EUCS-Prisoner-Facing-Services-Graph-Permissions"
+      team_name                      = "Out-Of-Hours"
+      application_name               = "MOJO-EUCS-Out-Of-Hours-Graph-Permissions"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = []      
