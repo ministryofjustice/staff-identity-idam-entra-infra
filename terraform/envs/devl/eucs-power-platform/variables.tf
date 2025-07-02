@@ -55,7 +55,7 @@ variable "applications" {
       service_management_reference   = "IDAM-1811"
       display_name                   = "MOJO-EUCS-Power-Platform-Graph-Permissions"
       department_name                = "EUCS"
-      team_name                      = "Security"
+      team_name                      = "Power-platform"
       application_name               = "MOJO-EUCS-Power-Platform-Graph-Permissions"
       create_access_package          = false
       access_package_reviewers       = []
