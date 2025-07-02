@@ -61,63 +61,8 @@ jobs:
         shell: pwsh
         run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "fmt"
 
-      - name: Terraform Plan
+      - name: Terraform Plan and Apply
         shell: pwsh
-        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false"
+        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformPlanAndApply
 
-    manual_approval:
-      name: Manual Approval
-      runs-on: ubuntu-latest
-      needs: terraform
-      if: success() # Only proceed if terraform job succeeds
-
-      steps:
-        - name: Await Manual Approval
-          uses: trstringer/manual-approval@v1
-          with:
-            secret: ${{ github.TOKEN }}
-            approvers: MikeT-MoJ, jasegillettmoj, johnnolan
-            minimum-approvals: 1
-            issue-title: "Manual Approval Required for Terraform Apply"
-            issue-body: "Please approve or deny the deployment."
-
-
-    terraform_apply:
-      name: Terraform Apply
-      needs: manual_approval
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          environment: [DEVL, NLE, LIVE, NLEEXTERNAL]
-
-      environment: ${{ matrix.environment }}
-
-      steps:
-        - name: Checkout Code
-          uses: actions/checkout@v4
-
-        - name: Azure Login via OIDC
-          uses: azure/login@v2
-          with:
-            subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-            tenant-id: ${{ secrets.ARM_TENANT_ID }}
-            client-id: ${{ secrets.ARM_CLIENT_ID }}
-
-        - name: Setup Terraform
-          uses: hashicorp/setup-terraform@v3
-
-        - name: Terraform Init
-          shell: pwsh
-          run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
-
-        - name: Terraform Validate
-          shell: pwsh
-          run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "validate"
-
-        - name: Terraform Format
-          shell: pwsh
-          run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "fmt"
-
-        - name: Terraform Plan and Apply
-          shell: pwsh
-          run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformPlanAndApply
+ 
