@@ -64,5 +64,3 @@ jobs:
       - name: Terraform Plan and Apply
         shell: pwsh
         run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformPlanAndApply
-
- 
