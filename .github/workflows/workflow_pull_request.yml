@@ -53,7 +53,7 @@ jobs:
 
       - name: Build Terraform Runner
         run: |
-          go build -o tf-runner ./path/to/your/go/code
+          go build -o tf-runner ./scripts/pipeline/main.go
 
       - name: Terraform Init
         run: |
