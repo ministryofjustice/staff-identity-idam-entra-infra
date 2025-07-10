@@ -20,25 +20,29 @@ type result struct {
 }
 
 func main() {
-    // Get environment name (e.g. "dev", "test") from env variable
-    env := strings.ToLower(os.Getenv("Env"))
-
-    // Construct the base directory path using the environment
-    baseDir := fmt.Sprintf("./terraform/envs/%s", env)
-
-    // Read other env vars to configure Terraform execution
-    terraformCommand := os.Getenv("TerraformCommand")
-    terraformPlanAndApply := os.Getenv("TerraformPlanAndApply") == "true"
-
-    // Build the Terraform command string
-    var command string
-    if terraformPlanAndApply {
-        // If apply mode is enabled, use full apply flags
-        command = "terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30"
-    } else {
-        // Otherwise, use the basic Terraform command (e.g. "plan")
-        command = fmt.Sprintf("terraform %s", terraformCommand)
-    }
+     // Declare flags
+     env := flag.String("env", "", "Environment name (e.g., dev, test, live)")
+     terraformCommand := flag.String("cmd", "", "Terraform command to run (e.g., init, validate)")
+     applyMode := flag.Bool("applyMode", false, "Run Terraform apply with default flags")
+ 
+     // Parse the command-line flags
+     flag.Parse()
+ 
+     // Sanitize and validate input
+     if *env == "" || (*terraformCommand == "" && !*applyMode) {
+         fmt.Println("Usage: ./terraform-runner -env <env> -cmd <command> [-applyMode]")
+         return
+     }
+ 
+     // Use the parsed values
+     baseDir := fmt.Sprintf("./terraform/envs/%s", strings.ToLower(*env))
+ 
+     var command string
+     if *applyMode {
+         command = "terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30"
+     } else {
+         command = fmt.Sprintf("terraform %s", *terraformCommand)
+     }
 
     // Read all subdirectories in the baseDir (representing customers)
     dirs, err := os.ReadDir(baseDir)
