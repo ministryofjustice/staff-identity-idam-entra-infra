@@ -63,6 +63,6 @@ jobs:
         run: |
           ./tf-runner -env "${{ matrix.environment }}" -cmd "fmt"
 
-      - name: Terraform Plan and Apply
+      - name: Terraform Plan
         run: |
           ./tf-runner -env "${{ matrix.environment }}" -cmd "plan -lock-timeout=300s -input=false"
