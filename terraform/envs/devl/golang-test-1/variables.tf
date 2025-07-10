@@ -68,7 +68,7 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = []
-      tenants_required               = []
+      tenants_required               = ["DEVL"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
