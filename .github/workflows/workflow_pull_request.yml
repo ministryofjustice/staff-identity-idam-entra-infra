@@ -48,21 +48,16 @@ jobs:
           go-version: '1.21'
 
       - name: Build Terraform Runner
-        run: |
-          go build -o tf-runner ./scripts/pipeline/main.go
+        run: go build -o tf-runner ./scripts/pipeline/main.go
 
       - name: Terraform Init
-        run: |
-          ./tf-runner -env "${{ matrix.environment }}" -cmd "init -backend-config=./state.config"
+        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "init -backend-config=./state.config"
 
       - name: Terraform Validate
-        run: |
-          ./tf-runner -env "${{ matrix.environment }}" -cmd "validate"
+        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "validate"
 
       - name: Terraform Format
-        run: |
-          ./tf-runner -env "${{ matrix.environment }}" -cmd "fmt"
+        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "fmt"
 
       - name: Terraform Plan
-        run: |
-          ./tf-runner -env "${{ matrix.environment }}" -cmd "plan -lock-timeout=300s -input=false"
+        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "plan -lock-timeout=300s -input=false"
