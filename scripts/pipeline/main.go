@@ -70,7 +70,7 @@ func main() {
             go func(customer, workingDir string) {
                 defer wg.Done() // Decrement counter when goroutine completes
 
-                fmt.Printf("🔧 Starting terraform %s for: [%s]\n", terraformCommand, customer)
+                fmt.Printf("🔧 Starting terraform %s for: [%s]\n", *terraformCommand, customer)
 
                 // Prepare shell command to cd into the directory and run Terraform
                 cmd := exec.Command("sh", "-c", fmt.Sprintf("cd %s && %s", workingDir, command))
