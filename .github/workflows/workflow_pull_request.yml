@@ -53,20 +53,16 @@ jobs:
 
       - name: Terraform Init
         run: |
-          export TerraformCommand="init -backend-config=./state.config"
-          ./tf-runner
+          ./tf-runner -env "${{ matrix.environment }}" -cmd "init -backend-config=./state.config"
 
       - name: Terraform Validate
         run: |
-          export TerraformCommand="validate"
-          ./tf-runner
+          ./tf-runner -env "${{ matrix.environment }}" -cmd "validate"
 
       - name: Terraform Format
         run: |
-          export TerraformCommand="fmt"
-          ./tf-runner
+          ./tf-runner -env "${{ matrix.environment }}" -cmd "fmt"
 
-      - name: Terraform Plan
+      - name: Terraform Plan and Apply
         run: |
-          export TerraformCommand="plan -lock-timeout=300s -input=false"
-          ./tf-runner
+          ./tf-runner -env "${{ matrix.environment }}" -cmd "plan -lock-timeout=300s -input=false"
