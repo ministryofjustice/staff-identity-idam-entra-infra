@@ -45,6 +45,9 @@ jobs:
           tenant-id: ${{ secrets.ARM_TENANT_ID }}
           client-id: ${{ secrets.ARM_CLIENT_ID }}
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
