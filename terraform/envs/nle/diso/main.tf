@@ -8,7 +8,7 @@ locals {
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1"
+  source                         = "../../../modules/application-registrationV1.2.0"
   for_each                       = var.applications
   notes                          = each.value.notes
   service_management_reference   = each.value.service_management_reference
@@ -23,6 +23,7 @@ module "application-registration" {
   homepage_url                   = each.value.homepage_url
   logout_url                     = each.value.logout_url
   redirect_uris                  = each.value.redirect_uris
+  mobile_desktop_redirect_uris   = each.value.mobile_desktop_redirect_uris 
   app_roles                      = each.value.app_roles
   graph_application_permissions  = each.value.graph_application_permissions
   graph_delegated_permissions    = each.value.graph_delegated_permissions
