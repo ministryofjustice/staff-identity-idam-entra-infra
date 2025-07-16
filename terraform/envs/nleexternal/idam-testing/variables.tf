@@ -60,7 +60,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
-      allowed_groups                 = ["PIM-MoJO-M365-IDAM-3LS", "APPREG-User-Access-App-Reg-Test-1"]
+      allowed_groups                 = ["PIM-MoJO-M365-IDAM-3LS"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
