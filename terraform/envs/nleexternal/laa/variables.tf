@@ -82,6 +82,52 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "apply_civil_legal_aid" = {
+      notes                          = "Enables providers to submit an application for civil legal aid."
+      service_management_reference   = "IDAM-2974"
+      display_name                   = "Apply for Civil Legal Aid"
+      department_name                = "justice-digital"
+      team_name                      = "laa"
+      application_name               = "Apply for Civil Legal Aid"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts           = [
+        "Ben.Ashton@justice.gov.uk",
+        "Eamon.McNally@justice.gov.uk",
+        "joel.sugarman@justice.gov.uk",
+        "colin.bruce1@justice.gov.uk",
+        "adam.goldstone@justice.gov.uk",
+        "stephanie.dejong@justice.gov.uk"
+      ]
+      allowed_groups                 = ["APPREG-User-Access-LAAD-Apply-Civil-Legal-Aid"]
+      homepage_url                   = "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/"
+      logout_url                     = null
+      redirect_uris                  = [
+        "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/auth/entra_id/callback",
+        "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback",
+        "https://localhost:3000/providers/auth/entra_id/callback",
+        "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/auth/azure_ad/callback",
+        "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/azure_ad/callback",
+        "https://localhost:3000/providers/auth/azure_ad/callback"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["NLEEXTERNAL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
