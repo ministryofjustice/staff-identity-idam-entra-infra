@@ -28,9 +28,9 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        environment: [DEVL, NLE, LIVE]
+      strategy:
+        matrix:
+          environment: [DEVL, NLE, LIVE, NLEEXTERNAL]
 
     environment: ${{ matrix.environment }}
 

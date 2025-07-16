@@ -111,7 +111,7 @@ variable "graph_delegated_permissions" {
 }
 
 variable "tenants_required" {
-  description = "List of tenants the Application should be setup on. Can be DEVL, NLE and LIVE'."
+  description = "List of tenants the Application should be setup on. Can be DEVL, NLE, NLEEXTERNAL and LIVE'."
   type        = list(string)
   default     = ["DEVL"]
 
