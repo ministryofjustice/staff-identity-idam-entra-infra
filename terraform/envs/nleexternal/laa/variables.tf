@@ -253,6 +253,41 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "laad_lassie_claim_enrichment_api" = {
+      notes                          = "Legal Aid Single Sign in Experience API for Claim Enrichment to downstream LAA Services."
+      service_management_reference   = "IDAM-2974"
+      display_name                   = "laad-lassie-claim-enrichment-api"
+      department_name                = "justice-digital"
+      team_name                      = "laa"
+      application_name               = "laad-lassie-claim-enrichment-api"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts           = [
+        "Eamon.McNally@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk"
+      ]
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = []
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload"]
+      graph_delegated_permissions    = []
+      tenants_required               = ["NLEEXTERNAL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
