@@ -16,6 +16,7 @@ variable "applications" {
     create_access_package        = bool
     access_package_reviewers     = list(string)
     owners                       = list(string)
+    application_contacts         = list(string)
     allowed_groups               = list(string)
     homepage_url                 = string
     logout_url                   = string
@@ -60,6 +61,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts           = ["john.nolan@justice.gov.uk","Ben.Ashton@justice.gov.uk","Eamon.McNally@justice.gov.uk"]
       allowed_groups                 = ["APPREG-User-Access-LAAD-LASSIE","DEPT-All-Legal-Aid-Agency-Internal-Staff"]
       homepage_url                   = null
       logout_url                     = null

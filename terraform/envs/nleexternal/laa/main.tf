@@ -8,7 +8,7 @@ locals {
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1.2.0"
+  source                         = "../../../modules/application-registrationV1.2.1"
   for_each                       = var.applications
   notes                          = each.value.notes
   service_management_reference   = each.value.service_management_reference
@@ -31,6 +31,7 @@ module "application-registration" {
   federated_identity_credentials = each.value.federated_identity_credentials
   service_principle              = each.value.service_principle
   identifier_uris                = each.value.identifier_uris
+  application_contacts           = each.value.application_contacts
 }
 #endregion
 
