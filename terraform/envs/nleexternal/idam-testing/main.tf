@@ -6,10 +6,10 @@ locals {
   }
 }
 
-# resource "azuread_group" "tf_test" {
-#   display_name     = "Terraform-Test-Deployment-Idam-Testing"
-#   security_enabled = true
-# }
+resource "azuread_group" "tf_test" {
+  display_name     = "APPREG-User-Access-App-Reg-Test-1"
+  security_enabled = true
+}
 
 #region Application Registrations
 module "application-registration" {
