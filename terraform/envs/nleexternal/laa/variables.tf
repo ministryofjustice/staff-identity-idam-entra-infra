@@ -175,7 +175,7 @@ variable "applications" {
     "manage_providers_data" = {
       notes                          = "Application used to manage legal aid provider's data in CWA."
       service_management_reference   = "IDAM-2974"
-      display_name                   = "Manage a Provider's Data"
+      display_name                   = "Manage a Provider''s Data"
       department_name                = "justice-digital"
       team_name                      = "laa"
       application_name               = "manage-providers-data"
