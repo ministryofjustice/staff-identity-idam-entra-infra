@@ -60,7 +60,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
-      allowed_groups                 = ["MoJO-M365-IDAM-3LS-PIM"]
+      allowed_groups                 = ["PIM-MoJO-M365-IDAM-3LS"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
@@ -68,7 +68,7 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
-      tenants_required               = []
+      tenants_required               = ["NLEEXTERNAL"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
