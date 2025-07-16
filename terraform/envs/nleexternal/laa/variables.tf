@@ -211,6 +211,48 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "submit_a_crime_form" = {
+      notes                          = "Allowing legal providers to submit applications and claims for CRM4s and CRM7s respectively."
+      service_management_reference   = "IDAM-2974"
+      display_name                   = "Submit A Crime Form"
+      department_name                = "justice-digital"
+      team_name                      = "laa"
+      application_name               = "Submit A Crime Form"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts           = [
+        "ellis.kenyo@justice.gov.uk",
+        "Ivan.Yohuno@justice.gov.uk",
+        "robin.skilling@justice.gov.uk",
+        "robin.booth@justice.gov.uk",
+        "ewan.wickson@justice.gov.uk",
+        "nscc@justice.gov.uk"
+      ]
+      allowed_groups                 = ["APPREG-User-Access-LAAD-Submit-Crime-Form"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = [
+        "https://crm457-2661-testin-nscc-provider-dev.cloud-platform.service.justice.gov.uk/providers/auth/entra_id/callback",
+        "https://nsm-submit.test/providers/auth/entra_id/callback"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["NLEEXTERNAL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
