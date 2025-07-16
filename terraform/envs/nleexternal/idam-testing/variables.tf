@@ -20,6 +20,7 @@ variable "applications" {
     homepage_url                 = string
     logout_url                   = string
     redirect_uris                = list(string)
+    mobile_desktop_redirect_uris = list(string)
     app_roles = list(object({
       allowed_member_types  = list(string)
       description           = string
@@ -30,6 +31,7 @@ variable "applications" {
     }))
     graph_application_permissions = list(string)
     graph_delegated_permissions   = list(string)
+    tenants_required              = list(string)
     federated_identity_credentials = list(object({
       repo_name      = string
       display_name   = string
@@ -62,9 +64,11 @@ variable "applications" {
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = []
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
