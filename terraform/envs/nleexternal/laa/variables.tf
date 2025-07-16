@@ -171,6 +171,46 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "manage_providers_data" = {
+      notes                          = "Application used to manage legal aid provider's data in CWA."
+      service_management_reference   = "IDAM-2974"
+      display_name                   = "Manage a Provider's Data"
+      department_name                = "justice-digital"
+      team_name                      = "laa"
+      application_name               = "Manage a Provider's Data"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts           = [
+        "Eamon.McNally@justice.gov.uk",
+        "stephanie.dejong@justice.gov.uk",
+        "ben.millar@justice.gov.uk",
+        "william.clarke@justice.gov.uk",
+        "said.shire@justice.gov.uk",
+        "kyle.obrien@justice.gov.uk",
+        "javid.ali2@justice.gov.uk"
+      ]
+      allowed_groups                 = ["APPREG-User-Access-LAAD-Manage-Providers-Data"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["http://localhost:8123/callback"]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["NLEEXTERNAL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
