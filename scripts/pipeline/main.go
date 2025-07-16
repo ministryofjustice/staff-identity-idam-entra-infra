@@ -109,11 +109,13 @@ func main() {
         return ordered[i].customer < ordered[j].customer
     })
 
-    // Display formatted output per customer
+   // Track if any errors occurred
+    hasErrors := false
+
+    // Display formatted output per customer and collect error status
     for _, r := range ordered {
         fmt.Printf("\n📦 Output for [%s]:\n", r.customer)
 
-        // Split output into lines and prefix each with customer name
         lines := strings.Split(r.output, "\n")
         for _, line := range lines {
             if line != "" {
@@ -121,9 +123,16 @@ func main() {
             }
         }
 
-        // Print error if present
         if r.err != nil {
+            hasErrors = true
             fmt.Printf("❌ Error for [%s]: %v\n", r.customer, r.err)
         }
     }
+
+    if hasErrors {
+        fmt.Println("\n⛔ One or more Terraform executions failed. Exiting with error.")
+        os.Exit(1)
+    }
+
+    fmt.Println("\n✅ All Terraform executions completed successfully.")
 }
