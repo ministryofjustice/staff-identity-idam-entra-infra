@@ -89,7 +89,7 @@ variable "applications" {
       display_name                   = "Apply for Civil Legal Aid"
       department_name                = "justice-digital"
       team_name                      = "laa"
-      application_name               = "Apply for Civil Legal Aid"
+      application_name               = "apply-for-civil-legal-aid"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
@@ -135,7 +135,7 @@ variable "applications" {
       display_name                   = "Apply for Criminal Legal Aid"
       department_name                = "justice-digital"
       team_name                      = "laa"
-      application_name               = "Apply for Criminal Legal Aid"
+      application_name               = "apply-for-criminal-legal-aid"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
@@ -178,7 +178,7 @@ variable "applications" {
       display_name                   = "Manage a Provider's Data"
       department_name                = "justice-digital"
       team_name                      = "laa"
-      application_name               = "Manage a Provider's Data"
+      application_name               = "manage-providers-data"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
@@ -218,7 +218,7 @@ variable "applications" {
       display_name                   = "Submit A Crime Form"
       department_name                = "justice-digital"
       team_name                      = "laa"
-      application_name               = "Submit A Crime Form"
+      application_name               = "submit-a-crime-form"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
@@ -295,7 +295,7 @@ variable "applications" {
       display_name                   = "PUI"
       department_name                = "justice-digital"
       team_name                      = "laa"
-      application_name               = "PUI"
+      application_name               = "pui"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
