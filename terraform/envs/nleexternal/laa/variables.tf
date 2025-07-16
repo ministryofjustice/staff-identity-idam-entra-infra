@@ -128,6 +128,49 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "apply_criminal_legal_aid" = {
+      notes                          = "Apply for criminal legal aid is a service enabling providers to apply for criminal legal aid online. It is used by provider firms to submit applications on behalf of their clients, to make changes to returned applications, to provide additional evidence or to make supplementary applications when a client's circumstance change."
+      service_management_reference   = "IDAM-2974"
+      display_name                   = "Apply for Criminal Legal Aid"
+      department_name                = "justice-digital"
+      team_name                      = "laa"
+      application_name               = "Apply for Criminal Legal Aid"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts           = [
+        "Eamon.McNally@justice.gov.uk",
+        "hibo.abdilaahi@justice.gov.uk",
+        "edwin.kruglov@justice.gov.uk",
+        "lucas.shaw@justice.gov.uk",
+        "tim.peat@justice.gov.uk"
+      ]
+      allowed_groups                 = ["APPREG-User-Access-LAAD-Apply-Criminal-Legal-Aid"]
+      homepage_url                   = "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk"
+      logout_url                     = null
+      redirect_uris                  = [
+        "http://localhost:3000/providers/auth/entra/callback",
+        "https://laa-apply-for-criminal-legal-aid.test/providers/auth/entra/callback",
+        "https://localhost:3000/providers/auth/entra/callback",
+        "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk/providers/auth/entra/callback"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["NLEEXTERNAL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
