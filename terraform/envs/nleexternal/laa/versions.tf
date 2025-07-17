@@ -3,6 +3,10 @@ provider "azurerm" {
   features {}
 }
 
+provider "azapi" {
+  use_oidc = true
+}
+
 provider "azuread" {
 }
 
@@ -11,6 +15,10 @@ terraform {
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "~> 4.14"
+    }
+    azapi = {
+      source  = "Azure/azapi"
+      version = "~>1.12.1"
     }
   }
   backend "azurerm" {
