@@ -287,7 +287,7 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/a9faa077-878c-48df-a735-e96ffc694ac5"]
+      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/${azuread_application.laad_lassie_claim_enrichment_api.client_id}"]
     },
     "pui" = {
       notes                          = "Client and Cost Management System."
@@ -323,7 +323,7 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = null
+      identifier_uris = ["api://594f6a8d-0914-41ce-9687-f1cbfffb0ece"]
     }
   }
 }
