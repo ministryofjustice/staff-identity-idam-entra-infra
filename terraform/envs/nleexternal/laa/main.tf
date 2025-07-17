@@ -5,6 +5,7 @@ locals {
     source     = "terraform"
   }
 }
+/*
 data "azapi_resource_list" "custom_claims" {
   type      = "microsoft.graph/customAuthenticationExtension@beta"
   parent_id = "/"
@@ -13,7 +14,7 @@ data "azapi_resource_list" "custom_claims" {
 output "available_custom_claims" {
   value = data.azapi_resource_list.custom_claims.output
 }
-/*
+
 resource "azapi_resource" "custom_auth_extension" {
   name      = "laa-claims-enrichment"
   type      = "Microsoft.AzureActiveDirectory/b2cDirectories@2023-05-17-preview"
