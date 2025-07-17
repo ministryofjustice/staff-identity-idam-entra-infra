@@ -95,12 +95,12 @@ resource "azuread_application" "entra_app_reg" {
     dynamic "oauth2_permission_scope" {
       for_each = var.api.oauth2_permission_scope
       content {
-          admin_consent_description  = app_role.value.admin_consent_description
-          admin_consent_display_name = app_role.value.admin_consent_display_name
-          enabled                    = app_role.value.enabled
-          id                         = app_role.value.id
-          type                       = app_role.value.type
-          value                      = app_role.value.value
+          admin_consent_description  = oauth2_permission_scope.value.admin_consent_description
+          admin_consent_display_name = oauth2_permission_scope.value.admin_consent_display_name
+          enabled                    = oauth2_permission_scope.value.enabled
+          id                         = oauth2_permission_scope.value.id
+          type                       = oauth2_permission_scope.value.type
+          value                      = oauth2_permission_scope.value.value
       }
     }
   }
