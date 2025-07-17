@@ -98,6 +98,7 @@ variable "app_roles" {
 
 variable "api" {
   description = "values for the API section of the application registration."
+  nullable = true
   type = object({
     known_client_applications      = list(string)
     mapped_claims_enabled          = bool
