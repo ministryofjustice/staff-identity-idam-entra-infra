@@ -81,7 +81,7 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = null
+      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
     },
     "apply_civil_legal_aid" = {
       notes                          = "Enables providers to submit an application for civil legal aid."
@@ -287,7 +287,7 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = null
+      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/a9faa077-878c-48df-a735-e96ffc694ac5"]
     },
     "pui" = {
       notes                          = "Client and Cost Management System."
