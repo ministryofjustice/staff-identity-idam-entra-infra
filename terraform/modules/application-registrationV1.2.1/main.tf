@@ -88,6 +88,23 @@ resource "azuread_application" "entra_app_reg" {
     }
   }
 
+  api {
+    known_client_applications      = var.api.known_client_applications
+    mapped_claims_enabled          = var.api.mapped_claims_enabled
+    requested_access_token_version = var.api.requested_access_token_version
+    dynamic "oauth2_permission_scope" {
+      for_each = var.api.oauth2_permission_scope
+      content {
+          admin_consent_description  = app_role.value.admin_consent_description
+          admin_consent_display_name = app_role.value.admin_consent_display_name
+          enabled                    = app_role.value.enabled
+          id                         = app_role.value.id
+          type                       = app_role.value.type
+          value                      = app_role.value.value
+      }
+    }
+  }
+
   # Mobile and Desktop (public client) settings
   public_client {
     redirect_uris = var.mobile_desktop_redirect_uris

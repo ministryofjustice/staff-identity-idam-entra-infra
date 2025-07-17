@@ -49,6 +49,19 @@ variable "applications" {
       hide                          = bool
     })
     identifier_uris = list(string)
+    api = object({
+      known_client_applications      = list(string)
+      mapped_claims_enabled          = bool
+      requested_access_token_version = string
+      oauth2_permission_scope        = list(object({      
+        admin_consent_description  = string
+        admin_consent_display_name = string
+        enabled                    = bool
+        id                         = string
+        type                       = string
+        value                      = string
+      }))
+    })
   }))
   default = {
     "app1" = {
@@ -82,6 +95,19 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = 1
+        oauth2_permission_scope = [{
+          admin_consent_description  = "Allows the application to access the API on behalf of the signed-in user"
+          admin_consent_display_name = "Access Claim Enrichment"
+          enabled                    = true
+          id                         = "5eff006b-3ee5-4038-a473-2fbc1443291a"
+          type                       = "Admin"
+          value                      = "user_impersonation"
+        }]
+      }
     },
     "apply_civil_legal_aid" = {
       notes                          = "Enables providers to submit an application for civil legal aid."
@@ -287,7 +313,7 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/${azuread_application.laad_lassie_claim_enrichment_api.client_id}"]
+      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/a9faa077-878c-48df-a735-e96ffc694ac5"]
     },
     "pui" = {
       notes                          = "Client and Cost Management System."
