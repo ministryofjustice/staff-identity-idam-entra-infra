@@ -6,6 +6,39 @@ locals {
   }
 }
 
+resource "azapi_resource" "custom_auth_extension" {
+  name      = "LAAD- LASSIE claims"
+  parent_id = "/"
+  type      = "microsoft.graph/identity/authenticationEventsPolicy/onTokenIssuanceStartListeners@beta"
+
+  body = jsonencode({
+    displayName = "test claims"
+    priority    = 100
+    conditions  = {
+      clientAppTypes = ["all"]
+    }
+
+    authenticationEventListener = {
+      "@odata.type" = "#microsoft.graph.onTokenIssuanceStartExternal"
+      externalUrl   = "https://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/api/v1/claims/enrich"
+      timeoutInMilliseconds = 2000
+      maximumRetries        = 1
+      authenticationConfiguration = {
+        "@odata.type"   = "#microsoft.graph.apiAuthenticationConfigurationBase"
+        appId           = "77595545-15fc-4d83-89d4-3e36387dafa9"
+      }
+      claimsToInclude = [
+        "LAA_ACCOUNTS",
+        "LAA_APP_ROLES",
+        "USER_EMAIL",
+        "USER_NAME"
+      ]
+    }
+
+    description = "Test Issuance"
+  })
+}
+
 #region Application Registrations
 module "application-registration" {
   source                         = "../../../modules/application-registrationV1.2.1"
