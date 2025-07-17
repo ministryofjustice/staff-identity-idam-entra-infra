@@ -59,6 +59,8 @@ variable "applications" {
         enabled                    = bool
         id                         = string
         type                       = string
+        user_consent_description   = string
+        user_consent_display_name  = string
         value                      = string
       }))
     })
@@ -105,6 +107,8 @@ variable "applications" {
           enabled                    = true
           id                         = "5eff006b-3ee5-4038-a473-2fbc1443291a"
           type                       = "Admin"
+          user_consent_description   = null
+          user_consent_display_name  = null
           value                      = "user_impersonation"
         }]
       }
@@ -380,11 +384,20 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = ["api://594f6a8d-0914-41ce-9687-f1cbfffb0ece"]
-      api                              = {
-        known_client_applications      = null,
-        mapped_claims_enabled          = null,
-        requested_access_token_version = null,
-        oauth2_permission_scope        = []
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = null
+        requested_access_token_version = null
+        oauth2_permission_scope = [{
+          admin_consent_description  = "Allow the application to access PUI on behalf of the signed-in user."
+          admin_consent_display_name = "Access PUI"
+          enabled                    = true
+          id                         = "a0f75298-ccf4-49ee-a86b-e5bcc7d9e1b3"
+          type                       = "User"
+          user_consent_description   = "Allow the application to access PUI on behalf of the signed-in user."
+          user_consent_display_name  = "Access PUI"
+          value                      = "user_impersonation"
+        }]
       }
     }
   }

@@ -104,12 +104,14 @@ variable "api" {
     mapped_claims_enabled          = bool
     requested_access_token_version = string
     oauth2_permission_scope        = list(object({      
-      admin_consent_description  = string
-      admin_consent_display_name = string
-      enabled                    = bool
-      id                         = string
-      type                       = string
-      value                      = string
+      admin_consent_description    = string
+      admin_consent_display_name   = string
+      enabled                      = bool
+      id                           = string
+      type                         = string
+      user_consent_description     = string
+      user_consent_display_name    = string
+      value                        = string
     }))
   })
   default = {
