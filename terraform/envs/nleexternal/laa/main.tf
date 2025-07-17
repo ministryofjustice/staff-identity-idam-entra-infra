@@ -8,6 +8,11 @@ locals {
 
 resource "azapi_resource" "custom_auth_extension" {
   name      = "LAAD- LASSIE claims"
+  type      = "microsoft.graph/identity/authenticationEventsPolicy/onTokenIssuanceStartListeners@beta"
+}
+
+/* resource "azapi_resource" "custom_auth_extension" {
+  name      = "LAAD- LASSIE claims"
   parent_id = "/"
   type      = "microsoft.graph/identity/authenticationEventsPolicy/onTokenIssuanceStartListeners@beta"
 
@@ -37,7 +42,7 @@ resource "azapi_resource" "custom_auth_extension" {
 
     description = "Test Issuance"
   })
-}
+} */
 
 #region Application Registrations
 module "application-registration" {
