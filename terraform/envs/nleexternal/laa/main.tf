@@ -7,8 +7,8 @@ locals {
 }
 
 resource "azapi_resource" "custom_auth_extension" {
-  name      = "LAAD- LASSIE claims"
-  type      = "microsoft.graph/identity/authenticationEventsPolicy/onTokenIssuanceStartListeners@beta"
+  name      = "laa-claims-enrichment"
+  type      = "Microsoft.AzureActiveDirectory/b2cDirectories@2023-05-17-preview"
 }
 
 /* resource "azapi_resource" "custom_auth_extension" {
@@ -17,7 +17,7 @@ resource "azapi_resource" "custom_auth_extension" {
   type      = "microsoft.graph/identity/authenticationEventsPolicy/onTokenIssuanceStartListeners@beta"
 
   body = jsonencode({
-    displayName = "test claims"
+    displayName = "LAAD - LASSIE claims"
     priority    = 100
     conditions  = {
       clientAppTypes = ["all"]
