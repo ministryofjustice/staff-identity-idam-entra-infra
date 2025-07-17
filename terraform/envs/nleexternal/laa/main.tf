@@ -79,6 +79,7 @@ module "application-registration" {
   service_principle              = each.value.service_principle
   identifier_uris                = each.value.identifier_uris
   application_contacts           = each.value.application_contacts
+  api                            = each.value.api
 }
 #endregion
 
