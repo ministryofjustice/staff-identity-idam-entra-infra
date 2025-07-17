@@ -4,10 +4,6 @@ terraform {
       source  = "hashicorp/azuread"
       version = "~> 3.0"
     }
-    azapi = {
-      source  = "Azure/azapi"
-      version = "~>1.12.1"
-    }
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "~> 4.14"
@@ -23,16 +19,6 @@ terraform {
 
 provider "azurerm" {
   features {}
-}
-
-provider "azapi" {
-  subscription_id = var.subscription_id
-  tenant_id       = var.tenant_id
-  client_id       = var.client_id
-  client_secret   = var.client_secret
-
-  default_tags     = local.tags
-  default_location = var.location
 }
 
 data "azurerm_subscription" "primary" {
