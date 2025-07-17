@@ -100,8 +100,8 @@ resource "azuread_application" "entra_app_reg" {
           enabled                       = oauth2_permission_scope.value.enabled
           id                            = oauth2_permission_scope.value.id
           type                          = oauth2_permission_scope.value.type
-          user_consent_description      = oauth2_permission_scope.value.type
-          user_consent_display_name     = oauth2_permission_scope.value.type
+          user_consent_description      = oauth2_permission_scope.value.user_consent_description
+          user_consent_display_name     = oauth2_permission_scope.value.user_consent_display_name
           value                         = oauth2_permission_scope.value.value
       }
     }
