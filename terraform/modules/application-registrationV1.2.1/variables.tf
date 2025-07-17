@@ -111,6 +111,12 @@ variable "api" {
       value                      = string
     }))
   })
+  default = {
+    known_client_applications      = null,
+    mapped_claims_enabled          = null,
+    requested_access_token_version = null,
+    oauth2_permission_scope        = []
+  }
 }
 
 variable "graph_application_permissions" {
