@@ -94,7 +94,7 @@ variable "applications" {
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
-        hide                          = null
+        hide                          = true
       }
       identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
       api = {
@@ -155,7 +155,7 @@ variable "applications" {
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
-        hide                          = null
+        hide                          = true
       }
       identifier_uris = null
       api                              = {
@@ -250,7 +250,7 @@ variable "applications" {
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
-        hide                          = null
+        hide                          = true
       }
       identifier_uris = null
       api                              = {
@@ -298,7 +298,7 @@ variable "applications" {
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
-        hide                          = null
+        hide                          = true
       }
       identifier_uris = null
       api                              = {
@@ -339,7 +339,7 @@ variable "applications" {
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
-        hide                          = null
+        hide                          = true
       }
       identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/a9faa077-878c-48df-a735-e96ffc694ac5"]
       api                              = {
@@ -381,7 +381,7 @@ variable "applications" {
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
-        hide                          = null
+        hide                          = true
       }
       identifier_uris = ["api://594f6a8d-0914-41ce-9687-f1cbfffb0ece"]
       api = {
