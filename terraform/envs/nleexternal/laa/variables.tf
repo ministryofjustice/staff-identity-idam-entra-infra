@@ -91,7 +91,7 @@ variable "applications" {
         login_url                     = null
         notification_email_addresses  = []
         preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
+        app_role_assignment_required  = false
         account_enabled               = true
         application_template_name     = null
         hide                          = true
