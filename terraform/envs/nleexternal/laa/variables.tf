@@ -204,7 +204,7 @@ variable "applications" {
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
-        hide                          = null
+        hide                          = true
       }
       identifier_uris = null
       api                              = {
