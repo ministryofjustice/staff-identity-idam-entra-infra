@@ -96,6 +96,32 @@ variable "app_roles" {
   default = null
 }
 
+variable "api" {
+  description = "values for the API section of the application registration."
+  nullable = true
+  type = object({
+    known_client_applications      = list(string)
+    mapped_claims_enabled          = bool
+    requested_access_token_version = string
+    oauth2_permission_scope        = list(object({      
+      admin_consent_description    = string
+      admin_consent_display_name   = string
+      enabled                      = bool
+      id                           = string
+      type                         = string
+      user_consent_description     = string
+      user_consent_display_name    = string
+      value                        = string
+    }))
+  })
+  default = {
+    known_client_applications      = null,
+    mapped_claims_enabled          = null,
+    requested_access_token_version = null,
+    oauth2_permission_scope        = []
+  }
+}
+
 variable "graph_application_permissions" {
   description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
   type        = list(string)

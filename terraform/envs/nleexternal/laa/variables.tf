@@ -49,6 +49,21 @@ variable "applications" {
       hide                          = bool
     })
     identifier_uris = list(string)
+    api = object({
+      known_client_applications      = list(string)
+      mapped_claims_enabled          = bool
+      requested_access_token_version = string
+      oauth2_permission_scope        = list(object({      
+        admin_consent_description  = string
+        admin_consent_display_name = string
+        enabled                    = bool
+        id                         = string
+        type                       = string
+        user_consent_description   = string
+        user_consent_display_name  = string
+        value                      = string
+      }))
+    })
   }))
   default = {
     "app1" = {
@@ -81,7 +96,22 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = null
+      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = 1
+        oauth2_permission_scope = [{
+          admin_consent_description  = "Allows the application to access the API on behalf of the signed-in user"
+          admin_consent_display_name = "Access Claim Enrichment"
+          enabled                    = true
+          id                         = "5eff006b-3ee5-4038-a473-2fbc1443291a"
+          type                       = "Admin"
+          user_consent_description   = null
+          user_consent_display_name  = null
+          value                      = "user_impersonation"
+        }]
+      }
     },
     "apply_civil_legal_aid" = {
       notes                          = "Enables providers to submit an application for civil legal aid."
@@ -128,6 +158,12 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      api                              = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = null,
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
+      }
     },
     "apply_criminal_legal_aid" = {
       notes                          = "Apply for criminal legal aid is a service enabling providers to apply for criminal legal aid online. It is used by provider firms to submit applications on behalf of their clients, to make changes to returned applications, to provide additional evidence or to make supplementary applications when a client's circumstance change."
@@ -171,6 +207,12 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      api                              = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = null,
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
+      }
     },
     "manage_providers_data" = {
       notes                          = "Application used to manage legal aid provider's data in CWA."
@@ -211,6 +253,12 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      api                              = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = null,
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
+      }
     },
     "submit_a_crime_form" = {
       notes                          = "Allowing legal providers to submit applications and claims for CRM4s and CRM7s respectively."
@@ -253,6 +301,12 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      api                              = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = null,
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
+      }
     },
     "laad_lassie_claim_enrichment_api" = {
       notes                          = "Legal Aid Single Sign in Experience API for Claim Enrichment to downstream LAA Services."
@@ -287,7 +341,13 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = null
+      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/a9faa077-878c-48df-a735-e96ffc694ac5"]
+      api                              = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = null,
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
+      }
     },
     "pui" = {
       notes                          = "Client and Cost Management System."
@@ -323,7 +383,22 @@ variable "applications" {
         application_template_name     = null
         hide                          = null
       }
-      identifier_uris = null
+      identifier_uris = ["api://594f6a8d-0914-41ce-9687-f1cbfffb0ece"]
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = null
+        requested_access_token_version = null
+        oauth2_permission_scope = [{
+          admin_consent_description  = "Allow the application to access PUI on behalf of the signed-in user."
+          admin_consent_display_name = "Access PUI"
+          enabled                    = true
+          id                         = "a0f75298-ccf4-49ee-a86b-e5bcc7d9e1b3"
+          type                       = "User"
+          user_consent_description   = "Allow the application to access PUI on behalf of the signed-in user."
+          user_consent_display_name  = "Access PUI"
+          value                      = "user_impersonation"
+        }]
+      }
     }
   }
 }
