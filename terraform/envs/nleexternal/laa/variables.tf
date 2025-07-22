@@ -80,7 +80,7 @@ variable "applications" {
       allowed_groups                 = ["APPREG-User-Access-LAAD-LASSIE","DEPT-All-Legal-Aid-Agency-Internal-Staff"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure"]
+      redirect_uris                  = ["https://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload","User.Invite.All","Directory.Read.All","User.Read.All","GroupMember.ReadWrite.All","AuditLog.Read.All","Application.Read.All"]
@@ -96,7 +96,7 @@ variable "applications" {
         application_template_name     = null
         hide                          = true
       }
-      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
+      identifier_uris = ["api://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
       api = {
         known_client_applications      = []
         mapped_claims_enabled          = false
@@ -341,7 +341,7 @@ variable "applications" {
         application_template_name     = null
         hide                          = true
       }
-      identifier_uris = ["api://laa-landing-page-dev.apps.live.cloud-platform.service.justice.gov.uk/a9faa077-878c-48df-a735-e96ffc694ac5"]
+      identifier_uris = ["api://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/a9faa077-878c-48df-a735-e96ffc694ac5"]
       api                              = {
         known_client_applications      = null,
         mapped_claims_enabled          = null,
