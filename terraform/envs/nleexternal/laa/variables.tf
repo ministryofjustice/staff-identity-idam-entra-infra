@@ -99,7 +99,7 @@ variable "applications" {
       identifier_uris = ["api://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
       api = {
         known_client_applications      = [],
-        mapped_claims_enabled          = null,
+        mapped_claims_enabled          = false,
         requested_access_token_version = 1,
         oauth2_permission_scope = [{
           admin_consent_description  = "Allows the application to access the API on behalf of the signed-in user"
@@ -136,9 +136,7 @@ variable "applications" {
       logout_url                     = null
       redirect_uris                  = [
         "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/auth/entra_id/callback",
-        "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback",
-        "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/auth/azure_ad/callback",
-        "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/azure_ad/callback"
+        "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
