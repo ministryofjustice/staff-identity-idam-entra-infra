@@ -184,7 +184,7 @@ variable "applications" {
       ]
       allowed_groups                 = ["APPREG-User-Access-LAAD-Apply-Criminal-Legal-Aid"]
       homepage_url                   = "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk"
-      logout_url                     = null
+      logout_url                     = "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk/providers/logout"
       redirect_uris                  = [
         "http://localhost:3000/providers/auth/entra/callback",
         "https://laa-apply-for-criminal-legal-aid.test/providers/auth/entra/callback",
