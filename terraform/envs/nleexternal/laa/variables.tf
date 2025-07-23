@@ -98,9 +98,9 @@ variable "applications" {
       }
       identifier_uris = ["api://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
       api = {
-        known_client_applications      = []
-        mapped_claims_enabled          = false
-        requested_access_token_version = 1
+        known_client_applications      = [],
+        mapped_claims_enabled          = null,
+        requested_access_token_version = 1,
         oauth2_permission_scope = [{
           admin_consent_description  = "Allows the application to access the API on behalf of the signed-in user"
           admin_consent_display_name = "Access Claim Enrichment"
@@ -137,10 +137,8 @@ variable "applications" {
       redirect_uris                  = [
         "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/auth/entra_id/callback",
         "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback",
-        "https://localhost:3000/providers/auth/entra_id/callback",
         "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/auth/azure_ad/callback",
-        "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/azure_ad/callback",
-        "https://localhost:3000/providers/auth/azure_ad/callback"
+        "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/azure_ad/callback"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
@@ -160,8 +158,8 @@ variable "applications" {
       identifier_uris = null
       api                              = {
         known_client_applications      = null,
-        mapped_claims_enabled          = null,
-        requested_access_token_version = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
     },
@@ -186,9 +184,7 @@ variable "applications" {
       homepage_url                   = "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk"
       logout_url                     = "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk/providers/logout"
       redirect_uris                  = [
-        "http://localhost:3000/providers/auth/entra/callback",
         "https://laa-apply-for-criminal-legal-aid.test/providers/auth/entra/callback",
-        "https://localhost:3000/providers/auth/entra/callback",
         "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk/providers/auth/entra/callback"
       ]
       mobile_desktop_redirect_uris   = null
@@ -209,8 +205,8 @@ variable "applications" {
       identifier_uris = null
       api                              = {
         known_client_applications      = null,
-        mapped_claims_enabled          = null,
-        requested_access_token_version = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
     },
@@ -303,8 +299,8 @@ variable "applications" {
       identifier_uris = null
       api                              = {
         known_client_applications      = null,
-        mapped_claims_enabled          = null,
-        requested_access_token_version = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
     },
@@ -367,7 +363,7 @@ variable "applications" {
       allowed_groups                 = ["APPREG-User-Access-LAAD-PUI"]
       homepage_url                   = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
       logout_url                     = null
-      redirect_uris                  = ["http://localhost:8080/civil/login/saml2/sso","https://idam-provider-ui-laa-ccms-dev.apps.live.cloud-platform.service.justice.gov.uk/civil/login/saml2/sso"]
+      redirect_uris                  = ["https://idam-provider-ui-laa-ccms-dev.apps.live.cloud-platform.service.justice.gov.uk/civil/login/saml2/sso"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
@@ -386,8 +382,8 @@ variable "applications" {
       identifier_uris = ["api://594f6a8d-0914-41ce-9687-f1cbfffb0ece"]
       api = {
         known_client_applications      = []
-        mapped_claims_enabled          = null
-        requested_access_token_version = null
+        mapped_claims_enabled          = true
+        requested_access_token_version = 2
         oauth2_permission_scope = [{
           admin_consent_description  = "Allow the application to access PUI on behalf of the signed-in user."
           admin_consent_display_name = "Access PUI"
