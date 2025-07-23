@@ -51,7 +51,7 @@ jobs:
         run: go build -o tf-runner ./scripts/pipeline/main.go
 
       - name: Terraform Init
-        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "init -backend-config=./state.config"
+        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "init -backend-config=./state.config && terraform get -update"
 
       - name: Terraform Validate
         run: ./tf-runner -env "${{ matrix.environment }}" -cmd "validate"
