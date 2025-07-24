@@ -273,11 +273,10 @@ variable "applications" {
         "nscc@justice.gov.uk"
       ]
       allowed_groups                 = ["APPREG-User-Access-LAAD-Submit-Crime-Form"]
-      homepage_url                   = null
-      logout_url                     = null
+      homepage_url                   = "https://dev.submit-crime-forms.service.justice.gov.uk/"
+      logout_url                     = "https://dev.submit-crime-forms.service.justice.gov.uk/providers/logout"
       redirect_uris                  = [
-        "https://crm457-2661-testin-nscc-provider-dev.cloud-platform.service.justice.gov.uk/providers/auth/entra_id/callback",
-        "https://nsm-submit.test/providers/auth/entra_id/callback"
+        "https://dev.submit-crime-forms.service.justice.gov.uk/providers/auth/entra_id/callback"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
