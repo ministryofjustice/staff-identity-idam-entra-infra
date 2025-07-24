@@ -348,57 +348,6 @@ variable "applications" {
         requested_access_token_version = null,
         oauth2_permission_scope        = []
       }
-    },
-    "pui" = {
-      notes                          = "Client and Cost Management System."
-      service_management_reference   = "IDAM-2974"
-      display_name                   = "PUI"
-      department_name                = "justice-digital"
-      team_name                      = "laa"
-      application_name               = "pui"
-      create_access_package          = false
-      access_package_reviewers       = []
-      owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
-      application_contacts           = [
-        "Eamon.McNally@justice.gov.uk",
-        "Ben.Ashton@justice.gov.uk",
-        "harry.henry@justice.gov.uk"
-      ]
-      allowed_groups                 = ["APPREG-User-Access-LAAD-PUI"]
-      homepage_url                   = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
-      logout_url                     = null
-      redirect_uris                  = ["http://localhost:8080/civil/login/saml2/sso","https://idam-provider-ui-laa-ccms-dev.apps.live.cloud-platform.service.justice.gov.uk/civil/login/saml2/sso"]
-      mobile_desktop_redirect_uris   = null
-      app_roles                      = []
-      graph_application_permissions  = []
-      graph_delegated_permissions    = []
-      tenants_required               = ["NLEEXTERNAL"]
-      federated_identity_credentials = []
-      service_principle = {
-        login_url                     = null
-        notification_email_addresses  = []
-        preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
-        account_enabled               = true
-        application_template_name     = null
-        hide                          = true
-      }
-      identifier_uris = ["api://594f6a8d-0914-41ce-9687-f1cbfffb0ece"]
-      api = {
-        known_client_applications      = []
-        mapped_claims_enabled          = null
-        requested_access_token_version = null
-        oauth2_permission_scope = [{
-          admin_consent_description  = "Allow the application to access PUI on behalf of the signed-in user."
-          admin_consent_display_name = "Access PUI"
-          enabled                    = true
-          id                         = "a0f75298-ccf4-49ee-a86b-e5bcc7d9e1b3"
-          type                       = "User"
-          user_consent_description   = "Allow the application to access PUI on behalf of the signed-in user."
-          user_consent_display_name  = "Access PUI"
-          value                      = "user_impersonation"
-        }]
-      }
     }
   }
 }
