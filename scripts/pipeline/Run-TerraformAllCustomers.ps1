@@ -23,17 +23,45 @@ try {
     Set-Location $baseDir
     Write-Host $(Get-Location)
     $customers = Get-ChildItem -Directory | Select-Object -ExpandProperty Name
-    Write-Host $customers
+
+    Write-Host "Customer Names: $customers"
 
 
     # Run a Terraform command for each customer
+    $basePath = (Get-Location).Path
+
     foreach ($customer in $customers) {
-        $workingDir = Resolve-Path -Path "$customer"
-        Set-Location -Path $workingDir
-        Write-Host "Running terraform $TerraformCommand for: [$customer]" -ForegroundColor Green
-        Invoke-Expression $command
-        cd ..
+        $jobs += Start-Job -Name $customer -ArgumentList $customer, $command, $basePath -ScriptBlock {
+        param($customerName, $command, $basePath)
+            Write-Host "Working Directory: $basePath" -ForegroundColor Yellow
+            $workingDir = Resolve-Path -Path "$customerName"
+            Set-Location -Path $workingDir
+
+            Write-Host "Running terraform $TerraformCommand for: [$($customerName)]" -ForegroundColor Green
+            try {
+                Invoke-Expression $command
+            } catch {
+                throw $_.Exception.Message
+            }
+
+            # Set location back to the base envs folder
+            Set-Location $basePath
+        }
+        
     }
+    # Wait for all jobs to complete
+    $jobs | Wait-Job
+    # $results = $jobs | Receive-Job
+    # $results
+    # Retrieve results in the order of $customers
+    foreach ($job in $jobs) {
+        Write-Host "Output for Job: $($job.Name)" -ForegroundColor Cyan
+        Receive-Job $job
+    }
+
+    # Clean up jobs
+    $jobs | Remove-Job
+
 } catch {
     throw $_
 }
