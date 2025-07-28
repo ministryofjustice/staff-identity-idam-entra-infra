@@ -53,9 +53,7 @@ try {
     }
     # Wait for all jobs to complete
     $jobs | Wait-Job
-    # $results = $jobs | Receive-Job
-    # $results
-    # Retrieve results in the order of $customers
+
     foreach ($job in $jobs) {
         Write-Host "Output for Job: $($job.Name)" -ForegroundColor Cyan
         Receive-Job $job
