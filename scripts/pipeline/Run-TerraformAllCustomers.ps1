@@ -30,6 +30,8 @@ try {
     # Run a Terraform command for each customer
     $basePath = (Get-Location).Path
 
+    $jobs = @()
+
     foreach ($customer in $customers) {
         $jobs += Start-Job -Name $customer -ArgumentList $customer, $command, $basePath -ScriptBlock {
         param($customerName, $command, $basePath)
