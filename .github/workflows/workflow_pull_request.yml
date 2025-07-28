@@ -29,35 +29,35 @@ jobs:
       Env: ${{ matrix.environment }}
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+    
+    - name: Checkout Code
+      uses: actions/checkout@v4
 
-      - name: Azure Login via OIDC
-        uses: azure/login@v2
-        with:
-          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-          tenant-id: ${{ secrets.ARM_TENANT_ID }}
-          client-id: ${{ secrets.ARM_CLIENT_ID }}
+    - name: Azure Login via OIDC
+      uses: azure/login@v2
+      with:
+        subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        tenant-id: ${{ secrets.ARM_TENANT_ID }}
+        client-id: ${{ secrets.ARM_CLIENT_ID }}
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
 
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.21'
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
 
-      - name: Build Terraform Runner
-        run: go build -o tf-runner ./scripts/pipeline/main.go
+    - name: Terraform Init
+      shell: pwsh
+      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
 
-      - name: Terraform Init
-        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "init -backend-config=./state.config"
+    - name: Terraform Validate
+      shell: pwsh
+      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "validate"
 
-      - name: Terraform Validate
-        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "validate"
+    - name: Terraform Format
+      shell: pwsh
+      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "fmt"
 
-      - name: Terraform Format
-        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "fmt"
-
-      - name: Terraform Plan
-        run: ./tf-runner -env "${{ matrix.environment }}" -cmd "plan -lock-timeout=300s -input=false"
+    - name: Terraform Plan
+      shell: pwsh
+      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false"
