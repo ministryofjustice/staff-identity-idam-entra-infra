@@ -83,8 +83,8 @@ resource "azuread_application" "entra_app_reg" {
     redirect_uris = var.redirect_uris
 
     implicit_grant {
-      access_token_issuance_enabled = true
-      id_token_issuance_enabled     = true
+      access_token_issuance_enabled = var.access_token_issuance_enabled
+      id_token_issuance_enabled     = var.id_token_issuance_enabled
     }
   }
 
@@ -124,9 +124,10 @@ resource "azuread_service_principal" "entra_app_service_principle" {
   preferred_single_sign_on_mode = var.service_principle.preferred_single_sign_on_mode
 
   feature_tags {
-    enterprise = true
-    gallery    = false
-    hide       = var.service_principle.hide
+    enterprise            = true
+    gallery               = false
+    hide                  = var.service_principle.hide
+    custom_single_sign_on = var.service_principle.custom_single_sign_on
   }
 }
 
