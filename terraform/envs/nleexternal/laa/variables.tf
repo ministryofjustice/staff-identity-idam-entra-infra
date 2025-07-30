@@ -366,7 +366,7 @@ variable "applications" {
     "pui" = {
       notes                        = "Client and Cost Management System."
       service_management_reference = "IDAM-3912"
-      display_name                 = "PUI (DEV)"
+      display_name                 = "PUI (NLE)"
       department_name              = "justice-digital"
       team_name                    = "laa"
       application_name             = "pui"
@@ -423,13 +423,13 @@ variable "applications" {
         mapped_claims_enabled          = true
         requested_access_token_version = 2
         oauth2_permission_scope = [{
-          admin_consent_description  = "Access PUI (DEV)"
+          admin_consent_description  = "Access PUI (NLE)"
           admin_consent_display_name = "Access PUI"
           enabled                    = true
           id                         = "214e223c-3269-4f48-8298-b052acbd6860"
           type                       = "User"
-          user_consent_description   = "Allow the application to access PUI (DEV) on your behalf."
-          user_consent_display_name  = "Access PUI (DEV)"
+          user_consent_description   = "Allow the application to access PUI (NLE) on your behalf."
+          user_consent_display_name  = "Access PUI (NLE)"
           value                      = "user_impersonation"
         }]
       }
