@@ -78,6 +78,14 @@ variable "redirect_uris" {
   type        = list(string)
 }
 
+variable "access_token_issuance_enabled" {
+  type        = bool
+}
+
+variable "id_token_issuance_enabled" {
+  type        = bool
+}
+
 variable "mobile_desktop_redirect_uris" {
   description = "The mobile and desktop URIs we will accept as destinations when returning authentication responses (tokens) after successfully authenticating or signing out users. The redirect URI you send in the request to the login server should match one listed here. Also referred to as reply URLs."
   type        = list(string)
@@ -169,6 +177,7 @@ variable "service_principle" {
     account_enabled               = bool
     application_template_name     = string
     hide                          = bool
+    custom_single_sign_on         = bool
   })
   default = {
     login_url                     = null,
@@ -178,6 +187,7 @@ variable "service_principle" {
     account_enabled               = true,
     application_template_name     = null,
     hide                          = null,
+    custom_single_sign_on         = null,
   }
 }
 

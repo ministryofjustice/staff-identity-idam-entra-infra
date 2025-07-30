@@ -33,6 +33,7 @@ module "application-registration" {
   identifier_uris                = each.value.identifier_uris
   application_contacts           = each.value.application_contacts
   api                            = each.value.api
+  access_token_issuance_enabled  = each.value.access_token_issuance_enabled
+  id_token_issuance_enabled      = each.value.id_token_issuance_enabled
 }
 #endregion
-
