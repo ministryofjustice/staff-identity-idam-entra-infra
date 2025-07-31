@@ -4,7 +4,7 @@ param (
 )
 
 if (-Not (Test-Path $OutFilePath)) {
-    Write-Error "❌ Plan file '$OutFilePath' not found. Make sure terraform plan was run successfully."
+    Write-Host "❌ Plan file '$OutFilePath' not found. Make sure terraform plan was run successfully."
     exit 1
 }
 
