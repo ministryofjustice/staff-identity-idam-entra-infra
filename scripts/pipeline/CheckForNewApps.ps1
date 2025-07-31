@@ -17,6 +17,6 @@ if ($createdApps) {
     Write-Host "✅ New Azure AD app detected."
     $env:NEW_AAD_APP = "true"
 } else {
-    Write-Host "🟡 No new Azure AD apps created."
+    Write-Host "No new Azure AD apps created."
     $env:NEW_AAD_APP = "false"
 }
