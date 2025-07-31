@@ -78,6 +78,36 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "app2" = {
+      notes                          = "EUCS IDAM App Reg Test 2 terraform"
+      service_management_reference   = "IDAM-3910"
+      display_name                   = "EUCS IDAM App Reg Test 2 terraform"
+      department_name                = "eucs"
+      team_name                      = "idam"
+      application_name               = "app-reg-tf"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["jnolan-admin@devl.justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["DEVL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
