@@ -6,7 +6,7 @@ param (
 Write-Host "Outputting TFplan to JSON" -ForegroundColor Yellow
 terraform show -json $OutFilePath | Out-File -Encoding utf8 tfplan.json
 
-$json = Get-Content tfplan.json | ConvertFrom-Json 
+$json = Get-Content -Path './tfplan.json' | ConvertFrom-Json 
 
 # Check for azuread_application creation
 $createdApps = $json.resource_changes | Where-Object {
