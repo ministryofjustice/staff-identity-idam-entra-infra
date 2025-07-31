@@ -3,6 +3,11 @@ param (
     [String]$OutFilePath = "./tfplan.out"
 )
 
+if (-Not (Test-Path $OutFilePath)) {
+    Write-Error "❌ Plan file '$OutFilePath' not found. Make sure terraform plan was run successfully."
+    exit 1
+}
+
 Write-Host "Outputting TFplan to JSON" -ForegroundColor Yellow
 terraform show -json $OutFilePath | Out-File -Encoding utf8 tfplan.json
 
