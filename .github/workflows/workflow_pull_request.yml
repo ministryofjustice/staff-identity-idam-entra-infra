@@ -64,7 +64,7 @@ jobs:
     - name: Terraform Plan
       id: plan
       shell: pwsh
-      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -no-color 2>&1 | tee ${{ github.workspace }}/plan_output.txt -lock-timeout=300s -input=false"
+      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "\"plan -no-color -lock-timeout=300s -input=false 2>&1 | tee '${{ github.workspace }}/plan_output.txt'\""
       continue-on-error: false
 
     - name: Comment Terraform Plan on PR
