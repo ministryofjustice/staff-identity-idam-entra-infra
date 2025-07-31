@@ -69,7 +69,6 @@ jobs:
 
     - name: Comment Terraform Plan on PR
       uses: blinqas/tf-plan-pr-comment@v1.1.0
-      needs: plan 
       with:
         output_file: ${{ github.workspace }}/plan_output.txt
       env:
