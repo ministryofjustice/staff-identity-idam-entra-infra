@@ -45,9 +45,12 @@ try {
                 Write-Host "Entering new logic"
                 # Check the to see if new apps are being created, to trigger a script to consent to scopes
                 if ($command.ToLower().Contains("plan")) {
+
+                    Write-Host "Terraform commands"
                     terraform plan -out=tfplan.out
                     terraform show -json tfplan.out > tfplan.json
 
+                    Write-Host "Get content"
                     $tfplan = Get-Content tfplan.json | ConvertFrom-Json
 
                     $appCreated = $false
