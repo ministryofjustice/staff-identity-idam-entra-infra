@@ -42,7 +42,7 @@ try {
             Write-Host "Running terraform $TerraformCommand for: [$($customerName)]" -ForegroundColor Green
             try {
                 Invoke-Expression $command
-                
+                Write-Host "Entering new logic"
                 # Check the to see if new apps are being created, to trigger a script to consent to scopes
                 if ($command.ToLower().Contains("plan")) {
                     terraform plan -out=tfplan.out
