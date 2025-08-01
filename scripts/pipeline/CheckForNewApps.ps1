@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param (
-    [String]$OutFilePath = "./tfplan.out"
+    [String]$OutFilePath = "./infra/tfplan.out"
 )
 
 if (-Not (Test-Path $OutFilePath)) {
