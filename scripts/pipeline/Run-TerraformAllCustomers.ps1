@@ -50,6 +50,11 @@ try {
 
                     Write-Host "Terraform commands"
                     terraform plan -out=tfplan.out
+
+                    if (-Not (Test-Path "tfplan.out")) {
+                        Write-Error "❌ Terraform plan failed or tfplan.out is missing."
+                        exit 1
+                    }
                     terraform show -json tfplan.out | Out-File -Encoding utf8 tfplan.json
 
 
