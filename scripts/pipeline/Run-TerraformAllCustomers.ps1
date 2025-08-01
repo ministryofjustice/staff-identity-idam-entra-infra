@@ -43,7 +43,7 @@ try {
             try {
                 Invoke-Expression $command
                 
-                Check the to see if new apps are being created, to trigger a script to consent to scopes
+                # Check the to see if new apps are being created, to trigger a script to consent to scopes
                 if ($command.ToLower().Contains("plan")) {
                     terraform plan -out=tfplan.out
                     terraform show -json tfplan.out > tfplan.json
