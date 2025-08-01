@@ -60,7 +60,7 @@ try {
                 #     }
 
                 #     echo "NEW_APP_CREATED=$appCreated" >> $Env:GITHUB_ENV
-                }
+                #}
             } catch {
                 Write-Host "There was an error running the customers plan"
                 throw $_.Exception.Message
