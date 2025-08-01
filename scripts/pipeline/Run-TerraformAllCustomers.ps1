@@ -42,6 +42,25 @@ try {
             Write-Host "Running terraform $TerraformCommand for: [$($customerName)]" -ForegroundColor Green
             try {
                 Invoke-Expression $command
+                
+                # Check the to see if new apps are being created, to trigger a script to consent to scopes
+                if ($command.ToLower().Contains("plan")) {
+                    terraform plan -out=tfplan.out
+                    terraform show -json tfplan.out > tfplan.json
+
+                    $tfplan = Get-Content tfplan.json | ConvertFrom-Json
+
+                    $appCreated = $false
+
+                    foreach ($change in $tfplan.resource_changes) {
+                        if ($change.type -eq "azuread_application" -and $change.change.actions -contains "create") {
+                            $appCreated = $true
+                            break
+                        }
+                    }
+
+                    echo "NEW_APP_CREATED=$appCreated" >> $Env:GITHUB_ENV
+                }
             } catch {
                 throw $_.Exception.Message
             }
@@ -61,6 +80,10 @@ try {
 
     # Clean up jobs
     $jobs | Remove-Job
+
+    if ($appCreated) {
+        Write-host "This plan will create a new application. On the main branch run, a script will auto grant the admin consent for the request scopes" -ForegroundColor Blue
+    }
 
 } catch {
     throw $_
