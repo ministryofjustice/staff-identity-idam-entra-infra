@@ -43,24 +43,24 @@ try {
             try {
                 Invoke-Expression $command
                 
-                # Check the to see if new apps are being created, to trigger a script to consent to scopes
-                # if ($command.ToLower().Contains("plan")) {
-                #     terraform plan -out=tfplan.out
-                #     terraform show -json tfplan.out > tfplan.json
+                Check the to see if new apps are being created, to trigger a script to consent to scopes
+                if ($command.ToLower().Contains("plan")) {
+                    terraform plan -out=tfplan.out
+                    terraform show -json tfplan.out > tfplan.json
 
-                #     $tfplan = Get-Content tfplan.json | ConvertFrom-Json
+                    $tfplan = Get-Content tfplan.json | ConvertFrom-Json
 
-                #     $appCreated = $false
+                    $appCreated = $false
 
-                #     foreach ($change in $tfplan.resource_changes) {
-                #         if ($change.type -eq "azuread_application" -and $change.change.actions -contains "create") {
-                #             $appCreated = $true
-                #             break
-                #         }
-                #     }
+                    foreach ($change in $tfplan.resource_changes) {
+                        if ($change.type -eq "azuread_application" -and $change.change.actions -contains "create") {
+                            $appCreated = $true
+                            break
+                        }
+                    }
 
-                #     echo "NEW_APP_CREATED=$appCreated" >> $Env:GITHUB_ENV
-                #}
+                    echo "NEW_APP_CREATED=$appCreated" >> $Env:GITHUB_ENV
+                }
             } catch {
                 Write-Host "There was an error running the customers plan"
                 throw $_.Exception.Message
