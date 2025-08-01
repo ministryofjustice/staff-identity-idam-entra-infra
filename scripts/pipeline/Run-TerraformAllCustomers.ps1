@@ -8,6 +8,8 @@ param (
 
     [switch]$TerraformPlanAndApply
 )
+$PSNativeCommandUseErrorActionPreference = $true
+
 try {
     # Global Vars
     $env = $Env.ToLower()
@@ -43,6 +45,7 @@ try {
             try {
                 Invoke-Expression $command
             } catch {
+                Write-Host "There was an error running the customers plan"
                 throw $_.Exception.Message
             }
 
@@ -61,6 +64,10 @@ try {
 
     # Clean up jobs
     $jobs | Remove-Job
+
+    if ($appCreated) {
+        Write-host "This plan will create a new application. On the main branch run, a script will auto grant the admin consent for the request scopes" -ForegroundColor Blue
+    }
 
 } catch {
     throw $_
