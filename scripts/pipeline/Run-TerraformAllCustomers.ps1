@@ -8,6 +8,8 @@ param (
 
     [switch]$TerraformPlanAndApply
 )
+$PSNativeCommandUseErrorActionPreference = $true
+
 try {
     # Global Vars
     $env = $Env.ToLower()
@@ -48,7 +50,8 @@ try {
 
                     Write-Host "Terraform commands"
                     terraform plan -out=tfplan.out
-                    terraform show -json tfplan.out > tfplan.json
+                    terraform show -json tfplan.out | Out-File -Encoding utf8 tfplan.json
+
 
                     Write-Host "Get content"
                     $tfplan = Get-Content tfplan.json | ConvertFrom-Json
