@@ -66,10 +66,6 @@ jobs:
       shell: pwsh
       run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -no-color -lock-timeout=300s -input=false -out='./tfplan.out'"
       continue-on-error: false
-    
-    - name: Directory Test 
-      shell: pwsh
-      run: Get-ChildItem -file 
 
     - name: New App Check
       shell: pwsh
@@ -77,7 +73,7 @@ jobs:
 
     - name: Update Pull Request
       uses: actions/github-script@v7
-      if: env.NEW_AAD_APP == 'true'
+      if: env.NEW_APP_CREATED == 'true'
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
