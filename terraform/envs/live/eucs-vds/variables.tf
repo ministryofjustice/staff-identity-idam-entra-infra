@@ -169,7 +169,7 @@ variable "applications" {
       }
       identifier_uris = null
     },
-    "vds_subscription_automation_02" = {
+    "vds_subscription_automation_03" = {
       notes                          = "Used for Terraform automation activities in VDS subscriptions"
       service_management_reference   = "EUCSVDS-1512"
       display_name                   = "MoJ-OFFICIAL-Prod-Spoke-EUCSVD03-TF"
@@ -199,7 +199,7 @@ variable "applications" {
       }
       identifier_uris = null
     },
-    "vds_subscription_automation_02" = {
+    "vds_subscription_automation_04" = {
       notes                          = "Used for Terraform automation activities in VDS subscriptions"
       service_management_reference   = "EUCSVDS-1512"
       display_name                   = "MoJ-OFFICIAL-Prod-Spoke-EUCSVD04-TF"
