@@ -16,7 +16,6 @@ defaults:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    defaults:
     strategy:
       matrix:
         environment: [DEVL, NLE, LIVE, NLEEXTERNAL, PRODEXTERNAL]
