@@ -47,10 +47,10 @@ try {
                 Invoke-Expression $command
 
                 Write-Host "Outputting TFplan to JSON" -ForegroundColor Yellow
-                terraform show -json $OutFilePath | Out-File -Encoding utf8 -Path "./tfplan.json"
+                terraform show -json tfplan > tfplan.json
 
-                $json = Get-Content -Path './tfplan.json' | ConvertFrom-Json
-                Write-Host "Jason content is: [$json]"
+                $json = Get-Content -Path "./tfplan.json" -Raw | ConvertFrom-Json -Depth 100
+                Write-Host "Json content is: [$json]"
 
                 # Check for azuread_application creation
                 Write-Host "Checking to see if a new app is being created"
@@ -60,6 +60,7 @@ try {
 
                 if ($createdApps) {
                     $newAADApp = "true"
+                    $env:NEW_AAD_APP = "true"
                     Write-Host "New app is being created"
                 }
 
