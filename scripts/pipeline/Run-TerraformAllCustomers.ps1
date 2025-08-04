@@ -49,15 +49,18 @@ try {
                 Write-Host "Outputting TFplan to JSON" -ForegroundColor Yellow
                 terraform show -json $OutFilePath | Out-File -Encoding utf8 -Path "./tfplan.json"
 
-                $json = Get-Content -Path './tfplan.json' | ConvertFrom-Json 
+                $json = Get-Content -Path './tfplan.json' | ConvertFrom-Json
+                Write-Host "Jason content is: [$json]"
 
                 # Check for azuread_application creation
+                Write-Host "Checking to see if a new app is being created"
                 $createdApps = $json.resource_changes | Where-Object {
                     $_.type -eq "azuread_application" -and $_.change.actions -contains "create"
                 }
 
                 if ($createdApps) {
                     $newAADApp = "true"
+                    Write-Host "New app is being created"
                 }
 
             } catch {
@@ -83,6 +86,7 @@ try {
 
     if ($newAADApp) {
         Write-host "This plan will create a new application. On the main branch run, a script will auto grant the admin consent for the request scopes" -ForegroundColor Blue
+        Write-Host "Createing env var"
         $env:NEW_AAD_APP = "true"
     } else {
         Write-Host "No new Azure AD apps created."
