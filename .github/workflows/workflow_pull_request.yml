@@ -17,8 +17,6 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     defaults:
-      run:
-        working-directory: ${{ github.workspace }}/terraform
     strategy:
       matrix:
         environment: [DEVL, NLE, LIVE, NLEEXTERNAL, PRODEXTERNAL]
