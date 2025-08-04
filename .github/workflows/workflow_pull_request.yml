@@ -64,10 +64,6 @@ jobs:
       run: |
         ./scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -no-color -lock-timeout=300s -input=false"
 
-    - name: New App Check
-      shell: pwsh
-      run: scripts/pipeline/CheckForNewApps.ps1
-
     - name: Update Pull Request
       uses: actions/github-script@v7
       if: env.NEW_APP_CREATED == 'true'

@@ -33,6 +33,7 @@ try {
     $basePath = (Get-Location).Path
 
     $jobs = @()
+    $newAADApp = "false"
 
     foreach ($customer in $customers) {
         $jobs += Start-Job -Name $customer -ArgumentList $customer, $command, $basePath -ScriptBlock {
@@ -44,6 +45,21 @@ try {
             Write-Host "Running terraform $TerraformCommand for: [$($customerName)]" -ForegroundColor Green
             try {
                 Invoke-Expression $command
+
+                Write-Host "Outputting TFplan to JSON" -ForegroundColor Yellow
+                terraform show -json $OutFilePath | Out-File -Encoding utf8 -Path "./tfplan.json"
+
+                $json = Get-Content -Path './tfplan.json' | ConvertFrom-Json 
+
+                # Check for azuread_application creation
+                $createdApps = $json.resource_changes | Where-Object {
+                    $_.type -eq "azuread_application" -and $_.change.actions -contains "create"
+                }
+
+                if ($createdApps) {
+                    $newAADApp = "true"
+                }
+
             } catch {
                 Write-Host "There was an error running the customers plan"
                 throw $_.Exception.Message
@@ -65,10 +81,13 @@ try {
     # Clean up jobs
     $jobs | Remove-Job
 
-    if ($appCreated) {
+    if ($newAADApp) {
         Write-host "This plan will create a new application. On the main branch run, a script will auto grant the admin consent for the request scopes" -ForegroundColor Blue
+        $env:NEW_AAD_APP = "true"
+    } else {
+        Write-Host "No new Azure AD apps created."
+        $env:NEW_AAD_APP = "false"
     }
-
 } catch {
     throw $_
 }
