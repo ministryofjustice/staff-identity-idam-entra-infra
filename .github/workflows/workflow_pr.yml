@@ -12,6 +12,7 @@ on:
           - nle
           - live
           - nleexternal
+          - prodexternal
 
 defaults:
   run:

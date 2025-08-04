@@ -1,7 +1,7 @@
 locals {
   tags = {
-    department = "justice-digital"
-    team       = "laa"
+    department = "eucs"
+    team       = "idam"
     source     = "terraform"
   }
 }
