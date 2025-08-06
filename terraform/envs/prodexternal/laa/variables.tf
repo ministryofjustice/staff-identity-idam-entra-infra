@@ -83,7 +83,7 @@ variable "applications" {
       allowed_groups                 = ["APPREG-User-Access-LAAD-SiLAS", "DEPT-All-Legal-Aid-Agency-Internal-Staff"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure"]
+      redirect_uris                  = []
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload", "User.Invite.All", "Directory.Read.All", "User.Read.All", "GroupMember.ReadWrite.All", "AuditLog.Read.All", "Application.Read.All"]
@@ -138,11 +138,10 @@ variable "applications" {
         "stephanie.dejong@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Apply-Civil-Legal-Aid"]
-      homepage_url   = "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/"
+      homepage_url   = "https://apply-for-legal-aid.service.justice.gov.uk/"
       logout_url     = null
       redirect_uris = [
-        "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/auth/entra_id/callback",
-        "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback"
+        "https://apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
@@ -188,11 +187,10 @@ variable "applications" {
         "tim.peat@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Apply-Criminal-Legal-Aid"]
-      homepage_url   = "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk"
-      logout_url     = "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk/providers/logout"
+      homepage_url   = "https://apply-for-criminal-legal-aid.service.justice.gov.uk/"
+      logout_url     = "https://apply-for-criminal-legal-aid.service.justice.gov.uk/providers/logout"
       redirect_uris = [
-        "https://laa-apply-for-criminal-legal-aid.test/providers/auth/entra/callback",
-        "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk/providers/auth/entra/callback"
+        "https://apply-for-criminal-legal-aid.service.justice.gov.uk/providers/auth/entra/callback"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
@@ -242,7 +240,7 @@ variable "applications" {
       allowed_groups                 = ["APPREG-User-Access-LAAD-Manage-Providers-Data"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["http://localhost:8123/callback"]
+      redirect_uris                  = []
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
@@ -288,10 +286,10 @@ variable "applications" {
         "nscc@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Submit-Crime-Form"]
-      homepage_url   = "https://dev.submit-crime-forms.service.justice.gov.uk/"
-      logout_url     = "https://dev.submit-crime-forms.service.justice.gov.uk/providers/logout"
+      homepage_url   = "https://submit-crime-forms.service.justice.gov.uk/"
+      logout_url     = "https://submit-crime-forms.service.justice.gov.uk/providers/logout"
       redirect_uris = [
-        "https://dev.submit-crime-forms.service.justice.gov.uk/providers/auth/entra_id/callback"
+        "https://submit-crime-forms.service.justice.gov.uk/providers/auth/entra_id/callback"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
@@ -381,7 +379,7 @@ variable "applications" {
       allowed_groups               = []
       homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
       logout_url                   = null
-      redirect_uris                = ["https://idam-provider-ui-laa-ccms-test.apps.live.cloud-platform.service.justice.gov.uk/civil", "https://test-provider-ui-laa-ccms-test.apps.live.cloud-platform.service.justice.gov.uk/civil"]
+      redirect_uris                = ["https://production-provider-ui-laa-ccms-prod.apps.live.cloud-platform.service.justice.gov.uk/civil"]
       mobile_desktop_redirect_uris = null
       app_roles = [
         {
