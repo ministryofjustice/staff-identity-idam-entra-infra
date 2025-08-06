@@ -69,18 +69,18 @@ variable "applications" {
     })
   }))
   default = {
-    "app1" = {
+    "silas" = {
       notes                          = "LAA Portal replacement application."
       service_management_reference   = "IDAM-2974"
-      display_name                   = "LASSIE"
+      display_name                   = "SiLAS"
       department_name                = "justice-digital"
       team_name                      = "laa"
-      application_name               = "LASSIE"
+      application_name               = "SiLAS"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
       application_contacts           = ["john.nolan@justice.gov.uk", "Ben.Ashton@justice.gov.uk", "Eamon.McNally@justice.gov.uk"]
-      allowed_groups                 = ["APPREG-User-Access-LAAD-LASSIE", "DEPT-All-Legal-Aid-Agency-Internal-Staff"]
+      allowed_groups                 = ["APPREG-User-Access-LAAD-SiLAS", "DEPT-All-Legal-Aid-Agency-Internal-Staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure"]
@@ -319,13 +319,13 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
-    "laad_lassie_claim_enrichment_api" = {
+    "laad_silas_claim_enrichment_api" = {
       notes                        = "Legal Aid Single Sign in Experience API for Claim Enrichment to downstream LAA Services."
       service_management_reference = "IDAM-2974"
-      display_name                 = "laad-lassie-claim-enrichment-api"
+      display_name                 = "laad-silas-claim-enrichment-api"
       department_name              = "justice-digital"
       team_name                    = "laa"
-      application_name             = "laad-lassie-claim-enrichment-api"
+      application_name             = "laad-silas-claim-enrichment-api"
       create_access_package        = false
       access_package_reviewers     = []
       owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
