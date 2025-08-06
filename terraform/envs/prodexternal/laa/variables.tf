@@ -102,7 +102,7 @@ variable "applications" {
         hide                          = true
         custom_single_sign_on         = null
       }
-      identifier_uris = ["api://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
+      identifier_uris = []
       api = {
         known_client_applications      = [],
         mapped_claims_enabled          = false,
@@ -355,7 +355,7 @@ variable "applications" {
         hide                          = true
         custom_single_sign_on         = null
       }
-      identifier_uris = ["api://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/a9faa077-878c-48df-a735-e96ffc694ac5"]
+      identifier_uris = []
       api = {
         known_client_applications      = null,
         mapped_claims_enabled          = null,
