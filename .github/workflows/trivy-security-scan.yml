@@ -36,7 +36,6 @@ jobs:
             --severity HIGH,CRITICAL \
             --format sarif \
             --output trivy-results.sarif \
-            --ignore-unfixed \
             --exit-code 1 \
             --skip-version-check
 
