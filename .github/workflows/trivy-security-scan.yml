@@ -27,7 +27,7 @@ jobs:
       - name: Setup Trivy v0.65.0
         uses: aquasecurity/setup-trivy@v0.2.3
         with:
-          trivy-version: v0.65.0
+          version: v0.65.0
           cache: true 
 
       - name: Run Trivy Config Scan
