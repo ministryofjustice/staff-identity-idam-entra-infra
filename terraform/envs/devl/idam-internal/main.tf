@@ -11,8 +11,8 @@ resource "azuread_group" "tf_test" {
   security_enabled = true
 }
 
-resource "azurerm_key_vault" "internal_vault" {
-  name                        = "internal-key-vault-devl"
+resource "azurerm_key_vault" "idam-internal_vault" {
+  name                        = "kv-internal-idam-devl"
   location                    = data.azurerm_resource_group.internal-rg.location
   resource_group_name         = data.azurerm_resource_group.internal-rg.name
   enabled_for_disk_encryption = true
