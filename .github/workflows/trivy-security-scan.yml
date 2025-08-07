@@ -24,20 +24,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Trivy v0.65.0
-        uses: aquasecurity/setup-trivy@v0.2.3
+      - name: Install Trivy and Run Scan
+        uses: aquasecurity/trivy-action@master
         with:
-          version: v0.65.0
-          cache: true 
-
-      - name: Run Trivy Config Scan
-        run: |
-          trivy config . \
-            --severity HIGH,CRITICAL \
-            --format sarif \
-            --output trivy-results.sarif \
-            --exit-code 1 \
-            --skip-version-check
+          scan-type: "config"
+          scan-ref: "."
+          severity: "HIGH,CRITICAL"
+          format: "sarif"
+          output: "trivy-results.sarif"
+          exit-code: 1
+          ignore-unfixed: true
 
       - name: Upload SARIF Report to GitHub Security
         uses: github/codeql-action/upload-sarif@v3
