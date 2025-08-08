@@ -102,7 +102,7 @@ variable "applications" {
         hide                          = true
         custom_single_sign_on         = null
       }
-      identifier_uris = []
+      identifier_uris = ["api://laa-landing-page-prd.apps.live.cloud-platform.service.justice.gov.uk/694afd85-037e-4846-baf7-8220a84fcd13"]
       api = {
         known_client_applications      = [],
         mapped_claims_enabled          = false,
