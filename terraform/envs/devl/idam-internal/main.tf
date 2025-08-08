@@ -28,6 +28,7 @@ resource "azurerm_key_vault" "idam-internal_vault" {
 
     key_permissions = [
       "Get",
+      "List",
     ]
 
     secret_permissions = [
