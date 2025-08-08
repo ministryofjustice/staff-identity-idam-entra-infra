@@ -83,7 +83,7 @@ variable "applications" {
       allowed_groups                 = ["APPREG-User-Access-LAAD-SiLAS", "DEPT-All-Legal-Aid-Agency-Internal-Staff"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = []
+      redirect_uris                  = ["https://laa-landing-page-prd.apps.live.cloud-platform.service.justice.gov.uk/"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload", "User.Invite.All", "Directory.Read.All", "User.Read.All", "GroupMember.ReadWrite.All", "AuditLog.Read.All", "Application.Read.All"]
@@ -379,7 +379,7 @@ variable "applications" {
       allowed_groups               = []
       homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
       logout_url                   = null
-      redirect_uris                = ["https://production-provider-ui-laa-ccms-prod.apps.live.cloud-platform.service.justice.gov.uk/civil"]
+      redirect_uris                = ["https://production-provider-ui-laa-ccms-prod.apps.live.cloud-platform.service.justice.gov.uk/civil/login/saml2/sso"]
       mobile_desktop_redirect_uris = null
       app_roles = [
         {
@@ -408,14 +408,14 @@ variable "applications" {
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["eamon-mcnally-admin@TestJusticeUKExternal.onmicrosoft.com"]
-        preferred_single_sign_on_mode = null
+        preferred_single_sign_on_mode = "saml"
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
         hide                          = true
         custom_single_sign_on         = true
       }
-      identifier_uris = ["PUI-Dev"]
+      identifier_uris = ["PUI"]
       api = {
         known_client_applications      = []
         mapped_claims_enabled          = true
