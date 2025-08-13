@@ -141,7 +141,6 @@ variable "applications" {
       homepage_url   = "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/"
       logout_url     = null
       redirect_uris = [
-        "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/auth/entra_id/callback",
         "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback"
       ]
       mobile_desktop_redirect_uris   = null
