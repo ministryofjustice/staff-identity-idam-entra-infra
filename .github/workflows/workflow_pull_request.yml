@@ -42,6 +42,8 @@ jobs:
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_wrapper: false
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
@@ -60,4 +62,4 @@ jobs:
 
     - name: Terraform Plan
       shell: pwsh
-      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false"
+      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false -detailed-exitcode"
