@@ -86,7 +86,7 @@ variable "applications" {
         "Contacts.ReadWrite",
         "MailboxSettings.ReadWrite"
       ]
-      tenants_required               = []
+      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
