@@ -83,12 +83,12 @@ variable "applications" {
       allowed_groups                 = ["APPREG-User-Access-LAAD-SiLAS", "DEPT-All-Legal-Aid-Agency-Internal-Staff"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://laa-landing-page-prd.apps.live.cloud-platform.service.justice.gov.uk/"]
+      redirect_uris                  = ["https://your-legal-aid-services.service.justice.gov.uk/login/oauth2/code/azure"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload", "User.Invite.All", "Directory.Read.All", "User.Read.All", "GroupMember.ReadWrite.All", "AuditLog.Read.All", "Application.Read.All"]
       graph_delegated_permissions    = ["User.Read", "User.RevokeSessions.All"]
-      tenants_required               = ["NLEEXTERNAL"]
+      tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = true
       id_token_issuance_enabled      = true
       federated_identity_credentials = []
@@ -102,7 +102,7 @@ variable "applications" {
         hide                          = true
         custom_single_sign_on         = null
       }
-      identifier_uris = ["api://laa-landing-page-prd.apps.live.cloud-platform.service.justice.gov.uk/694afd85-037e-4846-baf7-8220a84fcd13"]
+      identifier_uris = ["api://your-legal-aid-services.service.justice.gov.uk/694afd85-037e-4846-baf7-8220a84fcd13"]
       api = {
         known_client_applications      = [],
         mapped_claims_enabled          = false,
@@ -147,7 +147,7 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
-      tenants_required               = ["NLEEXTERNAL"]
+      tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = true
       id_token_issuance_enabled      = true
       federated_identity_credentials = []
@@ -196,7 +196,7 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
-      tenants_required               = ["NLEEXTERNAL"]
+      tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = true
       id_token_issuance_enabled      = true
       federated_identity_credentials = []
@@ -245,7 +245,7 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
-      tenants_required               = ["NLEEXTERNAL"]
+      tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = true
       id_token_issuance_enabled      = true
       federated_identity_credentials = []
@@ -295,7 +295,7 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
-      tenants_required               = ["NLEEXTERNAL"]
+      tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = true
       id_token_issuance_enabled      = true
       federated_identity_credentials = []
@@ -339,7 +339,7 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload"]
       graph_delegated_permissions    = []
-      tenants_required               = ["NLEEXTERNAL"]
+      tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = true
       id_token_issuance_enabled      = true
       federated_identity_credentials = []
@@ -401,7 +401,7 @@ variable "applications" {
       ]
       graph_application_permissions  = []
       graph_delegated_permissions    = []
-      tenants_required               = ["NLEEXTERNAL"]
+      tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = true
       federated_identity_credentials = []
