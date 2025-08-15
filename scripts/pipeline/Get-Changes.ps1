@@ -32,7 +32,7 @@ foreach ($customer in $customers) {
 
 
     $currentPath = Get-Location
-
+    git fetch origin main
     # Define branches
     $mainBranch = "origin/main"
     $currentBranch = git rev-parse --abbrev-ref HEAD
