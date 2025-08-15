@@ -4,8 +4,8 @@ param (
     [string]$Env = "DEVL",
 
     [ValidateNotNullOrEmpty()]
-    [string]$TerraformCommand = "terraform plan",
-    
+    [string]$TerraformCommand = "plan",
+
     [switch]$TerraformPlanAndApply
 )
 
@@ -26,16 +26,17 @@ $customers = Get-ChildItem -Directory | Select-Object -ExpandProperty Name
 
 Write-Host "Customer Names: $customers"
 foreach ($customer in $customers) {
-    $customerPath = Join-Path $baseDir $customer
     Write-Host "Working Directory: $customerPath" -ForegroundColor Yellow
-    Set-Location -Path $customerPath
+    cd $customer
+
+    $currentPath = Get-Location
 
     # Define branches
     $mainBranch = "origin/main"
     $currentBranch = git rev-parse --abbrev-ref HEAD
 
     # Get list of changed files between current branch and main
-    $changedFiles = git diff --name-only "$mainBranch...$currentBranch"
+    $changedFiles = git diff --name-only "$mainBranch...$currentBranch" -- $currentPath
 
     if ($changedFiles) {
         Write-Host "There are changed files for $customer" -ForegroundColor Green
@@ -50,5 +51,5 @@ foreach ($customer in $customers) {
         Write-Host "No changes for $customer" -ForegroundColor DarkGray
     }
 
-    Set-Location $baseDir
+    Set-Location -Path $baseDir
 }
