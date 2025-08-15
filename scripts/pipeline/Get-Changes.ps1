@@ -28,7 +28,7 @@ Write-Host "Customer Names: $customers"
 foreach ($customer in $customers) {
     Write-Host "Working Directory: $customerPath" -ForegroundColor Yellow
     $workingDir = Resolve-Path -Path "$customer"
-    Set-Location -Path $workingDir
+    Push-Location -Path "$customer"
 
 
     $currentPath = Get-Location
@@ -53,5 +53,5 @@ foreach ($customer in $customers) {
         Write-Host "No changes for $customer" -ForegroundColor DarkGray
     }
 
-    Set-Location -Path $baseDir
+    Pop-Location
 }
