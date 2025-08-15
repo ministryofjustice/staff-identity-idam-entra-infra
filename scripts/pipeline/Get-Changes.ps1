@@ -26,7 +26,7 @@ $customers = Get-ChildItem -Directory | Select-Object -ExpandProperty Name
 
 Write-Host "Customer Names: $customers"
 foreach ($customer in $customers) {
-    Write-Host "Working Directory: $customerPath" -ForegroundColor Yellow
+    Write-Host "Working Directory: $customer" -ForegroundColor Yellow
     $workingDir = Resolve-Path -Path "$customer"
     Push-Location -Path "$customer"
 
