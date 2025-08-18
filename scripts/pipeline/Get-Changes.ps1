@@ -38,7 +38,7 @@ $changedFiles = $diff | ForEach-Object {
 
 # Filter changed files for unique customer/env combos to remove duplication, which will happen if you update multiple files for a customer
 $uniqueCustomers = $changedFiles | Group-Object {
-    "$($_.Customer)|$($_.Env)" } | ForEach-Object {
+    "$($_.Name)|$($_.Env)" } | ForEach-Object {
     $_.Group[0]
 }
 
