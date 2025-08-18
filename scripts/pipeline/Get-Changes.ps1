@@ -51,7 +51,7 @@ foreach ($customer in $uniqueCustomers) {
 
     # Due to using GH environments. We need this to skip changed files in one env, triggering a differnet env
     if ($ENV -ne $customer.Env.ToUpper()) {
-        Write-Host "⏭️ Skipping $($customer.Name) — environment mismatch ($($customer.Env) vs $ENV)" -ForegroundColor DarkGray
+        Write-Host "`e[31m ⏭️ Skipping $($customer.Name) — environment mismatch ($($customer.Env) vs $ENV) `e[0m"
         continue
     }
 
