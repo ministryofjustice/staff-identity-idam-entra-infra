@@ -40,7 +40,7 @@ $uniqueCustomers = $changedFiles | Group-Object -Property Customer | ForEach-Obj
 
 Write-Host "Runnning terraform for Customers"
 foreach ($customer in $uniqueCustomers) {
-    $baseDir = "./terraform/$($customer.env)/$($customer.Name)/"
+    $baseDir = "/terraform/$($customer.env)/$($customer.Name)/"
     Push-Location $baseDir
 
     try {
