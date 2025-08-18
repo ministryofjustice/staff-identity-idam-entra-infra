@@ -19,48 +19,51 @@ if ($TerraformPlanAndApply) {
     $command = "terraform $TerraformCommand"
 }
 
-# Get all customers dirs per env
-Set-Location $baseDir
-Write-Host $(Get-Location)
-$customers = Get-ChildItem -Directory | Select-Object -ExpandProperty Name
+$diff = git diff --name-only main
+Write-Host "Diff output is [$diff]"
 
-Write-Host "Customer Names: $customers"
-foreach ($customer in $customers) {
-    Write-Host "Working Directory: $customer" -ForegroundColor Yellow
-    $workingDir = Resolve-Path -Path "$customer"
-    Push-Location -Path "$customer"
+# # Get all customers dirs per env
+# Set-Location $baseDir
+# Write-Host $(Get-Location)
+# $customers = Get-ChildItem -Directory | Select-Object -ExpandProperty Name
 
-    # if (git merge-base origin/main HEAD 2>$null) {
-    #     $diff = git diff origin/main...HEAD
-    # } else {
-    #     Write-Host "⚠️ No merge base — using linear diff" -ForegroundColor Yellow
-    #     $diff = git diff origin/main..HEAD
-    # }
-    # Define branches
-    write-host "Testing Diag"
-    git rev-parse origin/main
-    git rev-parse HEAD
+# Write-Host "Customer Names: $customers"
+# foreach ($customer in $customers) {
+#     Write-Host "Working Directory: $customer" -ForegroundColor Yellow
+#     $workingDir = Resolve-Path -Path "$customer"
+#     Push-Location -Path "$customer"
 
-    git fetch origin
-    $mainBranch = "origin/main"
-    $currentBranch = (git rev-parse --abbrev-ref HEAD)
+#     # if (git merge-base origin/main HEAD 2>$null) {
+#     #     $diff = git diff origin/main...HEAD
+#     # } else {
+#     #     Write-Host "⚠️ No merge base — using linear diff" -ForegroundColor Yellow
+#     #     $diff = git diff origin/main..HEAD
+#     # }
+#     # Define branches
+#     write-host "Testing Diag"
+#     git rev-parse origin/main
+#     git rev-parse HEAD
 
-    # Get list of changed files between current branch and main
-    Write-Host "Checking for changed files" -ForegroundColor Blue
-    $changedFiles = git diff --name-only "$mainBranch...HEAD" -- $customer
+#     git fetch origin
+#     $mainBranch = "origin/main"
+#     $currentBranch = (git rev-parse --abbrev-ref HEAD)
 
-    if ($changedFiles) {
-        Write-Host "There are changed files for $customer" -ForegroundColor Green
-        Write-Host "Running terraform $TerraformCommand for: [$customer]" -ForegroundColor Green
+#     # Get list of changed files between current branch and main
+#     Write-Host "Checking for changed files" -ForegroundColor Blue
+#     $changedFiles = git diff --name-only "$mainBranch...HEAD" -- $customer
 
-        try {
-            Invoke-Expression $command
-        } catch {
-            throw $_.Exception.Message
-        }
-    } else {
-        Write-Host "No changes for $customer" -ForegroundColor DarkGray
-    }
+#     if ($changedFiles) {
+#         Write-Host "There are changed files for $customer" -ForegroundColor Green
+#         Write-Host "Running terraform $TerraformCommand for: [$customer]" -ForegroundColor Green
 
-    Pop-Location
-}
+#         try {
+#             Invoke-Expression $command
+#         } catch {
+#             throw $_.Exception.Message
+#         }
+#     } else {
+#         Write-Host "No changes for $customer" -ForegroundColor DarkGray
+#     }
+
+#     Pop-Location
+# }
