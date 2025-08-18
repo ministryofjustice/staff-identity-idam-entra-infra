@@ -1,10 +1,10 @@
 [CmdletBinding()]
 param (
     [ValidateNotNullOrEmpty()]
-    [string]$Env = "DEVL",
+    [string]$Env,
 
     [ValidateNotNullOrEmpty()]
-    [string]$TerraformCommand = "plan",
+    [string]$TerraformCommand,
 
     [switch]$TerraformPlanAndApply
 )
