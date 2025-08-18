@@ -44,7 +44,7 @@ foreach ($customer in $uniqueCustomers) {
         continue
     }
 
-    Write-Host "✅ Processing $($customer.Customer) in environment $($customer.Env)" -ForegroundColor Cyan
+    Write-Host "`e[34m✅ Processing $($customer.Name) in environment $($customer.Env)`e[0m" 
 
     $baseDir = "./terraform/envs/$($customer.env)/$($customer.Name)/"
     Push-Location $baseDir
@@ -58,49 +58,3 @@ foreach ($customer in $uniqueCustomers) {
 
     Pop-Location
 }
-
-# # Get all customers dirs per env
-# Set-Location $baseDir
-# Write-Host $(Get-Location)
-# $customers = Get-ChildItem -Directory | Select-Object -ExpandProperty Name
-
-# Write-Host "Customer Names: $customers"
-# foreach ($customer in $customers) {
-#     Write-Host "Working Directory: $customer" -ForegroundColor Yellow
-#     $workingDir = Resolve-Path -Path "$customer"
-#     Push-Location -Path "$customer"
-
-#     # if (git merge-base origin/main HEAD 2>$null) {
-#     #     $diff = git diff origin/main...HEAD
-#     # } else {
-#     #     Write-Host "⚠️ No merge base — using linear diff" -ForegroundColor Yellow
-#     #     $diff = git diff origin/main..HEAD
-#     # }
-#     # Define branches
-#     write-host "Testing Diag"
-#     git rev-parse origin/main
-#     git rev-parse HEAD
-
-#     git fetch origin
-#     $mainBranch = "origin/main"
-#     $currentBranch = (git rev-parse --abbrev-ref HEAD)
-
-#     # Get list of changed files between current branch and main
-#     Write-Host "Checking for changed files" -ForegroundColor Blue
-#     $changedFiles = git diff --name-only "$mainBranch...HEAD" -- $customer
-
-#     if ($changedFiles) {
-#         Write-Host "There are changed files for $customer" -ForegroundColor Green
-#         Write-Host "Running terraform $TerraformCommand for: [$customer]" -ForegroundColor Green
-
-#         try {
-#             Invoke-Expression $command
-#         } catch {
-#             throw $_.Exception.Message
-#         }
-#     } else {
-#         Write-Host "No changes for $customer" -ForegroundColor DarkGray
-#     }
-
-#     Pop-Location
-# }
