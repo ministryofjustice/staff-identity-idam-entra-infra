@@ -41,6 +41,7 @@ foreach ($customer in $customers) {
     $currentBranch = (git rev-parse --abbrev-ref HEAD)
 
     # Get list of changed files between current branch and main
+    Write-Host "Checking for changed files" -ForegroundColor Blue
     $changedFiles = git diff --name-only "$mainBranch...$currentBranch" -- $customer
 
     if ($changedFiles) {
