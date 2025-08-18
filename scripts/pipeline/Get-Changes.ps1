@@ -13,16 +13,16 @@ param (
 $env = $Env.ToLower()
 $baseDir = "./terraform/envs/$env/"
 
-# Set Terraform command based on CICD input
+# Set Terraform command based on CICD input & get git diff
 if ($TerraformPlanAndApply) {
     $command = "terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30"
+    $diff = git diff --name-only HEAD~1 HEAD
+    Write-Host "`e[33m Diff output is [$diff] `e[0m"
 } else {
     $command = "terraform $TerraformCommand"
+    $diff = git diff --name-only origin/main
+    Write-Host "`e[33m Diff output is [$diff] `e[0m"
 }
-
-# Get git diff of main and feature branch
-$diff = git diff --name-only origin/main
-Write-Host "`e[33m Diff output is [$diff] `e[0m"
 
 # Extract the env and customer name from each changed terraform file, based on the filenames of each file in the git diff
 $changedFiles = $diff | ForEach-Object {
