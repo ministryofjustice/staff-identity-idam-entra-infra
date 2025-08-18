@@ -33,7 +33,8 @@ $changedFiles = $diff | ForEach-Object {
     }
 }
 
-$uniqueCustomers = $changedFiles | Group-Object -Property Customer | ForEach-Object {
+$uniqueCustomers = $changedFiles | Group-Object {
+    "$($_.Customer)|$($_.Env)" } | ForEach-Object {
     $_.Group[0]
 }
 
