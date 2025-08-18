@@ -37,6 +37,11 @@ foreach ($customer in $customers) {
     #     $diff = git diff origin/main..HEAD
     # }
     # Define branches
+    write-host "Testing Diag"
+    git rev-parse origin/main
+    git rev-parse HEAD
+
+    git fetch origin
     $mainBranch = "origin/main"
     $currentBranch = (git rev-parse --abbrev-ref HEAD)
 
