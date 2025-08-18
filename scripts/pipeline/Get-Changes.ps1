@@ -47,7 +47,7 @@ foreach ($customer in $customers) {
 
     # Get list of changed files between current branch and main
     Write-Host "Checking for changed files" -ForegroundColor Blue
-    $changedFiles = git diff --name-only "$mainBranch...$currentBranch" -- $customer
+    $changedFiles = git diff --name-only "$mainBranch...HEAD" -- $customer
 
     if ($changedFiles) {
         Write-Host "There are changed files for $customer" -ForegroundColor Green
