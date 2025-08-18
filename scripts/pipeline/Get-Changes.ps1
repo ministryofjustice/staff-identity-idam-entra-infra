@@ -42,7 +42,7 @@ Write-Host "`e[33m Change will run for $($uniqueCustomers.Name) `e[0m"
 Write-Host "`e[32m Runnning terraform for Customers `e[0m"
 foreach ($customer in $uniqueCustomers) {
     if ($ENV -ne $customer.Env.ToUpper()) {
-        Write-Host "⏭️ Skipping $($customer.Customer) — environment mismatch ($($customer.Env) vs $env:GITHUB_ENVIRONMENT)" -ForegroundColor DarkGray
+        Write-Host "⏭️ Skipping $($customer.Customer) — environment mismatch ($($customer.Env) vs $ENV)" -ForegroundColor DarkGray
         continue
     }
 
