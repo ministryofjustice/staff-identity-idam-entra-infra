@@ -20,7 +20,7 @@ if ($TerraformPlanAndApply) {
 }
 
 $diff = git diff --name-only origin/main
-Write-Host "Diff output is [$diff]"
+Write-Host "`e[33m Diff output is [$diff] `e[0m"
 
 $changedFiles = $diff | ForEach-Object {
     $path = $_.Split("/")
@@ -37,7 +37,9 @@ $uniqueCustomers = $changedFiles | Group-Object -Property Customer | ForEach-Obj
     $_.Group[0]
 }
 
-Write-Host "Runnning terraform for Customers"
+Write-Host "`e[33m Change will run for $uniqueCustomers `e[0m"
+
+Write-Host "`e[32m Runnning terraform for Customers `e[0m"
 foreach ($customer in $uniqueCustomers) {
     if ($ENV -ne $customer.Env.ToUpper()) {
         Write-Host "⏭️ Skipping $($customer.Customer) — environment mismatch ($($customer.Env) vs $env:GITHUB_ENVIRONMENT)" -ForegroundColor DarkGray
@@ -50,6 +52,7 @@ foreach ($customer in $uniqueCustomers) {
     Push-Location $baseDir
 
     try {
+        Write-Host "`e[33m Running Terraform command [$command] `[0m"
         Invoke-Expression $command
     } catch {
         throw $_.Exception.Message
