@@ -30,18 +30,20 @@ foreach ($customer in $customers) {
     $workingDir = Resolve-Path -Path "$customer"
     Push-Location -Path "$customer"
 
-    $currentPath = Get-Location
+    $relativePath = Resolve-Path -Relative "$customer"
 
-    if (git merge-base origin/main HEAD 2>$null) {
-        $diff = git diff origin/main...HEAD
-    } else {
-        Write-Host "⚠️ No merge base — using linear diff" -ForegroundColor Yellow
-        $diff = git diff origin/main..HEAD
-    }
+    # if (git merge-base origin/main HEAD 2>$null) {
+    #     $diff = git diff origin/main...HEAD
+    # } else {
+    #     Write-Host "⚠️ No merge base — using linear diff" -ForegroundColor Yellow
+    #     $diff = git diff origin/main..HEAD
+    # }
     # Define branches
+    $mainBranch = "origin/main"
+    $currentBranch = (git rev-parse --abbrev-ref HEAD)
 
     # Get list of changed files between current branch and main
-    $changedFiles = git diff --name-only "$mainBranch...$currentBranch" -- $currentPath
+    $changedFiles = git diff --name-only "$mainBranch...$currentBranch" -- $relativePath
 
     if ($changedFiles) {
         Write-Host "There are changed files for $customer" -ForegroundColor Green
