@@ -377,7 +377,7 @@ variable "applications" {
         "Ben.Ashton@justice.gov.uk",
         "harry.henry@justice.gov.uk"
       ]
-      allowed_groups               = []
+      allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
       homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
       logout_url                   = null
       redirect_uris                = ["https://idam-provider-ui-laa-ccms-test.apps.live.cloud-platform.service.justice.gov.uk/civil", "https://test-provider-ui-laa-ccms-test.apps.live.cloud-platform.service.justice.gov.uk/civil"]
