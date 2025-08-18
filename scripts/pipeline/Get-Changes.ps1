@@ -40,7 +40,7 @@ $uniqueCustomers = $changedFiles | Group-Object -Property Customer | ForEach-Obj
 
 Write-Host "Runnning terraform for Customers"
 foreach ($customer in $uniqueCustomers) {
-    if ($env:GITHUB_ENVIRONMENT -ne $customer.Env) {
+    if ($env:GITHUB_ENVIRONMENT -ne $customer.Env.ToUpper()) {
         Write-Host "⏭️ Skipping $($customer.Customer) — environment mismatch ($($customer.Env) vs $env:GITHUB_ENVIRONMENT)" -ForegroundColor DarkGray
         continue
     }
