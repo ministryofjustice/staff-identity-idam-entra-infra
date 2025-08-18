@@ -41,6 +41,9 @@ $uniqueCustomers = $changedFiles | Group-Object {
 Write-Host "`e[33m Change will run for $($uniqueCustomers.Name) `e[0m"
 
 Write-Host "`e[32m Runnning terraform for Customers `e[0m"
+
+$jobs = @()
+
 foreach ($customer in $uniqueCustomers) {
     if ($ENV -ne $customer.Env.ToUpper()) {
         Write-Host "⏭️ Skipping $($customer.Name) — environment mismatch ($($customer.Env) vs $ENV)" -ForegroundColor DarkGray
@@ -49,15 +52,31 @@ foreach ($customer in $uniqueCustomers) {
 
     Write-Host "`e[34m✅ Processing $($customer.Name) in environment $($customer.Env)`e[0m" 
 
+    
     $baseDir = "./terraform/envs/$($customer.env)/$($customer.Name)/"
     Push-Location $baseDir
 
-    try {
+    $jobs += Start-Job -Name $customer.Name -ArgumentList $customer.Name, $command -ScriptBlock {
+    param($customerName, $command)
+        try {
         Write-Host "`e[33m Running Terraform command [$command] `[0m"
         Invoke-Expression $command
-    } catch {
-        throw $_.Exception.Message
+        } catch {
+            throw $_.Exception.Message
+        }
     }
 
+    # Set location back to the base envs folder
     Pop-Location
 }
+
+# Wait for all jobs to complete
+$jobs | Wait-Job
+
+foreach ($job in $jobs) {
+    Write-Host "Output for Job: $($job.Name)" -ForegroundColor Cyan
+    Receive-Job $job
+}
+
+# Clean up jobs
+$jobs | Remove-Job
