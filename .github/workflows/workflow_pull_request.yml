@@ -47,9 +47,6 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v3
-
     - name: Terraform Init
       shell: pwsh
       run: scripts/pipeline/Get-Changes.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
