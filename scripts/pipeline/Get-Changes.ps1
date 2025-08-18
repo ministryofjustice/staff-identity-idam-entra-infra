@@ -37,7 +37,7 @@ $uniqueCustomers = $changedFiles | Group-Object -Property Customer | ForEach-Obj
     $_.Group[0]
 }
 
-Write-Host "`e[33m Change will run for $uniqueCustomers `e[0m"
+Write-Host "`e[33m Change will run for $($uniqueCustomers.Name) `e[0m"
 
 Write-Host "`e[32m Runnning terraform for Customers `e[0m"
 foreach ($customer in $uniqueCustomers) {
