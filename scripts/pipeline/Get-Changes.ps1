@@ -43,7 +43,7 @@ Write-Host "`e[33m Change will run for $($uniqueCustomers.Name) `e[0m"
 Write-Host "`e[32m Runnning terraform for Customers `e[0m"
 foreach ($customer in $uniqueCustomers) {
     if ($ENV -ne $customer.Env.ToUpper()) {
-        Write-Host "⏭️ Skipping $($customer.Customer) — environment mismatch ($($customer.Env) vs $ENV)" -ForegroundColor DarkGray
+        Write-Host "⏭️ Skipping $($customer.Name) — environment mismatch ($($customer.Env) vs $ENV)" -ForegroundColor DarkGray
         continue
     }
 
@@ -58,7 +58,6 @@ foreach ($customer in $uniqueCustomers) {
     } catch {
         throw $_.Exception.Message
     }
-
 
     Pop-Location
 }
