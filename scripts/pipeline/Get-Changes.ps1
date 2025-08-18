@@ -23,6 +23,36 @@ git fetch origin/main
 $diff = git diff --name-only origin/main
 Write-Host "Diff output is [$diff]"
 
+$changedFiles = $diff | ForEach-Object {
+    $path = $_.Split("/")
+
+    if ($path -contains "terraform") {
+        [PSCustomObject]@{
+            Env = $path[2]
+            Name = $path[3]
+        }
+    }
+}
+
+$uniqueCustomers = $changedFiles | Group-Object -Property Customer | ForEach-Object {
+    $_.Group[0]
+}
+
+Write-Host "Runnning terraform for Customers"
+foreach ($customer in $uniqueCustomers) {
+    $baseDir = "./terraform/$($customer.env)/$($customer.Name)/"
+    Push-Location $baseDir
+
+    try {
+        Invoke-Expression $command
+    } catch {
+        throw $_.Exception.Message
+    }
+
+
+    Pop-Location
+}
+
 # # Get all customers dirs per env
 # Set-Location $baseDir
 # Write-Host $(Get-Location)
