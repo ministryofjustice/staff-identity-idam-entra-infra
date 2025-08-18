@@ -19,7 +19,8 @@ if ($TerraformPlanAndApply) {
     $command = "terraform $TerraformCommand"
 }
 
-$diff = git diff --name-only main
+git fetch origin/main 
+$diff = git diff --name-only origin/main
 Write-Host "Diff output is [$diff]"
 
 # # Get all customers dirs per env
