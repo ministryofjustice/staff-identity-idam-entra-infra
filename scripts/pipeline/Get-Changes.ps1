@@ -19,7 +19,6 @@ if ($TerraformPlanAndApply) {
     $command = "terraform $TerraformCommand"
 }
 
-git fetch origin/main 
 $diff = git diff --name-only origin/main
 Write-Host "Diff output is [$diff]"
 
