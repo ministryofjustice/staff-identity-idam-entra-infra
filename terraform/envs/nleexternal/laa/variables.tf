@@ -83,7 +83,7 @@ variable "applications" {
       allowed_groups                 = ["APPREG-User-Access-LAAD-LASSIE", "DEPT-All-Legal-Aid-Agency-Internal-Staff"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure"]
+      redirect_uris                  = ["https://test.your-legal-aid-services.service.justice.gov.uk/login/oauth2/code/azure"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload", "User.Invite.All", "Directory.Read.All", "User.Read.All", "GroupMember.ReadWrite.All", "AuditLog.Read.All", "Application.Read.All"]
@@ -102,7 +102,7 @@ variable "applications" {
         hide                          = true
         custom_single_sign_on         = null
       }
-      identifier_uris = ["api://laa-landing-page-test.apps.live.cloud-platform.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
+      identifier_uris = ["api://test.your-legal-aid-services.service.justice.gov.uk/77595545-15fc-4d83-89d4-3e36387dafa9"]
       api = {
         known_client_applications      = [],
         mapped_claims_enabled          = false,
@@ -141,7 +141,6 @@ variable "applications" {
       homepage_url   = "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/"
       logout_url     = null
       redirect_uris = [
-        "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/auth/entra_id/callback",
         "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback"
       ]
       mobile_desktop_redirect_uris   = null
@@ -378,7 +377,7 @@ variable "applications" {
         "Ben.Ashton@justice.gov.uk",
         "harry.henry@justice.gov.uk"
       ]
-      allowed_groups               = []
+      allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
       homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
       logout_url                   = null
       redirect_uris                = ["https://idam-provider-ui-laa-ccms-test.apps.live.cloud-platform.service.justice.gov.uk/civil", "https://test-provider-ui-laa-ccms-test.apps.live.cloud-platform.service.justice.gov.uk/civil"]

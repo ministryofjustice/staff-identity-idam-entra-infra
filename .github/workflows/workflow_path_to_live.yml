@@ -34,8 +34,11 @@ jobs:
     environment: ${{ matrix.environment }}
 
     steps:
+    
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Azure Login via OIDC
         uses: azure/login@v2
