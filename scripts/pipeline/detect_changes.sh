@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-enviroments=("devl" "nle" "live")
+environments=("devl" "nle" "live")
 envs_folder="./terraform/envs"
 
 default_branch="main"
@@ -18,7 +18,7 @@ for env in "${environments[@]}"; do
     echo "ENV_ENVIRONMENT_PATH"=$folder_path >> $GITHUB_ENV
 
     echo "::set-output name=env_environment_name::$env"
-    echo "::set-output name=env_envrionment_path::$folder_path"
+    echo "::set-output name=env_environment_path::$folder_path"
 
     echo "Changes detected in: $env ($folder_path)"
     exit 0
