@@ -67,7 +67,7 @@ variable "applications" {
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = []
+      graph_delegated_permissions    = ["user.read.all","email","openid"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
