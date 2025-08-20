@@ -59,11 +59,11 @@ variable "applications" {
       application_name               = "MoJ-Sphera-Incident-Management-System"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = []      
+      owners                         = ["Emily.Franco-Allen@justice.gov.uk"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://www.rivosafeguard.com/logon.aspx"]
+      redirect_uris                  = ["https://spheraidentitypeu.b2clogin.com/spheraidentitypeu.onmicrosoft.com/oauth2/authresp"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
