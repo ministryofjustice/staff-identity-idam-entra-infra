@@ -18,7 +18,7 @@ variable "department_name" {
   type        = string
   validation {
     condition     = can(regex("^[a-zA-Z0-9\\-]+$", var.department_name))
-    error_message = "Depeartment Name must be, alphanumeric in the following type of pattern: EUCS, Justice-Digital etc."
+    error_message = "Department Name must be, alphanumeric in the following type of pattern: EUCS, Justice-Digital etc."
   }
 }
 
