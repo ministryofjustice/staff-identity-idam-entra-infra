@@ -42,7 +42,7 @@ $uniqueCustomers = $changedFiles | Group-Object {
     $_.Group[0]
 }
 
-Write-Host "`e[32m Runnning terraform for Customers $($uniqueCustomers.Name) `e[0m"
+Write-Host "`e[32m Running terraform for Customers $($uniqueCustomers.Name) `e[0m"
 
 # Setup array for jobs output
 $jobs = @()
