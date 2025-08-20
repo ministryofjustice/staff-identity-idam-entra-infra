@@ -78,6 +78,14 @@ variable "redirect_uris" {
   type        = list(string)
 }
 
+variable "access_token_issuance_enabled" {
+  type        = bool
+}
+
+variable "id_token_issuance_enabled" {
+  type        = bool
+}
+
 variable "mobile_desktop_redirect_uris" {
   description = "The mobile and desktop URIs we will accept as destinations when returning authentication responses (tokens) after successfully authenticating or signing out users. The redirect URI you send in the request to the login server should match one listed here. Also referred to as reply URLs."
   type        = list(string)
@@ -94,6 +102,32 @@ variable "app_roles" {
     access_package_hidden = bool
   }))
   default = null
+}
+
+variable "api" {
+  description = "values for the API section of the application registration."
+  nullable = true
+  type = object({
+    known_client_applications      = list(string)
+    mapped_claims_enabled          = bool
+    requested_access_token_version = string
+    oauth2_permission_scope        = list(object({      
+      admin_consent_description    = string
+      admin_consent_display_name   = string
+      enabled                      = bool
+      id                           = string
+      type                         = string
+      user_consent_description     = string
+      user_consent_display_name    = string
+      value                        = string
+    }))
+  })
+  default = {
+    known_client_applications      = null,
+    mapped_claims_enabled          = null,
+    requested_access_token_version = null,
+    oauth2_permission_scope        = []
+  }
 }
 
 variable "graph_application_permissions" {
@@ -143,6 +177,7 @@ variable "service_principle" {
     account_enabled               = bool
     application_template_name     = string
     hide                          = bool
+    custom_single_sign_on         = bool
   })
   default = {
     login_url                     = null,
@@ -152,6 +187,7 @@ variable "service_principle" {
     account_enabled               = true,
     application_template_name     = null,
     hide                          = null,
+    custom_single_sign_on         = null,
   }
 }
 
@@ -159,4 +195,14 @@ variable "identifier_uris" {
   description = "The globally unique URI used to identify this web API. It is the prefix for scopes and in access tokens, it is the value of the audience claim. Also referred to as an identifier URI."
   type        = list(string)
   nullable    = true
+}
+
+variable "application_contacts" {
+  description = "List of application contacts that can be referenced should the IDAM team require contact."
+  type        = list(string)
+
+  validation {
+    condition     = length(var.application_contacts) > 1
+    error_message = "This application requires at least two contacts."
+  }
 }

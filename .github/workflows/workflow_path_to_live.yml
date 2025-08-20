@@ -27,16 +27,18 @@ env:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        environment: [DEVL, NLE, LIVE]
+        environment: [DEVL, NLE, LIVE, NLEEXTERNAL, PRODEXTERNAL]
 
     environment: ${{ matrix.environment }}
 
     steps:
+    
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Azure Login via OIDC
         uses: azure/login@v2
@@ -48,22 +50,18 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.21'
-
-      - name: Build Go Terraform Runner
-        run: go build -o terraform-runner ./scripts/pipeline/main.go
-
       - name: Terraform Init
-        run: ./terraform-runner -env "${{ matrix.environment }}" -cmd "init -backend-config=./state.config"
+        shell: pwsh
+        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
 
       - name: Terraform Validate
-        run: ./terraform-runner -env "${{ matrix.environment }}" -cmd "validate"
+        shell: pwsh
+        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "validate"
 
       - name: Terraform Format
-        run: ./terraform-runner -env "${{ matrix.environment }}" -cmd "fmt"
+        shell: pwsh
+        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "fmt"
 
       - name: Terraform Plan and Apply
-        run: ./terraform-runner -env "${{ matrix.environment }}" -cmd "apply" -applyMode
+        shell: pwsh
+        run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformPlanAndApply

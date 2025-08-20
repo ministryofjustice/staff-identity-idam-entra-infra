@@ -4,7 +4,7 @@ variable "location" {
   default     = "uksouth"
 }
 
- variable "applications" {
+variable "applications" {
   description = "Map of application details"
   type = map(object({
     notes                        = string
@@ -50,13 +50,13 @@ variable "location" {
     identifier_uris = list(string)
   }))
   default = {
-    "eucs-idam-test" = {
-      notes                          = "Test app reg"
-      service_management_reference   = "IDAM-4098"
-      display_name                   = "MOJO-EUCS-IDAM-Test"
-      department_name                = "Justice-Digital"
-      team_name                      = "EUCS-IDAM"
-      application_name               = "MOJO-EUCS-IDAM-Test"
+    "graph_permissions" = {
+      notes                          = "This app is used to give delegated Graph API access"
+      service_management_reference   = "IDAM-3659"
+      display_name                   = "EUCS-MWP-Graph-API-Access"
+      department_name                = "eucs"
+      team_name                      = "mwp"
+      application_name               = "EUCS-MWP-Graph-API-Access"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = []      
@@ -67,39 +67,8 @@ variable "location" {
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = []
-      tenants_required               = ["DEVL"]
-      federated_identity_credentials = []
-      service_principle = {
-        login_url                     = null
-        notification_email_addresses  = []
-        preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
-        account_enabled               = true
-        application_template_name     = null
-        hide                          = true
-      }
-      identifier_uris = null
-    },
-        "eucs-idam-test2" = {
-      notes                          = "Test app reg2"
-      service_management_reference   = "IDAM-4098"
-      display_name                   = "MOJO-EUCS-IDAM-Test2"
-      department_name                = "Justice-Digital"
-      team_name                      = "EUCS-IDAM"
-      application_name               = "MOJO-EUCS-IDAM-Test2"
-      create_access_package          = false
-      access_package_reviewers       = []
-      owners                         = []      
-      allowed_groups                 = []
-      homepage_url                   = null
-      logout_url                     = null
-      redirect_uris                  = null
-      mobile_desktop_redirect_uris   = null
-      app_roles                      = []
-      graph_application_permissions  = []
-      graph_delegated_permissions    = []
-      tenants_required               = ["DEVL"]
+      graph_delegated_permissions    = ["DeviceManagementManagedDevices.Read.All", "AuditLog.Read.All", "Reports.Read.All", "Organization.Read.All", "Files.Read.All", "GroupMember.ReadWrite.All", "Group.ReadWrite.All", "TeamSettings.ReadWrite.All", "Team.ReadBasic.All", "Contacts.ReadWrite", "MailboxSettings.ReadWrite"]
+      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null

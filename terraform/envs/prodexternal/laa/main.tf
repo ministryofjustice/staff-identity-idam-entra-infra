@@ -1,49 +1,14 @@
 locals {
   tags = {
-    department = "eucs"
-    team       = "idam"
+    department = "justice-digital"
+    team       = "laa"
     source     = "terraform"
-  }
-}
-
-resource "azuread_group" "tf_test" {
-  display_name     = "Terraform-Test-Deployment"
-  security_enabled = true
-}
-
-resource "azurerm_key_vault" "idam-internal_vault" {
-  name                        = "kv-internal-idam-devl"
-  location                    = data.azurerm_resource_group.internal-rg.location
-  resource_group_name         = data.azurerm_resource_group.internal-rg.name
-  enabled_for_disk_encryption = true
-  tenant_id                   = data.azurerm_client_config.current.tenant_id
-  soft_delete_retention_days  = 7
-  purge_protection_enabled    = false
-
-  sku_name = "standard"
-
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
-
-    key_permissions = [
-      "Get",
-      "List",
-    ]
-
-    secret_permissions = [
-      "Get",
-    ]
-
-    storage_permissions = [
-      "Get",
-    ]
   }
 }
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1.2.0"
+  source                         = "../../../modules/application-registrationV1.2.1"
   for_each                       = var.applications
   notes                          = each.value.notes
   service_management_reference   = each.value.service_management_reference
@@ -66,5 +31,9 @@ module "application-registration" {
   federated_identity_credentials = each.value.federated_identity_credentials
   service_principle              = each.value.service_principle
   identifier_uris                = each.value.identifier_uris
+  application_contacts           = each.value.application_contacts
+  api                            = each.value.api
+  access_token_issuance_enabled  = each.value.access_token_issuance_enabled
+  id_token_issuance_enabled      = each.value.id_token_issuance_enabled
 }
 #endregion

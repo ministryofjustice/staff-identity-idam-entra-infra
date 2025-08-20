@@ -1,10 +1,10 @@
 name: Trivy Static analysis
 
-on:
-  pull_request:
-    branches: [ main ]
-    paths:
-      - "**.tf"
+# on:
+#   pull_request:
+#     branches: [ main ]
+#     paths:
+#       - "**.tf"
 
 permissions:
   security-events: write

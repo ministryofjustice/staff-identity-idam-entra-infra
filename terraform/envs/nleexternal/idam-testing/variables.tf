@@ -4,7 +4,7 @@ variable "location" {
   default     = "uksouth"
 }
 
- variable "applications" {
+variable "applications" {
   description = "Map of application details"
   type = map(object({
     notes                        = string
@@ -50,25 +50,25 @@ variable "location" {
     identifier_uris = list(string)
   }))
   default = {
-    "eucs-idam-test" = {
-      notes                          = "Test app reg"
-      service_management_reference   = "IDAM-4098"
-      display_name                   = "MOJO-EUCS-IDAM-Test"
-      department_name                = "Justice-Digital"
-      team_name                      = "EUCS-IDAM"
-      application_name               = "MOJO-EUCS-IDAM-Test"
+    "app1" = {
+      notes                          = "EUCS IDAM App Reg Test 1 terraform"
+      service_management_reference   = "IDAM-2974"
+      display_name                   = "EUCS IDAM App Reg Test 1 terraform"
+      department_name                = "eucs"
+      team_name                      = "idam"
+      application_name               = "app-reg-tf"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = []      
-      allowed_groups                 = []
+      owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      allowed_groups                 = ["PIM-MoJO-M365-IDAM-3LS"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = []
-      tenants_required               = ["DEVL"]
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["NLEEXTERNAL"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -77,38 +77,7 @@ variable "location" {
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
-        hide                          = true
-      }
-      identifier_uris = null
-    },
-        "eucs-idam-test2" = {
-      notes                          = "Test app reg2"
-      service_management_reference   = "IDAM-4098"
-      display_name                   = "MOJO-EUCS-IDAM-Test2"
-      department_name                = "Justice-Digital"
-      team_name                      = "EUCS-IDAM"
-      application_name               = "MOJO-EUCS-IDAM-Test2"
-      create_access_package          = false
-      access_package_reviewers       = []
-      owners                         = []      
-      allowed_groups                 = []
-      homepage_url                   = null
-      logout_url                     = null
-      redirect_uris                  = null
-      mobile_desktop_redirect_uris   = null
-      app_roles                      = []
-      graph_application_permissions  = []
-      graph_delegated_permissions    = []
-      tenants_required               = ["DEVL"]
-      federated_identity_credentials = []
-      service_principle = {
-        login_url                     = null
-        notification_email_addresses  = []
-        preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
-        account_enabled               = true
-        application_template_name     = null
-        hide                          = true
+        hide                          = null
       }
       identifier_uris = null
     }
