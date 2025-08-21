@@ -416,7 +416,7 @@ variable "applications" {
         hide                          = true
         custom_single_sign_on         = true
       }
-      identifier_uris = ["PUI-Dev"]
+      identifier_uris = ["PUI-NLE"]
       api = {
         known_client_applications      = []
         mapped_claims_enabled          = true
