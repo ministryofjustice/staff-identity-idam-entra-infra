@@ -1,7 +1,7 @@
 locals {
   tags = {
     department = "Probation Digital"
-    team       = "Manage People on Probation "
+    team       = "Manage People on Probation"
     source     = "terraform"
   }
 }
