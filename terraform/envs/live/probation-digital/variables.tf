@@ -54,12 +54,12 @@ variable "applications" {
       notes                          = "Allow access to O365 calendar events for probation case management"
       service_management_reference   = "DMND0010169"
       display_name                   = "Manage People on Probation - Calendar Access"
-      department_name                = "Probation Digital"
-      team_name                      = "Manage People on Probation"
-      application_name               = "Manage People on Probation - Calendar Access"
+      department_name                = "Probation-Digital"
+      team_name                      = "Manage-People-on-Probation"
+      application_name               = "Manage-People-on-Probation-Calendar-Access"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Matthew.Ryall@justice.gov.uk","Syed.Bokhari1@justice.gov.uk"]
+      owners                         = ["Matt.Ryall@justice.gov.uk","Syed.Bokhari1@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
