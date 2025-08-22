@@ -60,7 +60,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Matt.Ryall@justice.gov.uk","Syed.Bokhari1@justice.gov.uk"]
-      allowed_groups                 = ["ManagePeopleonProbation-CalendarAccess@JusticeUK.onmicrosoft.com"]
+      allowed_groups                 = ["Manage People on Probation - Calendar Access"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
