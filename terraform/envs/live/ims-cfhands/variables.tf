@@ -69,7 +69,7 @@ variable "applications" {
       create_access_package         = false
       access_package_reviewers      = []
       owners                        = ["Emily.Franco-Allen@justice.gov.uk"]
-      application_contacts          = ["Emily.Franco-Allen@justice.gov.uk"]
+      application_contacts          = ["Emily.Franco-Allen@justice.gov.uk" ]
       allowed_groups                = []
       homepage_url                  = null
       logout_url                    = null
