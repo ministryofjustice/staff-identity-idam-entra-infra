@@ -34,5 +34,6 @@ module "application-registration" {
   application_contacts           = each.value.application_contacts
   access_token_issuance_enabled  = each.value.access_token_issuance_enabled
   id_token_issuance_enabled      = each.value.id_token_issuance_enabled
+  optional_claims                = each.value.optional_claims
 }
 #endregion
