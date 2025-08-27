@@ -78,7 +78,7 @@ variable "applications" {
       redirect_uris                 = ["https://spheraidentitypeu.b2clogin.com/spheraidentitypeu.onmicrosoft.com/oauth2/authresp"]
       mobile_desktop_redirect_uris  = null
       optional_claims = {
-        id_token = [{ name = "email", essential = true }]
+        id_token = [{ name = "email", essential = false }]
 
         access_token = []
         saml2_token  = []
