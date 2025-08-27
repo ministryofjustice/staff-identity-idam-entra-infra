@@ -409,7 +409,7 @@ variable "applications" {
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["scott-armstrong-admin@TestJusticeUKExternal.onmicrosoft.com"]
-        preferred_single_sign_on_mode = null
+        preferred_single_sign_on_mode = "saml"
         app_role_assignment_required  = true
         account_enabled               = true
         application_template_name     = null
