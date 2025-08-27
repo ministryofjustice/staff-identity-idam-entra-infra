@@ -69,7 +69,7 @@ variable "applications" {
       create_access_package         = false
       access_package_reviewers      = []
       owners                        = ["Emily.Franco-Allen@justice.gov.uk"]
-      application_contacts          = ["Emily.Franco-Allen@justice.gov.uk"]
+      application_contacts          = ["Emily.Franco-Allen@justice.gov.uk" ]
       allowed_groups                = []
       homepage_url                  = null
       logout_url                    = null
@@ -78,7 +78,7 @@ variable "applications" {
       redirect_uris                 = ["https://spheraidentitypeu.b2clogin.com/spheraidentitypeu.onmicrosoft.com/oauth2/authresp"]
       mobile_desktop_redirect_uris  = null
       optional_claims = {
-        id_token = [{ name = "email", essential = true }]
+        id_token = [{ name = "email", essential = false }]
 
         access_token = []
         saml2_token  = []
