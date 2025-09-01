@@ -67,7 +67,7 @@ variable "applications" {
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["DeviceManagementManagedDevices.Read.All", "AuditLog.Read.All", "Reports.Read.All", "Organization.Read.All", "Files.Read.All", "GroupMember.ReadWrite.All", "Group.ReadWrite.All", "TeamSettings.ReadWrite.All", "Team.ReadBasic.All", "Contacts.ReadWrite", "MailboxSettings.ReadWrite"]
+      graph_delegated_permissions    = ["DeviceManagementManagedDevices.Read.All", "AuditLog.Read.All", "Reports.Read.All", "Organization.Read.All", "Files.Read.All", "GroupMember.ReadWrite.All", "Group.ReadWrite.All", "TeamSettings.ReadWrite.All", "Team.ReadBasic.All", "Contacts.ReadWrite", "MailboxSettings.ReadWrite", "User.Read.All", "Mail.ReadBasic.All", "Group.Create", "Group.Delete", "Billing.Read.All", "Organization.Read.All", "Usage.Read.All", "ActivityFeed.Read"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
