@@ -53,8 +53,8 @@ jobs:
       - name: Diff Test
         shell: pwsh 
         run: |
-        $diff = git diff --name-only HEAD^ HEAD
-        write-Host "The diff is [$diff]"
+          $diff = git diff --name-only HEAD^ HEAD
+          write-Host "The diff is [$diff]"
 
       - name: Terraform Init
         shell: pwsh
