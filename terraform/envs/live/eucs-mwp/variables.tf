@@ -59,7 +59,7 @@ variable "applications" {
       application_name               = "EUCS-MWP-Graph-API-Access"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = []      
+      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
