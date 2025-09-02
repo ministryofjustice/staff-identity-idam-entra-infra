@@ -47,6 +47,12 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
+    - name: Diff Test
+      shell: pwsh 
+      run: |
+        $diff = git diff --name-only HEAD^ HEAD
+        write-Host "The diff is [$diff]"
+
     - name: Terraform Init
       shell: pwsh
       run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"

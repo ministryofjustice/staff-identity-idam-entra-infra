@@ -16,7 +16,7 @@ $baseDir = "./terraform/envs/$env/"
 # Set Terraform command based on CICD input & get git diff
 if ($TerraformPlanAndApply) {
     $command = "terraform apply -lock-timeout=300s -input=false -auto-approve -parallelism=30"
-    $diff = git diff --name-only HEAD~1 HEAD
+    $diff = git diff --name-only HEAD^ HEAD
     Write-Host "`e[33m Diff output is [$diff] `e[0m"
 } else {
     $command = "terraform $TerraformCommand"
