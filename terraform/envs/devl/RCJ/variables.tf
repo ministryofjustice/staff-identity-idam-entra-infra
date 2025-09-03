@@ -59,7 +59,7 @@ variable "applications" {
       application_name               = "CACTUS-Sharepoint"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["lynda.woodford@justice.gov.uk", "colin.ashworth2@justice.gov.uk", "Tristan.hill@justice.gov.uk"]      
+      owners                         = []      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
