@@ -111,6 +111,37 @@ variable "location" {
         hide                          = true
       }
       identifier_uris = null
+    },
+    "eucs-idam-test3" = {
+      notes                          = "Test app reg3"
+      service_management_reference   = "IDAM-4098"
+      display_name                   = "MOJO-EUCS-IDAM-Test3"
+      department_name                = "Justice-Digital"
+      team_name                      = "EUCS-IDAM"
+      application_name               = "MOJO-EUCS-IDAM-Test3"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = []      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["DEVL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+      }
+      identifier_uris = null
     }
   }
 }
