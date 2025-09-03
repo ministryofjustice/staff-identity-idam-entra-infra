@@ -54,8 +54,8 @@ variable "applications" {
       notes                          = "Used to read Specific Sharepoint sites"
       service_management_reference   = "IDAM-4253"
       display_name                   = "CACTUS-Sharepoint"
-      department_name                = "Royal Courts of Justice (RCJ)"
-      team_name                      = "Criminal Appeals Office (CAO)"
+      department_name                = "RCJ"
+      team_name                      = "CAO"
       application_name               = "CACTUS-Sharepoint"
       create_access_package          = false
       access_package_reviewers       = []
