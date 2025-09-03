@@ -55,16 +55,16 @@ jobs:
 
     - name: Terraform Init
       shell: pwsh
-      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
+      run: scripts/pipeline/Get-Changes.ps1 -Env "${{matrix.environment }}" -TerraformCommand "init -backend-config='./state.config'"
 
     - name: Terraform Validate
       shell: pwsh
-      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "validate"
+      run: scripts/pipeline/Get-Changes.ps1 -Env "${{matrix.environment }}" -TerraformCommand "validate"
 
     - name: Terraform Format
       shell: pwsh
-      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "fmt"
+      run: scripts/pipeline/Get-Changes.ps1 -Env "${{matrix.environment }}" -TerraformCommand "fmt"
 
     - name: Terraform Plan
       shell: pwsh
-      run: scripts/pipeline/Run-TerraformAllCustomers.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false"
+      run: scripts/pipeline/Get-Changes.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false"
