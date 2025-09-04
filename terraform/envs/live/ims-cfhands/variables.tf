@@ -73,8 +73,8 @@ variable "applications" {
       allowed_groups                = []
       homepage_url                  = null
       logout_url                    = null
-      access_token_issuance_enabled = false
-      id_token_issuance_enabled     = false
+      access_token_issuance_enabled = true 
+      id_token_issuance_enabled     = true
       redirect_uris                 = ["https://spheraidentitypeu.b2clogin.com/spheraidentitypeu.onmicrosoft.com/oauth2/authresp"]
       mobile_desktop_redirect_uris  = null
       optional_claims = {
