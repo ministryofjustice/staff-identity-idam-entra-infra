@@ -50,7 +50,7 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "default_app" = {
+    "CACTUS" = {
       notes                          = "Used to read Specific Sharepoint sites"
       service_management_reference   = "IDAM-4253"
       display_name                   = "CACTUS-Sharepoint"
