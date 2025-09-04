@@ -20,7 +20,7 @@ if ($TerraformPlanAndApply) {
     Write-Host "`e[33m Diff output is [$diff] `e[0m"
 } else {
     $command = "terraform $TerraformCommand"
-    $diff = git diff --name-only origin/main
+    $diff = git diff --name-only HEAD^ HEAD
     Write-Host "`e[33m Diff output is [$diff] `e[0m"
 }
 
@@ -65,7 +65,7 @@ foreach ($customer in $uniqueCustomers) {
     $jobs += Start-Job -Name $customer.Name -ArgumentList $customer.Name, $command -ScriptBlock {
     param($customerName, $command)
         try {
-        Write-Host "`e[33m Running Terraform command [$command] `[0m"
+        Write-Host "`e[33m Running Terraform command [$command] `e[0m"
         Invoke-Expression $command
         } catch {
             throw $_.Exception.Message
