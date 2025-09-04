@@ -1,9 +1,9 @@
-name: "[Workflow] Pull Request"
+name: "[Workflow] Pull Request Testing"
 
 on:
-  pull_request:
-  workflow_dispatch:
-
+  push:
+    branches:
+      - 'IDAM-4098-change-workflow-script-feature'
 
 permissions:
   contents: read
@@ -68,6 +68,10 @@ jobs:
     - name: Terraform Plan
       shell: pwsh
       run: scripts/pipeline/Get-Changes.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false"
+
+    - name: Terraform Plan and Apply
+      shell: pwsh
+      run: scripts/pipeline/Get-Changes.ps1 -Env "${{matrix.environment }}" -TerraformPlanAndApply
       continue-on-error: true
 
     - name: Show Terraform Logs
