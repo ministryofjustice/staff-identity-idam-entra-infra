@@ -121,7 +121,7 @@ variable "location" {
       application_name               = "MOJO-EUCS-IDAM-Test3"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = []      
+      owners                         = ["jgillett-admin@devl.justice.gov.uk"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
