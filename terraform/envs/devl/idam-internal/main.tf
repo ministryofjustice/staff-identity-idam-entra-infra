@@ -41,6 +41,22 @@ resource "azurerm_key_vault" "idam-internal_vault" {
   }
 }
 
+resource "azurerm_key_vault_access_policy" "example" {
+  for_each = var.engineer_object_ids
+
+  key_vault_id = azurerm_key_vault.idam-internal_vault.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = each.value
+
+  key_permissions = [
+    "Get",
+  ]
+
+  secret_permissions = [
+    "Get",
+  ]
+}
+
 #region Application Registrations
 module "application-registration" {
   source                         = "../../../modules/application-registrationV1.2.0"

@@ -4,6 +4,23 @@ variable "location" {
   default     = "uksouth"
 }
 
+
+variable "engineer_object_ids" {
+  type = map(string)
+  default = {
+    "jason"   = "b72b2e71-8c47-4719-b5f2-029bb6eb880a"
+    "luciano" = "2de04ee5-efd9-4bae-93fe-1f5b324d4a85"
+    "mike"    = "efecd6df-2a50-4cf0-b01f-b92a8b4298f9"
+    "abarna"  = "b6bae8b3-cb82-4449-8f69-d5bd55ba253e"
+    "matt"    = "670ea5cf-11d7-492b-978f-28ca56734359"
+    "davidH"  = "7e414e00-5549-4ceb-b9e7-2bcf0fa93188"
+    "davidS"  = "2cd45b2f-6611-4984-afd0-4de25a0f1272"
+    "lee"     = "6301a51f-1867-4ca0-8abe-cf3a8ea56b0c"
+    "john"    = "02acc612-0cc1-4231-a44d-b1bbfcd132f7"
+  }
+}
+
+
  variable "applications" {
   description = "Map of application details"
   type = map(object({
