@@ -111,6 +111,37 @@ variable "applications" {
         hide                          = true
       }
       identifier_uris = null
+    },
+    "CACTUSPPE" = {
+      notes                          = "Used to read Specific Sharepoint sites"
+      service_management_reference   = "IDAM-4253"
+      display_name                   = "CACTUS-Sharepoint-PPE"
+      department_name                = "RCJ"
+      team_name                      = "CAO"
+      application_name               = "CACTUS-Sharepoint-PPE"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["colin.ashworth2@justice.gov.uk", "Tristan.hill@justice.gov.uk", "lynda.woodford@justice.gov.uk"]      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = ["Sites.Selected"]
+      graph_delegated_permissions    = []
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+      }
+      identifier_uris = null
     }
   }
 }
