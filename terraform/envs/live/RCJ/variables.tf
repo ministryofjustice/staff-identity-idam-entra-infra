@@ -59,7 +59,7 @@ variable "applications" {
       application_name               = "CACTUS-Sharepoint"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = []      
+      owners                         = ["colin.ashworth2@justice.gov.uk", "Tristan.hill@justice.gov.uk", "lynda.woodford@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -80,7 +80,7 @@ variable "applications" {
         hide                          = true
       }
       identifier_uris = null
-    }
+    },
     "CACTUSDEV" = {
       notes                          = "Used to read Specific Sharepoint sites"
       service_management_reference   = "IDAM-4253"
@@ -90,7 +90,7 @@ variable "applications" {
       application_name               = "CACTUS-Sharepoint-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = []      
+      owners                         = ["colin.ashworth2@justice.gov.uk", "Tristan.hill@justice.gov.uk", "lynda.woodford@justice.gov.uk"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
