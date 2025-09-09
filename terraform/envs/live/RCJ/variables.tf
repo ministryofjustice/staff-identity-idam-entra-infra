@@ -112,6 +112,5 @@ variable "applications" {
       }
       identifier_uris = null
     }
-
   }
 }
