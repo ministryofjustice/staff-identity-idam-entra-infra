@@ -28,7 +28,7 @@ if ($TerraformPlanAndApply) {
 $changedFiles = $diff | ForEach-Object {
     $path = $_.Split("/")
 
-    if ($path -contains "terraform/envs") {
+    if ($path -contains "terraform") {
         [PSCustomObject]@{
             Env = $path[2]
             Name = $path[3]
