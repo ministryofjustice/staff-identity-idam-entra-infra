@@ -9,6 +9,7 @@ variable "applications" {
   type = map(object({
     notes                         = string
     service_management_reference  = string
+    logo_image                    = string
     display_name                  = string
     department_name               = string
     team_name                     = string
@@ -72,6 +73,7 @@ variable "applications" {
     "app1" = {
       notes                          = "LAA Portal replacement application."
       service_management_reference   = "IDAM-2974"
+      logo_image                     = "./assets/laa-square-icon-215x215.jpg"
       display_name                   = "LASSIE"
       department_name                = "justice-digital"
       team_name                      = "laa"
@@ -122,6 +124,7 @@ variable "applications" {
     "apply_civil_legal_aid" = {
       notes                        = "Enables providers to submit an application for civil legal aid."
       service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
       display_name                 = "Apply for Civil Legal Aid"
       department_name              = "justice-digital"
       team_name                    = "laa"
@@ -172,6 +175,7 @@ variable "applications" {
     "apply_criminal_legal_aid" = {
       notes                        = "Apply for criminal legal aid is a service enabling providers to apply for criminal legal aid online. It is used by provider firms to submit applications on behalf of their clients, to make changes to returned applications, to provide additional evidence or to make supplementary applications when a client's circumstance change."
       service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
       display_name                 = "Apply for Criminal Legal Aid"
       department_name              = "justice-digital"
       team_name                    = "laa"
@@ -222,6 +226,7 @@ variable "applications" {
     "manage_providers_data" = {
       notes                        = "Application used to manage legal aid provider's data in CWA."
       service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
       display_name                 = "Manage a Provider''s Data"
       department_name              = "justice-digital"
       team_name                    = "laa"
@@ -271,6 +276,7 @@ variable "applications" {
     "submit_a_crime_form" = {
       notes                        = "Allowing legal providers to submit applications and claims for CRM4s and CRM7s respectively."
       service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
       display_name                 = "Submit A Crime Form"
       department_name              = "justice-digital"
       team_name                    = "laa"
@@ -321,6 +327,7 @@ variable "applications" {
     "laad_lassie_claim_enrichment_api" = {
       notes                        = "Legal Aid Single Sign in Experience API for Claim Enrichment to downstream LAA Services."
       service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
       display_name                 = "laad-lassie-claim-enrichment-api"
       department_name              = "justice-digital"
       team_name                    = "laa"
@@ -365,6 +372,7 @@ variable "applications" {
     "pui" = {
       notes                        = "Client and Cost Management System."
       service_management_reference = "IDAM-3912"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
       display_name                 = "PUI (NLE)"
       department_name              = "justice-digital"
       team_name                    = "laa"
