@@ -9,6 +9,7 @@ variable "applications" {
   type = map(object({
     notes                         = string
     service_management_reference  = string
+    logo_image                    = string
     display_name                  = string
     department_name               = string
     team_name                     = string
