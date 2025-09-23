@@ -154,7 +154,7 @@ variable "applications" {
       logout_url                     = null
       redirect_uris                  = null
       app_roles                      = []
-      graph_application_permissions  = ["Application.Read.All"]
+      graph_application_permissions  = ["Application.Read.All", "User.Read.All", "Group.Read.All", "AuditLog.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
