@@ -75,9 +75,9 @@ variable "applications" {
       service_management_reference   = "IDAM-4423"
       logo_image                     = "/assets/moj-square-icon-215x215.png"
       display_name                   = "PRTG-Monitoring-SSO"
-      department_name                = "Justice Digital"
-      team_name                      = "Service Transformation Group"
-      application_name               = ""
+      department_name                = "JD"
+      team_name                      = "STG"
+      application_name               = "PRTG-Monitoring-SSO"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dom.Tomkins@justice.gov.uk", "Peter.Longman@justice.gov.uk"]      
