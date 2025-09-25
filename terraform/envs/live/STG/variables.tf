@@ -74,7 +74,7 @@ variable "applications" {
       notes                          = "Used to provide SSO for PRTG Network Monitoring"
       service_management_reference   = "IDAM-4423"
       logo_image                     = "/assets/moj-square-icon-215x215.png"
-      display_name                   = "PRTG"
+      display_name                   = "PRTG-Monitoring-SSO"
       department_name                = "Justice Digital"
       team_name                      = "Service Transformation Group"
       application_name               = ""
