@@ -198,6 +198,36 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "vds_subscription_automation_05" = {
+      notes                          = "Used for Terraform automation activities in VDS subscriptions"
+      service_management_reference   = "EUCSVDS-1512"
+      display_name                   = "MoJ-OFFICIAL-Devl-Spoke-EUCS-TF"
+      department_name                = "EUCS-CORE-AVD"
+      team_name                      = "EUCS-CORE-Infrastructure-AVD"
+      application_name               = "MoJ-OFFICIAL-Devl-Spoke-EUCS-TF"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      app_roles                      = []
+      graph_application_permissions  = ["Directory.Read.All", "User.Read.All", "Group.Create", "Group.ReadWrite.All"]
+      graph_delegated_permissions    = []
+      tenants_required               = ["DEVL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
