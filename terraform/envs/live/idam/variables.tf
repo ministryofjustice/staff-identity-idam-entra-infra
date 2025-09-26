@@ -73,7 +73,7 @@ variable "applications" {
     "log-analytics-powerbi-reader" = {
       notes                          = "Allows PowerBI to read log analytics data to run reports in PowerBI for the IDAM team."
       service_management_reference   = "IDAM-4302"
-      logo_image                     = "./assets/moj-square-icon-215x215.jpg"
+      logo_image                     = "./assets/moj-square-icon-215x215.png"
       display_name                   = "EUCS IDAM PowerBI Log Analytics Reader"
       department_name                = "eucs"
       team_name                      = "idam"
