@@ -80,7 +80,7 @@ variable "applications" {
       application_name               = "eucs-idam-powerbi-log-analytics-reader"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["john.nolan@justice.gov.uk", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      owners                         = ["john.nolan@justice.gov.uk", "John.Nolan@JusticeUK.onmicrosoft.com"]
       application_contacts           = ["idam@justice.gov.uk","john.nolan@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
