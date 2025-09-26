@@ -132,7 +132,7 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = ["User.Read.All"]
       graph_delegated_permissions    = ["User.Read"]
-      tenants_required               = []
+      tenants_required               = ["DEV"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
