@@ -80,8 +80,8 @@ variable "applications" {
       application_name               = "ServiceNow-UAT-NLE"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["lewis.brown@devl.justice.gov.uk", "james.vincent2@devl.justice.gov.uk", "kevin.alvarez@devl.justice.gov.uk", "steve.wiseman@devl.justice.gov.uk"]      
-      application_contacts           = ["kevin.alvarez@devl.justice.gov.uk", "steve.wiseman@devl.justice.gov.uk"]      
+      owners                         = ["lewis.brown@test.justice.gov.uk", "james.vincent2@test.justice.gov.uk", "kevin.alvarez@test.justice.gov.uk", "steve.wiseman@test.justice.gov.uk"]      
+      application_contacts           = ["kevin.alvarez@test.justice.gov.uk", "steve.wiseman@test.justice.gov.uk"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -122,8 +122,8 @@ variable "applications" {
       application_name               = "ServiceNow-PreProd-NLE"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["lewis.brown@devl.justice.gov.uk", "james.vincent2@devl.justice.gov.uk", "kevin.alvarez@devl.justice.gov.uk", "steve.wiseman@devl.justice.gov.uk"]      
-      application_contacts           = ["kevin.alvarez@devl.justice.gov.uk", "steve.wiseman@devl.justice.gov.uk"]      
+      owners                         = ["lewis.brown@test.justice.gov.uk", "james.vincent2@test.justice.gov.uk", "kevin.alvarez@test.justice.gov.uk", "steve.wiseman@test.justice.gov.uk"]      
+      application_contacts           = ["kevin.alvarez@test.justice.gov.uk", "steve.wiseman@test.justice.gov.uk"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
