@@ -74,7 +74,7 @@ variable "applications" {
       notes                          = "ServiceNow Teams integration"
       service_management_reference   = "IDAM-4415"
       logo_image                     = "assets/moj-square-icon-215x215.png"
-      display_name                   = "ServiceNow Sandbox (DEVL)"
+      display_name                   = "ServiceNow-Sandbox-DEVL"
       department_name                = "eucs"
       team_name                      = "snow"
       application_name               = "ServiceNow Sandbox (DEVL)"
@@ -116,10 +116,10 @@ variable "applications" {
       notes                          = "ServiceNow Teams integration"
       service_management_reference   = "IDAM-4415"
       logo_image                     = "assets/moj-square-icon-215x215.png"
-      display_name                   = "ServiceNow Dev (DEVL)"
+      display_name                   = "ServiceNow-Dev-DEVL"
       department_name                = "eucs"
       team_name                      = "snow"
-      application_name               = "ServiceNow Dev (DEVL)"
+      application_name               = "ServiceNow-Dev-DEVL"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["lewis.brown@devl.justice.gov.uk", "james.vincent2@devl.justice.gov.uk", "kevin.alvarez@devl.justice.gov.uk", "steve.wiseman@devl.justice.gov.uk"]      
@@ -158,7 +158,7 @@ variable "applications" {
       notes                          = "ServiceNow Teams integration"
       service_management_reference   = "IDAM-4415"
       logo_image                     = "assets/moj-square-icon-215x215.png"
-      display_name                   = "ServiceNow Test (DEVL)"
+      display_name                   = "ServiceNow-Test-DEVL"
       department_name                = "eucs"
       team_name                      = "snow"
       application_name               = "ServiceNow Test (DEVL)"
