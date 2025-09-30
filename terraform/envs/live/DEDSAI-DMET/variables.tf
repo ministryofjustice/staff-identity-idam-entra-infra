@@ -7,20 +7,24 @@ variable "location" {
 variable "applications" {
   description = "Map of application details"
   type = map(object({
-    notes                        = string
-    service_management_reference = string
-    display_name                 = string
-    department_name              = string
-    team_name                    = string
-    application_name             = string
-    create_access_package        = bool
-    access_package_reviewers     = list(string)
-    owners                       = list(string)
-    allowed_groups               = list(string)
-    homepage_url                 = string
-    logout_url                   = string
-    redirect_uris                = list(string)
-    mobile_desktop_redirect_uris = list(string)
+    notes                         = string
+    service_management_reference  = string
+    logo_image                    = string
+    display_name                  = string
+    department_name               = string
+    team_name                     = string
+    application_name              = string
+    create_access_package         = bool
+    access_package_reviewers      = list(string)
+    owners                        = list(string)
+    application_contacts          = list(string)
+    allowed_groups                = list(string)
+    homepage_url                  = string
+    logout_url                    = string
+    redirect_uris                 = list(string)
+    access_token_issuance_enabled = bool
+    id_token_issuance_enabled     = bool
+    mobile_desktop_redirect_uris  = list(string)
     app_roles = list(object({
       allowed_member_types  = list(string)
       description           = string
@@ -46,13 +50,30 @@ variable "applications" {
       account_enabled               = bool
       application_template_name     = string
       hide                          = bool
+      custom_single_sign_on         = bool
     })
     identifier_uris = list(string)
+    api = object({
+      known_client_applications      = list(string)
+      mapped_claims_enabled          = bool
+      requested_access_token_version = string
+      oauth2_permission_scope = list(object({
+        admin_consent_description  = string
+        admin_consent_display_name = string
+        enabled                    = bool
+        id                         = string
+        type                       = string
+        user_consent_description   = string
+        user_consent_display_name  = string
+        value                      = string
+      }))
+    })
   }))
   default = {
-    "diso_teams_routing" = {
+    "log-analytics-powerbi-reader" = {
       notes                          = "We need ReadWrite access as we need to read business excel files for one requirement and also use this site to mirror/write s3 table data and which we use to be read by power BI apps"
       service_management_reference   = "IDAM-4459"
+      logo_image                     = "./assets/moj-square-icon-215x215.png"
       display_name                   = "MoJO-DEDSAI-DMET-MDS"
       department_name                = "DEDSAI"
       team_name                      = "DMET"
@@ -60,26 +81,36 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Shanmugapriya.Basker@justice.gov.uk"]
+      application_contacts           = ["idam@justice.gov.uk","Shanmugapriya.Basker@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
-      mobile_desktop_redirect_uris   = ["http://localhost/"]
+      mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = ["sites.selected"]
       graph_delegated_permissions    = ["sites.selected"]
       tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
         preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
+        app_role_assignment_required  = false
         account_enabled               = true
         application_template_name     = null
-        hide                          = null
+        hide                          = true
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris = []
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     }
   }
 }
