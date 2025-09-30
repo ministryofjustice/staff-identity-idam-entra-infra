@@ -88,9 +88,9 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["sites.selected"]
-      graph_delegated_permissions    = ["sites.selected"]
-      tenants_required               = ["live"]
+      graph_application_permissions  = ["Sites.Selected"]
+      graph_delegated_permissions    = ["Sites.Selected"]
+      tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
