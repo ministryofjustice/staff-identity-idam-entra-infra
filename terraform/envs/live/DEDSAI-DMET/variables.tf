@@ -51,8 +51,7 @@ variable "applications" {
   }))
   default = {
     "diso_teams_routing" = {
-      notes                          = "We need ReadWrite access as we need to read business excel files for one requirement
-and also use this site to mirror/write s3 table data and which we use to be read by power BI apps"
+      notes                          = "We need ReadWrite access as we need to read business excel files for one requirement and also use this site to mirror/write s3 table data and which we use to be read by power BI apps"
       service_management_reference   = "IDAM-4459"
       display_name                   = "MoJO-DEDSAI-DMET-MDS"
       department_name                = "DEDSAI"
