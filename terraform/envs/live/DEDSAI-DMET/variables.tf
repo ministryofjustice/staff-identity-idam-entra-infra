@@ -90,7 +90,7 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = ["Sites.Selected"]
       graph_delegated_permissions    = ["Sites.Selected"]
-      tenants_required               = ["live"]
+      tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
