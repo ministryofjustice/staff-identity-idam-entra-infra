@@ -491,7 +491,7 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
-    "submit_a_bulk_claim" = {
+    "ccms_case_transfer_requests" = {
       notes                        = "Requests to transfer CCMS cases."
       service_management_reference = "IDAM-4521"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
