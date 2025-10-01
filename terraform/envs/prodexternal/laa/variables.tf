@@ -450,13 +450,7 @@ variable "applications" {
       application_name             = "submit-a-bulk-claim"
       create_access_package        = false
       access_package_reviewers     = []
-      owners = [
-        "ArunKumar.Madesh@justice.gov.uk",
-        "Jamie.Briggs@justice.gov.uk",
-        "Michael.Farrell@justice.gov.uk",
-        "Phil.Payne@justice.gov.uk",
-        "Rohan.Salunkhe1@justice.gov.uk"
-      ]
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
         "ArunKumar.Madesh@justice.gov.uk",
         "Jamie.Briggs@justice.gov.uk",
@@ -506,12 +500,7 @@ variable "applications" {
       application_name             = "ccms-case-transfer-requests"
       create_access_package        = false
       access_package_reviewers     = []
-      owners = [
-        "Harry.Henry@justice.gov.uk",
-        "Ben.Ashton@justice.gov.uk",
-        "Callum.Brett@justice.gov.uk",
-        "Sankavi.Mohanraj@justice.gov.uk"
-      ]
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
         "Harry.Henry@justice.gov.uk",
         "Ben.Ashton@justice.gov.uk",
