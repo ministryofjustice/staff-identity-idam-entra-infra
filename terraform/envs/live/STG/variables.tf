@@ -85,7 +85,7 @@ variable "applications" {
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://online.cardinus.com/course/MJ/ergo/Authorisation/Account/Logon"]
+      redirect_uris                  = ["https://monitoring.pportal.cjsonline.gov.uk:443/cb"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
