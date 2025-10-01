@@ -461,7 +461,7 @@ variable "applications" {
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Submit-A-Bulk-Claim"]
       homepage_url   = "https://stg-submit-a-bulk-claim-laa-submit-a-bulk-claim-staging.apps.live.cloud-platform.service.justice.gov.uk/"
-      logout_url     = ""
+      logout_url     = null
       redirect_uris = [
         "https://stg-submit-a-bulk-claim-laa-submit-a-bulk-claim-staging.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/silas-identity"
       ]
@@ -513,7 +513,7 @@ variable "applications" {
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-CCMS transfer requests"]
       homepage_url   = "https://test.laa-ccms-user-data-transfer.service.justice.gov.uk/"
-      logout_url     = ""
+      logout_url     = null
       redirect_uris = [
         "https://test.laa-ccms-user-data-transfer.service.justice.gov.uk/login/oauth2/code/azure"
       ]

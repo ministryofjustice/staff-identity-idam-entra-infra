@@ -450,7 +450,7 @@ variable "applications" {
       application_name             = "submit-a-bulk-claim"
       create_access_package        = false
       access_package_reviewers     = []
-      owners                       = [
+      owners = [
         "ArunKumar.Madesh@justice.gov.uk",
         "Jamie.Briggs@justice.gov.uk",
         "Michael.Farrell@justice.gov.uk",
@@ -466,7 +466,7 @@ variable "applications" {
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Submit-A-Bulk-Claim"]
       homepage_url   = "https://prod-submit-a-bulk-claim-laa-submit-a-bulk-claim-prod.apps.live.cloud-platform.service.justice.gov.uk/"
-      logout_url     = ""
+      logout_url     = null
       redirect_uris = [
         "https://prod-submit-a-bulk-claim-laa-submit-a-bulk-claim-prod.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/silas-identity"
       ]
@@ -506,7 +506,7 @@ variable "applications" {
       application_name             = "ccms-case-transfer-requests"
       create_access_package        = false
       access_package_reviewers     = []
-      owners                       = [
+      owners = [
         "Harry.Henry@justice.gov.uk",
         "Ben.Ashton@justice.gov.uk",
         "Callum.Brett@justice.gov.uk",
@@ -523,7 +523,7 @@ variable "applications" {
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-CCMS transfer requests"]
       homepage_url   = "https://prd.laa-ccms-user-data-transfer.service.justice.gov.uk/"
-      logout_url     = ""
+      logout_url     = null
       redirect_uris = [
         "https://prd.laa-ccms-user-data-transfer.service.justice.gov.uk/login/oauth2/code/azure"
       ]
