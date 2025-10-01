@@ -496,5 +496,65 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
+    "submit_a_bulk_claim" = {
+      notes                        = "Requests to transfer CCMS cases."
+      service_management_reference = "IDAM-4521"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "CCMS case transfer requests"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "ccms-case-transfer-requests"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = [
+        "Harry.Henry@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk",
+        "Callum.Brett@justice.gov.uk",
+        "Sankavi.Mohanraj@justice.gov.uk",
+        "Dibyatanu.Deb1@justice.gov.uk",
+        "deborah.ojomo@justice.gov.uk",
+        "Scott.Armstrong@justice.gov.uk"
+      ]
+      application_contacts = [
+        "Harry.Henry@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk",
+        "Callum.Brett@justice.gov.uk",
+        "Sankavi.Mohanraj@justice.gov.uk",
+        "Dibyatanu.Deb1@justice.gov.uk",
+        "deborah.ojomo@justice.gov.uk",
+        "Scott.Armstrong@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-CCMS transfer requests"]
+      homepage_url   = "https://prd.laa-ccms-user-data-transfer.service.justice.gov.uk/"
+      logout_url     = ""
+      redirect_uris = [
+        "https://prd.laa-ccms-user-data-transfer.service.justice.gov.uk/login/oauth2/code/azure"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+    },
   }
 }
