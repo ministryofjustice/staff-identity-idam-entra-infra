@@ -104,12 +104,21 @@ variable "applications" {
         hide                          = true
         custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris = ["api://aac48433-8c81-48fa-88f6-e2e8d45187f4"]
       api = {
         known_client_applications      = [],
         mapped_claims_enabled          = false,
-        requested_access_token_version = null,
-        oauth2_permission_scope = []
+        requested_access_token_version = 2
+        oauth2_permission_scope = [{
+          admin_consent_description  = "Allows admin to use SSO"
+          admin_consent_display_name = "Admin_Consent_SSO"
+          enabled                    = true
+          id                         = "5eff006b-3ee5-4038-a473-2fbc1443291a"
+          type                       = "Admin"
+          user_consent_description   = "Allows user to use SSO"
+          user_consent_display_name  = "User_Consent_SSO"
+          value                      = "PRTG_Scope"
+        }]
       }
     }
   }
