@@ -114,7 +114,7 @@ variable "applications" {
           admin_consent_display_name = "Admin_Consent_SSO"
           enabled                    = true
           id                         = "5eff006b-3ee5-4038-a473-2fbc1443291a"
-          type                       = "Admin"
+          type                       = "User"
           user_consent_description   = "Allows user to use SSO"
           user_consent_display_name  = "User_Consent_SSO"
           value                      = "PRTG_Scope"
