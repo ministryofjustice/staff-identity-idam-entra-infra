@@ -70,7 +70,7 @@ variable "applications" {
     })
   }))
   default = {
-    "default_app" = {
+    "prtg-minitoring-sso" = {
       notes                          = "Used to provide SSO for PRTG Network Monitoring"
       service_management_reference   = "IDAM-4423"
       logo_image                     = "assets/moj-square-icon-215x215.png"
