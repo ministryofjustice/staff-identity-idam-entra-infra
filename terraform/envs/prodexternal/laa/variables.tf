@@ -91,8 +91,8 @@ variable "applications" {
       graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload", "User.Invite.All", "Directory.Read.All", "User.Read.All", "GroupMember.ReadWrite.All", "AuditLog.Read.All", "Application.Read.All"]
       graph_delegated_permissions    = ["User.Read", "User.RevokeSessions.All"]
       tenants_required               = ["PRODEXTERNAL"]
-      access_token_issuance_enabled  = true
-      id_token_issuance_enabled      = true
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -151,8 +151,8 @@ variable "applications" {
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["PRODEXTERNAL"]
-      access_token_issuance_enabled  = true
-      id_token_issuance_enabled      = true
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -201,8 +201,8 @@ variable "applications" {
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["PRODEXTERNAL"]
-      access_token_issuance_enabled  = true
-      id_token_issuance_enabled      = true
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -251,8 +251,8 @@ variable "applications" {
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["PRODEXTERNAL"]
-      access_token_issuance_enabled  = true
-      id_token_issuance_enabled      = true
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -302,8 +302,8 @@ variable "applications" {
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["PRODEXTERNAL"]
-      access_token_issuance_enabled  = true
-      id_token_issuance_enabled      = true
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -347,8 +347,8 @@ variable "applications" {
       graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload"]
       graph_delegated_permissions    = []
       tenants_required               = ["PRODEXTERNAL"]
-      access_token_issuance_enabled  = true
-      id_token_issuance_enabled      = true
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -411,7 +411,7 @@ variable "applications" {
       graph_delegated_permissions    = []
       tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = true
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -469,8 +469,8 @@ variable "applications" {
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["PRODEXTERNAL"]
-      access_token_issuance_enabled  = true
-      id_token_issuance_enabled      = true
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -521,8 +521,8 @@ variable "applications" {
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["PRODEXTERNAL"]
-      access_token_issuance_enabled  = true
-      id_token_issuance_enabled      = true
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
