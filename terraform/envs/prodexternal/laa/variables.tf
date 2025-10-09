@@ -542,23 +542,27 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
-    "amend_a_claim" = {
-      notes                        = "Amend a claim application which will allow caseworkers to login and amend a claim. This is internal users app only."
+    "civil_decide" = {
+      notes                        = "The decision making service within the civil application journey."
       service_management_reference = "IDAM-4612"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
-      display_name                 = "LAA Amend a claim"
+      display_name                 = "LAA Civil Decide"
       department_name              = "justice-digital"
       team_name                    = "laa"
-      application_name             = "laa-amend-a-claim"
+      application_name             = "laa-civil-decide"
       create_access_package        = false
       access_package_reviewers     = []
       owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
-        "Rohan.Salunkhe1@justice.gov.uk",
-        "Suma.Challa@justice.gov.uk",
-        "Jack.Heslop@justice.gov.uk"
+        "ant.roy@justice.gov.uk",
+        "Samera.Naji@Justice.gov.uk",
+        "Mark.Dodson1@justice.gov.uk",
+        "hev.magnier-ashton@justice.gov.uk",
+        "Gabriele.Bernotaite@justice.gov.uk",
+        "david.fabby@justice.gov.uk",
+        "otilia.stack@justice.gov.uk"
       ]
-      allowed_groups = ["APPREG-User-Access-LAAD-Amend-a-claim"]
+      allowed_groups = ["APPREG-User-Access-LAAD-LAA-Civil-Decide"]
       homepage_url   = "https://TODO/"
       logout_url     = null
       redirect_uris = [
@@ -590,27 +594,23 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
-    "civil_decide" = {
-      notes                        = "The decision making service within the civil application journey."
+     "amend_a_claim" = {
+      notes                        = "Amend a claim application which will allow caseworkers to login and amend a claim. This is internal users app only."
       service_management_reference = "IDAM-4612"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
-      display_name                 = "LAA Civil Decide"
+      display_name                 = "LAA Amend a claim"
       department_name              = "justice-digital"
       team_name                    = "laa"
-      application_name             = "laa-civil-decide"
+      application_name             = "laa-amend-a-claim"
       create_access_package        = false
       access_package_reviewers     = []
       owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
-        "ant.roy@justice.gov.uk",
-        "Samera.Naji@Justice.gov.uk",
-        "Mark.Dodson1@justice.gov.uk",
-        "hev.magnier-ashton@justice.gov.uk",
-        "Gabriele.Bernotaite@justice.gov.uk",
-        "david.fabby@justice.gov.uk",
-        "otilia.stack@justice.gov.uk"
+        "Rohan.Salunkhe1@justice.gov.uk",
+        "Suma.Challa@justice.gov.uk",
+        "Jack.Heslop@justice.gov.uk"
       ]
-      allowed_groups = ["APPREG-User-Access-LAAD-LAA-Civil-Decide"]
+      allowed_groups = ["APPREG-User-Access-LAAD-Amend-a-claim"]
       homepage_url   = "https://TODO/"
       logout_url     = null
       redirect_uris = [
