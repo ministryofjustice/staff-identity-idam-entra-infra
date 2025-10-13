@@ -387,7 +387,7 @@ variable "applications" {
       allowed_groups               = []
       homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
       logout_url                   = null
-      redirect_uris                = ["https://production-provider-ui-laa-ccms-prod.apps.live.cloud-platform.service.justice.gov.uk/civil/login/saml2/sso"]
+      redirect_uris                = ["https://ccms-pui.laa.service.justice.gov.uk/civil/login/saml2/sso"]
       mobile_desktop_redirect_uris = null
       app_roles = [
         {
