@@ -611,11 +611,9 @@ variable "applications" {
         "Jack.Heslop@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Amend-a-claim"]
-      homepage_url   = "https://TODO/"
+      homepage_url   = null
       logout_url     = null
-      redirect_uris = [
-        "https://TODO"
-      ]
+      redirect_uris  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
