@@ -543,5 +543,103 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
+    "civil_decide" = {
+      notes                        = "The decision making service within the civil application journey."
+      service_management_reference = "IDAM-4612"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "LAA Civil Decide"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "laa-civil-decide"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "ant.roy@justice.gov.uk",
+        "Samera.Naji@Justice.gov.uk",
+        "Mark.Dodson1@justice.gov.uk",
+        "hev.magnier-ashton@justice.gov.uk",
+        "Gabriele.Bernotaite@justice.gov.uk",
+        "david.fabby@justice.gov.uk",
+        "otilia.stack@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-LAA-Civil-Decide"]
+      homepage_url   = "https://laa-civil-decide-staging.cloud-platform.service.justice.gov.uk"
+      logout_url     = null
+      redirect_uris = [
+        "https://laa-civil-decide-staging.cloud-platform.service.justice.gov.uk/auth/redirect"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["NLEEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+    },
+    "amend_a_claim" = {
+      notes                        = "Amend a claim application which will allow caseworkers to login and amend a claim. This is internal users app only."
+      service_management_reference = "IDAM-4612"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "LAA Amend a claim"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "laa-amend-a-claim"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Rohan.Salunkhe1@justice.gov.uk",
+        "Suma.Challa@justice.gov.uk",
+        "Jack.Heslop@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-Amend-a-claim"]
+      homepage_url   = null
+      logout_url     = null
+      redirect_uris  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["NLEEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+    },
   }
 }
