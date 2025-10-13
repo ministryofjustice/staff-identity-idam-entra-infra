@@ -564,10 +564,10 @@ variable "applications" {
         "otilia.stack@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-LAA-Civil-Decide"]
-      homepage_url   = "https://TODO/"
+      homepage_url   = "https://laa-civil-decide-staging.cloud-platform.service.justice.gov.uk"
       logout_url     = null
       redirect_uris = [
-        "https://TODO"
+        "https://laa-civil-decide-staging.cloud-platform.service.justice.gov.uk/auth/redirect"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
