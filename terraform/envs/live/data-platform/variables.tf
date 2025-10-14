@@ -90,9 +90,8 @@ variable "applications" {
       app_roles                      = []
       # Based on https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group#api-permissions
       graph_application_permissions  = [
-        "Group.ReadWrite.All",
-        "Directory.ReadWrite.All",
-        "User.ReadWrite.All",
+        "Group.Create",
+        "GroupMember.ReadWrite.All"
       ]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
