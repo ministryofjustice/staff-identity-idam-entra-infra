@@ -74,28 +74,28 @@ variable "applications" {
       notes                          = "Data Platform Access (https://github.com/ministryofjustice/data-platform-access)"
       service_management_reference   = ""
       logo_image                     = "./assets/moj-square-icon-215x215.png"
-      display_name                   = "data-platform-access"
+      display_name                   = "Data Platform Access"
       department_name                = "office-of-the-cto"
       team_name                      = "data-platform"
       application_name               = "access"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = []      
-      application_contacts           = []      
+      owners                         = ["DataPlatform-gg@justice.gov.uk","Jacob.Woffenden@justice.gov.uk"]      
+      application_contacts           = ["Jacob.Woffenden@justice.gov.uk"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      # Based off https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group#api-permissions
+      # Based on https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/group#api-permissions
       graph_application_permissions  = [
         "Group.ReadWrite.All",
         "Directory.ReadWrite.All",
         "User.ReadWrite.All",
       ]
       graph_delegated_permissions    = []
-      tenants_required               = []
+      tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
