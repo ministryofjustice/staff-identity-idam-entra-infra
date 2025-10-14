@@ -1,6 +1,6 @@
 locals {
   tags = {
-    department = ""
+    department = "office-of-the-cto"
     team       = "data-platform"
     source     = "terraform"
   }
