@@ -80,7 +80,7 @@ variable "applications" {
       application_name               = "access"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["DataPlatform-gg@justice.gov.uk","Jacob.Woffenden@justice.gov.uk"]      
+      owners                         = ["Jacob.Woffenden@justice.gov.uk"]      
       application_contacts           = ["Jacob.Woffenden@justice.gov.uk"]      
       allowed_groups                 = []
       homepage_url                   = null
