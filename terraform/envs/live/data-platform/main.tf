@@ -1,7 +1,7 @@
 locals {
   tags = {
     department = ""
-    team       = ""
+    team       = "data-platform"
     source     = "terraform"
   }
 }
