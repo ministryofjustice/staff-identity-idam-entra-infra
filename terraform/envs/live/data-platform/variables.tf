@@ -92,7 +92,7 @@ variable "applications" {
       graph_application_permissions  = [
         "Group.Create",
         "GroupMember.ReadWrite.All",
-        "User.ReadBasic.All"
+        "User.Read.All"
       ]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
