@@ -74,10 +74,10 @@ variable "applications" {
       notes                          = "Submit a bulk claims app registration for app to app authentication only, this is not for SiLAS frontend login"
       service_management_reference   = ""
       logo_image                     = "./assets/laa-square-icon-215x215.jpg"
-      display_name                   = ""
+      display_name                   = "Submit a bulk claim | Production | app2app"
       department_name                = "laa"
       team_name                      = "sabc"
-      application_name               = "Submit a bulk claim - Production - app2app"
+      application_name               = "submit-a-bulk-claim-production-app2app"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["phil.payne@justice.gov.uk", "rohan.salunkhe1@justice.gov.uk"]
@@ -116,10 +116,10 @@ variable "applications" {
       notes                          = "Submit a bulk claims app registration for app to app authentication only, this is not for SiLAS frontend login"
       service_management_reference   = ""
       logo_image                     = "./assets/laa-square-icon-215x215.jpg"
-      display_name                   = ""
+      display_name                   = "Submit a bulk claim | Staging | app2app"
       department_name                = "laa"
       team_name                      = "sabc"
-      application_name               = "Submit a bulk claim - Staging - app2app"
+      application_name               = "submit-a-bulk-claim-staging-app2app"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["phil.payne@justice.gov.uk", "rohan.salunkhe1@justice.gov.uk"]
