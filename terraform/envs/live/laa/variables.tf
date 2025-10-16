@@ -73,7 +73,7 @@ variable "applications" {
     "sabc-production" = {
       notes                          = "Submit a bulk claims app registration for app to app authentication only, this is not for SiLAS frontend login"
       service_management_reference   = ""
-      logo_image                     = "./assets/laa-square-icon-215x215.png"
+      logo_image                     = "./assets/laa-square-icon-215x215.jpg"
       display_name                   = ""
       department_name                = "laa"
       team_name                      = "sabc"
@@ -115,7 +115,7 @@ variable "applications" {
     "sabc-staging" = {
       notes                          = "Submit a bulk claims app registration for app to app authentication only, this is not for SiLAS frontend login"
       service_management_reference   = ""
-      logo_image                     = "./assets/laa-square-icon-215x215.png"
+      logo_image                     = "./assets/laa-square-icon-215x215.jpg"
       display_name                   = ""
       department_name                = "laa"
       team_name                      = "sabc"
