@@ -77,7 +77,7 @@ variable "applications" {
       display_name                   = ""
       department_name                = "laa"
       team_name                      = "sabc"
-      application_name               = "Submit a bulk claim | Production | app2app"
+      application_name               = "Submit a bulk claim - Production - app2app"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["phil.payne@justice.gov.uk", "rohan.salunkhe1@justice.gov.uk"]
@@ -89,8 +89,8 @@ variable "applications" {
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = []
-      tenants_required               = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
@@ -119,7 +119,7 @@ variable "applications" {
       display_name                   = ""
       department_name                = "laa"
       team_name                      = "sabc"
-      application_name               = "Submit a bulk claim | Staging | app2app"
+      application_name               = "Submit a bulk claim - Staging - app2app"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["phil.payne@justice.gov.uk", "rohan.salunkhe1@justice.gov.uk"]
@@ -131,8 +131,8 @@ variable "applications" {
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = []
-      tenants_required               = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
