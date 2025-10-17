@@ -37,3 +37,86 @@ module "application-registration" {
   identifier_uris                = each.value.identifier_uris
 }
 #endregion
+
+#region cert testing
+resource "azurerm_key_vault" "idam_testing" {
+  name                        = "kv-idam-testing-certs"
+  location                    = data.azurerm_resource_group.internal_rg.location
+  resource_group_name         = data.azurerm_resource_group.internal_rg.name
+  enabled_for_disk_encryption = true
+  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  soft_delete_retention_days  = 7
+  purge_protection_enabled    = false
+
+  sku_name = "standard"
+}
+
+resource "azurerm_key_vault_access_policy" "idam_testing" {
+  key_vault_id = azurerm_key_vault.idam_testing.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = azurerm_user_assigned_identity.automation.id
+
+  
+  certificate_permissions = [
+    "Get",
+    "List"
+  ]
+
+  secret_permissions = [
+    "Get"
+  ]
+}
+
+
+resource "azurerm_key_vault_certificate" "runbook_test" {
+  name         = "app-runbook-ps"
+  key_vault_id = azurerm_key_vault.idam_testing.id
+
+  certificate_policy {
+    issuer_parameters {
+      name = "Self"
+    }
+
+    key_properties {
+      exportable = false
+      key_size   = 2048
+      key_type   = "RSA"
+      reuse_key  = true
+    }
+
+    secret_properties {
+      content_type = "application/x-pkcs12"
+    }
+
+    x509_certificate_properties {
+      subject            = "CN=AppAuthCert"
+      validity_in_months = 12
+      key_usage = [
+        "digitalSignature",
+        "keyEncipherment",
+      ]
+      extended_key_usage = [
+        "clientAuth",
+      ]
+    }
+
+    lifetime_action {
+      action {
+        action_type = "AutoRenew"
+      }
+
+      trigger {
+        days_before_expiry = 30
+      }
+    }
+  }
+}
+
+
+resource "azurerm_user_assigned_identity" "automation" {
+  location            = data.azurerm_resource_group.internal_rg.location
+  name                = "idam-testing-automation"
+  resource_group_name = data.azurerm_resource_group.internal_rg.name
+}
+
+#endregion
