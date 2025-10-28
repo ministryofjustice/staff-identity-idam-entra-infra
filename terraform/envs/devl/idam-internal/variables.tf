@@ -169,7 +169,7 @@ variable "engineer_object_ids" {
       application_name               = "IDAM-pipeline-email-Automation"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["lee.fairfield@justice.gov.uk"]      
+      owners                         = ["lfairfield-admin@devl.justice.gov.uk"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -177,7 +177,7 @@ variable "engineer_object_ids" {
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["Mail.Read"]
+      graph_delegated_permissions    = ["Mail.Send"]
       tenants_required               = ["DEVL"]
       federated_identity_credentials = []
       service_principle = {
