@@ -160,5 +160,36 @@ variable "engineer_object_ids" {
       }
       identifier_uris = null
     }
+    "IDAM-pipeline-email-Automation" = {
+      notes                          = "Used for IDAM email automation sending authentication"
+      service_management_reference   = ""
+      display_name                   = "IDAM-pipeline-email-Automation"
+      department_name                = "Justice-Digital"
+      team_name                      = "EUCS-IDAM"
+      application_name               = "IDAM-pipeline-email-Automation"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["lee.fairfield@justice.gov.uk"]      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["Mail.Read"]
+      tenants_required               = ["DEVL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+      }
+      identifier_uris = null
+    }
   }
 }
