@@ -641,51 +641,5 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
-    "secure_browser_pui" = {
-      notes                        = "AWS Secure Browser to access the PUI service securely."
-      service_management_reference = "IDAM-4851"
-      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
-      display_name                 = "AWS Secure Browser - PUI"
-      department_name              = "justice-digital"
-      team_name                    = "laa"
-      application_name             = "secure-browser"
-      create_access_package        = false
-      access_package_reviewers     = []
-      owners                       = ["scott-armstrong-admin@TestJusticeUKExternal.onmicrosoft.com", "Ben.Ashton_justice.gov.uk#EXT#@TestJusticeUKExternal.onmicrosoft.com"]
-      application_contacts = [
-        "Eamon.McNally@justice.gov.uk",
-        "Ben.Ashton@justice.gov.uk",
-        "harry.henry@justice.gov.uk"
-      ]
-      allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
-      homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
-      logout_url                   = null
-      redirect_uris                = ["https://ee268407-5013-461c-b89f-49ca86e8ccb3.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
-      mobile_desktop_redirect_uris = null
-      app_roles = []
-      graph_application_permissions  = []
-      graph_delegated_permissions    = []
-      tenants_required               = ["NLEEXTERNAL"]
-      access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
-      federated_identity_credentials = []
-      service_principle = {
-        login_url                     = null
-        notification_email_addresses  = ["scott-armstrong-admin@TestJusticeUKExternal.onmicrosoft.com"]
-        preferred_single_sign_on_mode = "saml"
-        app_role_assignment_required  = true
-        account_enabled               = true
-        application_template_name     = null
-        hide                          = true
-        custom_single_sign_on         = true
-      }
-      identifier_uris = null
-      api = {
-        known_client_applications      = []
-        mapped_claims_enabled          = true
-        requested_access_token_version = 2
-        oauth2_permission_scope = []
-      }
-    },
   }
 }
