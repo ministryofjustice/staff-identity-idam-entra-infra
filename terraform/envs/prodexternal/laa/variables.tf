@@ -658,8 +658,8 @@ variable "applications" {
       ]
       allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
       homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
-      logout_url                   = null
-      redirect_uris                = ["https://ee268407-5013-461c-b89f-49ca86e8ccb3.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
+      logout_url                   = "https://8969ca0a-66ab-42d2-9a45-eef3ccda764d.auth.eu-west-2.amazoncognito.com/saml2/logout"
+      redirect_uris                = ["https://8969ca0a-66ab-42d2-9a45-eef3ccda764d.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
       mobile_desktop_redirect_uris = null
       app_roles = []
       graph_application_permissions  = []
@@ -704,8 +704,8 @@ variable "applications" {
       ]
       allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
       homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
-      logout_url                   = null
-      redirect_uris                = ["https://ee268407-5013-461c-b89f-49ca86e8ccb3.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
+      logout_url                   = "https://6d5f6413-a396-4b07-b9ba-6534e35291ad.auth.eu-west-2.amazoncognito.com/saml2/logout"
+      redirect_uris                = ["https://6d5f6413-a396-4b07-b9ba-6534e35291ad.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
       mobile_desktop_redirect_uris = null
       app_roles = []
       graph_application_permissions  = []
