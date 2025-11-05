@@ -459,10 +459,10 @@ variable "applications" {
         "Rohan.Salunkhe1@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Submit-A-Bulk-Claim"]
-      homepage_url   = "https://prod-submit-a-bulk-claim-laa-submit-a-bulk-claim-prod.apps.live.cloud-platform.service.justice.gov.uk/"
+      homepage_url   = "https://submit-a-bulk-claim.laa.service.justice.gov.uk/"
       logout_url     = null
       redirect_uris = [
-        "https://prod-submit-a-bulk-claim-laa-submit-a-bulk-claim-prod.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/silas-identity"
+        "https://submit-a-bulk-claim.laa.service.justice.gov.uk/login/oauth2/code/silas-identity"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
@@ -594,7 +594,7 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
-     "amend_a_claim" = {
+    "amend_a_claim" = {
       notes                        = "Amend a claim application which will allow caseworkers to login and amend a claim. This is internal users app only."
       service_management_reference = "IDAM-4612"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
