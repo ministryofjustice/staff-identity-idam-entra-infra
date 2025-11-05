@@ -459,10 +459,10 @@ variable "applications" {
         "Rohan.Salunkhe1@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Submit-A-Bulk-Claim"]
-      homepage_url   = "https://prod-submit-a-bulk-claim-laa-submit-a-bulk-claim-prod.apps.live.cloud-platform.service.justice.gov.uk/"
+      homepage_url   = "https://submit-a-bulk-claim.laa.service.justice.gov.uk/"
       logout_url     = null
       redirect_uris = [
-        "https://prod-submit-a-bulk-claim-laa-submit-a-bulk-claim-prod.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/silas-identity"
+        "https://submit-a-bulk-claim.laa.service.justice.gov.uk/login/oauth2/code/silas-identity"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
@@ -594,7 +594,7 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
-     "amend_a_claim" = {
+    "amend_a_claim" = {
       notes                        = "Amend a claim application which will allow caseworkers to login and amend a claim. This is internal users app only."
       service_management_reference = "IDAM-4612"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
@@ -658,8 +658,8 @@ variable "applications" {
       ]
       allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
       homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
-      logout_url                   = null
-      redirect_uris                = ["https://ee268407-5013-461c-b89f-49ca86e8ccb3.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
+      logout_url                   = "https://8969ca0a-66ab-42d2-9a45-eef3ccda764d.auth.eu-west-2.amazoncognito.com/saml2/logout"
+      redirect_uris                = ["https://8969ca0a-66ab-42d2-9a45-eef3ccda764d.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
       mobile_desktop_redirect_uris = null
       app_roles = []
       graph_application_permissions  = []
@@ -678,7 +678,9 @@ variable "applications" {
         hide                          = true
         custom_single_sign_on         = true
       }
-      identifier_uris = null
+      identifier_uris = [
+          "urn:amazon:cognito:sp:eu-west-2_5EQ2PbVIR",
+      ]
       api = {
         known_client_applications      = []
         mapped_claims_enabled          = true
@@ -704,8 +706,8 @@ variable "applications" {
       ]
       allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
       homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
-      logout_url                   = null
-      redirect_uris                = ["https://ee268407-5013-461c-b89f-49ca86e8ccb3.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
+      logout_url                   = "https://6d5f6413-a396-4b07-b9ba-6534e35291ad.auth.eu-west-2.amazoncognito.com/saml2/logout"
+      redirect_uris                = ["https://6d5f6413-a396-4b07-b9ba-6534e35291ad.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
       mobile_desktop_redirect_uris = null
       app_roles = []
       graph_application_permissions  = []
@@ -724,7 +726,9 @@ variable "applications" {
         hide                          = true
         custom_single_sign_on         = true
       }
-      identifier_uris = null
+      identifier_uris = [
+          "urn:amazon:cognito:sp:eu-west-2_lsztuA0Z1",
+      ]
       api = {
         known_client_applications      = []
         mapped_claims_enabled          = true
