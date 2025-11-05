@@ -125,7 +125,7 @@ variable "applications" {
       owners                         = ["lewis.brown@devl.justice.gov.uk", "james.vincent2@devl.justice.gov.uk", "kevin.alvarez@devl.justice.gov.uk", "steve.wiseman@devl.justice.gov.uk"]      
       application_contacts           = ["kevin.alvarez@devl.justice.gov.uk", "steve.wiseman@devl.justice.gov.uk"]      
       allowed_groups                 = []
-      homepage_url                   = ["https://mojdev.service-now.com/"]
+      homepage_url                   = "https://mojdev.service-now.com/"
       logout_url                     = null
       redirect_uris                  = ["https://mojdev.service-now.com/"]
       mobile_desktop_redirect_uris   = null
