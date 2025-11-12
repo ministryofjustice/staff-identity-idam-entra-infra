@@ -111,6 +111,48 @@ variable "applications" {
         requested_access_token_version = null,
         oauth2_permission_scope = []
       }
+    },
+    "IDAM-pipeline-email-Automation" = {
+      notes                          = "Used to send emails via IDAM automation scripts."
+      service_management_reference   = ""
+      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      display_name                   = "IDAM-pipeline-email-Automation"
+      department_name                = "eucs"
+      team_name                      = "idam"
+      application_name               = "IDAM-pipeline-email-Automation"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["lee.fairfield@justice.gov.uk", "Lee.Fairfield@justiceuk.onmicrosoft.com"]
+      application_contacts           = ["idam@justice.gov.uk","lee.fairfield@justice.gov.uk"]
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read", "Mail.Send"]
+      tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = []
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     }
   }
 }
