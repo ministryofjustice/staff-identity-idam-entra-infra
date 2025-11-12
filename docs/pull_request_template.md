@@ -34,6 +34,7 @@ Example: "Add new Azure RBAC role assignment for monitoring service principal" o
 
 - [ ] Is there documentation for new IAM roles, policies, or automation logic ect?
 - [ ] Have runbooks or operational guides been updated?
+- [ ] Have you updated the Terraform Modules CHANGELOG.md file?
 
 ## 📎 Related Issues / Tickets
 
