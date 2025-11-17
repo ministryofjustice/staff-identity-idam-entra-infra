@@ -130,8 +130,8 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = []
-      graph_delegated_permissions    = ["User.Read", "Mail.Send"]
+      graph_application_permissions  = ["Mail.Send"]
+      graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
