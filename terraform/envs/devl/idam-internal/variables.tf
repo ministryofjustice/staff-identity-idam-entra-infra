@@ -176,8 +176,8 @@ variable "engineer_object_ids" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = []
-      graph_delegated_permissions    = ["Mail.Send"]
+      graph_application_permissions  = ["Mail.Send"]
+      graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["DEVL"]
       federated_identity_credentials = []
       service_principle = {
