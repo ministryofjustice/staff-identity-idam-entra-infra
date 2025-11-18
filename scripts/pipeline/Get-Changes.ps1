@@ -70,30 +70,5 @@ foreach ($customer in $uniqueCustomers) {
         throw
     }
 
-
-    # # Setup concurrency for multiple changes to one env
-    # $jobs += Start-Job -Name $customer.Name -ArgumentList $customer.Name, $command -ScriptBlock {
-    # param($customerName, $command)
-    #     try {
-    #     Write-Host "`e[33m Running Terraform command [$command] `e[0m"
-    #     Invoke-Expression $command
-    #     } catch {
-    #         throw $_.Exception.Message
-    #     }
-    # }
-
-    # Set location back to the base envs folder
     Pop-Location
 }
-
-# # Wait for all jobs to complete
-# $jobs | Wait-Job
-
-# # Output job output to console
-# foreach ($job in $jobs) {
-#     Write-Host "`e[34m Output for Job: $($job.Name) `e[0m"
-#     Receive-Job $job
-# }
-
-# # Clean up jobs
-# $jobs | Remove-Job
