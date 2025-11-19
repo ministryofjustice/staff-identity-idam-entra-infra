@@ -81,7 +81,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Matt.Heery@justice.gov.uk", "Gwion.ApRhobat@justice.gov.uk"]      
-      application_contacts           = []      
+      application_contacts           = ["Matt.Heery@justice.gov.uk", "Gwion.ApRhobat@justice.gov.uk"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
