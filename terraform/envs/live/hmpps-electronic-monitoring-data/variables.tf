@@ -77,7 +77,7 @@ variable "applications" {
       display_name                   = "EM Data Sharepoint App"
       department_name                = "hmpps"
       team_name                      = "EMD"
-      application_name               = "EM Data Sharepoint App"
+      application_name               = "EM-Data-Sharepoint-App"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Matt.Heery@justice.gov.uk", "Gwion.ApRhobat@justice.gov.uk"]      
