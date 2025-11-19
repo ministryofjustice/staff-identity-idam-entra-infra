@@ -71,7 +71,7 @@ variable "applications" {
   }))
   default = {
     "default_app" = {
-      notes                          = ""
+      notes                          = "App to allow the EM data engineers to push automatically to sharepoint."
       service_management_reference   = ""
       logo_image                     = "./assets/moj-square-icon-215x215.png"
       display_name                   = "EM Data Sharepoint App"
@@ -88,7 +88,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["sites.selected"]
+      graph_application_permissions  = ["Sites.Selected"]
       graph_delegated_permissions    = []
       tenants_required               = ["live"]
       access_token_issuance_enabled  = false
