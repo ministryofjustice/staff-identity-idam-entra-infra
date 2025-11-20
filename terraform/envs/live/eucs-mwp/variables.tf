@@ -128,7 +128,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupMember.ReadWrite.All", "Group.Create", "Group.Delete", "User.Read.All"]
+      graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupMember.ReadWrite.All", "User.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
