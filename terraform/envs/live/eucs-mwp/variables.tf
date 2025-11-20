@@ -97,7 +97,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Mail.Read.All", "MailboxSettings.ReadWrite", "Calendars.ReadWrite", "Contacts.ReadWrite"]
+      graph_application_permissions  = ["Mail.Read", "MailboxSettings.ReadWrite", "Calendars.ReadWrite", "Contacts.ReadWrite"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
@@ -128,7 +128,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupMember.ReadWrite.All", "Group.Create", "Group.Delete", "User.Read.All"]
+      graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupMember.ReadWrite.All", "User.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
@@ -159,7 +159,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupMember.ReadWrite.All", "Group.Create", "Group.Delete", "User.Read.All"]
+      graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupMember.ReadWrite.All", "User.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
@@ -221,7 +221,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Organization.Read.All", "Billing.Read.All"]
+      graph_application_permissions  = ["Organization.Read.All", "PartnerBilling.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
@@ -252,7 +252,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Reports.Read.All", "Usage.Read.All", "ActivityFeed.Read", "AuditLog.Read.All", "DeviceManagementManagedDevices.Read.All"]
+      graph_application_permissions  = ["Reports.Read.All", "AuditLog.Read.All", "DeviceManagementManagedDevices.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
