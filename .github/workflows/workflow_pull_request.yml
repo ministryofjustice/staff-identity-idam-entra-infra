@@ -67,8 +67,14 @@ jobs:
 
     - name: Terraform Plan
       shell: pwsh
-      run: scripts/pipeline/Get-Changes.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -lock-timeout=300s -input=false"
+      run: scripts/pipeline/Get-Changes.ps1 -Env "${{matrix.environment }}" -TerraformCommand "plan -no-color -out=tfplan && terraform show -no-color tfplan > plan.txt"
       continue-on-error: true
+
+    - name: Upload Plan Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: terraform-plan
+
 
     - name: Show Terraform Logs
       if: failure()
