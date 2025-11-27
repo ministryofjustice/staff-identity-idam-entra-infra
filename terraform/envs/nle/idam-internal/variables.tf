@@ -63,7 +63,6 @@ variable "applications" {
       hide                          = bool
     })
     identifier_uris = list(string)
-    sign_in_audience  = string
   }))
   default = {
     "NIAM B2C Federation - NLE" = {
