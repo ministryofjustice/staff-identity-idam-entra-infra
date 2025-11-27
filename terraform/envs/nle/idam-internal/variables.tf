@@ -87,7 +87,6 @@ variable "applications" {
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["NLE"]
-      sign_in_audience = "AzureADMyOrg"
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
