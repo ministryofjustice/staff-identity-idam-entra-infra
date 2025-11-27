@@ -63,6 +63,7 @@ variable "applications" {
       hide                          = bool
     })
     identifier_uris = list(string)
+    sign_in_audience  = string
   }))
   default = {
     "NIAM B2C Federation - NLE" = {
@@ -75,8 +76,8 @@ variable "applications" {
       application_name               = "NIAM B2C Federation - NLE"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["James.Irving1@justice.gov.uk"]      
-      application_contacts           = ["James.Irving1@justice.gov.uk"]      
+      owners                         = ["Lee.Fairfield@TestJusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Lee.Fairfield@TestJusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
