@@ -89,7 +89,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://familylaw-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -119,7 +119,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -149,7 +149,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://familylaw-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -179,7 +179,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://hrtoolkit-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -209,7 +209,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -239,7 +239,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://hrtoolkit-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -269,7 +269,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://justicetranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -299,7 +299,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -329,7 +329,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://justicetranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -359,7 +359,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://langfuse-ai.justice.gov.uk/api/auth/callback/azure-ad"]
@@ -389,7 +389,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -419,7 +419,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -449,7 +449,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://learningapp-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -479,7 +479,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -509,7 +509,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://learningapp-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -539,7 +539,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prisonphonecalls-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -569,7 +569,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -599,7 +599,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prisonphonecalls-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -629,7 +629,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prompthub-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -659,7 +659,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -689,7 +689,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prompthub-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -719,7 +719,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://redbox-tracker-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -749,7 +749,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -779,7 +779,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://redbox-tracker-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -809,7 +809,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://riskregister-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -839,7 +839,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -869,7 +869,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://riskregister-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -899,7 +899,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://smartinbox-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -929,7 +929,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -959,7 +959,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://smartinbox-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -989,7 +989,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://aitranslate-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -1019,7 +1019,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
@@ -1049,7 +1049,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://aitranslate-dev-example.azurewebsites.net/.auth/login/aad/callback"]
@@ -1079,7 +1079,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://courtstranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -1109,7 +1109,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://courtstranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
@@ -1139,7 +1139,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://courtstranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
