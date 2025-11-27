@@ -65,14 +65,14 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "NIAM B2C Federation - NLE" = {
-      notes                          = "NIAM B2C Federation - NLE"
+    "NIAM-B2C-Federation-NLE" = {
+      notes                          = "NIAM-B2C-Federation-NLE"
       service_management_reference   = "IDAM-4973"
       logo_image                     = "assets/moj-square-icon-215x215.png"
-      display_name                   = "NIAM B2C Federation - NLE"
+      display_name                   = "NIAM-B2C-Federation-NLE"
       department_name                = "eucs"
       team_name                      = "snow"
-      application_name               = "NIAM B2C Federation - NLE"
+      application_name               = "NIAM-B2C-Federation-NLE"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Lee.Fairfield@TestJusticeUK.onmicrosoft.com"]      
