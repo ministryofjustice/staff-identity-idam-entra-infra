@@ -252,7 +252,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Reports.Read.All", "AuditLog.Read.All", "Devices.Read.All", "DeviceManagementManagedDevices.Read.All"]
+      graph_application_permissions  = ["Reports.Read.All", "AuditLog.Read.All", "DeviceManagementManagedDevices.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
