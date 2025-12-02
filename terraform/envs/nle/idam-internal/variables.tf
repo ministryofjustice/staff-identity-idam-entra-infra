@@ -107,7 +107,6 @@ variable "applications" {
         oauth2_permission_scope = []
       }
     },
-    default = {
     "ServiceNow-Entra-ID-Spoke" = {
       notes                          = "ServiceNow-Entra-ID-Spoke"
       service_management_reference   = "IDAM-4991"
