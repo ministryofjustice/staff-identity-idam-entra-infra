@@ -125,7 +125,7 @@ variable "applications" {
       redirect_uris                  = ["https://mojtest.service-now.com/oauth_redirect.do"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["User.Read"]
+      graph_application_permissions  = ["User.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["NLE"]
       access_token_issuance_enabled  = false
