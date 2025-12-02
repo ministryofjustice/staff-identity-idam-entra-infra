@@ -110,7 +110,7 @@ variable "applications" {
     default = {
     "ServiceNow-Entra-ID-Spoke" = {
       notes                          = "ServiceNow-Entra-ID-Spoke"
-      service_management_reference   = "IDAM-4973"
+      service_management_reference   = "IDAM-4991"
       logo_image                     = "assets/moj-square-icon-215x215.png"
       display_name                   = "ServiceNow-Entra-ID-Spoke"
       department_name                = "eucs"
