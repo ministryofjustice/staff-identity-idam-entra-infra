@@ -97,7 +97,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Mail.Read", "MailboxSettings.ReadWrite", "Calendars.ReadWrite", "Contacts.ReadWrite"]
+      graph_application_permissions  = ["Mail.ReadWrite", "MailboxFolder.ReadWrite.All", "MailboxConfigItem.ReadWrite", "MailboxSettings.ReadWrite", "Calendars.ReadWrite", "Contacts.ReadWrite"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
@@ -128,7 +128,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupMember.ReadWrite.All", "User.Read.All"]
+      graph_application_permissions  = ["Team.ReadBasic.All", "OnlineMeetingArtifact.Read.All", "RealTimeActivityFeed.Read.All", "OnlineMeetings.Read.All", "TeamSettings.ReadWrite.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
@@ -159,7 +159,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupMember.ReadWrite.All", "User.Read.All"]
+      graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupSettings.ReadWrite.All", "User.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
@@ -252,7 +252,7 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = ["Reports.Read.All", "AuditLog.Read.All", "DeviceManagementManagedDevices.Read.All"]
+      graph_application_permissions  = ["Reports.Read.All", "AuditLog.Read.All", "Devices.Read.All", "DeviceManagementManagedDevices.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
