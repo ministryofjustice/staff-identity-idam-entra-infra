@@ -127,7 +127,7 @@ variable "applications" {
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://service-management-prd-rds-uksouth-opg-f6dda2emagf9brg7.a01.azurefd.net/signin-oidc/Rdsm529 "]
+      redirect_uris                  = ["https://service-management-prd-rds-uksouth-opg-f6dda2emagf9brg7.a01.azurefd.net/signin-oidc/Rdsm529"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
