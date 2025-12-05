@@ -111,6 +111,48 @@ variable "applications" {
         requested_access_token_version = null,
         oauth2_permission_scope = []
       }
+    },
+    "RD-ServiceManagement-WebUAT" = {
+      notes                          = ""
+      service_management_reference   = "IDAM-5158"
+      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      display_name                   = "RD-ServiceManagement-WebUAT"
+      department_name                = "Justice Digital"
+      team_name                      = "CAO"
+      application_name               = "RD-ServiceManagement-WebUAT"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Michael.forsyth@publicguardian.gov.uk", "Zoe.Magee@publicguardian.gov.uk"]      
+      application_contacts           = []      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://service-management-uat-rds-uksouth-opg-hnemfdcdh7h3b7av.a02.azurefd.net/signin-oidc/OpenIdConnectRdsm01"]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     }
   }
 }
