@@ -112,14 +112,14 @@ variable "applications" {
         oauth2_permission_scope = []
       }
     },
-    "RD-ServiceManagement-WebUAT" = {
+    "RD-ServiceManagement-WebPRD" = {
       notes                          = ""
       service_management_reference   = "IDAM-5158"
       logo_image                     = "./assets/moj-square-icon-215x215.png"
-      display_name                   = "RD-ServiceManagement-WebUAT"
+      display_name                   = "RD-ServiceManagement-WebPRD"
       department_name                = "Justice Digital"
       team_name                      = "CAO"
-      application_name               = "RD-ServiceManagement-WebUAT"
+      application_name               = "RD-ServiceManagement-WebPRD"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Michael.forsyth@publicguardian.gov.uk", "Zoe.Magee@publicguardian.gov.uk"]      
@@ -127,7 +127,7 @@ variable "applications" {
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://service-management-uat-rds-uksouth-opg-hnemfdcdh7h3b7av.a02.azurefd.net/signin-oidc/OpenIdConnectRdsm01"]
+      redirect_uris                  = ["https://service-management-prd-rds-uksouth-opg-f6dda2emagf9brg7.a01.azurefd.net/signin-oidc/Rdsm529 "]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
