@@ -274,7 +274,7 @@ variable "applications" {
       logout_url                     = null
       redirect_uris                  = null
       app_roles                      = []
-      graph_application_permissions  = []
+      graph_application_permissions  = ["RestClient"]
       graph_delegated_permissions    = []
       tenants_required               = ["DEVL"]
       federated_identity_credentials = []
