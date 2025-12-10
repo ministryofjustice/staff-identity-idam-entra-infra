@@ -13,6 +13,7 @@ variable "applications" {
     department_name              = string
     team_name                    = string
     application_name             = string
+    application_contacts         = list(string)
     create_access_package        = bool
     access_package_reviewers     = list(string)
     owners                       = list(string)
@@ -46,7 +47,14 @@ variable "applications" {
       application_template_name     = string
       hide                          = bool
     })
-    identifier_uris = list(string)
+    identifier_uris               = list(string)
+    mobile_desktop_redirect_uris  = list(string)
+    access_token_issuance_enabled = bool
+    id_token_issuance_enabled     = bool
+    logo_image                    = string
+    api_app_id                    = string
+    api_application_permissions   = list(string)
+    api_delegated_permissions     = list(string)
   }))
   default = {
     "vds_subscription_automation_01" = {
@@ -56,6 +64,7 @@ variable "applications" {
       department_name                = "EUCS-CORE-AVD"
       team_name                      = "EUCS-CORE-Infrastructure-AVD"
       application_name               = "MoJ-OFFICIAL-Devl-Spoke-EUCSVD01-TF"
+      application_contacts           = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]      
@@ -78,6 +87,13 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      logo_image                     = ""
+      api_app_id                     = ""
+      api_application_permissions    = []
+      api_delegated_permissions      = []
     },
     "vds_subscription_automation_02" = {
       notes                          = "Used for Terraform automation activities in VDS subscriptions"
@@ -86,6 +102,7 @@ variable "applications" {
       department_name                = "EUCS-CORE-AVD"
       team_name                      = "EUCS-CORE-Infrastructure-AVD"
       application_name               = "MoJ-OFFICIAL-Devl-Spoke-EUCSVD02-TF"
+      application_contacts           = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
@@ -108,6 +125,13 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      logo_image                     = ""
+      api_app_id                     = ""
+      api_application_permissions    = []
+      api_delegated_permissions      = []
     },
     "MoJ-OFFICIAL-DEVL-EUCS-VDS-Housekeeping" = {
       notes                          = "Identity for Automated Housekeeping Activities in VDS Subscriptions"
@@ -116,6 +140,7 @@ variable "applications" {
       department_name                = "EUCS-CORE-AVD"
       team_name                      = "EUCS-CORE-Infrastructure-AVD"
       application_name               = "MoJ-OFFICIAL-DEVL-EUCS-VDS-HousekeepingF"
+      application_contacts           = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
@@ -138,6 +163,13 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      logo_image                     = ""
+      api_app_id                     = ""
+      api_application_permissions    = []
+      api_delegated_permissions      = []
     },
     "vds_subscription_automation_03" = {
       notes                          = "Used for Terraform automation activities in VDS subscriptions"
@@ -146,6 +178,7 @@ variable "applications" {
       department_name                = "EUCS-CORE-AVD"
       team_name                      = "EUCS-CORE-Infrastructure-AVD"
       application_name               = "MoJ-OFFICIAL-Devl-Spoke-EUCSVD03-TF"
+      application_contacts           = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
@@ -168,6 +201,13 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      logo_image                     = ""
+      api_app_id                     = ""
+      api_application_permissions    = []
+      api_delegated_permissions      = []
     },
     "vds_subscription_automation_04" = {
       notes                          = "Used for Terraform automation activities in VDS subscriptions"
@@ -176,6 +216,7 @@ variable "applications" {
       department_name                = "EUCS-CORE-AVD"
       team_name                      = "EUCS-CORE-Infrastructure-AVD"
       application_name               = "MoJ-OFFICIAL-Devl-Spoke-EUCSVD04-TF"
+      application_contacts           = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
@@ -198,6 +239,13 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      logo_image                     = ""
+      api_app_id                     = ""
+      api_application_permissions    = []
+      api_delegated_permissions      = []
     },
     "vds_subscription_automation_05" = {
       notes                          = "Used for Terraform automation activities in VDS subscriptions"
@@ -206,6 +254,7 @@ variable "applications" {
       department_name                = "EUCS-CORE-AVD"
       team_name                      = "EUCS-CORE-Infrastructure-AVD"
       application_name               = "MoJ-OFFICIAL-Devl-Spoke-EUCS-TF"
+      application_contacts           = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
@@ -228,6 +277,13 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      logo_image                     = ""
+      api_app_id                     = ""
+      api_application_permissions    = []
+      api_delegated_permissions      = []
     },
     "vds_image_automation_01" = {
       notes                          = "EUCS VDS SP used for creating VM Images"
@@ -236,6 +292,7 @@ variable "applications" {
       department_name                = "EUCS-CORE-AVD"
       team_name                      = "EUCS-CORE-Infrastructure-AVD"
       application_name               = "MoJ-OFFICIAL-Prod-EUCS-VDS-Images"
+      application_contacts           = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
@@ -258,14 +315,78 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
-    },
-    "vds_nerdio_api_01" = {
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      logo_image                     = ""
+      api_app_id                     = ""
+      api_application_permissions    = []
+      api_delegated_permissions      = []
+    }
+  }
+}
+
+variable "application-nerdio-api" {
+  description = "Map of application details"
+  type = map(object({
+    notes                        = string
+    service_management_reference = string
+    display_name                 = string
+    department_name              = string
+    team_name                    = string
+    application_name             = string
+    application_contacts         = list(string)
+    create_access_package        = bool
+    access_package_reviewers     = list(string)
+    owners                       = list(string)
+    allowed_groups               = list(string)
+    homepage_url                 = string
+    logout_url                   = string
+    redirect_uris                = list(string)
+    app_roles = list(object({
+      allowed_member_types  = list(string)
+      description           = string
+      display_name          = string
+      id                    = string
+      value                 = string
+      access_package_hidden = bool
+    }))
+    graph_application_permissions = list(string)
+    graph_delegated_permissions   = list(string)
+    tenants_required              = list(string)
+    federated_identity_credentials = list(object({
+      repo_name      = string
+      display_name   = string
+      description    = string
+      subject_suffix = string
+    }))
+    service_principle = object({
+      login_url                     = string
+      notification_email_addresses  = list(string)
+      preferred_single_sign_on_mode = string
+      app_role_assignment_required  = bool
+      account_enabled               = bool
+      application_template_name     = string
+      hide                          = bool
+    })
+    identifier_uris               = list(string)
+    mobile_desktop_redirect_uris  = list(string)
+    access_token_issuance_enabled = bool
+    id_token_issuance_enabled     = bool
+    logo_image                    = string
+    api_app_id                    = string
+    api_application_permissions   = list(string)
+    api_delegated_permissions     = list(string)
+  }))
+  default = {
+  "vds_nerdio_api_01" = {
       notes                          = "EUCS VDS SP used for Nerdio as code via private API"
       service_management_reference   = "eucsvds-1796"
       display_name                   = "MoJ-OFFICIAL-Devl-EUCS-VDS-Nerdio-API"
       department_name                = "EUCS-CORE-AVD"
       team_name                      = "EUCS-CORE-Infrastructure-AVD"
       application_name               = "MoJ-OFFICIAL-Devl-EUCS-VDS-Nerdio-API"
+      application_contacts           = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["dclose-admin@devl.justice.gov.uk", "dletic-admin@devl.justice.gov.uk", "ihegarty-admin@devl.justice.gov.uk", "mkirkpatrick-admin@devl.justice.gov.uk", "pcolegate-admin@devl.justice.gov.uk"]
@@ -288,6 +409,13 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      logo_image                     = ""
+      api_app_id                     = ""
+      api_application_permissions    = ["RestClient"]
+      api_delegated_permissions      = []
     }
   }
 }
