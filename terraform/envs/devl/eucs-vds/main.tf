@@ -1,4 +1,6 @@
 locals {
+
+  nerdio_api_app_id = "0a052bb0-f1d1-4887-a3d0-1ac7c4477601"
   tags = {
     department = "EUCS VDS"
     team       = "Virtual Desktop Services"
@@ -68,7 +70,7 @@ module "application-registration-Nerdio-api" {
   access_token_issuance_enabled  = each.value.access_token_issuance_enabled
   id_token_issuance_enabled      = each.value.id_token_issuance_enabled
   logo_image                     = each.value.logo_image
-  api_app_id                     = data.azuread_application.Nerdio-API.application_id
+  api_app_id                     = local.nerdio_api_app_id
   api_application_permissions    = each.value.api_application_permissions
   api_delegated_permissions      = each.value.api_delegated_permissions
 }
