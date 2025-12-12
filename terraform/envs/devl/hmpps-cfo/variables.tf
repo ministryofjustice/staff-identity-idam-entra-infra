@@ -143,8 +143,8 @@ variable "applications" {
       application_name             = "HMPPS-CFO-DMS-Visualisation-Tool-DEVL"
       create_access_package        = false
       access_package_reviewers     = []
-      owners                       = ["ryan.kearsley@justice.gov.uk", "andrew.grocott@justice.gov.uk", "sam.gibson@justice.gov.uk"]
-      application_contacts         = ["ryan.kearsley@justice.gov.uk", "andrew.grocott@justice.gov.uk", "sam.gibson@justice.gov.uk"]
+      owners                       = []
+      application_contacts         = []
       allowed_groups               = ["CFO Digital"]
       homepage_url                 = null
       logout_url                   = null
