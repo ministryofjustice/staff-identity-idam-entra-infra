@@ -71,13 +71,13 @@ variable "applications" {
   }))
   default = {
     "cfo-dms-api" = {
-      notes                          = "HMPPS CFO DMS API (DEVL)"
+      notes                          = "HMPPS CFO DMS API DEVL"
       service_management_reference   = ""
       logo_image                     = "./assets/cfo-square-icon-215x215.png"
-      display_name                   = "HMPPS CFO DMS API (DEVL)"
+      display_name                   = "HMPPS CFO DMS API DEVL"
       department_name                = "hmpps"
       team_name                      = "cfo"
-      application_name               = "HMPPS CFO DMS API (DEVL)"
+      application_name               = "HMPPS-CFO-DMS-API-DEVL"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["jgillett-admin@devl.justice.gov.uk"]
