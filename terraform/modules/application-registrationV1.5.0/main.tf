@@ -95,7 +95,7 @@ resource "azuread_application" "entra_app_reg" {
       # Application permissions (App Roles)
       dynamic "resource_access" {
         # If your variable is a list of role 'value' strings (e.g., ["RestClient"])
-        for_each = var.api_application_permissions
+        for_each =  {for role_perm in var.api_application_permissions : role_perm => role_perm}
         content {
           id   = var.app_role_ids_by_value[resource_access.value]  # map lookup by 'value'
           type = "Role"
