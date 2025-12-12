@@ -140,7 +140,7 @@ variable "applications" {
       display_name                 = "HMPPS CFO DMS Visualisation Tool DEVL"
       department_name              = "hmpps"
       team_name                    = "cfo"
-      application_name             = "HMPPS CFO DMS Visualisation Tool DEVL"
+      application_name             = "HMPPS-CFO-DMS-Visualisation-Tool-DEVL"
       create_access_package        = false
       access_package_reviewers     = []
       owners                       = ["ryan.kearsley@justice.gov.uk", "andrew.grocott@justice.gov.uk", "sam.gibson@justice.gov.uk"]
