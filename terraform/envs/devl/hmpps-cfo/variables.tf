@@ -70,69 +70,71 @@ variable "applications" {
     })
   }))
   default = {
-    # "cfo-dms-api" = {
-    #   notes                          = "HMPPS CFO DMS API (DEVL)"
-    #   service_management_reference   = ""
-    #   logo_image                     = "./assets/cfo-square-icon-215x215.png"
-    #   display_name                   = "HMPPS CFO DMS API (DEVL)"
-    #   department_name                = "hmpps"
-    #   team_name                      = "cfo"
-    #   application_name               = "HMPPS CFO DMS API (DEVL)"
-    #   create_access_package          = false
-    #   access_package_reviewers       = []
-    #   owners                         = ["ryan.kearsley@justice.gov.uk", "andrew.grocott@justice.gov.uk", "sam.gibson@justice.gov.uk"]
-    #   application_contacts           = ["ryan.kearsley@justice.gov.uk", "andrew.grocott@justice.gov.uk", "sam.gibson@justice.gov.uk"]
-    #   allowed_groups                 = []
-    #   homepage_url                   = null
-    #   logout_url                     = null
-    #   redirect_uris                  = null
-    #   mobile_desktop_redirect_uris   = null
-    #   app_roles                      = []
-    #   graph_application_permissions  = []
-    #   graph_delegated_permissions    = ["User.Read"]
-    #   tenants_required               = ["DEVL"]
-    #   access_token_issuance_enabled  = false
-    #   id_token_issuance_enabled      = false
-    #   federated_identity_credentials = []
-    #   service_principle = {
-    #     login_url                     = null
-    #     notification_email_addresses  = []
-    #     preferred_single_sign_on_mode = null
-    #     app_role_assignment_required  = true
-    #     account_enabled               = true
-    #     application_template_name     = null
-    #     hide                          = true
-    #     custom_single_sign_on         = null
-    #   }
-    #   identifier_uris = null
-    #   api = {
-    #     known_client_applications      = [module.application-registration["cfo-dms-visualiser"].client_id],
-    #     mapped_claims_enabled          = false,
-    #     requested_access_token_version = null,
-    #     oauth2_permission_scope = [
-    #       {
-    #         admin_consent_description  = "Allow the application to write data to DMS."
-    #         admin_consent_display_name = "Write data to DMS"
-    #         enabled                    = true
-    #         id                         = "8B18E023-262F-494E-BD64-48E7C254B470"
-    #         type                       = "User"
-    #         user_consent_description   = "Allow you to write data to DMS."
-    #         user_consent_display_name  = "Write data to DMS"
-    #         value                      = "dms.write"
-    #       },
-    #       {
-    #         admin_consent_description  = "Allow the application to read data from DMS."
-    #         admin_consent_display_name = "Read data from DMS"
-    #         enabled                    = true
-    #         id                         = "2DC71A4A-A552-40B6-B5C1-9F59BC099AC9"
-    #         type                       = "User"
-    #         user_consent_description   = "Allow you to read data from DMS."
-    #         user_consent_display_name  = "Read data from DMS"
-    #         value                      = "dms.read"
-    #       }
-    #     ]
-    #   }
-    # }
+    "cfo-dms-api" = {
+      notes                          = "HMPPS CFO DMS API (DEVL)"
+      service_management_reference   = ""
+      logo_image                     = "./assets/cfo-square-icon-215x215.png"
+      display_name                   = "HMPPS CFO DMS API (DEVL)"
+      department_name                = "hmpps"
+      team_name                      = "cfo"
+      application_name               = "HMPPS CFO DMS API (DEVL)"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["jgillett-admin@devl.justice.gov.uk"]
+      application_contacts           = ["jgillett-admin@devl.justice.gov.uk"]
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["DEVL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = [
+          "82f84652-11dd-4e26-8bf1-2c4c7b6b0099" # HMPPS CFO DMS Visualisation Tool DEVL
+          ],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = [
+          {
+            admin_consent_description  = "Allow the application to write data to DMS."
+            admin_consent_display_name = "Write data to DMS"
+            enabled                    = true
+            id                         = "8B18E023-262F-494E-BD64-48E7C254B470"
+            type                       = "User"
+            user_consent_description   = "Allow you to write data to DMS."
+            user_consent_display_name  = "Write data to DMS"
+            value                      = "dms.write"
+          },
+          {
+            admin_consent_description  = "Allow the application to read data from DMS."
+            admin_consent_display_name = "Read data from DMS"
+            enabled                    = true
+            id                         = "2DC71A4A-A552-40B6-B5C1-9F59BC099AC9"
+            type                       = "User"
+            user_consent_description   = "Allow you to read data from DMS."
+            user_consent_display_name  = "Read data from DMS"
+            value                      = "dms.read"
+          }
+        ]
+      }
+    }
     "cfo-dms-visualiser" = {
       notes                        = "HMPPS CFO DMS Visualisation Tool DEVL"
       service_management_reference = ""
