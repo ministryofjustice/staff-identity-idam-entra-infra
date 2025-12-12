@@ -243,3 +243,10 @@ variable "api_delegated_permissions" {
   default     = []
   description = "List of delegated permission values (OAuth2 scopes) for this API"
 }
+
+variable "app_role_ids_by_value" { 
+  type = map(string) 
+}
+variable "scope_ids_by_value"    { 
+  type = map(string) 
+}

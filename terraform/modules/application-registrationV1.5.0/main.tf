@@ -82,32 +82,37 @@ resource "azuread_application" "entra_app_reg" {
   }
 
   
+ #Only emit required_resource_access if we have at least one permission
   dynamic "required_resource_access" {
-    for_each = length(var.api_application_permissions) > 0 || length(var.api_delegated_permissions) > 0 ? [1] : []
+    for_each = (
+      length(var.api_application_permissions) > 0 ||
+      length(var.api_delegated_permissions)   > 0
+    ) ? [true] : []
+
     content {
-      # Use the API's appId passed as a variable
       resource_app_id = var.api_app_id
 
       # Application permissions (App Roles)
       dynamic "resource_access" {
-        for_each = { for role_perm in var.api_application_permissions : role_perm => role_perm }
+        # If your variable is a list of role 'value' strings (e.g., ["RestClient"])
+        for_each = var.api_application_permissions
         content {
-          id   = data.azuread_service_principal.api_sp.app_role_ids[resource_access.value]
+          id   = var.app_role_ids_by_value[resource_access.value]  # map lookup by 'value'
           type = "Role"
         }
       }
 
       # Delegated permissions (OAuth2 scopes)
       dynamic "resource_access" {
-        for_each = { for scope_perm in var.api_delegated_permissions : scope_perm => scope_perm }
+        # If your variable is a list of scope 'value' strings (e.g., ["user.read"])
+        for_each = var.api_delegated_permissions
         content {
-          id   = data.azuread_service_principal.api_sp.oauth2_permission_scope_ids[resource_access.value]
+          id   = var.scope_ids_by_value[resource_access.value]     # map lookup by 'value'
           type = "Scope"
         }
       }
     }
   }
-
 
   dynamic "app_role" {
     for_each = var.app_roles
