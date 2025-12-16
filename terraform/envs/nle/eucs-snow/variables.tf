@@ -154,5 +154,47 @@ variable "applications" {
         oauth2_permission_scope = []
       }
     }
+    "ServiceNow-Test-NLE" = {
+      notes                          = "ServiceNow Teams integration"
+      service_management_reference   = "IDAM-4415"
+      logo_image                     = "assets/moj-square-icon-215x215.png"
+      display_name                   = "ServiceNow-Test-NLE"
+      department_name                = "eucs"
+      team_name                      = "snow"
+      application_name               = "ServiceNow-Test-NLE"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["lewis.brown@test.justice.gov.uk", "james.vincent2@test.justice.gov.uk", "kevin.alvarez@test.justice.gov.uk", "steve.wiseman@test.justice.gov.uk"]      
+      application_contacts           = ["kevin.alvarez@test.justice.gov.uk", "steve.wiseman@test.justice.gov.uk"]      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://mojtest.service-now.com/oauth_redirect.do"]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = ["User.Read.All"]
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["NLE"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = false
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
+    }
   }
 }
