@@ -641,5 +641,101 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
+    "secure_browser_pui" = {
+      notes                        = "AWS Secure Browser to access the PUI service securely."
+      service_management_reference = "IDAM-4851"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "AWS Secure Browser Instance 1 - PUI"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "secure-browser-1"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Scott.Armstrong@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk",
+        "Callum.Brett@justice.gov.uk"
+      ]
+      allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
+      homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
+      logout_url                   = "https://546a762d-5478-4dd3-9344-e7fb006b7251.auth.eu-west-2.amazoncognito.com/saml2/logout"
+      redirect_uris                = ["https://546a762d-5478-4dd3-9344-e7fb006b7251.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
+      mobile_desktop_redirect_uris = null
+      app_roles = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["NLEEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = ["John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+        preferred_single_sign_on_mode = "saml"
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = true
+      }
+      identifier_uris = [
+          "urn:amazon:cognito:sp:eu-west-2_LgY67Ock9",
+      ]
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = true
+        requested_access_token_version = 2
+        oauth2_permission_scope = []
+      }
+    },
+    "secure_browser_pui_2" = {
+      notes                        = "AWS Secure Browser to access the PUI service securely."
+      service_management_reference = "IDAM-4851"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "AWS Secure Browser Instance 2 - PUI"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "secure-browser-2"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Scott.Armstrong@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk",
+        "Callum.Brett@justice.gov.uk"
+      ]
+      allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
+      homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
+      logout_url                   = "https://6b632da7-74e1-4ce0-bcbc-51569162ea25.auth.eu-west-2.amazoncognito.com/saml2/logout"
+      redirect_uris                = ["https://6b632da7-74e1-4ce0-bcbc-51569162ea25.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
+      mobile_desktop_redirect_uris = null
+      app_roles = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["NLEEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = ["John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+        preferred_single_sign_on_mode = "saml"
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = true
+      }
+      identifier_uris = [
+          "urn:amazon:cognito:sp:eu-west-2_UEkifc9pQ",
+      ]
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = true
+        requested_access_token_version = 2
+        oauth2_permission_scope = []
+      }
+    },
   }
 }
