@@ -133,7 +133,6 @@ variable "applications" {
       graph_application_permissions  = ["User.Read.All"]
       graph_delegated_permissions    = [
         "User.Read",
-        "Offline_access",
         "Chat.ReadWrite",
         "User.ReadBasic.All",
         "Files.Read.All",
@@ -142,12 +141,10 @@ variable "applications" {
         "Chat.ReadBasic",
         "Presence.Read.All",
         "email",
-        "TeamsActivity.Send",
         "profile",
         "Offline_access",
         "openid",
         "TeamsActivity.Send",
-        "profile"
       ]
       tenants_required               = ["DEV"]
       access_token_issuance_enabled  = false
