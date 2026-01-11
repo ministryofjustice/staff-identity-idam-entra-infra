@@ -184,7 +184,7 @@ variable "applications" {
         "Presence.Read.All",
         "email",
         "profile",
-        "Offline_access",
+        "offline_access",
         "openid",
         "TeamsActivity.Send",
         ]
