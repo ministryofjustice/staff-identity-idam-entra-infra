@@ -173,7 +173,21 @@ variable "applications" {
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = ["User.Read.All"]
-      graph_delegated_permissions    = ["User.Read"]
+      graph_delegated_permissions    = [
+        "User.Read",
+        "Chat.ReadWrite",
+        "User.ReadBasic.All",
+        "Files.Read.All",
+        "ChatMember.ReadWrite",
+        "Chat.Create",
+        "Chat.ReadBasic",
+        "Presence.Read.All",
+        "email",
+        "profile",
+        "offline_access",
+        "openid",
+        "TeamsActivity.Send",
+        ]
       tenants_required               = ["NLE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
