@@ -609,12 +609,13 @@ variable "applications" {
       application_contacts = [
         "Rohan.Salunkhe1@justice.gov.uk",
         "Suma.Challa@justice.gov.uk",
-        "Jack.Heslop@justice.gov.uk"
+        "Jack.Heslop@justice.gov.uk",
+        "Ben.Millar@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Amend-a-claim"]
-      homepage_url   = null
-      logout_url     = null
-      redirect_uris  = null
+      homepage_url   = "https://laa-amend-a-claim-staging.apps.live.cloud-platform.service.justice.gov.uk"
+      logout_url     = "https://laa-amend-a-claim-staging.apps.live.cloud-platform.service.justice.gov.uk/logout"
+      redirect_uris  = ["https://laa-amend-a-claim-staging.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
