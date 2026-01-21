@@ -266,6 +266,37 @@ variable "applications" {
         hide                          = true
       }
       identifier_uris = null
+    },
+    "MWPMailSend" = {
+      notes                          = "This app is used to give application access to Mail.Send, scoped to mwengineers@justice.gov.uk."
+      service_management_reference   = "IDAM-5441"
+      display_name                   = "EUCS-MWP-Scoped-Mail-Send"
+      department_name                = "eucs"
+      team_name                      = "mwp"
+      application_name               = "MWPMailSend"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = ["Mail.Send"]
+      graph_delegated_permissions    = []
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+      }
+      identifier_uris = null
     }
   }
 }
