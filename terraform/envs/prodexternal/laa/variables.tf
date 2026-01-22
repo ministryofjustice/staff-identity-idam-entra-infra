@@ -444,7 +444,7 @@ variable "applications" {
       notes                        = "TBC: Submit a Bulk Claim."
       service_management_reference = "IDAM-4517"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
-      display_name                 = "Submit A Bulk Claim"
+      display_name                 = "Submit a Bulk Claim"
       department_name              = "justice-digital"
       team_name                    = "laa"
       application_name             = "submit-a-bulk-claim"
