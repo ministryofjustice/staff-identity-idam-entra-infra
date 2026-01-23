@@ -621,7 +621,7 @@ variable "applications" {
           ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = []
+      graph_application_permissions  = ["User.ReadBasic.All"]
       graph_delegated_permissions    = ["User.Read", "User.ReadBasic.All"]
       tenants_required               = ["NLEEXTERNAL"]
       access_token_issuance_enabled  = false
