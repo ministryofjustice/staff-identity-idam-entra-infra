@@ -81,7 +81,13 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["ccowen-admin@devl.justice.gov.uk"]
-      application_contacts           = []
+      application_contacts           = [
+        "Cameron Cowen",
+        "Dean Longstaff",
+        "Zak Amir",
+        "Brian McNamara",
+        "Tom Holden"
+      ]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
