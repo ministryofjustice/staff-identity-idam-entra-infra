@@ -73,6 +73,7 @@ variable "applications" {
     "default_app" = {
       notes                          = "Used to deploy Titan infrastructure to test resource group"
       service_management_reference   = "EUCSVICTOR-1487"
+      logo_image = null
       display_name                   = "MoJO-TEST-rg-eucs-intunemgt-002"
       department_name                = "EUCS"
       team_name                      = "Application Platforms"
