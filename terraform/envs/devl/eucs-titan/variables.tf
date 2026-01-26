@@ -7,20 +7,20 @@ variable "location" {
 variable "applications" {
   description = "Map of application details"
   type = map(object({
-    notes                        = string
-    service_management_reference = string
+    notes                         = string
+    service_management_reference  = string
     logo_image                    = string
-    display_name                 = string
-    department_name              = string
-    team_name                    = string
-    application_name             = string
-    create_access_package        = bool
-    access_package_reviewers     = list(string)
-    owners                       = list(string)
+    display_name                  = string
+    department_name               = string
+    team_name                     = string
+    application_name              = string
+    create_access_package         = bool
+    access_package_reviewers      = list(string)
+    owners                        = list(string)
     application_contacts          = list(string)
-    allowed_groups               = list(string)
-    homepage_url                 = string
-    logout_url                   = string
+    allowed_groups                = list(string)
+    homepage_url                  = string
+    logout_url                    = string
     redirect_uris                 = list(string)
     access_token_issuance_enabled = bool
     id_token_issuance_enabled     = bool
@@ -71,30 +71,30 @@ variable "applications" {
   }))
   default = {
     "default_app" = {
-      notes                          = "Used to deploy Titan infrastructure to test resource group"
-      service_management_reference   = "EUCSVICTOR-1487"
-      logo_image = null
-      display_name                   = "MoJO-TEST-rg-eucs-intunemgt-002"
-      department_name                = "EUCS"
-      team_name                      = "Application Platforms"
-      application_name               = "Titan"
-      create_access_package          = false
-      access_package_reviewers       = []
-      owners                         = ["ccowen-admin@devl.justice.gov.uk"]
-      application_contacts           = [
+      notes                        = "Used to deploy Titan infrastructure to test resource group"
+      service_management_reference = "EUCSVICTOR-1487"
+      logo_image                   = null
+      display_name                 = "MoJO-TEST-rg-eucs-intunemgt-002"
+      department_name              = "EUCS"
+      team_name                    = "Application Platforms"
+      application_name             = "Titan"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["ccowen-admin@devl.justice.gov.uk"]
+      application_contacts = [
         "Cameron Cowen",
         "Dean Longstaff",
         "Zak Amir",
         "Brian McNamara",
         "Tom Holden"
       ]
-      allowed_groups                 = []
-      homepage_url                   = null
-      logout_url                     = null
-      redirect_uris                  = null
-      mobile_desktop_redirect_uris   = null
-      app_roles                      = []
-      graph_application_permissions  = [
+      allowed_groups               = []
+      homepage_url                 = null
+      logout_url                   = null
+      redirect_uris                = null
+      mobile_desktop_redirect_uris = null
+      app_roles                    = []
+      graph_application_permissions = [
         "Application.ReadWrite.All",
         "DeviceManagementApps.ReadWrite.All",
         "DeviceManagementConfiguration.ReadWrite.All",
@@ -122,7 +122,7 @@ variable "applications" {
         known_client_applications      = [],
         mapped_claims_enabled          = false,
         requested_access_token_version = null,
-        oauth2_permission_scope = []
+        oauth2_permission_scope        = []
       }
     }
   }
