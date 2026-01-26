@@ -76,7 +76,7 @@ variable "applications" {
       logo_image                   = "assets/moj-square-icon-215x215.png"
       display_name                 = "MoJO-TEST-rg-eucs-intunemgt-002"
       department_name              = "EUCS"
-      team_name                    = "Application Platforms"
+      team_name                    = "Application-Platforms"
       application_name             = "Titan"
       create_access_package        = false
       access_package_reviewers     = []
@@ -131,7 +131,7 @@ variable "applications" {
       logo_image                   = "assets/moj-square-icon-215x215.png"
       display_name                 = "app-test-eucs-intunemgt-001"
       department_name              = "EUCS"
-      team_name                    = "Application Platforms"
+      team_name                    = "Application-Platforms"
       application_name             = "Titan"
       create_access_package        = false
       access_package_reviewers     = []
@@ -143,13 +143,13 @@ variable "applications" {
         "Brian McNamara",
         "Tom Holden"
       ]
-      allowed_groups               = []
-      homepage_url                 = null
-      logout_url                   = null
-      redirect_uris                = null
-      mobile_desktop_redirect_uris = null
-      app_roles                    = []
-      graph_application_permissions = []
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
       graph_delegated_permissions    = []
       tenants_required               = []
       access_token_issuance_enabled  = false
