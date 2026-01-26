@@ -70,7 +70,7 @@ variable "applications" {
     })
   }))
   default = {
-    "default_app" = {
+    "pipeline_app" = {
       notes                        = "Used to deploy Titan infrastructure to test resource group"
       service_management_reference = "EUCSVICTOR-1487"
       logo_image                   = "assets/moj-square-icon-215x215.png"
@@ -102,6 +102,54 @@ variable "applications" {
         "Group.ReadWrite.All",
         "User.Read"
       ]
+      graph_delegated_permissions    = []
+      tenants_required               = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
+      }
+    },
+    "auth_app" = {
+      notes                        = "Used to handle authentication for Titan Entra ID"
+      service_management_reference = "EUCSVICTOR-1487"
+      logo_image                   = "assets/moj-square-icon-215x215.png"
+      display_name                 = "app-test-eucs-intunemgt-001"
+      department_name              = "EUCS"
+      team_name                    = "Application Platforms"
+      application_name             = "Titan"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["ccowen-admin@devl.justice.gov.uk"]
+      application_contacts = [
+        "Cameron Cowen",
+        "Dean Longstaff",
+        "Zak Amir",
+        "Brian McNamara",
+        "Tom Holden"
+      ]
+      allowed_groups               = []
+      homepage_url                 = null
+      logout_url                   = null
+      redirect_uris                = null
+      mobile_desktop_redirect_uris = null
+      app_roles                    = []
+      graph_application_permissions = []
       graph_delegated_permissions    = []
       tenants_required               = []
       access_token_issuance_enabled  = false
