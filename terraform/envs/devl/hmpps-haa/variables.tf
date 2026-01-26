@@ -85,7 +85,7 @@ variable "applications" {
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["http://localhost:3000/login/callback", "http://localhost:3000"]
+      redirect_uris                  = ["http://localhost:3000/login/callback/", "http://localhost:3000/"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
