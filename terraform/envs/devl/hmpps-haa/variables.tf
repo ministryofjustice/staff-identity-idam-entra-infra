@@ -80,7 +80,7 @@ variable "applications" {
       application_name               = "HMPPS-CHECK-MY-DIARY-DEVL"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["michael.clancy1@justice.gov.uk"]
+      owners                         = ["mclancy-dev@devl.justice.gov.uk"]
       application_contacts           = ["AuthandAudit-gg@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
