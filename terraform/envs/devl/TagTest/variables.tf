@@ -90,6 +90,7 @@ variable "applications" {
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
+      tags = ["Business unit: Test"]
       graph_delegated_permissions    = [
         "User.Read"
       ]
