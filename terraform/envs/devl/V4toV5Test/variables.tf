@@ -25,6 +25,7 @@ variable "applications" {
     access_token_issuance_enabled = bool
     id_token_issuance_enabled     = bool
     mobile_desktop_redirect_uris  = list(string)
+    tags = list(string)
     app_roles = list(object({
       allowed_member_types  = list(string)
       description           = string
