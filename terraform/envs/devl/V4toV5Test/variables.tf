@@ -94,6 +94,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: Test"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
