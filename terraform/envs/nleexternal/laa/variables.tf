@@ -618,6 +618,7 @@ variable "applications" {
       redirect_uris  = [
           "https://laa-amend-a-claim-staging.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure",
           "https://laa-amend-a-claim-pre-prod.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure",
+          "https://laa-amend-a-claim-uat.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure",
           ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
