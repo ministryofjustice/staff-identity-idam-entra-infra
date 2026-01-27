@@ -84,7 +84,7 @@ variable "applications" {
       owners                         = ["lfairfield-admin@devl.justice.gov.uk"]      
       application_contacts           = ["lfairfield-admin@devl.justice.gov.uk"]      
       allowed_groups                 = []
-      homepage_url                   = []
+      homepage_url                   = [""]
       logout_url                     = null
       redirect_uris                  = []
       mobile_desktop_redirect_uris   = null
