@@ -1158,6 +1158,96 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "STG-AI-Prison-Transcribe-Dev" = {
+      notes                          = "Justice AI Prison Transcribe Dev App"
+      service_management_reference   = "IDAM-5630"
+      display_name                   = "STG-AI-Prison-Transcribe-Dev"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Prison-Transcribe-Dev"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://prisontranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
+    },
+    "STG-AI-Prison-Transcribe-Preprod" = {
+      notes                          = "Justice AI Prison Transcribe PreProd App"
+      service_management_reference   = "IDAM-5630"
+      display_name                   = "STG-AI-Prison-Transcribe-Preprod"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Prison-Transcribe-Preprod"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://prisontranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
+    },
+    "STG-AI-Prison-Transcribe-Prod" = {
+      notes                          = "Justice AI Prison Transcribe Prod App"
+      service_management_reference   = "IDAM-5630"
+      display_name                   = "STG-AI-Prison-Transcribe-Prod"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Prison-Transcribe-Prod"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://prison.transcription.service.justice.gov.uk/.auth/login/aad/callback", "https://prisontranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
