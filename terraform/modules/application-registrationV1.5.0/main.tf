@@ -29,7 +29,7 @@ resource "azuread_application" "entra_app_reg" {
   sign_in_audience             = "AzureADMyOrg"
   prevent_duplicate_names      = true
   identifier_uris              = var.identifier_uris
-
+  tags = var.tags
   template_id = var.service_principle.application_template_name != null ? data.azuread_application_template.app_template[0].template_id : null
 
   optional_claims {
