@@ -150,10 +150,6 @@ resource "azuread_service_principal" "entra_app_service_principle" {
   preferred_single_sign_on_mode = var.service_principle.preferred_single_sign_on_mode
   tags = var.tags
 
-  feature_tags {
-    enterprise            = true
-    gallery               = false
-  }
 }
 
 resource "azuread_app_role_assignment" "internal_allowed_groups" {
