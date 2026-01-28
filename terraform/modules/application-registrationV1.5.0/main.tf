@@ -148,8 +148,25 @@ resource "azuread_service_principal" "entra_app_service_principle" {
   login_url                     = var.service_principle.login_url
   notification_email_addresses  = var.service_principle.notification_email_addresses
   preferred_single_sign_on_mode = var.service_principle.preferred_single_sign_on_mode
-  tags = var.tags
+  tags = setunion(
+    # 1. Your new custom tags
+    var.tags,
 
+    # 2. Logic to maintain "Enterprise" (WindowsAzureActiveDirectoryIntegratedApp)
+    # Note: feature_tags 'enterprise' defaults to true in most cases, check your needs.
+    ["WindowsAzureActiveDirectoryIntegratedApp"], 
+
+    # 3. Logic to maintain "Gallery"
+    # You had gallery = false, so we return empty list [] if false
+    # If you wanted it true, it would be ["WindowsAzureActiveDirectoryGalleryApplicationNonPrimaryV1"]
+    [], 
+
+    # 4. Logic to maintain "Hide"
+    var.service_principle.hide == true ? ["HideApp"] : [],
+
+    # 5. Logic to maintain "Custom SSO"
+    var.service_principle.custom_single_sign_on == true ? ["WindowsAzureActiveDirectoryCustomSingleSignOnApplication"] : []
+  )
 }
 
 resource "azuread_app_role_assignment" "internal_allowed_groups" {
