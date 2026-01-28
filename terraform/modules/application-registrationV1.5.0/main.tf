@@ -162,10 +162,10 @@ resource "azuread_service_principal" "entra_app_service_principle" {
     [], 
 
     # 4. Logic to maintain "Hide"
-    var.service_principle.hide ? ["HideApp"] : [],
+    var.service_principle.hide == true ? ["HideApp"] : [],
 
     # 5. Logic to maintain "Custom SSO"
-    var.service_principle.custom_single_sign_on ? ["WindowsAzureActiveDirectoryCustomSingleSignOnApplication"] : []
+    var.service_principle.custom_single_sign_on == true ? ["WindowsAzureActiveDirectoryCustomSingleSignOnApplication"] : []
   )
 }
 
