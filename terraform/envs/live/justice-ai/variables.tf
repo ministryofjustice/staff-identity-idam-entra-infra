@@ -1085,7 +1085,7 @@ variable "applications" {
       redirect_uris                  = ["https://courtstranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
@@ -1145,7 +1145,7 @@ variable "applications" {
       redirect_uris                  = ["https://courtstranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
@@ -1168,14 +1168,14 @@ variable "applications" {
       application_name               = "STG-AI-Prison-Transcribe-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prisontranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
@@ -1228,7 +1228,7 @@ variable "applications" {
       application_name               = "STG-AI-Prison-Transcribe-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
