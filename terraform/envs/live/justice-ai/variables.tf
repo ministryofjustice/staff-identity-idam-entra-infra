@@ -302,7 +302,7 @@ variable "applications" {
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = []
+      redirect_uris                  = ["https://justicetranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -542,7 +542,7 @@ variable "applications" {
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://prisonphonecalls-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      redirect_uris                  = ["https://prisonphonecalls-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://prison.transcription.service.justice.gov.uk/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -632,7 +632,7 @@ variable "applications" {
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://prompthub-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      redirect_uris                  = ["https://prompthub-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://ai-for-all.justice.gov.uk/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -898,11 +898,11 @@ variable "applications" {
       application_name               = "STG-AI-Smartinbox-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk", "Francis.Webb1@justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://smartinbox-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      redirect_uris                  = ["https://smartinbox-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://courtlistings-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -958,11 +958,11 @@ variable "applications" {
       application_name               = "STG-AI-Smartinbox-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk", "Francis.Webb1@justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://smartinbox-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      redirect_uris                  = ["https://smartinbox-dev-frontend.azurewebsites.net/.auth/login/aad/callback", "https://courtlistings-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
