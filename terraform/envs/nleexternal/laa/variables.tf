@@ -25,6 +25,7 @@ variable "applications" {
     access_token_issuance_enabled = bool
     id_token_issuance_enabled     = bool
     mobile_desktop_redirect_uris  = list(string)
+    tags = list(string)
     app_roles = list(object({
       allowed_member_types  = list(string)
       description           = string
@@ -94,6 +95,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -154,6 +156,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -205,6 +208,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -255,6 +259,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -306,6 +311,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -351,6 +357,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -414,6 +421,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["scott-armstrong-admin@TestJusticeUKExternal.onmicrosoft.com"]
@@ -473,6 +481,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -525,6 +534,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -577,6 +587,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -618,6 +629,7 @@ variable "applications" {
       redirect_uris  = [
           "https://laa-amend-a-claim-staging.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure",
           "https://laa-amend-a-claim-pre-prod.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure",
+          "https://laa-amend-a-claim-uat.apps.live.cloud-platform.service.justice.gov.uk/login/oauth2/code/azure",
           ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
@@ -627,6 +639,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -673,6 +686,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
@@ -721,6 +735,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
