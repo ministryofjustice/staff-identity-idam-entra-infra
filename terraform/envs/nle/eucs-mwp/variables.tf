@@ -59,7 +59,7 @@ variable "applications" {
       application_name               = "MOJO-EUCS-MWP-MIRO"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["mchaudry-admin@devl.justice.gov.uk", "mnahendran-admin@devl.justice.gov.uk"]      
+      owners                         = ["mobeen.chaudry@TestJusticeUK.onmicrosoft.com", "Mayuran.Nahendran@TestJusticeUK.onmicrosoft.com" ]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
