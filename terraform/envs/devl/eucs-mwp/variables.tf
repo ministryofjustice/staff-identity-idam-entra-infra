@@ -50,13 +50,13 @@ variable "applications" {
     identifier_uris = list(string)
   }))
   default = {
-    "eucs_Power_Platform" = {
-      notes                          = "Used to grant access to Graph API scopes - EUCS Power Platform"
-      service_management_reference   = "IDAM-1811"
-      display_name                   = "MOJO-EUCS-Power-Platform-Graph-Permissions"
+    "eucs_mwp_miro" = {
+      notes                          = "Used to grant access to Graph API scopes - EUCS MWP Miro"
+      service_management_reference   = "EMW-1522"
+      display_name                   = "MOJO-EUCS-MWP-MIRO"
       department_name                = "EUCS"
-      team_name                      = "Power-platform"
-      application_name               = "MOJO-EUCS-Power-Platform-Graph-Permissions"
+      team_name                      = "Modern-Workplace"
+      application_name               = "MOJO-EUCS-MWP-MIRO"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["mchaudry-admin@devl.justice.gov.uk", "mnahendran-admin@devl.justice.gov.uk"]      
