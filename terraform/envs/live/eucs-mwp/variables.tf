@@ -297,6 +297,37 @@ variable "applications" {
         hide                          = true
       }
       identifier_uris = null
+    },
+    "eucs_mwp_miro" = {
+      notes                          = "Used to grant access to Graph API scopes - EUCS MWP Miro"
+      service_management_reference   = "EMW-1522"
+      display_name                   = "MOJO-EUCS-MWP-MIRO"
+      department_name                = "EUCS"
+      team_name                      = "Modern-Workplace"
+      application_name               = "MOJO-EUCS-MWP-MIRO"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["mchaudry-admin@devl.justice.gov.uk", "mnahendran-admin@devl.justice.gov.uk"]      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read", "Files.Read", "Files.Read.All"]
+      tenants_required               = ["DEVL"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = "Miro"
+        hide                          = true
+      }
+      identifier_uris = null
     }
   }
 }
