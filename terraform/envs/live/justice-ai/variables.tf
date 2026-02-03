@@ -275,7 +275,7 @@ variable "applications" {
       redirect_uris                  = ["https://justicetranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
@@ -305,7 +305,7 @@ variable "applications" {
       redirect_uris                  = ["https://justicetranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
@@ -335,7 +335,7 @@ variable "applications" {
       redirect_uris                  = ["https://justicetranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
       tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
