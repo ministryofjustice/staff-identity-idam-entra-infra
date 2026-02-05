@@ -67,7 +67,7 @@ variable "applications" {
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["User.Read", "Files.Read", "Files.Read.All", "openid", "profile", "offline_access "]
+      graph_delegated_permissions    = ["User.Read", "Files.Read", "Files.Read.All", "openid", "profile", "offline_access"]
       tenants_required               = ["DEVL"]
       federated_identity_credentials = []
       service_principle = {
