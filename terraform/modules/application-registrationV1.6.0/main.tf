@@ -3,6 +3,11 @@ data "azuread_groups" "groups" {
   security_enabled = true
 }
 
+data "azuread_application" "target_app_lookup" {
+  for_each     = { for r in var.resource_access : r.resource_app_name => r if r.resource_app_name != null }
+  display_name = each.key
+}
+
 data "azuread_user" "owners" {
   for_each            = { for user in var.owners : user => user }
   user_principal_name = each.value
@@ -82,21 +87,20 @@ resource "azuread_application" "entra_app_reg" {
   }
 
   dynamic "required_resource_access" {
-  for_each = var.resource_access
-  iterator = app
+    for_each = var.resource_access
+    iterator = app
 
-  content {
-    resource_app_id = contains(keys(azuread_application.this), app.value.resource_app_name) ? azuread_application.this[app.value.resource_app_name].client_id : app.value.resource_app_id
+    content {
+      resource_app_id = app.value.resource_app_name != null ? data.azuread_application.target_app_lookup[app.value.resource_app_name].client_id : app.value.resource_app_id
 
-    dynamic "resource_access" {
-      for_each = [app.value.resource_access]
-      content {
-        id = contains(keys(random_uuid.scope), app.value.resource_app_name) ? random_uuid.scope[app.value.resource_app_name].result : resource_access.value.id
-        
-        type = resource_access.value.type
+      dynamic "resource_access" {
+        for_each = [app.value.resource_access]
+        content {
+          id   = resource_access.value.id
+          type = resource_access.value.type
+        }
       }
     }
-  }
 }
 
   dynamic "app_role" {
