@@ -185,7 +185,7 @@ locals {
     app_roles                    = []
     resource_access = [
       {
-        resource_app_id = azuread_application.obo_example_internal_api.client_id
+        resource_app_name = "obo_internal_api"
 
         resource_access = {
           id   = random_uuid.scope_obo_internal_api.result # Requesting 'user_impersonation'

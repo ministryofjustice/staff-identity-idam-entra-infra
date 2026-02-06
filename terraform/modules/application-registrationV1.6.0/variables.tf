@@ -125,7 +125,7 @@ variable "api" {
 variable "resource_access" {
   description = "Additional custom resource access."
   type        = list(object({
-    resource_app_id = string
+    resource_app_name = string
     resource_access = object({
       id = string
       type = string
