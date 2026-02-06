@@ -29,6 +29,7 @@ module "application-registration" {
   redirect_uris                  = each.value.redirect_uris
   mobile_desktop_redirect_uris   = each.value.mobile_desktop_redirect_uris
   app_roles                      = each.value.app_roles
+  resource_access                = each.value.resource_access
   graph_application_permissions  = each.value.graph_application_permissions
   graph_delegated_permissions    = each.value.graph_delegated_permissions
   federated_identity_credentials = each.value.federated_identity_credentials
@@ -38,7 +39,7 @@ module "application-registration" {
   api                            = each.value.api
   access_token_issuance_enabled  = each.value.access_token_issuance_enabled
   id_token_issuance_enabled      = each.value.id_token_issuance_enabled
-  tags = each.value.tags
+  tags                           = each.value.tags
 }
 #endregion
 

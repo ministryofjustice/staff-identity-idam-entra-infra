@@ -81,6 +81,26 @@ resource "azuread_application" "entra_app_reg" {
     }
   }
 
+  dynamic "required_resource_access" {
+    # 1. Iterate over each resource app in your list
+    for_each = var.resource_access
+    
+    iterator = app
+    content {
+      resource_app_id = app.value.resource_app_id
+
+      # 2. Iterate over the specific permissions for THIS resource app
+      # Note: We wrap 'resource_access' in brackets [] to treat it as a list
+      dynamic "resource_access" {
+        for_each = [app.value.resource_access]
+        
+        content {
+          id   = resource_access.value.id
+          type = resource_access.value.type
+        }
+      }
+    }
+  }
 
   dynamic "app_role" {
     for_each = var.app_roles

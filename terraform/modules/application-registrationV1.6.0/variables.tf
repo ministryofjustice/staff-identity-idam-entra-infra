@@ -122,6 +122,19 @@ variable "api" {
   }
 }
 
+variable "resource_access" {
+  description = "Additional custom resource access."
+  type        = list(object({
+    resource_app_id = string
+    resource_access = object({
+      id = string
+      type = string
+    })
+  }))
+  nullable    = true
+  default     = []
+}
+
 variable "graph_application_permissions" {
   description = "Graph Application Permissions required on the Application such as 'User.Read.All'."
   type        = list(string)
