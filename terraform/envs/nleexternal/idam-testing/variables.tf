@@ -67,7 +67,6 @@ variable "applications" {
       }))
     })
   }))
-  default = locals.applications
 }
 
 locals {
