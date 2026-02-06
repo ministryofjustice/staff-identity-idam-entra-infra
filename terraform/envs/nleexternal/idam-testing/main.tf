@@ -6,6 +6,9 @@ locals {
   }
 }
 
+resource "random_uuid" "scope_obo_internal_api" {} # Scope exposed by Internal API
+resource "random_uuid" "scope_obo_shared_docs" {}  # Scope exposed by Shared Docs API
+
 # resource "azuread_group" "tf_test" {
 #   display_name     = "APPREG-User-Access-App-Reg-Test-1"
 #   security_enabled = true
@@ -42,4 +45,3 @@ module "application-registration" {
   tags                           = each.value.tags
 }
 #endregion
-

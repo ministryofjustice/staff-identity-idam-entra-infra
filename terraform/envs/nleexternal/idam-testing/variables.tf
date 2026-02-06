@@ -4,9 +4,6 @@ variable "location" {
   default     = "uksouth"
 }
 
-resource "random_uuid" "scope_obo_internal_api" {} # Scope exposed by Internal API
-resource "random_uuid" "scope_obo_shared_docs" {}  # Scope exposed by Shared Docs API
-
 variable "applications" {
   description = "Map of application details"
   type = map(object({
@@ -70,153 +67,154 @@ variable "applications" {
       }))
     })
   }))
-  default = {
-    "app1" = {
-      notes                        = "EUCS IDAM App Reg Test 1 terraform"
-      service_management_reference = "IDAM-2974"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
-      display_name                 = "EUCS IDAM App Reg Test 1 terraform"
-      department_name              = "eucs"
-      team_name                    = "idam"
-      application_name             = "app-reg-tf"
-      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
-      application_contacts = [
-        "idam@justice.gov.uk"
-      ]
-      allowed_groups                 = ["PIM-MoJO-M365-IDAM-3LS"]
-      homepage_url                   = null
-      logout_url                     = null
-      redirect_uris                  = null
-      mobile_desktop_redirect_uris   = null
-      app_roles                      = []
-      resource_access                = []
-      graph_application_permissions  = []
-      graph_delegated_permissions    = ["User.Read"]
-      access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
-      federated_identity_credentials = []
-      tags                           = ["Business unit: IDAM"]
-      service_principle = {
-        login_url                     = null
-        notification_email_addresses  = []
-        preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
-        account_enabled               = true
-        application_template_name     = null
-        hide                          = null
-        custom_single_sign_on         = null
-      }
-      identifier_uris = null
-      api = {
-        known_client_applications      = null,
-        mapped_claims_enabled          = true,
-        requested_access_token_version = 2,
-        oauth2_permission_scope        = []
-      }
-    },
-    "obo_example_internal_api" = {
-      notes                        = "OBO Example Internal API"
-      service_management_reference = "IDAM-5755"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
-      display_name                 = "OBO Example Internal API"
-      department_name              = "eucs"
-      team_name                    = "idam"
-      application_name             = "obo-example-internal-api"
-      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
-      application_contacts = [
-        "idam@justice.gov.uk"
-      ]
-      allowed_groups                 = []
-      homepage_url                   = null
-      logout_url                     = null
-      redirect_uris                  = ["https://test.justice.gov.uk/auth"]
-      mobile_desktop_redirect_uris   = null
-      app_roles                      = []
-      resource_access                = []
-      graph_application_permissions  = []
-      graph_delegated_permissions    = ["User.Read"]
-      access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
-      federated_identity_credentials = []
-      tags                           = ["Business unit: IDAM"]
-      service_principle = {
-        login_url                     = null
-        notification_email_addresses  = []
-        preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
-        account_enabled               = true
-        application_template_name     = null
-        hide                          = null
-        custom_single_sign_on         = null
-      }
-      identifier_uris = ["api://obo-example-internal-api"]
-      api = {
-        known_client_applications      = null,
-        mapped_claims_enabled          = true,
-        requested_access_token_version = 2,
-        oauth2_permission_scope = [
-          {
-            admin_consent_description  = "Allow the app to access SDS on behalf of the user."
-            admin_consent_display_name = "Access SDS"
-            enabled                    = true
-            id                         = random_uuid.scope_obo_internal_api.result
-            type                       = "User"
-            value                      = "user_impersonation"
-          }
-        ]
-      }
-    },
-    "obo_example_frontend" = {
-      notes                        = "OBO Example Case Management Web App (Frontend)"
-      service_management_reference = "IDAM-5755"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
-      display_name                 = "OBO Example Case Management Web App (Frontend)"
-      department_name              = "eucs"
-      team_name                    = "idam"
-      application_name             = "obo-example-frontend"
-      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
-      application_contacts = [
-        "idam@justice.gov.uk"
-      ]
-      allowed_groups               = []
-      homepage_url                 = "https://test.justice.gov.uk"
-      logout_url                   = null
-      redirect_uris                = ["https://test.justice.gov.uk/auth"]
-      mobile_desktop_redirect_uris = null
-      app_roles                    = []
-      resource_access = [
-        {
-          resource_app_id = azuread_application.obo_example_internal_api.client_id
+}
 
-          resource_access = {
-            id   = random_uuid.scope_obo_internal_api.result # Requesting 'user_impersonation'
-            type = "Scope"
-          }
+locals {
+  app1 = {
+    notes                        = "EUCS IDAM App Reg Test 1 terraform"
+    service_management_reference = "IDAM-2974"
+    logo_image                   = "./assets/moj-square-icon-215x215.png"
+    display_name                 = "EUCS IDAM App Reg Test 1 terraform"
+    department_name              = "eucs"
+    team_name                    = "idam"
+    application_name             = "app-reg-tf"
+    owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+    application_contacts = [
+      "idam@justice.gov.uk"
+    ]
+    allowed_groups                 = ["PIM-MoJO-M365-IDAM-3LS"]
+    homepage_url                   = null
+    logout_url                     = null
+    redirect_uris                  = null
+    mobile_desktop_redirect_uris   = null
+    app_roles                      = []
+    resource_access                = []
+    graph_application_permissions  = []
+    graph_delegated_permissions    = ["User.Read"]
+    access_token_issuance_enabled  = false
+    id_token_issuance_enabled      = false
+    federated_identity_credentials = []
+    tags                           = ["Business unit: IDAM"]
+    service_principle = {
+      login_url                     = null
+      notification_email_addresses  = []
+      preferred_single_sign_on_mode = null
+      app_role_assignment_required  = true
+      account_enabled               = true
+      application_template_name     = null
+      hide                          = null
+      custom_single_sign_on         = null
+    }
+    identifier_uris = null
+    api = {
+      known_client_applications      = null,
+      mapped_claims_enabled          = true,
+      requested_access_token_version = 2,
+      oauth2_permission_scope        = []
+    }
+  }
+  obo_example_internal_api = {
+    notes                        = "OBO Example Internal API"
+    service_management_reference = "IDAM-5755"
+    logo_image                   = "./assets/moj-square-icon-215x215.png"
+    display_name                 = "OBO Example Internal API"
+    department_name              = "eucs"
+    team_name                    = "idam"
+    application_name             = "obo-example-internal-api"
+    owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+    application_contacts = [
+      "idam@justice.gov.uk"
+    ]
+    allowed_groups                 = []
+    homepage_url                   = null
+    logout_url                     = null
+    redirect_uris                  = ["https://test.justice.gov.uk/auth"]
+    mobile_desktop_redirect_uris   = null
+    app_roles                      = []
+    resource_access                = []
+    graph_application_permissions  = []
+    graph_delegated_permissions    = ["User.Read"]
+    access_token_issuance_enabled  = false
+    id_token_issuance_enabled      = false
+    federated_identity_credentials = []
+    tags                           = ["Business unit: IDAM"]
+    service_principle = {
+      login_url                     = null
+      notification_email_addresses  = []
+      preferred_single_sign_on_mode = null
+      app_role_assignment_required  = true
+      account_enabled               = true
+      application_template_name     = null
+      hide                          = null
+      custom_single_sign_on         = null
+    }
+    identifier_uris = ["api://obo-example-internal-api"]
+    api = {
+      known_client_applications      = null,
+      mapped_claims_enabled          = true,
+      requested_access_token_version = 2,
+      oauth2_permission_scope = [
+        {
+          admin_consent_description  = "Allow the app to access SDS on behalf of the user."
+          admin_consent_display_name = "Access SDS"
+          enabled                    = true
+          id                         = random_uuid.scope_obo_internal_api.result
+          type                       = "User"
+          value                      = "user_impersonation"
         }
       ]
-      graph_application_permissions  = []
-      graph_delegated_permissions    = ["User.Read"]
-      access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
-      federated_identity_credentials = []
-      tags                           = ["Business unit: IDAM"]
-      service_principle = {
-        login_url                     = null
-        notification_email_addresses  = []
-        preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
-        account_enabled               = true
-        application_template_name     = null
-        hide                          = null
-        custom_single_sign_on         = null
+    }
+  }
+  obo_example_frontend = {
+    notes                        = "OBO Example Case Management Web App (Frontend)"
+    service_management_reference = "IDAM-5755"
+    logo_image                   = "./assets/moj-square-icon-215x215.png"
+    display_name                 = "OBO Example Case Management Web App (Frontend)"
+    department_name              = "eucs"
+    team_name                    = "idam"
+    application_name             = "obo-example-frontend"
+    owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+    application_contacts = [
+      "idam@justice.gov.uk"
+    ]
+    allowed_groups               = []
+    homepage_url                 = "https://test.justice.gov.uk"
+    logout_url                   = null
+    redirect_uris                = ["https://test.justice.gov.uk/auth"]
+    mobile_desktop_redirect_uris = null
+    app_roles                    = []
+    resource_access = [
+      {
+        resource_app_id = azuread_application.obo_example_internal_api.client_id
+
+        resource_access = {
+          id   = random_uuid.scope_obo_internal_api.result # Requesting 'user_impersonation'
+          type = "Scope"
+        }
       }
-      identifier_uris = null
-      api = {
-        known_client_applications      = null,
-        mapped_claims_enabled          = true,
-        requested_access_token_version = 2,
-        oauth2_permission_scope        = []
-      }
+    ]
+    graph_application_permissions  = []
+    graph_delegated_permissions    = ["User.Read"]
+    access_token_issuance_enabled  = false
+    id_token_issuance_enabled      = false
+    federated_identity_credentials = []
+    tags                           = ["Business unit: IDAM"]
+    service_principle = {
+      login_url                     = null
+      notification_email_addresses  = []
+      preferred_single_sign_on_mode = null
+      app_role_assignment_required  = true
+      account_enabled               = true
+      application_template_name     = null
+      hide                          = null
+      custom_single_sign_on         = null
+    }
+    identifier_uris = null
+    api = {
+      known_client_applications      = null,
+      mapped_claims_enabled          = true,
+      requested_access_token_version = 2,
+      oauth2_permission_scope        = []
     }
   }
 }
