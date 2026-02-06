@@ -72,11 +72,11 @@ variable "redirect_uris" {
 }
 
 variable "access_token_issuance_enabled" {
-  type        = bool
+  type = bool
 }
 
 variable "id_token_issuance_enabled" {
-  type        = bool
+  type = bool
 }
 
 variable "mobile_desktop_redirect_uris" {
@@ -87,31 +87,31 @@ variable "mobile_desktop_redirect_uris" {
 variable "app_roles" {
   description = "App roles are custom roles to assign permissions to users or apps. The application defines and publishes the app roles and interprets them as permissions during authorization."
   type = list(object({
-    allowed_member_types  = list(string)
-    description           = string
-    display_name          = string
-    id                    = string
-    value                 = string
+    allowed_member_types = list(string)
+    description          = string
+    display_name         = string
+    id                   = string
+    value                = string
   }))
   default = null
 }
 
 variable "api" {
   description = "values for the API section of the application registration."
-  nullable = true
+  nullable    = true
   type = object({
     known_client_applications      = list(string)
     mapped_claims_enabled          = bool
     requested_access_token_version = string
-    oauth2_permission_scope        = list(object({      
-      admin_consent_description    = string
-      admin_consent_display_name   = string
-      enabled                      = bool
-      id                           = string
-      type                         = string
-      user_consent_description     = string
-      user_consent_display_name    = string
-      value                        = string
+    oauth2_permission_scope = list(object({
+      admin_consent_description  = string
+      admin_consent_display_name = string
+      enabled                    = bool
+      id                         = string
+      type                       = string
+      user_consent_description   = string
+      user_consent_display_name  = string
+      value                      = string
     }))
   })
   default = {
@@ -124,15 +124,15 @@ variable "api" {
 
 variable "resource_access" {
   description = "Additional custom resource access."
-  type        = list(object({
+  type = list(object({
     resource_app_name = string
     resource_access = object({
-      id = string
+      id   = string
       type = string
     })
   }))
-  nullable    = true
-  default     = []
+  nullable = true
+  default  = []
 }
 
 variable "graph_application_permissions" {

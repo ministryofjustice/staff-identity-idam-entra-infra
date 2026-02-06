@@ -1,3 +1,12 @@
+locals {
+  internal_resource_map = {
+    "obo_internal_api" = {
+      client_id = azuread_application.obo_example_internal_api.client_id
+      scope_id  = random_uuid.scope_obo_internal_api.result
+    }
+  }
+}
+
 data "azuread_groups" "groups" {
   display_names    = var.allowed_groups
   security_enabled = true
@@ -29,8 +38,8 @@ resource "azuread_application" "entra_app_reg" {
   sign_in_audience             = "AzureADMyOrg"
   prevent_duplicate_names      = true
   identifier_uris              = var.identifier_uris
-  tags = var.tags
-  template_id = var.service_principle.application_template_name != null ? data.azuread_application_template.app_template[0].template_id : null
+  tags                         = var.tags
+  template_id                  = var.service_principle.application_template_name != null ? data.azuread_application_template.app_template[0].template_id : null
 
   optional_claims {
     dynamic "id_token" {
@@ -66,7 +75,7 @@ resource "azuread_application" "entra_app_reg" {
       dynamic "resource_access" {
         for_each = { for role_perm in var.graph_application_permissions : role_perm => role_perm }
         content {
-          id  = azuread_service_principal.msgraph.app_role_ids[resource_access.value]
+          id   = azuread_service_principal.msgraph.app_role_ids[resource_access.value]
           type = "Role"
         }
       }
@@ -74,7 +83,7 @@ resource "azuread_application" "entra_app_reg" {
       dynamic "resource_access" {
         for_each = { for scope_perm in var.graph_delegated_permissions : scope_perm => scope_perm }
         content {
-          id  = azuread_service_principal.msgraph.oauth2_permission_scope_ids[resource_access.value]
+          id   = azuread_service_principal.msgraph.oauth2_permission_scope_ids[resource_access.value]
           type = "Scope"
         }
       }
@@ -83,15 +92,21 @@ resource "azuread_application" "entra_app_reg" {
 
   dynamic "required_resource_access" {
     for_each = var.resource_access
-    
     iterator = app
+
     content {
-      resource_app_id = app.value.resource_app_name == "obo_internal_api" ? azuread_application.obo_example_internal_api.client_id : app.value.resource_app_id
+      resource_app_id = try(
+        local.internal_resource_map[app.value.resource_app_name].client_id,
+        app.value.resource_app_id
+      )
+
       dynamic "resource_access" {
         for_each = [app.value.resource_access]
-        
         content {
-          id   = resource_access.value.resource_app_name == "obo_internal_api" ? random_uuid.scope_obo_internal_api.result : resource_access.value.id
+          id = try(
+            local.internal_resource_map[app.value.resource_app_name].scope_id,
+            resource_access.value.id
+          )
           type = resource_access.value.type
         }
       }
@@ -137,14 +152,14 @@ resource "azuread_application" "entra_app_reg" {
     dynamic "oauth2_permission_scope" {
       for_each = var.api.oauth2_permission_scope
       content {
-          admin_consent_description     = oauth2_permission_scope.value.admin_consent_description
-          admin_consent_display_name    = oauth2_permission_scope.value.admin_consent_display_name
-          enabled                       = oauth2_permission_scope.value.enabled
-          id                            = oauth2_permission_scope.value.id
-          type                          = oauth2_permission_scope.value.type
-          user_consent_description      = oauth2_permission_scope.value.user_consent_description
-          user_consent_display_name     = oauth2_permission_scope.value.user_consent_display_name
-          value                         = oauth2_permission_scope.value.value
+        admin_consent_description  = oauth2_permission_scope.value.admin_consent_description
+        admin_consent_display_name = oauth2_permission_scope.value.admin_consent_display_name
+        enabled                    = oauth2_permission_scope.value.enabled
+        id                         = oauth2_permission_scope.value.id
+        type                       = oauth2_permission_scope.value.type
+        user_consent_description   = oauth2_permission_scope.value.user_consent_description
+        user_consent_display_name  = oauth2_permission_scope.value.user_consent_display_name
+        value                      = oauth2_permission_scope.value.value
       }
     }
   }
@@ -170,12 +185,12 @@ resource "azuread_service_principal" "entra_app_service_principle" {
 
     # 2. Logic to maintain "Enterprise" (WindowsAzureActiveDirectoryIntegratedApp)
     # Note: feature_tags 'enterprise' defaults to true in most cases, check your needs.
-    ["WindowsAzureActiveDirectoryIntegratedApp"], 
+    ["WindowsAzureActiveDirectoryIntegratedApp"],
 
     # 3. Logic to maintain "Gallery"
     # You had gallery = false, so we return empty list [] if false
     # If you wanted it true, it would be ["WindowsAzureActiveDirectoryGalleryApplicationNonPrimaryV1"]
-    [], 
+    [],
 
     # 4. Logic to maintain "Hide"
     var.service_principle.hide == true ? ["HideApp"] : [],
