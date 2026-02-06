@@ -135,6 +135,8 @@ locals {
           {
             admin_consent_description  = "Allow the app to access SDS on behalf of the user."
             admin_consent_display_name = "Access SDS"
+            user_consent_description   = null
+            user_consent_display_name  = null
             enabled                    = true
             id                         = random_uuid.scope_obo_internal_api.result
             type                       = "User"
