@@ -17,7 +17,7 @@ resource "random_uuid" "scope_obo_shared_docs" {}  # Scope exposed by Shared Doc
 #region Application Registrations
 module "application-registration" {
   source                         = "../../../modules/application-registrationV1.6.0"
-  for_each                       = locals.applications
+  for_each                       = local.applications
   notes                          = each.value.notes
   logo_image                     = each.value.logo_image
   service_management_reference   = each.value.service_management_reference
@@ -48,7 +48,7 @@ module "application-registration" {
 
 locals {
   applications = {
-    app1 = {
+    "app1" = {
       notes                        = "EUCS IDAM App Reg Test 1 terraform"
       service_management_reference = "IDAM-2974"
       logo_image                   = "./assets/moj-square-icon-215x215.png"
@@ -91,7 +91,7 @@ locals {
         oauth2_permission_scope        = []
       }
     }
-    obo_example_internal_api = {
+    "obo_example_internal_api" = {
       notes                        = "OBO Example Internal API"
       service_management_reference = "IDAM-5755"
       logo_image                   = "./assets/moj-square-icon-215x215.png"
@@ -143,7 +143,7 @@ locals {
         ]
       }
     }
-    obo_example_frontend = {
+    "obo_example_frontend" = {
       notes                        = "OBO Example Case Management Web App (Frontend)"
       service_management_reference = "IDAM-5755"
       logo_image                   = "./assets/moj-square-icon-215x215.png"
