@@ -82,6 +82,9 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "idam@justice.gov.uk"
+      ]
       allowed_groups                 = ["PIM-MoJO-M365-IDAM-3LS"]
       homepage_url                   = null
       logout_url                     = null
