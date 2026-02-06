@@ -1,12 +1,3 @@
-locals {
-  internal_resource_map = {
-    "obo_internal_api" = {
-      client_id = azuread_application.obo_example_internal_api.client_id
-      scope_id  = random_uuid.scope_obo_internal_api.result
-    }
-  }
-}
-
 data "azuread_groups" "groups" {
   display_names    = var.allowed_groups
   security_enabled = true
@@ -91,27 +82,22 @@ resource "azuread_application" "entra_app_reg" {
   }
 
   dynamic "required_resource_access" {
-    for_each = var.resource_access
-    iterator = app
+  for_each = var.resource_access
+  iterator = app
 
-    content {
-      resource_app_id = try(
-        local.internal_resource_map[app.value.resource_app_name].client_id,
-        app.value.resource_app_id
-      )
+  content {
+    resource_app_id = contains(keys(azuread_application.this), app.value.resource_app_name) ? azuread_application.this[app.value.resource_app_name].client_id : app.value.resource_app_id
 
-      dynamic "resource_access" {
-        for_each = [app.value.resource_access]
-        content {
-          id = try(
-            local.internal_resource_map[app.value.resource_app_name].scope_id,
-            resource_access.value.id
-          )
-          type = resource_access.value.type
-        }
+    dynamic "resource_access" {
+      for_each = [app.value.resource_access]
+      content {
+        id = contains(keys(random_uuid.scope), app.value.resource_app_name) ? random_uuid.scope[app.value.resource_app_name].result : resource_access.value.id
+        
+        type = resource_access.value.type
       }
     }
   }
+}
 
   dynamic "app_role" {
     for_each = var.app_roles
