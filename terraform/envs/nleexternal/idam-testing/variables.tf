@@ -14,8 +14,6 @@ variable "applications" {
     department_name               = string
     team_name                     = string
     application_name              = string
-    create_access_package         = bool
-    access_package_reviewers      = list(string)
     owners                        = list(string)
     application_contacts          = list(string)
     allowed_groups                = list(string)
@@ -32,11 +30,9 @@ variable "applications" {
       display_name          = string
       id                    = string
       value                 = string
-      access_package_hidden = bool
     }))
     graph_application_permissions = list(string)
     graph_delegated_permissions   = list(string)
-    tenants_required              = list(string)
     federated_identity_credentials = list(object({
       repo_name      = string
       display_name   = string
@@ -79,8 +75,6 @@ variable "applications" {
       department_name                = "eucs"
       team_name                      = "idam"
       application_name               = "app-reg-tf"
-      create_access_package          = false
-      access_package_reviewers       = []
       owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
         "idam@justice.gov.uk"
@@ -93,7 +87,6 @@ variable "applications" {
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
-      tenants_required               = ["NLEEXTERNAL"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []

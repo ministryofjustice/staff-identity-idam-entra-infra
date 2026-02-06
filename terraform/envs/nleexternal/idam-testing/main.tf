@@ -13,7 +13,7 @@ locals {
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1.5.0"
+  source                         = "../../../modules/application-registrationV1.6.0"
   for_each                       = var.applications
   notes                          = each.value.notes
   logo_image                     = each.value.logo_image
@@ -22,8 +22,6 @@ module "application-registration" {
   department_name                = each.value.department_name
   team_name                      = each.value.team_name
   application_name               = each.value.application_name
-  create_access_package          = each.value.create_access_package
-  access_package_reviewers       = each.value.access_package_reviewers
   owners                         = each.value.owners
   allowed_groups                 = each.value.allowed_groups
   homepage_url                   = each.value.homepage_url
@@ -33,7 +31,6 @@ module "application-registration" {
   app_roles                      = each.value.app_roles
   graph_application_permissions  = each.value.graph_application_permissions
   graph_delegated_permissions    = each.value.graph_delegated_permissions
-  tenants_required               = each.value.tenants_required
   federated_identity_credentials = each.value.federated_identity_credentials
   service_principle              = each.value.service_principle
   identifier_uris                = each.value.identifier_uris
