@@ -165,7 +165,7 @@ locals {
       app_roles                    = []
       resource_access              = [
         {
-          resource_app_name = "obo_internal_api"
+          resource_app_name = "obo_example_internal_api"
           resource_access = {
             id   = random_uuid.scope_obo_internal_api.result # Requesting 'user_impersonation'
             type = "Scope"
