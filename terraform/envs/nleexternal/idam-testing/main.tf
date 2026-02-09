@@ -167,7 +167,7 @@ locals {
         {
           resource_app_name = "OBO Example Shared API"
           resource_access = {
-            id   = random_uuid.scope_obo_shared_api.result # Requesting 'user_impersonation'
+            id   = random_uuid.scope_obo_shared_api.result # Requesting 'Documents.Read'
             type = "Scope"
           }
         }
