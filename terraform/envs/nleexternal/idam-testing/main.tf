@@ -163,7 +163,15 @@ locals {
       redirect_uris                = ["https://test.justice.gov.uk/auth"]
       mobile_desktop_redirect_uris = null
       app_roles                    = []
-      resource_access = []
+      resource_access              = [
+        {
+          resource_app_name = "obo_internal_api"
+          resource_access = {
+            id   = random_uuid.scope_obo_internal_api.result # Requesting 'user_impersonation'
+            type = "Scope"
+          }
+        }
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       access_token_issuance_enabled  = false
