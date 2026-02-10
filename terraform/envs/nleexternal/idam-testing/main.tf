@@ -329,8 +329,7 @@ locals {
       redirect_uris                = ["https://test.justice.gov.uk/auth"]
       mobile_desktop_redirect_uris = null
       app_roles                    = []
-      resource_access              = []
-      /* resource_access              = [
+      resource_access              = [
         {
           resource_app_name = "S2S Example API Resource"
           resource_access = {
@@ -338,7 +337,7 @@ locals {
             type = "Scope"
           }
         }
-      ] */
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       access_token_issuance_enabled  = false
