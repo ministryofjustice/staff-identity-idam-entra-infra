@@ -8,6 +8,7 @@ locals {
 
 resource "random_uuid" "scope_obo_internal_api" {} # Scope exposed by Internal API
 resource "random_uuid" "scope_obo_shared_api" {}  # Scope exposed by Shared Docs API
+resource "random_uuid" "approle_files_write_s2s_example_api_resource" {}  # uuid for s2s API resource role
 
 # resource "azuread_group" "tf_test" {
 #   display_name     = "APPREG-User-Access-App-Reg-Test-1"
@@ -257,7 +258,111 @@ locals {
         requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
-    }
+    },
+    "s2s_example_api_resource" = {
+      notes                        = "S2S Example API Resource"
+      service_management_reference = "IDAM-5755"
+      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      display_name                 = "S2S Example API Resource"
+      department_name              = "eucs"
+      team_name                    = "idam"
+      application_name             = "s2s-example-api-resource"
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "idam@justice.gov.uk"
+      ]
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://internal.test.justice.gov.uk/auth"]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = [
+        {
+          id                   = random_uuid.approle_files_write_s2s_example_api_resource.result
+          allowed_member_types = ["Application"]
+          description          = "Allows background services to upload files."
+          display_name         = "Files.Write"
+          enabled              = true
+          value                = "Files.Write"
+        }
+      ]
+      resource_access                = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags                           = ["Business unit: IDAM"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+        custom_single_sign_on         = null
+      }
+      identifier_uris = ["api://s2s-example-api-resource"]
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope = []
+      }
+    },
+    "s2s_example_consumer" = {
+      notes                        = "S2S Example Consumer"
+      service_management_reference = "IDAM-5755"
+      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      display_name                 = "S2S Example Consumer"
+      department_name              = "eucs"
+      team_name                    = "idam"
+      application_name             = "s2s-example-consumer"
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "idam@justice.gov.uk"
+      ]
+      allowed_groups               = []
+      homepage_url                 = "https://test.consumer.justice.gov.uk"
+      logout_url                   = null
+      redirect_uris                = ["https://test.justice.gov.uk/auth"]
+      mobile_desktop_redirect_uris = null
+      app_roles                    = []
+      resource_access              = []
+      /* resource_access              = [
+        {
+          resource_app_name = "S2S Example API Resource"
+          resource_access = {
+            id   = random_uuid.approle_files_write_s2s_example_api_resource.result
+            type = "Scope"
+          }
+        }
+      ] */
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags                           = ["Business unit: IDAM"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+    },
   }
 }
       
