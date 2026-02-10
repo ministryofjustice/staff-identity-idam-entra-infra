@@ -80,8 +80,8 @@ variable "applications" {
       application_name               = "apim-alztest"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["ALZ3S@justice.gov.uk"]
-      application_contacts           = ["ALZ3S@justice.gov.uk"]
+      owners                         = ["ravindra.raghuvanshi@justice.gov.uk"]
+      application_contacts           = ["ravindra.raghuvanshi@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -132,8 +132,8 @@ variable "applications" {
       application_name               = "moj-devl-apim-access-client"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["ALZ3S@justice.gov.uk"]
-      application_contacts           = ["ALZ3S@justice.gov.uk"]
+      owners                         = ["ravindra.raghuvanshi@justice.gov.uk"]
+      application_contacts           = ["ravindra.raghuvanshi@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
