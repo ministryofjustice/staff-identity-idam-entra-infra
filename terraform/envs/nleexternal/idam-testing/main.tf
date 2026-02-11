@@ -9,6 +9,7 @@ locals {
 resource "random_uuid" "scope_obo_internal_api" {} # Scope exposed by Internal API
 resource "random_uuid" "scope_obo_shared_api" {}  # Scope exposed by Shared Docs API
 resource "random_uuid" "approle_files_write_s2s_example_api_resource" {}  # uuid for s2s API resource role
+resource "random_uuid" "scope_auth_code_flow_example_api" {} # Scope exposed by Internal API
 
 # resource "azuread_group" "tf_test" {
 #   display_name     = "APPREG-User-Access-App-Reg-Test-1"
@@ -359,6 +360,112 @@ locals {
         known_client_applications      = null,
         mapped_claims_enabled          = true,
         requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+    },
+    "auth_code_flow_example_webapp" = {
+      notes                        = "Auth Code Flow Example Web App"
+      service_management_reference = "IDAM-5755"
+      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      display_name                 = "Auth Code Flow Example Web App"
+      department_name              = "eucs"
+      team_name                    = "idam"
+      application_name             = "auth-code-flow-example-webapp"
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "idam@justice.gov.uk"
+      ]
+      allowed_groups               = []
+      homepage_url                 = "https://test.webapp.justice.gov.uk"
+      logout_url                   = null
+      redirect_uris                = ["https://test.webapp.justice.gov.uk/auth"]
+      mobile_desktop_redirect_uris = null
+      app_roles                    = []
+      resource_access              = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags                           = ["Business unit: IDAM", "authPattern: AuthCodeFlow"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+        custom_single_sign_on         = null
+      }
+      identifier_uris = ["api://auth-code-flow-example-webapp"]
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true, # This API needs to have 'mapped_claims_enabled' set to true in order for the 'scp' claim to be included in access tokens when using the v2.0 endpoint, which is required for scopes to work correctly. If this is not enabled, the app will need to use the v1.0 endpoint and look for the 'roles' claim instead, which is less ideal.
+        requested_access_token_version = 2, # This API expects v2.0 tokens with the 'scp' claim for scopes, not v1.0 tokens with the 'roles' claim
+        oauth2_permission_scope        = [
+          {
+            admin_consent_description  = "Allow the app to access shared documents."
+            admin_consent_display_name = "Read Shared Documents"
+            user_consent_description   = null
+            user_consent_display_name  = null
+            enabled                    = true
+            id                         = random_uuid.scope_auth_code_flow_example_api.result
+            type                       = "User"
+            value                      = "Documents.Read"
+          }
+        ]
+      }
+    },
+    "auth_code_flow_example_api" = {
+      notes                        = "Auth Code Flow Example API"
+      service_management_reference = "IDAM-5755"
+      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      display_name                 = "Auth Code Flow Example API"
+      department_name              = "eucs"
+      team_name                    = "idam"
+      application_name             = "auth-code-flow-example-api"
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "idam@justice.gov.uk"
+      ]
+      allowed_groups               = []
+      homepage_url                 = "https://test.api.justice.gov.uk"
+      logout_url                   = null
+      redirect_uris                = ["https://test.api.justice.gov.uk/auth"]
+      mobile_desktop_redirect_uris = null
+      app_roles                    = []
+      resource_access              = []
+      /* resource_access                = [       
+        {
+          resource_app_name = "Auth Code Flow Example Web App"
+          resource_access = {
+            id   = random_uuid.scope_auth_code_flow_example_api.result # Requesting 'Documents.Read'
+            type = "Scope"
+          }
+        }
+      ] */
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags                           = ["Business unit: IDAM", "authPattern: AuthCodeFlow"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+        custom_single_sign_on         = null
+      }
+      identifier_uris = ["api://auth-code-flow-example-api"]
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true, # This API needs to have 'mapped_claims_enabled' set to true in order for the 'scp' claim to be included in access tokens when using the v2.0 endpoint, which is required for scopes to work correctly. If this is not enabled, the app will need to use the v1.0 endpoint and look for the 'roles' claim instead, which is less ideal.
+        requested_access_token_version = 2, # This API expects v2.0 tokens with the 'scp' claim for scopes, not v1.0 tokens with the 'roles' claim
         oauth2_permission_scope        = []
       }
     },
