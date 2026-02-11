@@ -122,7 +122,7 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
-    "auth_app" = {
+    "server_app" = {
       notes                        = "Used to handle authentication for BIOS Management Entra ID"
       service_management_reference = "EUCSVICTOR-1487"
       logo_image                   = "assets/moj-square-icon-215x215.png"
