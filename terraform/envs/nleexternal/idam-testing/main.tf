@@ -435,8 +435,7 @@ locals {
       redirect_uris                = ["https://test.api.justice.gov.uk/auth"]
       mobile_desktop_redirect_uris = null
       app_roles                    = []
-      resource_access              = []
-      /* resource_access                = [       
+      resource_access                = [       
         {
           resource_app_name = "Auth Code Flow Example Web App"
           resource_access = {
@@ -444,7 +443,7 @@ locals {
             type = "Scope"
           }
         }
-      ] */
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       access_token_issuance_enabled  = false
