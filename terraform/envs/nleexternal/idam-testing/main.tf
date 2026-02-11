@@ -401,7 +401,7 @@ locals {
       identifier_uris = ["api://auth-code-flow-example-webapp"]
       api = {
         known_client_applications      = null,
-        mapped_claims_enabled          = true, # This API needs to have 'mapped_claims_enabled' set to true in order for the 'scp' claim to be included in access tokens when using the v2.0 endpoint, which is required for scopes to work correctly. If this is not enabled, the app will need to use the v1.0 endpoint and look for the 'roles' claim instead, which is less ideal.
+        mapped_claims_enabled          = true, # This API needs to have 'mapped_claims_enabled' set to true in order for the 'scp' claim to be included in access tokens when using the v2.0 endpoint.
         requested_access_token_version = 2, # This API expects v2.0 tokens with the 'scp' claim for scopes, not v1.0 tokens with the 'roles' claim
         oauth2_permission_scope        = [
           {
@@ -464,7 +464,7 @@ locals {
       identifier_uris = ["api://auth-code-flow-example-api"]
       api = {
         known_client_applications      = null,
-        mapped_claims_enabled          = true, # This API needs to have 'mapped_claims_enabled' set to true in order for the 'scp' claim to be included in access tokens when using the v2.0 endpoint, which is required for scopes to work correctly. If this is not enabled, the app will need to use the v1.0 endpoint and look for the 'roles' claim instead, which is less ideal.
+        mapped_claims_enabled          = true, # This API needs to have 'mapped_claims_enabled' set to true in order for the 'scp' claim to be included in access tokens when using the v2.0 endpoint.
         requested_access_token_version = 2, # This API expects v2.0 tokens with the 'scp' claim for scopes, not v1.0 tokens with the 'roles' claim
         oauth2_permission_scope        = []
       }
