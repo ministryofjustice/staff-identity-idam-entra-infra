@@ -73,7 +73,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags                           = ["Business unit: IDAM"]
+      tags                           = ["Business unit: IDAM", "authPattern: SSO"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -116,7 +116,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags                           = ["Business unit: IDAM"]
+      tags                           = ["Business unit: IDAM", "authPattern: OBO"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -178,7 +178,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags                           = ["Business unit: IDAM"]
+      tags                           = ["Business unit: IDAM", "authPattern: OBO"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -240,7 +240,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags                           = ["Business unit: IDAM"]
+      tags                           = ["Business unit: IDAM", "authPattern: OBO"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -292,7 +292,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags                           = ["Business unit: IDAM"]
+      tags                           = ["Business unit: IDAM", "authPattern: S2S"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -343,7 +343,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags                           = ["Business unit: IDAM"]
+      tags                           = ["Business unit: IDAM", "authPattern: S2S"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
