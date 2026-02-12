@@ -97,8 +97,7 @@ variable "applications" {
       graph_application_permissions = [
         "Application.ReadWrite.OwnedBy",
         "Directory.Read.All",
-        "Group.ReadWrite.All",
-        "User.Read"
+        "Group.ReadWrite.All"
       ]
       graph_delegated_permissions    = []
       tenants_required               = ["DEVL"]
