@@ -77,7 +77,7 @@ variable "applications" {
       display_name                 = "MoJO-TEST-rg-eucs-biosreset-002"
       department_name              = "EUCS"
       team_name                    = "Application-Platforms"
-      application_name             = "BIOS Management"
+      application_name             = "BIOS-Management"
       create_access_package        = false
       access_package_reviewers     = []
       owners                       = ["ccowen-admin@devl.justice.gov.uk"]
