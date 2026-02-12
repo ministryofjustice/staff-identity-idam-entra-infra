@@ -25,6 +25,7 @@ variable "applications" {
     access_token_issuance_enabled = bool
     id_token_issuance_enabled     = bool
     mobile_desktop_redirect_uris  = list(string)
+    tags = list(string)
     app_roles = list(object({
       allowed_member_types  = list(string)
       description           = string
@@ -94,6 +95,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -154,6 +156,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -204,6 +207,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -254,6 +258,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -305,6 +310,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -350,6 +356,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -413,6 +420,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["eamon-mcnally-admin@TestJusticeUKExternal.onmicrosoft.com"]
@@ -472,6 +480,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -524,6 +533,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -576,6 +586,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -622,6 +633,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -668,6 +680,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["John.Nolan@JusticeUKExternal.onmicrosoft.com"]
@@ -716,6 +729,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["John.Nolan@JusticeUKExternal.onmicrosoft.com"]
