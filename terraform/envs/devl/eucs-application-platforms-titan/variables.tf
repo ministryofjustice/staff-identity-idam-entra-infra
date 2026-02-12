@@ -70,7 +70,7 @@ variable "applications" {
     })
   }))
   default = {
-    "pipeline_app" = {
+    pipeline_app = {
       notes                        = "Used to deploy Titan infrastructure to test resource group"
       service_management_reference = "EUCSVICTOR-1487"
       logo_image                   = "assets/moj-square-icon-215x215.png"
