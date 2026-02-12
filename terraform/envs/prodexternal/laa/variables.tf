@@ -608,20 +608,27 @@ variable "applications" {
       application_contacts = [
         "Rohan.Salunkhe1@justice.gov.uk",
         "Suma.Challa@justice.gov.uk",
-        "Jack.Heslop@justice.gov.uk"
+        "Jack.Heslop@justice.gov.uk",
+        "Ben.Millar@justice.gov.uk",
+        "Michael.Boyd1@justice.gov.uk",
+        "Spencer.Howe@justice.gov.uk",
+        "Sohail.Ahmad@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Amend-a-claim"]
-      homepage_url   = null
+      homepage_url   = "https://amend-a-claim.laa.service.justice.gov.uk"
       logout_url     = null
-      redirect_uris  = null
+      redirect_uris  = [
+        "https://amend-a-claim.laa.service.justice.gov.uk/login/oauth2/code/azure",
+      ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = []
+      graph_application_permissions  = ["User.Read.All"]
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
