@@ -95,7 +95,7 @@ variable "applications" {
       mobile_desktop_redirect_uris = null
       app_roles                    = []
       graph_application_permissions = [
-        "Application.ReadWrite.All",
+        "Application.ReadWrite.OwnedBy",
         "Group.ReadWrite.All"
       ]
       graph_delegated_permissions    = []
