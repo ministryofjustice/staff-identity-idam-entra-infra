@@ -148,7 +148,6 @@ variable "applications" {
       mobile_desktop_redirect_uris = null
       app_roles                    = []
       graph_application_permissions = [
-        "Application.ReadWrite.All",
         "Device.Read.All",
         "DeviceManagementApps.ReadWrite.All",
         "DeviceManagementConfiguration.ReadWrite.All",
