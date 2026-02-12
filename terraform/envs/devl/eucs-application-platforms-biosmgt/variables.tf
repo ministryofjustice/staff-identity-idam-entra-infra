@@ -70,7 +70,7 @@ variable "applications" {
     })
   }))
   default = {
-    "pipeline_app" = {
+    pipeline_app = {
       notes                        = "Used to deploy Titan infrastructure to test resource group"
       service_management_reference = "EUCSVICTOR-1487"
       logo_image                   = "assets/moj-square-icon-215x215.png"
@@ -96,8 +96,7 @@ variable "applications" {
       app_roles                    = []
       graph_application_permissions = [
         "Application.ReadWrite.All",
-        "Group.ReadWrite.All",
-        "User.Read"
+        "Group.ReadWrite.All"
       ]
       graph_delegated_permissions    = []
       tenants_required               = ["DEVL"]
@@ -122,7 +121,7 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     },
-    "server_app" = {
+    server_app = {
       notes                        = "Used to handle authentication for BIOS Management Entra ID"
       service_management_reference = "EUCSVICTOR-1487"
       logo_image                   = "assets/moj-square-icon-215x215.png"
@@ -170,7 +169,7 @@ variable "applications" {
         oauth2_permission_scope        = []
       }
     }
-    "client_app" = {
+    client_app = {
       notes                        = "Used to handle authentication for BIOS Management Entra ID"
       service_management_reference = "EUCSVICTOR-1487"
       logo_image                   = "assets/moj-square-icon-215x215.png"
