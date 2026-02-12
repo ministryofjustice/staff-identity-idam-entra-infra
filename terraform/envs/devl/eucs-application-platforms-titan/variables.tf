@@ -75,6 +75,12 @@ variable "applications" {
       service_management_reference = "EUCSVICTOR-1487"
       logo_image                   = "assets/moj-square-icon-215x215.png"
       display_name                 = "MoJO-TEST-rg-eucs-intunemgt-002"
+      graph_application_permissions = [
+        "Application.ReadWrite.OwnedBy",
+        "Directory.Read.All",
+        "Group.ReadWrite.All",
+        "User.Read"
+      ]
       department_name              = "EUCS"
       team_name                    = "Application-Platforms"
       application_name             = "Titan"
