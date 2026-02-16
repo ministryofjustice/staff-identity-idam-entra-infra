@@ -1,14 +1,14 @@
 locals {
   tags = {
-    department = "justice-digital"
-    team       = "laa"
+    department = "EUCS"
+    team       = "Application Platforms"
     source     = "terraform"
   }
 }
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1.5.0"
+  source                         = "../../../modules/application-registrationV1.4.0"
   for_each                       = var.applications
   notes                          = each.value.notes
   logo_image                     = each.value.logo_image
@@ -36,6 +36,5 @@ module "application-registration" {
   api                            = each.value.api
   access_token_issuance_enabled  = each.value.access_token_issuance_enabled
   id_token_issuance_enabled      = each.value.id_token_issuance_enabled
-  tags = each.value.tags
 }
 #endregion
