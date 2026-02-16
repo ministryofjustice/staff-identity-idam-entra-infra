@@ -8,7 +8,7 @@ locals {
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1.6.0"
+  source                         = "../../../modules/application-registrationV1.5.0"
   for_each                       = var.applications
   notes                          = each.value.notes
   logo_image                     = each.value.logo_image
