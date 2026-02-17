@@ -73,7 +73,7 @@ variable "applications" {
     "default_app" = {
       notes                          = "App to allow the laa provider data clients to access the APIs."
       service_management_reference   = ""
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "laa-provider-data-uat"
       department_name                = "laa"
       team_name                      = "DSTEW"

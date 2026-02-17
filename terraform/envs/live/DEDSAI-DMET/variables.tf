@@ -73,7 +73,7 @@ variable "applications" {
     "MoJO-DEDSAI-DMET-MDS" = {
       notes                          = "We need ReadWrite access as we need to read business excel files for one requirement and also use this site to mirror/write s3 table data and which we use to be read by power BI apps"
       service_management_reference   = ""
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "MoJO-DEDSAI-DMET-MDS"
       department_name                = "DEDSAI"
       team_name                      = "DMET"

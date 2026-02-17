@@ -73,7 +73,7 @@ variable "applications" {
     "octo_access" = {
       notes                          = "Office of the CTO Access (https://github.com/ministryofjustice/octo-access)"
       service_management_reference   = ""
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "Office of the CTO Access"
       department_name                = "office-of-the-cto"
       team_name                      = "engineering"

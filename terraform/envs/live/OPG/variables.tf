@@ -73,7 +73,7 @@ variable "applications" {
     "RD-ServiceManagement-WebUAT" = {
       notes                          = ""
       service_management_reference   = "IDAM-5158"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "RD-ServiceManagement-WebUAT"
       department_name                = "Justice-Digital"
       team_name                      = "CAO"
@@ -115,7 +115,7 @@ variable "applications" {
     "RD-ServiceManagement-WebPRD" = {
       notes                          = ""
       service_management_reference   = "IDAM-5158"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "RD-ServiceManagement-WebPRD"
       department_name                = "Justice-Digital"
       team_name                      = "CAO"

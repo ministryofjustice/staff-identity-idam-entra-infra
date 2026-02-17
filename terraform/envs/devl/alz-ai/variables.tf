@@ -76,7 +76,7 @@ variable "applications" {
     "apim-alztest" = {
       notes                        = "APIM API app registration for AI Enablement (dev)"
       service_management_reference = "TBD"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "apim-alztest"
       department_name              = "Justice-Digital"
       team_name                    = "Azure-Landing-Zone"
@@ -125,7 +125,7 @@ variable "applications" {
     "moj-devl-apim-access-client" = {
       notes                        = "Client app registration for APIM access (dev)"
       service_management_reference = "TBD"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "moj-devl-apim-access-client"
       department_name              = "Justice-Digital"
       team_name                    = "Azure-Landing-Zone"

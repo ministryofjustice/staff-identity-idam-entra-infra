@@ -68,7 +68,7 @@ variable "applications" {
     "NIAM-B2C-Federation-NLE" = {
       notes                          = "NIAM-B2C-Federation-NLE"
       service_management_reference   = "IDAM-4973"
-      logo_image                     = "assets/moj-square-icon-215x215.png"
+      logo_image                     = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "NIAM-B2C-Federation-NLE"
       department_name                = "eucs"
       team_name                      = "snow"
@@ -110,7 +110,7 @@ variable "applications" {
     "ServiceNow-Entra-ID-Spoke" = {
       notes                          = "ServiceNow-Entra-ID-Spoke"
       service_management_reference   = "IDAM-4991"
-      logo_image                     = "assets/moj-square-icon-215x215.png"
+      logo_image                     = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "ServiceNow-Entra-ID-Spoke"
       department_name                = "eucs"
       team_name                      = "snow"
