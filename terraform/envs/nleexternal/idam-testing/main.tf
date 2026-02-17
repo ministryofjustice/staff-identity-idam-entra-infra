@@ -53,7 +53,7 @@ locals {
     "app1" = {
       notes                        = "EUCS IDAM App Reg Test 1 terraform"
       service_management_reference = "IDAM-2974"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "EUCS IDAM App Reg Test 1 terraform"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -96,7 +96,7 @@ locals {
     "obo_example_shared_api" = {
       notes                        = "OBO Example Shared API"
       service_management_reference = "IDAM-5755"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "OBO Example Shared API"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -150,7 +150,7 @@ locals {
     "obo_example_internal_api" = {
       notes                        = "OBO Example Internal API"
       service_management_reference = "IDAM-5755"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "OBO Example Internal API"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -212,7 +212,7 @@ locals {
     "obo_example_frontend" = {
       notes                        = "OBO Example Case Management Web App (Frontend)"
       service_management_reference = "IDAM-5755"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "OBO Example Case Management Web App (Frontend)"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -263,7 +263,7 @@ locals {
     "s2s_example_api_resource" = {
       notes                        = "S2S Example API Resource"
       service_management_reference = "IDAM-5755"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "S2S Example API Resource"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -315,7 +315,7 @@ locals {
     "s2s_example_consumer" = {
       notes                        = "S2S Example Consumer"
       service_management_reference = "IDAM-5755"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "S2S Example Consumer"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -366,7 +366,7 @@ locals {
     "auth_code_flow_example_webapp" = {
       notes                        = "Auth Code Flow Example Web App"
       service_management_reference = "IDAM-5755"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "Auth Code Flow Example Web App"
       department_name              = "eucs"
       team_name                    = "idam"
@@ -420,7 +420,7 @@ locals {
     "auth_code_flow_example_api" = {
       notes                        = "Auth Code Flow Example API"
       service_management_reference = "IDAM-5755"
-      logo_image                   = "./assets/moj-square-icon-215x215.png"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "Auth Code Flow Example API"
       department_name              = "eucs"
       team_name                    = "idam"

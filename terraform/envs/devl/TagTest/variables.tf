@@ -74,7 +74,7 @@ variable "applications" {
     "IDAM-Tag-Test" = {
       notes                          = "IDAM-Tag-Test"
       service_management_reference   = "IDAM-5608"
-      logo_image                     = "assets/moj-square-icon-215x215.png"
+      logo_image                     = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "IDAM-Tag-Test"
       department_name                = "eucs"
       team_name                      = "snow"

@@ -73,7 +73,7 @@ variable "applications" {
     "hmpps-check-my-diary" = {
       notes                          = "HMPPS Check My Diary UI DEVL"
       service_management_reference   = ""
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "HMPPS Check My Diary UI DEVL"
       department_name                = "hmpps"
       team_name                      = "haa"
