@@ -73,7 +73,7 @@ variable "applications" {
     "default_app" = {
       notes                          = "Main entrypoint for Cyber Security Team apps"
       service_management_reference   = ""
-      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      logo_image                     = "./assets/moj-square-icon-215x215.png"
       display_name                   = "laa-cst-security-dashboard-dev"
       department_name                = "Justice-Digital"
       team_name                      = "LAA"

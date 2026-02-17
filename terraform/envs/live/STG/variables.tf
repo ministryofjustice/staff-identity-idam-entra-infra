@@ -73,7 +73,7 @@ variable "applications" {
     "default_app" = {
       notes                          = "Used to provide SSO for PRTG Network Monitoring"
       service_management_reference   = "IDAM-4423"
-      logo_image                     = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      logo_image                     = "assets/moj-square-icon-215x215.png"
       display_name                   = "PRTG-Monitoring-SSO"
       department_name                = "JD"
       team_name                      = "STG"

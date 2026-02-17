@@ -73,7 +73,7 @@ variable "applications" {
     "data_platform_access" = {
       notes                          = "Data Platform Access (https://github.com/ministryofjustice/data-platform-access)"
       service_management_reference   = ""
-      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      logo_image                     = "./assets/moj-square-icon-215x215.png"
       display_name                   = "Data Platform Access"
       department_name                = "office-of-the-cto"
       team_name                      = "data-platform"
