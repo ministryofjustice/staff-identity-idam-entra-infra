@@ -153,6 +153,48 @@ variable "applications" {
         requested_access_token_version = null,
         oauth2_permission_scope = []
       }
+    },
+    "OPG-SharePoint-App" = {
+      notes                          = ""
+      service_management_reference   = "IDAM-4922"
+      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      display_name                   = "OPG-SharePoint-App"
+      department_name                = "Justice-Digital"
+      team_name                      = "CAO"
+      application_name               = "OPG-SharePoint-App"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Philip.Sinfield@justice.gov.uk", "Gwion.ApRhobat@justice.gov.uk"]      
+      application_contacts           = ["Philip.Sinfield@justice.gov.uk", "Gwion.ApRhobat@justice.gov.uk"]      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = []
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = ["Sites.Selected"]
+      graph_delegated_permissions    = []
+      tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     }
   }
 }
