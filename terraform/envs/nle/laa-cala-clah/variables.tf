@@ -35,7 +35,7 @@ variable "applications" {
     }))
     graph_application_permissions = list(string)
     graph_delegated_permissions   = list(string)
-    tenants_required              = list(string)
+    tenants_required              = ["NLE"]
     federated_identity_credentials = list(object({
       repo_name      = string
       display_name   = string
@@ -76,8 +76,8 @@ variable "applications" {
       logo_image                     = "./assets/moj-square-icon-215x215.png"
       display_name                   = "cala-clah-nle"
       department_name                = "LAA"
-      team_name                      = "Client Access to Legal Advice"
-      application_name               = "Civil Legal Advice Helpline"
+      team_name                      = "CALA"
+      application_name               = "CLAH"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = []      
