@@ -73,7 +73,7 @@ variable "applications" {
     pipeline_app = {
       notes                        = "Used to deploy Titan infrastructure to test resource group"
       service_management_reference = "EUCSVICTOR-1487"
-      logo_image                   = "assets/moj-square-icon-215x215.png"
+      logo_image                   = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "MoJO-TEST-rg-eucs-biosreset-002"
       department_name              = "EUCS"
       team_name                    = "Application-Platforms"

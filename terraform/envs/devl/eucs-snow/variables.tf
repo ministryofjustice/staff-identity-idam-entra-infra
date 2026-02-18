@@ -73,7 +73,7 @@ variable "applications" {
     "SNOW-Teams-Sandbox" = {
       notes                          = "ServiceNow Teams integration"
       service_management_reference   = "IDAM-4415"
-      logo_image                     = "assets/moj-square-icon-215x215.png"
+      logo_image                     = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "ServiceNow-Sandbox-DEVL"
       department_name                = "eucs"
       team_name                      = "snow"
@@ -115,7 +115,7 @@ variable "applications" {
     "SNOW-Teams-Dev" = {
       notes                          = "ServiceNow Teams integration"
       service_management_reference   = "IDAM-4415"
-      logo_image                     = "assets/moj-square-icon-215x215.png"
+      logo_image                     = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "ServiceNow-Dev-DEVL"
       department_name                = "eucs"
       team_name                      = "snow"
@@ -171,7 +171,7 @@ variable "applications" {
     "SNOW-Teams-Test" = {
       notes                          = "ServiceNow Teams integration"
       service_management_reference   = "IDAM-4415"
-      logo_image                     = "assets/moj-square-icon-215x215.png"
+      logo_image                     = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "ServiceNow-Test-DEVL"
       department_name                = "eucs"
       team_name                      = "snow"
