@@ -89,7 +89,7 @@ variable "applications" {
       mobile_desktop_redirect_uris   = ["http://localhost"]
       app_roles                      = []
       graph_application_permissions  = ["Group.Create"]
-      graph_delegated_permissions    = ["DeviceManagementManagedDevices.Read.All", "AuditLog.Read.All", "Reports.Read.All", "Files.Read.All", "GroupMember.ReadWrite.All", "Group.ReadWrite.All", "TeamSettings.ReadWrite.All", "Team.ReadBasic.All", "Contacts.ReadWrite", "MailboxSettings.ReadWrite", "User.Read.All", "Mail.ReadBasic", "PartnerBilling.Read.All", "Organization.Read.All", "TeamsUserConfiguration.Read.All", "TeamsTelephoneNumber.Read.All", "TeamsPolicyUserAssign.ReadWrite.All"]
+      graph_delegated_permissions    = ["DeviceManagementManagedDevices.Read.All", "AuditLog.Read.All", "Reports.Read.All", "Files.Read.All", "GroupMember.ReadWrite.All", "Group.ReadWrite.All", "TeamSettings.ReadWrite.All", "Team.ReadBasic.All", "Contacts.ReadWrite", "MailboxSettings.ReadWrite", "User.Read.All", "Mail.ReadBasic", "PartnerBilling.Read.All", "Organization.Read.All", "TeamsUserConfiguration.Read.All", "TeamsTelephoneNumber.Read.All", "TeamsPolicyUserAssign.ReadWrite.All", "Calendars.ReadWrite", "Mail.ReadWrite"]
       tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = true
       id_token_issuance_enabled      = true
