@@ -283,7 +283,7 @@ variable "applications" {
     "MWPLicenseBillingSP" = {
       notes                          = "This app is used to give application access to Licensing and Billing."
       service_management_reference   = "IDAM-3659"
-      logo_image                     = "./assets/mMOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-LAB-SPN-R-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
