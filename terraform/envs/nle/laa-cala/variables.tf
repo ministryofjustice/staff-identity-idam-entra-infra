@@ -158,7 +158,7 @@ variable "applications" {
             user_consent_description   = null
             user_consent_display_name  = null
             enabled                    = true
-            id                         = random_uuid.scope_auth_code_flow_example_api.result
+            id                         = "649b9baa-64bf-41fb-932c-d50d31bb2e8f"
             type                       = "User"
             value                      = "Client.CLAH"
           }
