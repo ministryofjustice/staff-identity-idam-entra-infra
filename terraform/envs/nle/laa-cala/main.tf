@@ -1,7 +1,7 @@
 locals {
   tags = {
     department = "LAA"
-    team       = "Cient Access to Legal Advice"
+    team       = "Client Access to Legal Advice"
     source     = "terraform"
   }
 }

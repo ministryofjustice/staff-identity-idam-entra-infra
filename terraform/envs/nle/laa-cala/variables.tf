@@ -5,7 +5,7 @@ variable "location" {
 }
 
 variable "applications" {
-  description = "Cient Access to Legal Advice (CALA) applications"
+  description = "Client Access to Legal Advice (CALA) applications"
   type = map(object({
     notes                        = string
     service_management_reference = string
