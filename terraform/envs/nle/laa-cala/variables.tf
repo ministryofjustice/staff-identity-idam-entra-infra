@@ -151,7 +151,18 @@ variable "applications" {
         known_client_applications      = [],
         mapped_claims_enabled          = false,
         requested_access_token_version = null,
-        oauth2_permission_scope = ["CLA Helpline"]
+        oauth2_permission_scope = [
+          {
+            admin_consent_description  = "Allow access from Civil Legal Advice Helpline Client"
+            admin_consent_display_name = "Civil Legal Advice Helpline Client"
+            user_consent_description   = null
+            user_consent_display_name  = null
+            enabled                    = true
+            id                         = random_uuid.scope_auth_code_flow_example_api.result
+            type                       = "User"
+            value                      = "Client.CLAH"
+          }
+        ]
       }
     }
   }
