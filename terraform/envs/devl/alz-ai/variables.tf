@@ -7,35 +7,38 @@ variable "location" {
 variable "applications" {
   description = "Map of application details"
   type = map(object({
-    notes                        = string
-    service_management_reference = string
+    notes                         = string
+    service_management_reference  = string
     logo_image                    = string
-    display_name                 = string
-    department_name              = string
-    team_name                    = string
-    application_name             = string
-    create_access_package        = bool
-    access_package_reviewers     = list(string)
-    owners                       = list(string)
+    display_name                  = string
+    department_name               = string
+    team_name                     = string
+    application_name              = string
+    owners                        = list(string)
     application_contacts          = list(string)
-    allowed_groups               = list(string)
-    homepage_url                 = string
-    logout_url                   = string
+    allowed_groups                = list(string)
+    homepage_url                  = string
+    logout_url                    = string
     redirect_uris                 = list(string)
     access_token_issuance_enabled = bool
     id_token_issuance_enabled     = bool
     mobile_desktop_redirect_uris  = list(string)
     app_roles = list(object({
-      allowed_member_types  = list(string)
-      description           = string
-      display_name          = string
-      id                    = string
-      value                 = string
-      access_package_hidden = bool
+      allowed_member_types = list(string)
+      description          = string
+      display_name         = string
+      id                   = string
+      value                = string
+    }))
+    resource_access = list(object({
+      resource_app_name = string
+      resource_access = object({
+        id   = string
+        type = string
+      })
     }))
     graph_application_permissions = list(string)
     graph_delegated_permissions   = list(string)
-    tenants_required              = list(string)
     federated_identity_credentials = list(object({
       repo_name      = string
       display_name   = string
@@ -71,35 +74,32 @@ variable "applications" {
   }))
   default = {
     "apim-alztest" = {
-      notes                          = "APIM API app registration for AI Enablement (dev)"
-      service_management_reference   = "TBD"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
-      display_name                   = "apim-alztest"
-      department_name                = "Justice-Digital"
-      team_name                      = "Azure-Landing-Zone"
-      application_name               = "apim-alztest"
-      create_access_package          = false
-      access_package_reviewers       = []
-      owners                         = ["RavindraRaghuvanshi-DOMADM@devl.justice.gov.uk"]
-      application_contacts           = ["RavindraRaghuvanshi-DOMADM@devl.justice.gov.uk"]
-      allowed_groups                 = []
-      homepage_url                   = null
-      logout_url                     = null
-      redirect_uris                  = []
-      mobile_desktop_redirect_uris   = null
+      notes                        = "APIM API app registration for AI Enablement (dev)"
+      service_management_reference = "TBD"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      display_name                 = "apim-alztest"
+      department_name              = "Justice-Digital"
+      team_name                    = "Azure-Landing-Zone"
+      application_name             = "apim-alztest"
+      owners                       = ["RavindraRaghuvanshi-DOMADM@devl.justice.gov.uk"]
+      application_contacts         = ["RavindraRaghuvanshi-DOMADM@devl.justice.gov.uk"]
+      allowed_groups               = []
+      homepage_url                 = null
+      logout_url                   = null
+      redirect_uris                = []
+      mobile_desktop_redirect_uris = null
       app_roles = [
         {
-          allowed_member_types  = ["Application"]
-          description           = "Allow service principals to access APIM"
-          display_name          = "APIM.Access"
-          id                    = "1e13984b-059e-4227-be82-aba328b50a44"
-          value                 = "APIM.Access"
-          access_package_hidden = true
+          allowed_member_types = ["Application"]
+          description          = "Allow service principals to access APIM"
+          display_name         = "APIM.Access"
+          id                   = "1e13984b-059e-4227-be82-aba328b50a44"
+          value                = "APIM.Access"
         }
       ]
+      resource_access                = []
       graph_application_permissions  = []
       graph_delegated_permissions    = []
-      tenants_required               = ["DEVL"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
@@ -123,26 +123,32 @@ variable "applications" {
       }
     }
     "moj-devl-apim-access-client" = {
-      notes                          = "Client app registration for APIM access (dev)"
-      service_management_reference   = "TBD"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
-      display_name                   = "moj-devl-apim-access-client"
-      department_name                = "Justice-Digital"
-      team_name                      = "Azure-Landing-Zone"
-      application_name               = "moj-devl-apim-access-client"
-      create_access_package          = false
-      access_package_reviewers       = []
-      owners                         = ["RavindraRaghuvanshi-DOMADM@devl.justice.gov.uk"]
-      application_contacts           = ["RavindraRaghuvanshi-DOMADM@devl.justice.gov.uk"]
-      allowed_groups                 = []
-      homepage_url                   = null
-      logout_url                     = null
-      redirect_uris                  = []
-      mobile_desktop_redirect_uris   = null
-      app_roles                      = []
+      notes                        = "Client app registration for APIM access (dev)"
+      service_management_reference = "TBD"
+      logo_image                   = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      display_name                 = "moj-devl-apim-access-client"
+      department_name              = "Justice-Digital"
+      team_name                    = "Azure-Landing-Zone"
+      application_name             = "moj-devl-apim-access-client"
+      owners                       = ["RavindraRaghuvanshi-DOMADM@devl.justice.gov.uk"]
+      application_contacts         = ["RavindraRaghuvanshi-DOMADM@devl.justice.gov.uk"]
+      allowed_groups               = []
+      homepage_url                 = null
+      logout_url                   = null
+      redirect_uris                = []
+      mobile_desktop_redirect_uris = null
+      app_roles                    = []
+      resource_access = [
+        {
+          resource_app_name = "apim-alztest"
+          resource_access = {
+            id   = "1e13984b-059e-4227-be82-aba328b50a44"
+            type = "Role"
+          }
+        }
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = []
-      tenants_required               = ["DEVL"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []

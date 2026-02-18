@@ -5,7 +5,7 @@ variable "location" {
 }
 
 variable "applications" {
-  description = "Map of application details"
+  description = "Civil Legal Advice Helpline"
   type = map(object({
     notes                        = string
     service_management_reference = string
@@ -70,27 +70,27 @@ variable "applications" {
     })
   }))
   default = {
-    "hmpps-check-my-diary" = {
-      notes                          = "HMPPS Check My Diary UI DEVL"
+    "cala-clah-nle" = {
+      notes                          = "Civil Legal Advice Helpline"
       service_management_reference   = ""
-      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                   = "HMPPS Check My Diary UI DEVL"
-      department_name                = "hmpps"
-      team_name                      = "haa"
-      application_name               = "HMPPS-CHECK-MY-DIARY-DEVL"
+      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      display_name                   = "cala-clah-nle"
+      department_name                = "LAA"
+      team_name                      = "CALA"
+      application_name               = "CLAH"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["mclancy-dev@devl.justice.gov.uk"]
-      application_contacts           = ["AuthandAudit-gg@justice.gov.uk"]
+      owners                         = []      
+      application_contacts           = ["cladevs-gg@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["http://localhost:3000/login/callback/", "http://localhost:3000/"]
+      redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["email", "openid", "profile",]
-      tenants_required               = ["DEVL"]
+      graph_delegated_permissions    = []
+      tenants_required               = ["NLE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
