@@ -49,7 +49,8 @@ function Set-EnvironmentVariables {
             throw $_.Exception.Message
         }
 
-        $plain = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret))
+        #$plain = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret))
+        $plain = $secret | ConvertFrom-SecureString -AsPlainText
         
         switch ($var) {
             "TerraformAppClientId" { $ENV:ARM_CLIENT_ID = $plain }

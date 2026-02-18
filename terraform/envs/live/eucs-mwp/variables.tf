@@ -7,20 +7,24 @@ variable "location" {
 variable "applications" {
   description = "Map of application details"
   type = map(object({
-    notes                        = string
-    service_management_reference = string
-    display_name                 = string
-    department_name              = string
-    team_name                    = string
-    application_name             = string
-    create_access_package        = bool
-    access_package_reviewers     = list(string)
-    owners                       = list(string)
-    allowed_groups               = list(string)
-    homepage_url                 = string
-    logout_url                   = string
-    redirect_uris                = list(string)
-    mobile_desktop_redirect_uris = list(string)
+    notes                         = string
+    service_management_reference  = string
+    logo_image                    = string
+    display_name                  = string
+    department_name               = string
+    team_name                     = string
+    application_name              = string
+    create_access_package         = bool
+    access_package_reviewers      = list(string)
+    owners                        = list(string)
+    application_contacts          = list(string)
+    allowed_groups                = list(string)
+    homepage_url                  = string
+    logout_url                    = string
+    redirect_uris                 = list(string)
+    access_token_issuance_enabled = bool
+    id_token_issuance_enabled     = bool
+    mobile_desktop_redirect_uris  = list(string)
     app_roles = list(object({
       allowed_member_types  = list(string)
       description           = string
@@ -46,13 +50,30 @@ variable "applications" {
       account_enabled               = bool
       application_template_name     = string
       hide                          = bool
+      custom_single_sign_on         = bool
     })
     identifier_uris = list(string)
+    api = object({
+      known_client_applications      = list(string)
+      mapped_claims_enabled          = bool
+      requested_access_token_version = string
+      oauth2_permission_scope        = list(object({
+        admin_consent_description  = string
+        admin_consent_display_name = string
+        enabled                    = bool
+        id                         = string
+        type                       = string
+        user_consent_description   = string
+        user_consent_display_name  = string
+        value                      = string
+      }))
+    })
   }))
   default = {
     "graph_permissions" = {
       notes                          = "This app is used to give delegated Graph API access"
       service_management_reference   = "IDAM-3659"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-Graph-API-Access"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -60,15 +81,18 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
-      mobile_desktop_redirect_uris   = null
+      mobile_desktop_redirect_uris   = ["http://localhost"]
       app_roles                      = []
       graph_application_permissions  = ["Group.Create"]
-      graph_delegated_permissions    = ["DeviceManagementManagedDevices.Read.All", "AuditLog.Read.All", "Reports.Read.All", "Files.Read.All", "GroupMember.ReadWrite.All", "Group.ReadWrite.All", "TeamSettings.ReadWrite.All", "Team.ReadBasic.All", "Contacts.ReadWrite", "MailboxSettings.ReadWrite", "User.Read.All", "Mail.ReadBasic", "PartnerBilling.Read.All", "Organization.Read.All"]
+      graph_delegated_permissions    = ["DeviceManagementManagedDevices.Read.All", "AuditLog.Read.All", "Reports.Read.All", "Files.Read.All", "GroupMember.ReadWrite.All", "Group.ReadWrite.All", "TeamSettings.ReadWrite.All", "Team.ReadBasic.All", "Contacts.ReadWrite", "MailboxSettings.ReadWrite", "User.Read.All", "Mail.ReadBasic", "PartnerBilling.Read.All", "Organization.Read.All", "TeamsUserConfiguration.Read.All", "TeamsTelephoneNumber.Read.All", "TeamsPolicyUserAssign.ReadWrite.All"]
       tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -78,12 +102,20 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = true
+        custom_single_sign_on         = null
       }
       identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     },
     "MWPExchangeSP" = {
       notes                          = "This app is used to give application access to Exchange Online."
       service_management_reference   = "IDAM-3659"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-EXO-SPN-RW-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -91,6 +123,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -100,6 +133,8 @@ variable "applications" {
       graph_application_permissions  = ["Mail.ReadWrite", "MailboxFolder.ReadWrite.All", "MailboxConfigItem.ReadWrite", "MailboxSettings.ReadWrite", "Calendars.ReadWrite", "Contacts.ReadWrite"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -109,12 +144,20 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = true
+        custom_single_sign_on         = null
       }
       identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     },
-      "MWPTeamsSP" = {
+    "MWPTeamsSP" = {
       notes                          = "This app is used to give application access to MS Teams."
       service_management_reference   = "IDAM-3659"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-MST-SPN-RW-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -122,6 +165,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -131,6 +175,8 @@ variable "applications" {
       graph_application_permissions  = ["Team.ReadBasic.All", "OnlineMeetingArtifact.Read.All", "RealTimeActivityFeed.Read.All", "OnlineMeetings.Read.All", "TeamSettings.ReadWrite.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -140,12 +186,20 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = true
+        custom_single_sign_on         = null
       }
       identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     },
     "MWPUsersGroupSP" = {
       notes                          = "This app is used to give application access to Users and Groups."
       service_management_reference   = "IDAM-3659"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-UG-SPN-RW-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -153,6 +207,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -162,6 +217,8 @@ variable "applications" {
       graph_application_permissions  = ["Directory.Read.All", "Group.ReadWrite.All", "GroupSettings.ReadWrite.All", "User.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -171,12 +228,20 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = true
+        custom_single_sign_on         = null
       }
       identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     },
     "MWPSharePointSP" = {
       notes                          = "This app is used to give application access to SharePoint."
       service_management_reference   = "IDAM-3659"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-SPT-SPN-R-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -184,6 +249,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -193,6 +259,8 @@ variable "applications" {
       graph_application_permissions  = ["Files.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -202,12 +270,20 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = true
+        custom_single_sign_on         = null
       }
       identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     },
     "MWPLicenseBillingSP" = {
       notes                          = "This app is used to give application access to Licensing and Billing."
       service_management_reference   = "IDAM-3659"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-LAB-SPN-R-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -215,6 +291,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -224,6 +301,8 @@ variable "applications" {
       graph_application_permissions  = ["Organization.Read.All", "PartnerBilling.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -233,19 +312,28 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = true
+        custom_single_sign_on         = null
       }
       identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     },
     "MWPAuditInsightsSP" = {
       notes                          = "This app is used to give application access to Audit Insights."
       service_management_reference   = "IDAM-3659"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-AI-SPN-R-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
       application_name               = "AuditInsights"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk"]
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -255,6 +343,8 @@ variable "applications" {
       graph_application_permissions  = ["Reports.Read.All", "AuditLog.Read.All", "DeviceManagementManagedDevices.Read.All"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -264,12 +354,20 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = true
+        custom_single_sign_on         = null
       }
       identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     },
     "MWPMailSend" = {
       notes                          = "This app is used to give application access to Mail.Send, scoped to mwengineers@justice.gov.uk."
       service_management_reference   = "IDAM-5441"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-Scoped-Mail-Send"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -277,6 +375,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -286,6 +385,8 @@ variable "applications" {
       graph_application_permissions  = ["Mail.Send"]
       graph_delegated_permissions    = []
       tenants_required               = ["LIVE"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -295,12 +396,20 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = true
+        custom_single_sign_on         = null
       }
       identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = []
+      }
     },
     "eucs_mwp_miro" = {
       notes                          = "Used to grant access to Graph API scopes - EUCS MWP Miro"
       service_management_reference   = "EMW-1522"
+      logo_image                     = "./assets/miro-logo-215x215.png"
       display_name                   = "MOJO-EUCS-MWP-MIRO"
       department_name                = "EUCS"
       team_name                      = "Modern-Workplace"
@@ -308,6 +417,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["mobeen.chaudry@JusticeUK.onmicrosoft.com", "Mayuran.Nahendran@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["mobeen.chaudry@JusticeUK.onmicrosoft.com", "Mayuran.Nahendran@JusticeUK.onmicrosoft.com"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -317,6 +427,8 @@ variable "applications" {
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read", "Files.Read", "Files.Read.All"]
       tenants_required               = ["DEVL"]
+      access_token_issuance_enabled  = true
+      id_token_issuance_enabled      = true
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -326,8 +438,24 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = "Miro"
         hide                          = true
+        custom_single_sign_on         = null
       }
       identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = [{
+          admin_consent_description  = "Allow the application to access TERRAFORM_INSTANTIATE_dd12b81d-5e29-c166-de06-d88f188fc505 on behalf of the signed-in user."
+          admin_consent_display_name = "Access TERRAFORM_INSTANTIATE_dd12b81d-5e29-c166-de06-d88f188fc505"
+          enabled                    = true
+          id                         = "a08a1115-8896-4598-9786-cf538ab4c756"
+          type                       = "User"
+          user_consent_description   = "Allow the application to access TERRAFORM_INSTANTIATE_dd12b81d-5e29-c166-de06-d88f188fc505 on your behalf."
+          user_consent_display_name  = "Access TERRAFORM_INSTANTIATE_dd12b81d-5e29-c166-de06-d88f188fc505"
+          value                      = "user_impersonation"
+        }]
+      }
     }
   }
 }
