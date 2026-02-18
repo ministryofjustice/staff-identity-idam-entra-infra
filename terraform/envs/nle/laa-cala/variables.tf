@@ -73,7 +73,7 @@ variable "applications" {
     "cala-clah-nle" = {
       notes                          = "Civil Legal Advice Helpline"
       service_management_reference   = ""
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "Civil Legal Advice Helpline"
       department_name                = "LAA"
       team_name                      = "CALA"
@@ -115,7 +115,7 @@ variable "applications" {
     "cala-cla-backend-nle" = {
       notes                          = "Cla Backend"
       service_management_reference   = ""
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "Cla Backend"
       department_name                = "LAA"
       team_name                      = "CALA"
