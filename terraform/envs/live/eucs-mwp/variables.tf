@@ -73,7 +73,7 @@ variable "applications" {
     "graph_permissions" = {
       notes                          = "This app is used to give delegated Graph API access"
       service_management_reference   = "IDAM-3659"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-Graph-API-Access"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -115,7 +115,7 @@ variable "applications" {
     "MWPExchangeSP" = {
       notes                          = "This app is used to give application access to Exchange Online."
       service_management_reference   = "IDAM-3659"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-EXO-SPN-RW-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -157,7 +157,7 @@ variable "applications" {
     "MWPTeamsSP" = {
       notes                          = "This app is used to give application access to MS Teams."
       service_management_reference   = "IDAM-3659"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-MST-SPN-RW-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -199,7 +199,7 @@ variable "applications" {
     "MWPUsersGroupSP" = {
       notes                          = "This app is used to give application access to Users and Groups."
       service_management_reference   = "IDAM-3659"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-UG-SPN-RW-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -241,7 +241,7 @@ variable "applications" {
     "MWPSharePointSP" = {
       notes                          = "This app is used to give application access to SharePoint."
       service_management_reference   = "IDAM-3659"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-SPT-SPN-R-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -283,7 +283,7 @@ variable "applications" {
     "MWPLicenseBillingSP" = {
       notes                          = "This app is used to give application access to Licensing and Billing."
       service_management_reference   = "IDAM-3659"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/mMOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-LAB-SPN-R-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -325,7 +325,7 @@ variable "applications" {
     "MWPAuditInsightsSP" = {
       notes                          = "This app is used to give application access to Audit Insights."
       service_management_reference   = "IDAM-3659"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-AI-SPN-R-MSGraphAPI-1.0"
       department_name                = "eucs"
       team_name                      = "mwp"
@@ -367,7 +367,7 @@ variable "applications" {
     "MWPMailSend" = {
       notes                          = "This app is used to give application access to Mail.Send, scoped to mwengineers@justice.gov.uk."
       service_management_reference   = "IDAM-5441"
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "EUCS-MWP-Scoped-Mail-Send"
       department_name                = "eucs"
       team_name                      = "mwp"
