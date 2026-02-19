@@ -5,7 +5,7 @@ variable "location" {
 }
 
 variable "applications" {
-  description = "Civil Legal Advice Helpline"
+  description = "Client Access to Legal Advice (CALA) applications"
   type = map(object({
     notes                        = string
     service_management_reference = string
@@ -73,8 +73,8 @@ variable "applications" {
     "cala-clah-nle" = {
       notes                          = "Civil Legal Advice Helpline"
       service_management_reference   = ""
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
-      display_name                   = "cala-clah-nle"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      display_name                   = "Civil Legal Advice Helpline"
       department_name                = "LAA"
       team_name                      = "CALA"
       application_name               = "CLAH"
@@ -110,6 +110,59 @@ variable "applications" {
         mapped_claims_enabled          = false,
         requested_access_token_version = null,
         oauth2_permission_scope = []
+      }
+    }
+    "cala-cla-backend-nle" = {
+      notes                          = "Cla Backend"
+      service_management_reference   = ""
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      display_name                   = "Cla Backend"
+      department_name                = "LAA"
+      team_name                      = "CALA"
+      application_name               = "CLA-Backend"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = []      
+      application_contacts           = ["cladevs-gg@justice.gov.uk"]
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["NLE"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope = [
+          {
+            admin_consent_description  = "Allow access from Civil Legal Advice Helpline Client"
+            admin_consent_display_name = "Civil Legal Advice Helpline Client"
+            user_consent_description   = null
+            user_consent_display_name  = null
+            enabled                    = true
+            id                         = "649b9baa-64bf-41fb-932c-d50d31bb2e8f"
+            type                       = "User"
+            value                      = "Client.CLAH"
+          }
+        ]
       }
     }
   }
