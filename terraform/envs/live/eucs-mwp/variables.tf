@@ -122,8 +122,8 @@ variable "applications" {
       application_name               = "ExchangeOnline"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
-      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Samuel.lane@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Samuel.lane@JusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -332,8 +332,8 @@ variable "applications" {
       application_name               = "AuditInsights"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk"]
-      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk"]
+      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk", "Samuel.lane@JusticeUK.onmicrosoft.com"]
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk", "Samuel.lane@JusticeUK.onmicrosoft.com"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
