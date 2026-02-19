@@ -89,7 +89,7 @@ variable "applications" {
       mobile_desktop_redirect_uris   = ["http://localhost"]
       app_roles                      = []
       graph_application_permissions  = ["Group.Create"]
-      graph_delegated_permissions    = ["DeviceManagementManagedDevices.Read.All", "AuditLog.Read.All", "Reports.Read.All", "Files.Read.All", "GroupMember.ReadWrite.All", "Group.ReadWrite.All", "TeamSettings.ReadWrite.All", "Team.ReadBasic.All", "Contacts.ReadWrite", "MailboxSettings.ReadWrite", "User.Read.All", "Mail.ReadBasic", "PartnerBilling.Read.All", "Organization.Read.All", "TeamsUserConfiguration.Read.All", "TeamsTelephoneNumber.Read.All", "TeamsPolicyUserAssign.ReadWrite.All", "Calendars.ReadWrite", "Mail.ReadWrite"]
+      graph_delegated_permissions    = ["DeviceManagementManagedDevices.Read.All", "AuditLog.Read.All", "Reports.Read.All", "Files.Read.All", "GroupMember.ReadWrite.All", "Group.ReadWrite.All", "TeamSettings.ReadWrite.All", "Team.ReadBasic.All", "Contacts.ReadWrite", "MailboxSettings.ReadWrite", "User.Read.All", "Mail.ReadBasic", "PartnerBilling.Read.All", "Organization.Read.All", "TeamsUserConfiguration.Read.All", "TeamsTelephoneNumber.Read.All", "TeamsPolicyUserAssign.ReadWrite.All"]
       tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = true
       id_token_issuance_enabled      = true
@@ -122,8 +122,8 @@ variable "applications" {
       application_name               = "ExchangeOnline"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
-      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com"]      
+      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Samuel.lane@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Samuel.lane@JusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
@@ -332,8 +332,8 @@ variable "applications" {
       application_name               = "AuditInsights"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk"]
-      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk"]
+      owners                         = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk", "Samuel.lane@JusticeUK.onmicrosoft.com"]
+      application_contacts           = ["Shaun.Horton1@JusticeUK.onmicrosoft.com", "Richard.Robinson@JusticeUK.onmicrosoft.com", "ModernWorkplace@justice.gov.uk", "Samuel.lane@JusticeUK.onmicrosoft.com"]
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
