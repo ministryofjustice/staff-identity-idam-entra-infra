@@ -88,6 +88,15 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
+      resource_access                = [       
+        {
+          resource_app_name = "Cla Backend API"
+          resource_access = {
+            id   = "649b9baa-64bf-41fb-932c-d50d31bb2e8f" # Requesting 'Client.CLAH'
+            type = "Scope"
+          }
+        }
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = []
       tenants_required               = ["NLE"]
