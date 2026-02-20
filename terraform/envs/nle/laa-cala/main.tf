@@ -6,10 +6,7 @@ locals {
   }
 }
 
-resource "random_uuid" "scope_obo_internal_api" {} # Scope exposed by Internal API
-resource "random_uuid" "scope_obo_shared_api" {}  # Scope exposed by Shared Docs API
-resource "random_uuid" "approle_files_write_s2s_example_api_resource" {}  # uuid for s2s API resource role
-resource "random_uuid" "scope_auth_code_flow_example_api" {} # Scope exposed by Internal API
+resource "random_uuid" "scope_auth_code_flow_api" {} # Scope exposed by Internal API
 
 #region Application Registrations
 module "application-registration" {
@@ -131,7 +128,7 @@ locals {
             user_consent_description   = null
             user_consent_display_name  = null
             enabled                    = true
-            id                         = random_uuid.scope_obo_shared_api.result
+            id                         = random_uuid.scope_auth_code_flow_api.result
             type                       = "User"
             value                      = "Client.CLAH"
           }
