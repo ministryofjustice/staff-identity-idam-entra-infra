@@ -70,7 +70,7 @@ variable "applications" {
     })
   }))
   default = {
-    "IDAM-Tag-Test" = {
+    "SILAS-DATAEXTRACT-DEV" = {
       notes                          = "SILAS-DATAEXTRACT-DEV"
       service_management_reference   = "IDAM-5608"
       logo_image                     = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
@@ -83,7 +83,7 @@ variable "applications" {
       owners                         = ["lfairfield-admin@devl.justice.gov.uk"]      
       application_contacts           = ["lfairfield-admin@devl.justice.gov.uk"]      
       allowed_groups                 = []
-      sign_in_audience              = "AzureADMultipleOrgs" 
+      sign_in_audience               = "AzureADMultipleOrgs" 
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
