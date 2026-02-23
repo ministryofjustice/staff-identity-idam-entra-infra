@@ -52,7 +52,7 @@ locals {
       application_name               = "CLAH"
       owners                         = []
       application_contacts           = ["cladevs-gg@justice.gov.uk"]
-      allowed_groups                 = ["APPREG-User-Access-LAA-Civil-Legal-Advice"]
+      allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
@@ -68,11 +68,11 @@ locals {
         }
       ]
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["User.Read"]
+      graph_delegated_permissions    = []
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags                           = ["Business unit: LAA", "authPattern: AuthCodeFlow"]
+      tags                           = ["Business unit: LAA", "authPattern: Authorization Code Pattern"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -83,23 +83,12 @@ locals {
         hide                          = null
         custom_single_sign_on         = null
       }
-      identifier_uris = ["api://cala-clah-nle"]
+      identifier_uris = null
       api = {
         known_client_applications      = null,
         mapped_claims_enabled          = true,
-        requested_access_token_version = 2,
-        oauth2_permission_scope        = [
-          {
-            admin_consent_description  = "Allow access from Civil Legal Advice Helpline Client"
-            admin_consent_display_name = "Civil Legal Advice Helpline Client"
-            user_consent_description   = null
-            user_consent_display_name  = null
-            enabled                    = true
-            id                         = random_uuid.scope_auth_code_flow_api.result
-            type                       = "User"
-            value                      = "Client.CLAH"
-          }
-        ]
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
       }
     }
     "cala-cla-backend-nle" = {
@@ -112,27 +101,19 @@ locals {
       application_name             = "CLA-Backend"
       owners                       = []
       application_contacts         = ["cladevs-gg@justice.gov.uk"]
-      allowed_groups               = ["APPREG-User-Access-LAA-Civil-Legal-Advice"]
+      allowed_groups               = []
       homepage_url                 = null
       logout_url                   = null
       redirect_uris                = null
       mobile_desktop_redirect_uris = null
       app_roles                    = []
-      resource_access                = [       
-        {
-          resource_app_name = "Civil Legal Advice Helpline"
-          resource_access = {
-            id   = random_uuid.scope_auth_code_flow_example_api.result # Requesting 'Documents.Read'
-            type = "Scope"
-          }
-        }
-      ]
+      resource_access              = []
       graph_application_permissions  = []
-      graph_delegated_permissions    = ["User.Read"]
+      graph_delegated_permissions    = []
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags                           = ["Business unit: LAA", "authPattern: AuthCodeFlow"]
+      tags                           = ["Business unit: LAA", "authPattern: Authorization Code Pattern"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -143,12 +124,23 @@ locals {
         hide                          = null
         custom_single_sign_on         = null
       }
-      identifier_uris = ["api://cala-cla-backend-nle"]
+      identifier_uris = null
       api = {
         known_client_applications      = null,
         mapped_claims_enabled          = true,
-        requested_access_token_version = 2,
-        oauth2_permission_scope        = []
+        requested_access_token_version = null,
+        oauth2_permission_scope        = [
+          {
+            admin_consent_description  = "Allow access from Civil Legal Advice Helpline Client"
+            admin_consent_display_name = "Civil Legal Advice Helpline Client"
+            user_consent_description   = null
+            user_consent_display_name  = null
+            enabled                    = true
+            id                         = random_uuid.scope_auth_code_flow_api.result
+            type                       = "User"
+            value                      = "Client.CLAH"
+          }
+        ]
       }
     }
   }
