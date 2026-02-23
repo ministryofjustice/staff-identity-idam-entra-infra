@@ -62,7 +62,7 @@ locals {
         {
           resource_app_name = "Cla Backend"
           resource_access = {
-            id   = "649b9baa-64bf-41fb-932c-d50d31bb2e8f" # Requesting 'Client.CLAH'
+            id   = random_uuid.scope_auth_code_flow_api.result # Requesting 'Client.CLAH'
             type = "Scope"
           }
         }
