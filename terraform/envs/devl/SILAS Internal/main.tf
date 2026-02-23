@@ -8,8 +8,9 @@ locals {
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1.5.0"
+  source                         = "../../../modules/application-registrationV1.7.0"
   for_each                       = var.applications
+  sign_in_audience               = var.sign_in_audience
   notes                          = each.value.notes
   logo_image                     = each.value.logo_image
   service_management_reference   = each.value.service_management_reference
@@ -17,8 +18,6 @@ module "application-registration" {
   department_name                = each.value.department_name
   team_name                      = each.value.team_name
   application_name               = each.value.application_name
-  create_access_package          = each.value.create_access_package
-  access_package_reviewers       = each.value.access_package_reviewers
   owners                         = each.value.owners
   allowed_groups                 = each.value.allowed_groups
   homepage_url                   = each.value.homepage_url

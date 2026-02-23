@@ -7,6 +7,7 @@ variable "location" {
 variable "applications" {
   description = "Map of application details"
   type = map(object({
+    sign_in_audience = string
     notes                        = string
     service_management_reference = string
     logo_image                    = string
@@ -14,8 +15,6 @@ variable "applications" {
     department_name              = string
     team_name                    = string
     application_name             = string
-    create_access_package        = bool
-    access_package_reviewers     = list(string)
     owners                       = list(string)
     application_contacts          = list(string)
     allowed_groups               = list(string)
@@ -84,6 +83,7 @@ variable "applications" {
       owners                         = ["lfairfield-admin@devl.justice.gov.uk"]      
       application_contacts           = ["lfairfield-admin@devl.justice.gov.uk"]      
       allowed_groups                 = []
+      sign_in_audience              = "AzureADMultipleOrgs" 
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
