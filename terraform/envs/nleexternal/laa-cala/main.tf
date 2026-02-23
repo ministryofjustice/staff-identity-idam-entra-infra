@@ -58,7 +58,8 @@ locals {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      resource_access                = [
+      resource_access                = []
+      /* resource_access                = [
         {
           resource_app_name = "Cla Backend"
           resource_access = {
@@ -66,7 +67,7 @@ locals {
             type = "Scope"
           }
         }
-      ]
+      ] */
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       access_token_issuance_enabled  = false
@@ -88,18 +89,7 @@ locals {
         known_client_applications      = null,
         mapped_claims_enabled          = true,
         requested_access_token_version = 2,
-        oauth2_permission_scope        = [
-          {
-            admin_consent_description  = "Allow access from Civil Legal Advice Helpline Client"
-            admin_consent_display_name = "Civil Legal Advice Helpline Client"
-            user_consent_description   = null
-            user_consent_display_name  = null
-            enabled                    = true
-            id                         = random_uuid.scope_auth_code_flow_api.result
-            type                       = "User"
-            value                      = "Client.CLAH"
-          }
-        ]
+        oauth2_permission_scope        = []
       }
     }
     "cala-cla-backend-nle" = {
@@ -118,15 +108,16 @@ locals {
       redirect_uris                = null
       mobile_desktop_redirect_uris = null
       app_roles                    = []
-      resource_access                = [       
+      resource_access              = []       
+      /* resource_access                = [       
         {
           resource_app_name = "Civil Legal Advice Helpline"
           resource_access = {
-            id   = random_uuid.scope_auth_code_flow_example_api.result # Requesting 'Documents.Read'
+            id   = random_uuid.scope_auth_code_flow_api.result # Requesting 'Documents.Read'
             type = "Scope"
           }
         }
-      ]
+      ] */
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       access_token_issuance_enabled  = false
@@ -148,7 +139,18 @@ locals {
         known_client_applications      = null,
         mapped_claims_enabled          = true,
         requested_access_token_version = 2,
-        oauth2_permission_scope        = []
+        oauth2_permission_scope        = [
+          {
+            admin_consent_description  = "Allow access from Civil Legal Advice Helpline Client"
+            admin_consent_display_name = "Civil Legal Advice Helpline Client"
+            user_consent_description   = null
+            user_consent_display_name  = null
+            enabled                    = true
+            id                         = random_uuid.scope_auth_code_flow_api.result
+            type                       = "User"
+            value                      = "Client.CLAH"
+          }
+        ]
       }
     }
   }
