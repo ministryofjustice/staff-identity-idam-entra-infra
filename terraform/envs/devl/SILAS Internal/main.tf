@@ -10,7 +10,7 @@ locals {
 module "application-registration" {
   source                         = "../../../modules/application-registrationV1.7.0"
   for_each                       = var.applications
-  sign_in_audience               = var.sign_in_audience
+  sign_in_audience               = each.value.sign_in_audience
   notes                          = each.value.notes
   logo_image                     = each.value.logo_image
   service_management_reference   = each.value.service_management_reference
