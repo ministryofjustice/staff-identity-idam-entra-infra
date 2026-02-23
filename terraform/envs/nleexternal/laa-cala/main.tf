@@ -58,8 +58,7 @@ locals {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      resource_access                = []
-      /* resource_access                = [
+      resource_access                = [
         {
           resource_app_name = "Cla Backend"
           resource_access = {
@@ -67,7 +66,7 @@ locals {
             type = "Scope"
           }
         }
-      ] */
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       access_token_issuance_enabled  = false
@@ -107,9 +106,8 @@ locals {
       logout_url                   = null
       redirect_uris                = null
       mobile_desktop_redirect_uris = null
-      app_roles                    = []
-      resource_access              = []       
-      /* resource_access                = [       
+      app_roles                    = []      
+      resource_access              = [       
         {
           resource_app_name = "Civil Legal Advice Helpline"
           resource_access = {
@@ -117,7 +115,7 @@ locals {
             type = "Scope"
           }
         }
-      ] */
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       access_token_issuance_enabled  = false
