@@ -58,7 +58,15 @@ locals {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      resource_access                = []
+      resource_access                = [
+        {
+          resource_app_name = "Cla Backend"
+          resource_access = {
+            id   = random_uuid.scope_auth_code_flow_api.result # Requesting 'Client.CLAH'
+            type = "Scope"
+          }
+        }
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = []
       access_token_issuance_enabled  = false
