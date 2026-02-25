@@ -1248,6 +1248,96 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "STG-AI-Caselaw-Verification-Dev" = {
+      notes                          = "Justice AI Caselaw Verification Dev App"
+      service_management_reference   = "IDAM-5036"
+      display_name                   = "STG-AI-Caselaw-Verification-Dev"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Caselaw-Verification-Dev"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Dan.James@justice.gov.uk", "John.Daley@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://caselawverification-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
+    },
+    "STG-AI-Caselaw-Verification-Preprod" = {
+      notes                          = "Justice AI Caselaw Verification Pre Prod App"
+      service_management_reference   = "IDAM-5036"
+      display_name                   = "STG-AI-Caselaw-Verification-Preprod"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Caselaw-Verification-Preprod"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Dan.James@justice.gov.uk", "John.Daley@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://caselawverification-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
+    },
+    "STG-AI-Caselaw-Verification-Prod" = {
+      notes                          = "Justice AI Caselaw Verification Prod App"
+      service_management_reference   = "IDAM-5036"
+      display_name                   = "STG-AI-Caselaw-Verification-Prod"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Caselaw-Verification-Prod"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Dan.James@justice.gov.uk", "John.Daley@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://caselawverification-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
