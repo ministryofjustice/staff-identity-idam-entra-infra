@@ -81,7 +81,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Sean.Padley@JusticeUK.onmicrosoft.com","Jack.Cregg@JusticeUK.onmicrosoft.com"]      
-      application_contacts           = []      
+      application_contacts           = ["Sean.Padley@JusticeUK.onmicrosoft.com","Jack.Cregg@JusticeUK.onmicrosoft.com"]      
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
