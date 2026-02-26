@@ -932,7 +932,7 @@ variable "applications" {
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = []
+      redirect_uris                  = ["https://smartinbox-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -1022,7 +1022,7 @@ variable "applications" {
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = []
+      redirect_uris                  = ["https://smartinbox-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
