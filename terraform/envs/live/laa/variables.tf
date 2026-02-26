@@ -161,7 +161,7 @@ variable "applications" {
       display_name                   = "DataStewardship | UAT | app2app"
       department_name                = "laa"
       team_name                      = "DataStewardship"
-      application_name               = "Data-Stewardship-API--UAT-app2app"
+      application_name               = "Data-Stewardship-API-UAT-app2app"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Saif-ul.Hussain@justice.gov.uk"]
