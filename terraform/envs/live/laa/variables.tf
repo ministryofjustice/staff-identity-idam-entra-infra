@@ -68,6 +68,15 @@ variable "applications" {
         value                      = string
       }))
     })
+    
+custom_application_permissions = list(object({
+  resource_app_id = string
+  resource_access = list(object({
+    id   = string
+    type = string
+  }))
+}))
+
   }))
   default = {
     "sabc-production" = {
@@ -88,6 +97,17 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
+      custom_application_permissions = [
+        {
+          resource_app_id = "fb5951f7-580c-4d0b-94ef-ede2619cb319"
+          resource_access = [
+            {
+              id   = "70b6852e-1c0c-4aaa-91ef-f4f2edb86845" # LAA_SDS.ALL
+              type = "Role"                                # Application permission
+            }
+          ]
+        }
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["LIVE"]
@@ -129,6 +149,17 @@ variable "applications" {
       logout_url                     = null
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
+      custom_application_permissions = [
+  {
+    resource_app_id = "fb5951f7-580c-4d0b-94ef-ede2619cb319"
+    resource_access = [
+      {
+        id   = "70b6852e-1c0c-4aaa-91ef-f4f2edb86845" # LAA_SDS.ALL
+        type = "Role"                                # Application permission
+      }
+    ]
+  }
+]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
@@ -172,6 +203,17 @@ variable "applications" {
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
+      custom_application_permissions = [
+  {
+    resource_app_id = "fb5951f7-580c-4d0b-94ef-ede2619cb319"
+    resource_access = [
+      {
+        id   = "70b6852e-1c0c-4aaa-91ef-f4f2edb86845" # LAA_SDS.ALL
+        type = "Role"                                # Application permission
+      }
+    ]
+  }
+]
       graph_application_permissions  = []
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["LIVE"]
