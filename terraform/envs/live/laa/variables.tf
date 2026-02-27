@@ -100,10 +100,10 @@ custom_application_permissions = list(object({
       app_roles                      = []
       custom_application_permissions = [
         {
-          resource_app_id = "fb5951f7-580c-4d0b-94ef-ede2619cb319"
+          resource_app_id = "5ece4513-0ec7-4178-b0d9-ed5c044b6ad5"
           resource_access = [
             {
-              id   = "70b6852e-1c0c-4aaa-91ef-f4f2edb86845" # LAA_SDS.ALL
+              id   = "6f49626e-8517-48d1-b6ce-692bd508cb9a" # LAA_SDS.ALL
               type = "Role"                                # Application permission
             }
           ]
