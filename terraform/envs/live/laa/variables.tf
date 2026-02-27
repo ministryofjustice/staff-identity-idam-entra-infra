@@ -53,29 +53,30 @@ variable "applications" {
       custom_single_sign_on         = bool
     })
     identifier_uris = list(string)
-    api = object({
-      known_client_applications      = list(string)
-      mapped_claims_enabled          = bool
-      requested_access_token_version = string
-      oauth2_permission_scope = list(object({
-        admin_consent_description  = string
-        admin_consent_display_name = string
-        enabled                    = bool
-        id                         = string
-        type                       = string
-        user_consent_description   = string
-        user_consent_display_name  = string
-        value                      = string
-      }))
-    })
     
+api = object({
+  known_client_applications      = list(string)
+  mapped_claims_enabled          = bool
+  requested_access_token_version = string
+  oauth2_permission_scope = list(object({
+    admin_consent_description  = string
+    admin_consent_display_name = string
+    enabled                    = bool
+    id                         = string
+    type                       = string
+    user_consent_description   = string
+    user_consent_display_name  = string
+    value                      = string
+  }))
+}),
 custom_application_permissions = list(object({
   resource_app_id = string
   resource_access = list(object({
     id   = string
     type = string
   }))
-}))
+})),
+
 
   }))
   default = {
