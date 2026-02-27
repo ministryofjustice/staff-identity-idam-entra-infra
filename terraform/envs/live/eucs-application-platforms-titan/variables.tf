@@ -71,16 +71,18 @@ variable "applications" {
   }))
   default = {
     pipeline_app = {
-      notes                        = "Used to deploy Titan infrastructure to test resource group"
-      service_management_reference = "EUCSVICTOR-1487"
+      notes                        = "Used to deploy Titan infrastructure to prod resource group"
+      service_management_reference = "EUCSVICTOR-1518"
       logo_image                   = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                 = "MoJO-TEST-rg-eucs-biosreset-002"
+      display_name                 = "MoJO-PROD-rg-eucs-intunemgt-001"
       department_name              = "EUCS"
       team_name                    = "Application-Platforms"
-      application_name             = "BIOS-Management"
+      application_name             = "Titan"
       create_access_package        = false
       access_package_reviewers     = []
-      owners                       = ["ccowen-admin@devl.justice.gov.uk"]
+      owners                       = [
+        "cameron.cowen@justiceuk.onmicrosoft.com"
+      ]
       application_contacts = [
         "Cameron Cowen",
         "Dean Longstaff",
@@ -100,7 +102,7 @@ variable "applications" {
         "Group.ReadWrite.All"
       ]
       graph_delegated_permissions    = []
-      tenants_required               = ["DEVL"]
+      tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
