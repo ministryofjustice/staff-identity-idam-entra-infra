@@ -86,15 +86,15 @@ resource "azuread_application" "entra_app_reg" {
     }
   }
 
-  dynamic "required_resource_access" {
-    for_each = var.resource_access
-    iterator = app
+  
+dynamic "required_resource_access" {
+    for_each = var.custom_application_permissions
 
     content {
-      resource_app_id = app.value.resource_app_name != null ? data.azuread_application.target_app_lookup[app.value.resource_app_name].client_id : app.value.resource_app_id
+      resource_app_id = required_resource_access.value.resource_app_id
 
       dynamic "resource_access" {
-        for_each = [app.value.resource_access]
+        for_each = required_resource_access.value.resource_access
         content {
           id   = resource_access.value.id
           type = resource_access.value.type
@@ -216,20 +216,3 @@ resource "azuread_application_federated_identity_credential" "federated_credenti
     azuread_service_principal.entra_app_service_principle
   ]
 }
-
-dynamic "required_resource_access" {
-    for_each = var.custom_application_permissions
-    iterator = cap
-
-    content {
-      resource_app_id = cap.value.resource_app_id
-
-      dynamic "resource_access" {
-        for_each = cap.value.resource_access
-        content {
-          id   = resource_access.value.id
-          type = resource_access.value.type
-        }
-      }
-    }
-  }
