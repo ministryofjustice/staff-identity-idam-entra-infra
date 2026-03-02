@@ -143,7 +143,7 @@ variable "applications" {
         "stephanie.dejong@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Apply-Civil-Legal-Aid"]
-      homepage_url   = "https://main-applyforlegalaid-uat.cloud-platform.service.justice.gov.uk/"
+      homepage_url   = "https://staging.apply-for-legal-aid.service.justice.gov.uk/"
       logout_url     = null
       redirect_uris = [
         "https://staging.apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback"
