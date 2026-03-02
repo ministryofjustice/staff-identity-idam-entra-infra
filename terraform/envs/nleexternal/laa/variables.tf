@@ -140,7 +140,8 @@ variable "applications" {
         "joel.sugarman@justice.gov.uk",
         "colin.bruce1@justice.gov.uk",
         "adam.goldstone@justice.gov.uk",
-        "stephanie.dejong@justice.gov.uk"
+        "katharine.ahern@justice.gov.uk",
+        "rose.azadkhan@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Apply-Civil-Legal-Aid"]
       homepage_url   = "https://staging.apply-for-legal-aid.service.justice.gov.uk/"
