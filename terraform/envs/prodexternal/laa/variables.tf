@@ -610,7 +610,7 @@ variable "applications" {
       notes                        = "Amend a claim application which will allow caseworkers to login and amend a claim. This is internal users app only."
       service_management_reference = "IDAM-4612"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
-      display_name                 = "LAA Amend a claim"
+      display_name                 = "Amend a claim for contracted work"
       department_name              = "justice-digital"
       team_name                    = "laa"
       application_name             = "laa-amend-a-claim"
