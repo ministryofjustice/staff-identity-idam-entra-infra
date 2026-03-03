@@ -140,7 +140,8 @@ variable "applications" {
         "joel.sugarman@justice.gov.uk",
         "colin.bruce1@justice.gov.uk",
         "adam.goldstone@justice.gov.uk",
-        "stephanie.dejong@justice.gov.uk"
+        "katharine.ahern@justice.gov.uk",
+        "rose.azadkhan@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Apply-Civil-Legal-Aid"]
       homepage_url   = "https://apply-for-legal-aid.service.justice.gov.uk/"
@@ -606,10 +607,10 @@ variable "applications" {
       }
     },
     "amend_a_claim" = {
-      notes                        = "Amend a claim application which will allow caseworkers to login and amend a claim. This is internal users app only."
+      notes                        = "Amend a claim submitted by providers using the Submit a bulk claim service. This is for internal users only."
       service_management_reference = "IDAM-4612"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
-      display_name                 = "LAA Amend a claim"
+      display_name                 = "Amend a claim for contracted work"
       department_name              = "justice-digital"
       team_name                    = "laa"
       application_name             = "laa-amend-a-claim"
