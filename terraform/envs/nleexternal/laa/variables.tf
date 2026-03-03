@@ -760,7 +760,6 @@ variable "applications" {
         oauth2_permission_scope = []
       }
     },
-    },
     "ccms_ssogen_ebs" = {
       notes                        = "SSOGEN-CCMS-EBS"
       service_management_reference = "IDAM-4851"
