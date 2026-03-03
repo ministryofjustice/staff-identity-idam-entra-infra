@@ -291,11 +291,11 @@ variable "applications" {
       access_package_reviewers     = []
       owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
-        "ellis.kenyo@justice.gov.uk",
         "Ivan.Yohuno@justice.gov.uk",
         "robin.skilling@justice.gov.uk",
         "robin.booth@justice.gov.uk",
-        "ewan.wickson@justice.gov.uk",
+        "Lauren.Henry@justice.gov.uk",
+        "Christopher.Rose1@justice.gov.uk",
         "nscc@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Submit-Crime-Form"]
