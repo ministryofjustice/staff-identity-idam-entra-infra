@@ -760,5 +760,52 @@ variable "applications" {
         oauth2_permission_scope = []
       }
     },
+    "ccms_ssogen_ebs" = {
+      notes                        = "SSOGEN-CCMS-EBS"
+      service_management_reference = "IDAM-4851"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "SSOGEN-CCMS-EBS"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "ccms-ssogen-ebs"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Scott.Armstrong@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk",
+        "Callum.Brett@justice.gov.uk"
+      ]
+      allowed_groups               = ["APPREG-User-Access-SSOGEN-CCMS-EBS"]
+      homepage_url                 = "https://ccmsebs.laa-test.modernisation-platform.service.justice.gov.uk/"
+      logout_url                   = null
+      redirect_uris                = ["https://ccmsebs.laa-test.modernisation-platform.service.justice.gov.uk/ssogen/acs"]
+      mobile_desktop_redirect_uris = null
+      app_roles = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["NLEEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = ["John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+        preferred_single_sign_on_mode = "saml"
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = true
+      }
+      identifier_uris = []
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = true
+        requested_access_token_version = 2
+        oauth2_permission_scope = []
+      }
+    },
   }
 }
