@@ -82,7 +82,7 @@ variable "applications" {
       access_package_reviewers       = []
       owners                         = ["joanna.gent@justice.gov.uk"]
       application_contacts           = ["joanna.gent@justice.gov.uk"]
-      allowed_groups                 = []
+      allowed_groups                 = ["APPREG-User-Access-sa26-monitoring"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = null
