@@ -7,20 +7,20 @@ variable "location" {
 variable "applications" {
   description = "Map of application details"
   type = map(object({
-    notes                         = string
-    service_management_reference  = string
+    notes                        = string
+    service_management_reference = string
     logo_image                    = string
-    display_name                  = string
-    department_name               = string
-    team_name                     = string
-    application_name              = string
-    create_access_package         = bool
-    access_package_reviewers      = list(string)
-    owners                        = list(string)
+    display_name                 = string
+    department_name              = string
+    team_name                    = string
+    application_name             = string
+    create_access_package        = bool
+    access_package_reviewers     = list(string)
+    owners                       = list(string)
     application_contacts          = list(string)
-    allowed_groups                = list(string)
-    homepage_url                  = string
-    logout_url                    = string
+    allowed_groups               = list(string)
+    homepage_url                 = string
+    logout_url                   = string
     redirect_uris                 = list(string)
     access_token_issuance_enabled = bool
     id_token_issuance_enabled     = bool
@@ -70,37 +70,27 @@ variable "applications" {
     })
   }))
   default = {
-    pipeline_app = {
-      notes                        = "Used to deploy Titan infrastructure to test resource group"
-      service_management_reference = "EUCSVICTOR-1487"
-      logo_image                   = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                 = "MoJO-TEST-rg-eucs-biosreset-002"
-      department_name              = "EUCS"
-      team_name                    = "Application-Platforms"
-      application_name             = "BIOS-Management"
-      create_access_package        = false
-      access_package_reviewers     = []
-      owners                       = ["ccowen-admin@devl.justice.gov.uk"]
-      application_contacts = [
-        "Cameron Cowen",
-        "Dean Longstaff",
-        "Zak Amir",
-        "Brian McNamara",
-        "Tom Holden"
-      ]
-      allowed_groups               = []
-      homepage_url                 = null
-      logout_url                   = null
-      redirect_uris                = null
-      mobile_desktop_redirect_uris = null
-      app_roles                    = []
-      graph_application_permissions = [
-        "Application.ReadWrite.OwnedBy",
-        "Directory.Read.All",
-        "Group.ReadWrite.All"
-      ]
+    "default_app" = {
+      notes                          = "MOJO-EUCS-APT-License-Management"
+      service_management_reference   = "IDAM-4923"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      display_name                   = "MOJO-EUCS-APT-License-Management"
+      department_name                = "eucs"
+      team_name                      = "apt"
+      application_name               = "MOJO-EUCS-APT-License-Management"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Sean.Padley@JusticeUK.onmicrosoft.com","Jack.Cregg@JusticeUK.onmicrosoft.com"]      
+      application_contacts           = ["Sean.Padley@JusticeUK.onmicrosoft.com","Jack.Cregg@JusticeUK.onmicrosoft.com"]      
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = ["Directory.Read.All","LicenseAssignment.ReadWrite.All"]
       graph_delegated_permissions    = []
-      tenants_required               = ["DEVL"]
+      tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
@@ -119,7 +109,7 @@ variable "applications" {
         known_client_applications      = [],
         mapped_claims_enabled          = false,
         requested_access_token_version = null,
-        oauth2_permission_scope        = []
+        oauth2_permission_scope = []
       }
     }
   }

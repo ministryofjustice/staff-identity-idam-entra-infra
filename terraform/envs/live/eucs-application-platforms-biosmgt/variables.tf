@@ -80,7 +80,7 @@ variable "applications" {
       application_name             = "BIOS-Management"
       create_access_package        = false
       access_package_reviewers     = []
-      owners                       = ["ccowen-admin@devl.justice.gov.uk"]
+      owners                       = ["cameron.cowen@justiceuk.onmicrosoft.com"]
       application_contacts = [
         "Cameron Cowen",
         "Dean Longstaff",
@@ -100,7 +100,7 @@ variable "applications" {
         "Group.ReadWrite.All"
       ]
       graph_delegated_permissions    = []
-      tenants_required               = ["DEVL"]
+      tenants_required               = ["LIVE"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []

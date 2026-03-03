@@ -7,24 +7,24 @@ variable "location" {
 variable "applications" {
   description = "Map of application details"
   type = map(object({
-    notes                         = string
-    service_management_reference  = string
+    sign_in_audience = string
+    notes                        = string
+    service_management_reference = string
     logo_image                    = string
-    display_name                  = string
-    department_name               = string
-    team_name                     = string
-    application_name              = string
-    create_access_package         = bool
-    access_package_reviewers      = list(string)
-    owners                        = list(string)
+    display_name                 = string
+    department_name              = string
+    team_name                    = string
+    application_name             = string
+    owners                       = list(string)
     application_contacts          = list(string)
-    allowed_groups                = list(string)
-    homepage_url                  = string
-    logout_url                    = string
+    allowed_groups               = list(string)
+    homepage_url                 = string
+    logout_url                   = string
     redirect_uris                 = list(string)
     access_token_issuance_enabled = bool
     id_token_issuance_enabled     = bool
     mobile_desktop_redirect_uris  = list(string)
+    tags = list(string)
     app_roles = list(object({
       allowed_member_types  = list(string)
       description           = string
@@ -70,36 +70,30 @@ variable "applications" {
     })
   }))
   default = {
-    pipeline_app = {
-      notes                        = "Used to deploy Titan infrastructure to test resource group"
-      service_management_reference = "EUCSVICTOR-1487"
-      logo_image                   = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                 = "MoJO-TEST-rg-eucs-biosreset-002"
-      department_name              = "EUCS"
-      team_name                    = "Application-Platforms"
-      application_name             = "BIOS-Management"
-      create_access_package        = false
-      access_package_reviewers     = []
-      owners                       = ["ccowen-admin@devl.justice.gov.uk"]
-      application_contacts = [
-        "Cameron Cowen",
-        "Dean Longstaff",
-        "Zak Amir",
-        "Brian McNamara",
-        "Tom Holden"
+    "SILAS-DATAEXTRACT-DEV" = {
+      notes                          = "SILAS-DATAEXTRACT-DEV"
+      service_management_reference   = "IDAM-5608"
+      logo_image                     = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      display_name                   = "SILAS-DATAEXTRACT-DEV"
+      department_name                = "laa"
+      team_name                      = "digital"
+      application_name               = "SILAS-DATAEXTRACT-DEV"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["lfairfield-admin@devl.justice.gov.uk"]      
+      application_contacts           = ["lfairfield-admin@devl.justice.gov.uk"]      
+      allowed_groups                 = []
+      sign_in_audience               = "AzureADMultipleOrgs" 
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = []
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      tags = []
+      graph_delegated_permissions    = [
+        "Sites.Selected"
       ]
-      allowed_groups               = []
-      homepage_url                 = null
-      logout_url                   = null
-      redirect_uris                = null
-      mobile_desktop_redirect_uris = null
-      app_roles                    = []
-      graph_application_permissions = [
-        "Application.ReadWrite.OwnedBy",
-        "Directory.Read.All",
-        "Group.ReadWrite.All"
-      ]
-      graph_delegated_permissions    = []
       tenants_required               = ["DEVL"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
@@ -108,7 +102,7 @@ variable "applications" {
         login_url                     = null
         notification_email_addresses  = []
         preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
+        app_role_assignment_required  = false
         account_enabled               = true
         application_template_name     = null
         hide                          = true
@@ -119,7 +113,7 @@ variable "applications" {
         known_client_applications      = [],
         mapped_claims_enabled          = false,
         requested_access_token_version = null,
-        oauth2_permission_scope        = []
+        oauth2_permission_scope = []
       }
     }
   }
