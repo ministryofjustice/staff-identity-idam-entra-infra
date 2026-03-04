@@ -53,7 +53,7 @@ locals {
       owners                         = []
       application_contacts           = ["cladevs-gg@justice.gov.uk"]
       allowed_groups                 = []
-      homepage_url                   = null
+      homepage_url                   = "https://staging.cases.civillegaladvice.service.gov.uk/"
       logout_url                     = null
       redirect_uris                  = null
       mobile_desktop_redirect_uris   = null
