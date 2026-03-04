@@ -50,7 +50,7 @@ locals {
       department_name                = "LAA"
       team_name                      = "CALA"
       application_name               = "CLAH"
-      owners                         = ["said.shire@justice.gov.uk"]
+      owners                         = ["Said.Shire_justice.gov.uk#EXT#@TestJusticeUKExternal.onmicrosoft.com"]
       application_contacts           = ["cladevs-gg@justice.gov.uk"]
       allowed_groups                 = ["APPREG-User-Access-LAA-Civil-Legal-Advice"]
       homepage_url                   = "https://staging.cases.civillegaladvice.service.gov.uk/"
