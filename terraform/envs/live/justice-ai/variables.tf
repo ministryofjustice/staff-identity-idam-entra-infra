@@ -768,6 +768,66 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "MOJ-Command-Centre-Frontend-Prod" = {
+      notes                          = "MOJ Command Centre Frontend Production App"
+      service_management_reference   = "IDAM-XXXX"
+      display_name                   = "MOJ Command Centre Frontend - Production"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "MOJ Command Centre Frontend - Production"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["Justice-ai-unit-staff"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://commandcentre-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
+    },
+    "MOJ-Prototype-Command-Centre-Frontend-Prod" = {
+      notes                          = "MOJ Prototype Command Centre Frontend Production App"
+      service_management_reference   = "IDAM-XXXX"
+      display_name                   = "MOJ Prototype Command Centre Frontend - Production"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "MOJ Prototype Command Centre Frontend - Production"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["Justice-ai-unit-staff"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://prototypecommandcentre-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
