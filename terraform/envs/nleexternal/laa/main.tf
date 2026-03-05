@@ -739,7 +739,7 @@ locals {
         hide                          = true
         custom_single_sign_on         = true
       }
-      identifier_uris = []
+      identifier_uris = ["https://ccmsebs.laa-test.modernisation-platform.service.justice.gov.uk/"]
       api = {
         known_client_applications      = []
         mapped_claims_enabled          = true
