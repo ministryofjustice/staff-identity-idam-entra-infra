@@ -1338,6 +1338,96 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "STG-AI-Probation-Chatbot-Dev" = {
+      notes                          = "Justice AI Probation Chatbot Dev App"
+      service_management_reference   = "IDAM-5036"
+      display_name                   = "STG-AI-Probation-Chatbot-Dev"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Probation-Chatbot-Dev"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["miranda.daniel@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://probationchatbot-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
+    },
+    "STG-AI-Probation-Chatbot-Preprod" = {
+      notes                          = "Justice AI Probation Chatbot Preprod App"
+      service_management_reference   = "IDAM-5036"
+      display_name                   = "STG-AI-Probation-Chatbot-Preprod"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Probation-Chatbot-Preprod"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["miranda.daniel@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://probationchatbot-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
+    },
+    "STG-AI-Probation-Chatbot-Prod" = {
+      notes                          = "Justice AI Probation Chatbot Prod App"
+      service_management_reference   = "IDAM-5036"
+      display_name                   = "STG-AI-Probation-Chatbot-Prod"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Probation-Chatbot-Prod"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["miranda.daniel@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      allowed_groups                 = ["MoJO - Users - All"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://probationchatbot-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
