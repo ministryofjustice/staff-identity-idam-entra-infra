@@ -24,7 +24,7 @@ module "application-registration" {
   redirect_uris                  = each.value.redirect_uris
   mobile_desktop_redirect_uris   = each.value.mobile_desktop_redirect_uris
   app_roles                      = each.value.app_roles
-  resource_access                = each.value.resource_access
+  resource_access                = each.value.custom_application_permissions
   graph_application_permissions  = each.value.graph_application_permissions
   graph_delegated_permissions    = each.value.graph_delegated_permissions
   federated_identity_credentials = each.value.federated_identity_credentials
@@ -88,6 +88,7 @@ locals {
           value                      = "user_impersonation"
         }]
       }
+      custom_application_permissions = []
     },
     "apply_civil_legal_aid" = {
       notes                        = "Enables providers to submit an application for civil legal aid."
@@ -138,6 +139,7 @@ locals {
         requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     },
     "apply_criminal_legal_aid" = {
       notes                        = "Apply for criminal legal aid is a service enabling providers to apply for criminal legal aid online. It is used by provider firms to submit applications on behalf of their clients, to make changes to returned applications, to provide additional evidence or to make supplementary applications when a client's circumstance change."
@@ -187,6 +189,7 @@ locals {
         requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     },
     "manage_providers_data" = {
       notes                        = "Application used to manage legal aid provider's data in CWA."
@@ -235,6 +238,7 @@ locals {
         requested_access_token_version = null,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     },
     "submit_a_crime_form" = {
       notes                        = "Allowing legal providers to submit applications and claims for CRM4s and CRM7s respectively."
@@ -284,6 +288,7 @@ locals {
         requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     },
     "laad_lassie_claim_enrichment_api" = {
       notes                        = "Legal Aid Single Sign in Experience API for Claim Enrichment to downstream LAA Services."
@@ -327,6 +332,7 @@ locals {
         requested_access_token_version = null,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     },
     "pui" = {
       notes                        = "Client and Cost Management System."
@@ -397,6 +403,7 @@ locals {
           value                      = "user_impersonation"
         }]
       }
+      custom_application_permissions = []
     },
     "submit_a_bulk_claim" = {
       notes                        = "TBC: Submit a Bulk Claim."
@@ -445,6 +452,7 @@ locals {
         requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     },
     "ccms_case_transfer_requests" = {
       notes                        = "Requests to transfer CCMS cases."
@@ -495,6 +503,7 @@ locals {
         requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     },
     "civil_decide" = {
       notes                        = "The decision making service within the civil application journey."
@@ -545,6 +554,7 @@ locals {
         requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     },
     "amend_a_claim" = {
       notes                        = "Amend a claim submitted by providers using the Submit a bulk claim service. This is for internal users only."
@@ -597,6 +607,7 @@ locals {
         requested_access_token_version = 2,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     },
     "secure_browser_pui" = {
       notes                        = "AWS Secure Browser to access the PUI service securely."
@@ -643,6 +654,7 @@ locals {
         requested_access_token_version = 2
         oauth2_permission_scope = []
       }
+      custom_application_permissions = []
     },
     "secure_browser_pui_2" = {
       notes                        = "AWS Secure Browser to access the PUI service securely."
@@ -689,6 +701,7 @@ locals {
         requested_access_token_version = 2
         oauth2_permission_scope = []
       }
+      custom_application_permissions = []
     },
     "ccms_ssogen_ebs" = {
       notes                        = "SSOGEN-CCMS-EBS"
@@ -733,6 +746,7 @@ locals {
         requested_access_token_version = 2
         oauth2_permission_scope = []
       }
+      custom_application_permissions = []
     },
   }
 }
