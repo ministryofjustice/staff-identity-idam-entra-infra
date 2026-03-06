@@ -58,7 +58,7 @@ variable "applications" {
       application_name               = "STG-AI-Justice-Transcribe-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["JusticeTranscribeTeam", "JusticeTranscribeUsers"]
       homepage_url                   = null
       logout_url                     = null
@@ -88,7 +88,7 @@ variable "applications" {
       application_name               = "STG-AI-Justice-Transcribe-Pre-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["JusticeTranscribeTeam"]
       homepage_url                   = null
       logout_url                     = null
@@ -118,7 +118,7 @@ variable "applications" {
       application_name               = "STG-AI-Justice-Transcribe-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["JusticeTranscribeTeam"]
       homepage_url                   = null
       logout_url                     = null
@@ -148,7 +148,7 @@ variable "applications" {
       application_name               = "STG-AI-Langfuse-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -178,7 +178,7 @@ variable "applications" {
       application_name               = "STG-AI-Langfuse-Pre-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -208,7 +208,7 @@ variable "applications" {
       application_name               = "STG-AI-Langfuse-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -238,7 +238,7 @@ variable "applications" {
       application_name               = "STG-AI-Prompt-Hub-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
@@ -268,7 +268,7 @@ variable "applications" {
       application_name               = "STG-AI-Prompt-Hub-Preprod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -298,7 +298,7 @@ variable "applications" {
       application_name               = "STG-AI-Prompt-Hub-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -328,7 +328,7 @@ variable "applications" {
       application_name               = "STG-AI-Redbox-Tracker-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["STG-AI-Redbox-Tracker-Prod-Group"]
       homepage_url                   = null
       logout_url                     = null
@@ -358,7 +358,7 @@ variable "applications" {
       application_name               = "STG-AI-Redbox-Tracker-Preprod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -388,7 +388,7 @@ variable "applications" {
       application_name               = "STG-AI-Redbox-Tracker-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -418,7 +418,7 @@ variable "applications" {
       application_name               = "STG-AI-Smartinbox-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk", "Francis.Webb1@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
@@ -448,7 +448,7 @@ variable "applications" {
       application_name               = "STG-AI-Smartinbox-Preprod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -478,7 +478,7 @@ variable "applications" {
       application_name               = "STG-AI-Smartinbox-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk", "Francis.Webb1@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -508,7 +508,7 @@ variable "applications" {
       application_name               = "STG-AI-Courts-Transcribe-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["CourtsTranscribe", "Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -538,7 +538,7 @@ variable "applications" {
       application_name               = "STG-AI-Courts-Transcribe-Preprod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["CourtsTranscribe", "Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -568,7 +568,7 @@ variable "applications" {
       application_name               = "STG-AI-Courts-Transcribe-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["CourtsTranscribe", "Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -598,7 +598,7 @@ variable "applications" {
       application_name               = "STG-AI-Prison-Transcribe-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -628,7 +628,7 @@ variable "applications" {
       application_name               = "STG-AI-Prison-Transcribe-Preprod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -658,7 +658,7 @@ variable "applications" {
       application_name               = "STG-AI-Prison-Transcribe-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["elmley-pin"]
       homepage_url                   = null
       logout_url                     = null
@@ -688,7 +688,7 @@ variable "applications" {
       application_name               = "STG-AI-Caselaw-Verification-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "John.Daley@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -718,7 +718,7 @@ variable "applications" {
       application_name               = "STG-AI-Caselaw-Verification-Preprod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "John.Daley@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -748,7 +748,7 @@ variable "applications" {
       application_name               = "STG-AI-Caselaw-Verification-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "John.Daley@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
