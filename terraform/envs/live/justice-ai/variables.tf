@@ -62,7 +62,7 @@ variable "applications" {
       allowed_groups                 = ["JusticeTranscribeTeam", "JusticeTranscribeUsers"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://justicetranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      redirect_uris                  = ["https://justicetranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://transcription.service.justice.gov.uk/.auth/login/aad/callback"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
