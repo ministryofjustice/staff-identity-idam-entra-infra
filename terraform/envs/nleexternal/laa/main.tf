@@ -720,9 +720,9 @@ locals {
         "Callum.Brett@justice.gov.uk"
       ]
       allowed_groups               = ["APPREG-User-Access-SSOGEN-CCMS-EBS"]
-      homepage_url                 = "https://ccmsebs.laa-test.modernisation-platform.service.justice.gov.uk/"
+      homepage_url                 = "https://ccmsebs-sso.laa-test.modernisation-platform.service.justice.gov.uk/"
       logout_url                   = null
-      redirect_uris                = ["https://ccmsebs.laa-test.modernisation-platform.service.justice.gov.uk/ssogen/acs"]
+      redirect_uris                = ["https://ccmsebs-sso.laa-test.modernisation-platform.service.justice.gov.uk/ssogen/acs"]
       mobile_desktop_redirect_uris = null
       app_roles = []
       graph_application_permissions  = []
