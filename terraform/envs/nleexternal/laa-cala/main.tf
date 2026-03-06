@@ -55,7 +55,7 @@ locals {
       allowed_groups                 = ["APPREG-User-Access-LAA-Civil-Legal-Advice"]
       homepage_url                   = "https://staging.cases.civillegaladvice.service.gov.uk/"
       logout_url                     = null
-      redirect_uris                  = null
+      redirect_uris                  = ["http://localhost:8000/auth/entra-callback", "https://staging.cases.civillegaladvice.service.gov.uk/auth/entra-callback", "https://lga-3903-silas-integration-laa-cla-frontend-uat.apps.live-1.cloud-platform.service.justice.gov.uk/auth/entra-callback"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       resource_access                = [
