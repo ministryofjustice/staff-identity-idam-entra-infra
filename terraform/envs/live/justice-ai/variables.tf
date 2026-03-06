@@ -778,11 +778,11 @@ variable "applications" {
       application_name               = "MOJ Command Centre Frontend - Production"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://commandcentre-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      redirect_uris                  = ["http://localhost:3000"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -808,11 +808,11 @@ variable "applications" {
       application_name               = "MOJ Prototype Command Centre Frontend - Production"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Dan.James@justice.gov.uk", "Richard.Leyshon@justice.gov.uk", "Sam.Lhuillier@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://prototypecommandcentre-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      redirect_uris                  = ["http://localhost:3000"]
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
