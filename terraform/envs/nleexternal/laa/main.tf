@@ -6,6 +6,8 @@ locals {
   }
 }
 
+resource "random_uuid" "scope_access_data_stewardship_api" {} # Scope exposed by Internal API
+
 #region Application Registrations
 module "application-registration" {
   source                         = "../../../modules/application-registrationV1.8.1"
@@ -720,7 +722,7 @@ locals {
       allowed_groups               = ["APPREG-User-Access-SSOGEN-CCMS-EBS"]
       homepage_url                 = "https://ccmsebs.laa-test.modernisation-platform.service.justice.gov.uk/"
       logout_url                   = null
-      redirect_uris                = ["https://ccmsebs.laa-test.modernisation-platform.service.justice.gov.uk/ssogen/acs"]
+      redirect_uris                = ["https://ccmsebs-sso.laa-test.modernisation-platform.service.justice.gov.uk/ssogen/acs"]
       mobile_desktop_redirect_uris = null
       app_roles = []
       graph_application_permissions  = []
@@ -739,12 +741,67 @@ locals {
         hide                          = true
         custom_single_sign_on         = true
       }
-      identifier_uris = ["https://ccmsebs.laa-test.modernisation-platform.service.justice.gov.uk/"]
+      identifier_uris = ["https://ccmsebs-sso.laa-test.modernisation-platform.service.justice.gov.uk"]
       api = {
         known_client_applications      = []
         mapped_claims_enabled          = true
         requested_access_token_version = 2
         oauth2_permission_scope = []
+      }
+      custom_application_permissions = []
+    },
+    "access_data_stewardship_api" = {
+      notes                        = "Access Data Stewardship API"
+      service_management_reference = "IDAM-4851"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "Access Data Stewardship API - used to store and protect LAA legal aid claim data."
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "access-data-stewardship-api"
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Saif-ul.Hussain@justice.gov.uk",
+        "Carl.McIntyre@justice.gov.uk"
+      ]
+      allowed_groups               = ["APPREG-User-Access-Access-Data-Stewardship-API"]
+      homepage_url                 = null
+      logout_url                   = null
+      redirect_uris                = null
+      mobile_desktop_redirect_uris = null
+      app_roles = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = ["api://nleexternal.onmicrosoft.com/access-data-stewardship-api"]
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = true
+        requested_access_token_version = 2
+        oauth2_permission_scope        = [
+          {
+            admin_consent_description  = "Allows upstream applications to access this API as you"
+            admin_consent_display_name = "Access As User"
+            user_consent_description   = "Allows upstream applications to access this API as you"
+            user_consent_display_name  = "Access As User"
+            enabled                    = true
+            id                         = random_uuid.scope_access_data_stewardship_api.result
+            type                       = "User"
+            value                      = "access_as_user"
+          }
+        ]
       }
       custom_application_permissions = []
     },
