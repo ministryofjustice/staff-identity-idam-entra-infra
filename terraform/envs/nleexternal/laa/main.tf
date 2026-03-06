@@ -722,7 +722,7 @@ locals {
       allowed_groups               = ["APPREG-User-Access-SSOGEN-CCMS-EBS"]
       homepage_url                 = "https://ccmsebs.laa-test.modernisation-platform.service.justice.gov.uk/"
       logout_url                   = null
-      redirect_uris                = ["https://ccmsebs-sso.laa-development.modernisation-platform.service.justice.gov.uk/ssogen/acs"]
+      redirect_uris                = ["https://ccmsebs-sso.laa-test.modernisation-platform.service.justice.gov.uk/ssogen/acs"]
       mobile_desktop_redirect_uris = null
       app_roles = []
       graph_application_permissions  = []
@@ -741,7 +741,7 @@ locals {
         hide                          = true
         custom_single_sign_on         = true
       }
-      identifier_uris = ["https://ccmsebs-sso.laa-test.modernisation-platform.service.justice.gov.uk/"]
+      identifier_uris = ["https://ccmsebs-sso.laa-test.modernisation-platform.service.justice.gov.uk"]
       api = {
         known_client_applications      = []
         mapped_claims_enabled          = true
