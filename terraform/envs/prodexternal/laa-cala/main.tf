@@ -91,7 +91,7 @@ locals {
       department_name              = "LAA"
       team_name                    = "CALA"
       application_name             = "CLA-Backend"
-      owners                       = ["said.shire@justice.gov.uk]
+      owners                       = ["said.shire@justice.gov.uk"]
       application_contacts         = ["said.shire@justice.gov.uk"]
       allowed_groups               = []
       homepage_url                 = null
