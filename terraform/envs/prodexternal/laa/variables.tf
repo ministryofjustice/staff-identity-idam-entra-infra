@@ -393,7 +393,7 @@ variable "applications" {
         "harry.henry@justice.gov.uk"
       ]
       allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
-      homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
+      homepage_url                 = "https://8969ca0a-66ab-42d2-9a45-eef3ccda764d.workspaces-web.com/?deepLinks=https%3A%2F%2Fccms-pui.laa.service.justice.gov.uk%2Fcivil"
       logout_url                   = null
       redirect_uris                = ["https://ccms-pui.laa.service.justice.gov.uk/civil/login/saml2/sso"]
       mobile_desktop_redirect_uris = null
