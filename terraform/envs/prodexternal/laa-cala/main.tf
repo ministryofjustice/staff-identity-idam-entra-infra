@@ -50,7 +50,7 @@ locals {
       department_name                = "LAA"
       team_name                      = "CALA"
       application_name               = "CLAH"
-      owners                         = ["said.shire@justice.gov.uk"]
+      owners                         = ["John.Nolan@JusticeUKExternal.onmicrosoft.com", "John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com"]
       application_contacts           = ["said.shire@justice.gov.uk"]
       allowed_groups                 = []
       homepage_url                   = "https://cases.civillegaladvice.service.gov.uk/"
@@ -91,7 +91,7 @@ locals {
       department_name              = "LAA"
       team_name                    = "CALA"
       application_name             = "CLA-Backend"
-      owners                       = ["said.shire@justice.gov.uk"]
+      owners                       = ["John.Nolan@JusticeUKExternal.onmicrosoft.com", "John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com"]
       application_contacts         = ["said.shire@justice.gov.uk"]
       allowed_groups               = []
       homepage_url                 = null
