@@ -779,7 +779,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
-      allowed_groups                 = ["Justice-ai-unit-staff"]
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["http://localhost:3000/"]
@@ -809,7 +809,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
-      allowed_groups                 = ["Justice-ai-unit-staff"]
+      allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["http://localhost:3000/"]
