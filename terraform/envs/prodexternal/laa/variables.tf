@@ -388,9 +388,10 @@ variable "applications" {
       access_package_reviewers     = []
       owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
-        "Eamon.McNally@justice.gov.uk",
-        "Ben.Ashton@justice.gov.uk",
-        "harry.henry@justice.gov.uk"
+        "muralidhar.puttanna@justice.gov.uk",
+        "Rajinder.Singh@justice.gov.uk",
+        "michael.farrell@justice.gov.uk"
+
       ]
       allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
       homepage_url                 = "https://8969ca0a-66ab-42d2-9a45-eef3ccda764d.workspaces-web.com/?deepLinks=https%3A%2F%2Fccms-pui.laa.service.justice.gov.uk%2Fcivil"
