@@ -6,6 +6,8 @@ locals {
   }
 }
 
+resource "random_uuid" "application_role_id_access_read" {} # Scope exposed by Internal API
+
 #region Application Registrations
 module "application-registration" {
   source                         = "../../../modules/application-registrationV1.8.1"
@@ -83,7 +85,17 @@ locals {
         requested_access_token_version = 2
         oauth2_permission_scope = []
       }
-      custom_application_permissions = []
+      custom_application_permissions = [
+        {
+          resource_app_name = "Pension Relief Portal - Allowlist API"
+          resource_access = [
+            {
+              id   = random_uuid.application_role_id_access_read.result
+              type = "Role"
+            }
+          ]
+        }
+      ]
     },
     "pension_relief_portal_allowlist_api" = {
       notes                        = "Pension Relief Portal - Allowlist API"
@@ -104,7 +116,15 @@ locals {
       logout_url                   = null
       redirect_uris                = null
       mobile_desktop_redirect_uris = null
-      app_roles = []
+      app_roles = [
+        {
+          allowed_member_types       = ["Application"],
+          description                = "Allows access to the Pension Relief Portal Allow List API",
+          display_name               = "Access.Read",
+          id                         = random_uuid.application_role_id_access_read.result,
+          value                      = "Access.Read"
+        }
+      ]
       graph_application_permissions  = []
       graph_delegated_permissions    = []
       access_token_issuance_enabled  = false
@@ -121,12 +141,12 @@ locals {
         hide                          = true
         custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris = ["api://05315584-e994-4090-ab67-7ed0a85da9d5"]
       api = {
         known_client_applications      = []
         mapped_claims_enabled          = false
         requested_access_token_version = 2
-        oauth2_permission_scope = []
+        oauth2_permission_scope        = []
       }
       custom_application_permissions = []
     },
