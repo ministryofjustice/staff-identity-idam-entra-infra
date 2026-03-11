@@ -815,13 +815,10 @@ locals {
       application_name             = "get-legal-aid-data"
       owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
-        "christopher.fryer@digital.justice.gov.uk"
-        "Olivia.Pyper@justice.gov.uk"
         "Hettie.Street@digital.justice.gov.uk",
         "Christopher.Cook@justice.gov.uk",
         "Masuk.Kazi@justice.gov.uk",
         "Devarsh.Barot@justice.gov.uk",
-        "Euan.Hamilton@justice.gov.uk",
         "neeta.shinde@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Get-Legal-Aid-Data"]
