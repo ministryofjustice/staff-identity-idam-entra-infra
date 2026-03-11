@@ -227,26 +227,9 @@ variable "optional_claims" {
   }
 }
 
-variable "api_app_id" {
-  type        = string
-  description = "The Application (client) ID of the API exposing permissions"
-}
 
-variable "api_application_permissions" {
+variable "tags" {
+  description = "Tags applied to the Entra application and service principal for governance and automation"
   type        = list(string)
   default     = []
-  description = "List of application permission values (App Roles) for this API"
-}
-
-variable "api_delegated_permissions" {
-  type        = list(string)
-  default     = []
-  description = "List of delegated permission values (OAuth2 scopes) for this API"
-}
-
-variable "app_role_ids_by_value" { 
-  type = map(string) 
-}
-variable "scope_ids_by_value"    { 
-  type = map(string) 
 }

@@ -29,7 +29,7 @@ resource "azuread_application" "entra_app_reg" {
   sign_in_audience             = "AzureADMyOrg"
   prevent_duplicate_names      = true
   identifier_uris              = var.identifier_uris
-
+  tags = var.tags
   template_id = var.service_principle.application_template_name != null ? data.azuread_application_template.app_template[0].template_id : null
 
   optional_claims {
@@ -81,38 +81,6 @@ resource "azuread_application" "entra_app_reg" {
     }
   }
 
-  
- #Only emit required_resource_access if we have at least one permission
-  dynamic "required_resource_access" {
-    for_each = (
-      length(var.api_application_permissions) > 0 ||
-      length(var.api_delegated_permissions)   > 0
-    ) ? [true] : []
-
-    content {
-      resource_app_id = var.api_app_id
-
-      # Application permissions (App Roles)
-      dynamic "resource_access" {
-        # If your variable is a list of role 'value' strings (e.g., ["RestClient"])
-        for_each =  {for role_perm in var.api_application_permissions : role_perm => role_perm}
-        content {
-          id   = var.app_role_ids_by_value[resource_access.value]  # map lookup by 'value'
-          type = "Role"
-        }
-      }
-
-      # Delegated permissions (OAuth2 scopes)
-      dynamic "resource_access" {
-        # If your variable is a list of scope 'value' strings (e.g., ["user.read"])
-        for_each = var.api_delegated_permissions
-        content {
-          id   = var.scope_ids_by_value[resource_access.value]     # map lookup by 'value'
-          type = "Scope"
-        }
-      }
-    }
-  }
 
   dynamic "app_role" {
     for_each = var.app_roles
@@ -180,13 +148,25 @@ resource "azuread_service_principal" "entra_app_service_principle" {
   login_url                     = var.service_principle.login_url
   notification_email_addresses  = var.service_principle.notification_email_addresses
   preferred_single_sign_on_mode = var.service_principle.preferred_single_sign_on_mode
+  tags = setunion(
+    # 1. Your new custom tags
+    var.tags,
 
-  feature_tags {
-    enterprise            = true
-    gallery               = false
-    hide                  = var.service_principle.hide
-    custom_single_sign_on = var.service_principle.custom_single_sign_on
-  }
+    # 2. Logic to maintain "Enterprise" (WindowsAzureActiveDirectoryIntegratedApp)
+    # Note: feature_tags 'enterprise' defaults to true in most cases, check your needs.
+    ["WindowsAzureActiveDirectoryIntegratedApp"], 
+
+    # 3. Logic to maintain "Gallery"
+    # You had gallery = false, so we return empty list [] if false
+    # If you wanted it true, it would be ["WindowsAzureActiveDirectoryGalleryApplicationNonPrimaryV1"]
+    [], 
+
+    # 4. Logic to maintain "Hide"
+    var.service_principle.hide == true ? ["HideApp"] : [],
+
+    # 5. Logic to maintain "Custom SSO"
+    var.service_principle.custom_single_sign_on == true ? ["WindowsAzureActiveDirectoryCustomSingleSignOnApplication"] : []
+  )
 }
 
 resource "azuread_app_role_assignment" "internal_allowed_groups" {

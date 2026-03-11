@@ -8,9 +8,10 @@ locals {
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1.2.0"
+  source                         = "../../../modules/application-registrationV1.4.0"
   for_each                       = var.applications
   notes                          = each.value.notes
+  logo_image                     = each.value.logo_image
   service_management_reference   = each.value.service_management_reference
   display_name                   = each.value.display_name
   department_name                = each.value.department_name
@@ -31,5 +32,9 @@ module "application-registration" {
   federated_identity_credentials = each.value.federated_identity_credentials
   service_principle              = each.value.service_principle
   identifier_uris                = each.value.identifier_uris
+  application_contacts           = each.value.application_contacts
+  api                            = each.value.api
+  access_token_issuance_enabled  = each.value.access_token_issuance_enabled
+  id_token_issuance_enabled      = each.value.id_token_issuance_enabled
 }
 #endregion

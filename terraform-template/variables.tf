@@ -73,7 +73,7 @@ variable "applications" {
     "default_app" = {
       notes                          = ""
       service_management_reference   = ""
-      logo_image                     = "./assets/moj-square-icon-215x215.png"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = ""
       department_name                = ""
       team_name                      = ""

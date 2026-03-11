@@ -25,6 +25,7 @@ variable "applications" {
     access_token_issuance_enabled = bool
     id_token_issuance_enabled     = bool
     mobile_desktop_redirect_uris  = list(string)
+    tags = list(string)
     app_roles = list(object({
       allowed_member_types  = list(string)
       description           = string
@@ -94,6 +95,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -138,7 +140,8 @@ variable "applications" {
         "joel.sugarman@justice.gov.uk",
         "colin.bruce1@justice.gov.uk",
         "adam.goldstone@justice.gov.uk",
-        "stephanie.dejong@justice.gov.uk"
+        "katharine.ahern@justice.gov.uk",
+        "rose.azadkhan@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Apply-Civil-Legal-Aid"]
       homepage_url   = "https://apply-for-legal-aid.service.justice.gov.uk/"
@@ -154,6 +157,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -204,6 +208,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -254,6 +259,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -284,11 +290,11 @@ variable "applications" {
       access_package_reviewers     = []
       owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
-        "ellis.kenyo@justice.gov.uk",
         "Ivan.Yohuno@justice.gov.uk",
         "robin.skilling@justice.gov.uk",
         "robin.booth@justice.gov.uk",
-        "ewan.wickson@justice.gov.uk",
+        "Lauren.Henry@justice.gov.uk",
+        "Christopher.Rose1@justice.gov.uk",
         "nscc@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Submit-Crime-Form"]
@@ -305,6 +311,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -350,6 +357,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -413,6 +421,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["eamon-mcnally-admin@TestJusticeUKExternal.onmicrosoft.com"]
@@ -444,7 +453,7 @@ variable "applications" {
       notes                        = "TBC: Submit a Bulk Claim."
       service_management_reference = "IDAM-4517"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
-      display_name                 = "Submit A Bulk Claim"
+      display_name                 = "Submit a Bulk Claim"
       department_name              = "justice-digital"
       team_name                    = "laa"
       application_name             = "submit-a-bulk-claim"
@@ -472,6 +481,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -524,6 +534,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -576,6 +587,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -595,10 +607,10 @@ variable "applications" {
       }
     },
     "amend_a_claim" = {
-      notes                        = "Amend a claim application which will allow caseworkers to login and amend a claim. This is internal users app only."
+      notes                        = "Amend a claim submitted by providers using the Submit a bulk claim service. This is for internal users only."
       service_management_reference = "IDAM-4612"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
-      display_name                 = "LAA Amend a claim"
+      display_name                 = "Amend a claim for contracted work"
       department_name              = "justice-digital"
       team_name                    = "laa"
       application_name             = "laa-amend-a-claim"
@@ -608,20 +620,27 @@ variable "applications" {
       application_contacts = [
         "Rohan.Salunkhe1@justice.gov.uk",
         "Suma.Challa@justice.gov.uk",
-        "Jack.Heslop@justice.gov.uk"
+        "Jack.Heslop@justice.gov.uk",
+        "Ben.Millar@justice.gov.uk",
+        "Michael.Boyd1@justice.gov.uk",
+        "Spencer.Howe@justice.gov.uk",
+        "Sohail.Ahmad@justice.gov.uk"
       ]
       allowed_groups = ["APPREG-User-Access-LAAD-Amend-a-claim"]
-      homepage_url   = null
+      homepage_url   = "https://amend-a-claim.laa.service.justice.gov.uk"
       logout_url     = null
-      redirect_uris  = null
+      redirect_uris  = [
+        "https://amend-a-claim.laa.service.justice.gov.uk/login/oauth2/code/azure",
+      ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = []
+      graph_application_permissions  = ["User.Read.All"]
       graph_delegated_permissions    = ["User.Read"]
       tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -668,6 +687,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["John.Nolan@JusticeUKExternal.onmicrosoft.com"]
@@ -716,6 +736,7 @@ variable "applications" {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["John.Nolan@JusticeUKExternal.onmicrosoft.com"]
