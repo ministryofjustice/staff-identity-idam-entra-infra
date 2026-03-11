@@ -54,7 +54,7 @@ locals {
         "Cameron.Cowen@justice.gov.uk",
         "Ozair.Ishan@justice.gov.uk"
       ]
-      allowed_groups               = null
+      allowed_groups               = []
       homepage_url                 = null
       logout_url                   = null
       redirect_uris                = null
@@ -99,7 +99,7 @@ locals {
         "Cameron.Cowen@justice.gov.uk",
         "Ozair.Ishan@justice.gov.uk"
       ]
-      allowed_groups               = null
+      allowed_groups               = []
       homepage_url                 = null
       logout_url                   = null
       redirect_uris                = null
