@@ -78,6 +78,12 @@ variable "redirect_uris" {
   type        = list(string)
 }
 
+variable "spa_redirect_uris" {
+  description = "Single-page application redirect URIs. Used when the frontend is a SPA and requires the implicit/PKCE flow."
+  type        = list(string)
+  default     = []
+}
+
 variable "app_roles" {
   description = "App roles are custom roles to assign permissions to users or apps. The application defines and publishes the app roles and interprets them as permissions during authorization."
   type = list(object({

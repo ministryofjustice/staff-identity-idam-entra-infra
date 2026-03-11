@@ -82,6 +82,10 @@ resource "azuread_application" "entra_app_reg" {
       id_token_issuance_enabled     = true
     }
   }
+
+  single_page_application {
+    redirect_uris = var.spa_redirect_uris
+  }
 }
 
 resource "azuread_service_principal" "entra_app_service_principle" {
