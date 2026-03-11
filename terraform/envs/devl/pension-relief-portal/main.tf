@@ -126,6 +126,7 @@ locals {
         known_client_applications      = []
         mapped_claims_enabled          = false
         requested_access_token_version = 2
+        oauth2_permission_scope = []
       }
       custom_application_permissions = []
     },
