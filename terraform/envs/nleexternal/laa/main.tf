@@ -806,7 +806,7 @@ locals {
       custom_application_permissions = []
     },
     "get_legal_aid_data" = {
-      notes                        = "Enables providers to access the legal aid data reports"
+      notes                        = "Allows providers to access legal aid data reports for internal users."
       service_management_reference = "IDAM-2974"
       logo_image                   = "./assets/laa-square-icon-215x215.jpg"
       display_name                 = "Get Legal Aid Data"
