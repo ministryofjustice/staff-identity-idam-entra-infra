@@ -139,10 +139,10 @@ variable "resource_access" {
   description = "Additional custom resource access."
   type = list(object({
     resource_app_name = string
-    resource_access = object({
+    resource_access = list(object({
       id   = string
       type = string
-    })
+    }))
   }))
   nullable = true
   default  = []

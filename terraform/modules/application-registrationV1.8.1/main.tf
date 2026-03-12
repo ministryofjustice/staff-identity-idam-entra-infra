@@ -86,23 +86,6 @@ resource "azuread_application" "entra_app_reg" {
     }
   }
 
-  
-dynamic "required_resource_access" {
-    for_each = var.custom_application_permissions
-
-    content {
-      resource_app_id = required_resource_access.value.resource_app_id
-
-      dynamic "resource_access" {
-        for_each = required_resource_access.value.resource_access
-        content {
-          id   = resource_access.value.id
-          type = resource_access.value.type
-        }
-      }
-    }
-}
-
   dynamic "app_role" {
     for_each = var.app_roles
     content {
