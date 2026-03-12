@@ -87,7 +87,7 @@ locals {
       }
       custom_application_permissions = [
         {
-          resource_app_id = "05315584-e994-4090-ab67-7ed0a85da9d5"
+          resource_app_name = "Pension Relief Portal - Allowlist API"
           resource_access = [
             {
               id   = random_uuid.application_role_id_access_read.result
