@@ -344,14 +344,14 @@ locals {
       department_name              = "justice-digital"
       team_name                    = "laa"
       application_name             = "pui"
-      owners                       = ["scott-armstrong-admin@TestJusticeUKExternal.onmicrosoft.com", "Ben.Ashton_justice.gov.uk#EXT#@TestJusticeUKExternal.onmicrosoft.com"]
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
-        "Eamon.McNally@justice.gov.uk",
-        "Ben.Ashton@justice.gov.uk",
-        "harry.henry@justice.gov.uk"
+        "muralidhar.puttanna@justice.gov.uk",
+        "Rajinder.Singh@justice.gov.uk",
+        "michael.farrell@justice.gov.uk"
       ]
       allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
-      homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
+      homepage_url                 = "https://546a762d-5478-4dd3-9344-e7fb006b7251.workspaces-web.com/?deepLinks=https%3A%2F%2Fccms-pui.laa-test.modernisation-platform.service.justice.gov.uk%2Fcivil"
       logout_url                   = null
       redirect_uris                = ["https://ccms-pui.laa-test.modernisation-platform.service.justice.gov.uk/civil/login/saml2/sso"]
       mobile_desktop_redirect_uris = null
