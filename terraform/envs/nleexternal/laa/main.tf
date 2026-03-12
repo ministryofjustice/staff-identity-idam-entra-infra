@@ -344,7 +344,7 @@ locals {
       department_name              = "justice-digital"
       team_name                    = "laa"
       application_name             = "pui"
-      owners                       = ["muralidhar.puttanna@justice.gov.uk","Rajinder.Singh@justice.gov.uk",]
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@TestJusticeUKExternal.onmicrosoft.com", "John.Nolan@TestJusticeUKExternal.onmicrosoft.com"]
       application_contacts = [
         "muralidhar.puttanna@justice.gov.uk",
         "Rajinder.Singh@justice.gov.uk",
