@@ -150,5 +150,51 @@ locals {
       }
       custom_application_permissions = []
     },
+    pipeline_app = {
+      notes                        = "Used to deploy Pension Relief infrastructure and code to dev resource group"
+      service_management_reference = "Pension Relief"
+      logo_image                   = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
+      display_name                 = "MoJO-DEVL-rg-eucs-pensionrelief-001"
+      department_name              = "EUCS"
+      team_name                    = "Application-Platforms"
+      application_name             = "Pension Relief - Dev"
+      owners                       = ["ccowen-admin@devl.justice.gov.uk"]
+      application_contacts = [
+        "Cameron Cowen",
+        "John Nolan"
+      ]
+      allowed_groups               = []
+      homepage_url                 = null
+      logout_url                   = null
+      redirect_uris                = null
+      mobile_desktop_redirect_uris = null
+      app_roles                    = []
+      graph_application_permissions = [
+        "Application.ReadWrite.OwnedBy",
+        "Directory.Read.All",
+        "Group.ReadWrite.All"
+      ]
+      graph_delegated_permissions    = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
+      }
+    }
   }
 }
