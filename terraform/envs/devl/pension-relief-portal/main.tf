@@ -196,6 +196,7 @@ locals {
         requested_access_token_version = null,
         oauth2_permission_scope        = []
       }
+      custom_application_permissions = []
     }
   }
 }
