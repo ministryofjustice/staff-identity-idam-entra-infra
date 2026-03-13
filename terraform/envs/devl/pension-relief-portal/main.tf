@@ -152,7 +152,7 @@ locals {
     },
     pipeline_app = {
       notes                        = "Used to deploy Pension Relief infrastructure and code to dev resource group"
-      service_management_reference = "Pension Relief"
+      service_management_reference = "IDAM-5926"
       logo_image                   = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                 = "MoJO-DEVL-rg-eucs-pensionrelief-001"
       department_name              = "EUCS"
