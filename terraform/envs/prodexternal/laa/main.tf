@@ -8,8 +8,8 @@ locals {
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1.5.0"
-  for_each                       = var.applications
+  source                         = "../../../modules/application-registrationV1.8.1"
+  for_each                       = local.applications
   notes                          = each.value.notes
   logo_image                     = each.value.logo_image
   service_management_reference   = each.value.service_management_reference
@@ -17,8 +17,6 @@ module "application-registration" {
   department_name                = each.value.department_name
   team_name                      = each.value.team_name
   application_name               = each.value.application_name
-  create_access_package          = each.value.create_access_package
-  access_package_reviewers       = each.value.access_package_reviewers
   owners                         = each.value.owners
   allowed_groups                 = each.value.allowed_groups
   homepage_url                   = each.value.homepage_url
@@ -26,9 +24,9 @@ module "application-registration" {
   redirect_uris                  = each.value.redirect_uris
   mobile_desktop_redirect_uris   = each.value.mobile_desktop_redirect_uris
   app_roles                      = each.value.app_roles
+  resource_access                = each.value.custom_application_permissions
   graph_application_permissions  = each.value.graph_application_permissions
   graph_delegated_permissions    = each.value.graph_delegated_permissions
-  tenants_required               = each.value.tenants_required
   federated_identity_credentials = each.value.federated_identity_credentials
   service_principle              = each.value.service_principle
   identifier_uris                = each.value.identifier_uris
@@ -36,6 +34,708 @@ module "application-registration" {
   api                            = each.value.api
   access_token_issuance_enabled  = each.value.access_token_issuance_enabled
   id_token_issuance_enabled      = each.value.id_token_issuance_enabled
-  tags = each.value.tags
+  tags                           = each.value.tags
 }
 #endregion
+
+locals {
+  applications = {
+    "silas" = {
+      notes                          = "LAA Portal replacement application."
+      service_management_reference   = "IDAM-2974"
+      logo_image                     = "./assets/laa-square-icon-215x215.jpg"
+      display_name                   = "SiLAS"
+      department_name                = "justice-digital"
+      team_name                      = "laa"
+      application_name               = "SiLAS"
+      owners                         = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts           = ["john.nolan@justice.gov.uk", "Ben.Ashton@justice.gov.uk", "Eamon.McNally@justice.gov.uk"]
+      allowed_groups                 = ["APPREG-User-Access-LAAD-SiLAS", "DEPT-All-Legal-Aid-Agency-Internal-Staff"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = ["https://your-legal-aid-services.service.justice.gov.uk/login/oauth2/code/azure"]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload", "User.Invite.All", "Directory.Read.All", "User.Read.All", "GroupMember.ReadWrite.All", "AuditLog.Read.All", "Application.Read.All"]
+      graph_delegated_permissions    = ["User.Read", "User.RevokeSessions.All"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = false
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = ["api://your-legal-aid-services.service.justice.gov.uk/694afd85-037e-4846-baf7-8220a84fcd13"]
+      api = {
+        known_client_applications      = [],
+        mapped_claims_enabled          = false,
+        requested_access_token_version = 1,
+        oauth2_permission_scope = [{
+          admin_consent_description  = "Allows the application to access the API on behalf of the signed-in user"
+          admin_consent_display_name = "Access Claim Enrichment"
+          enabled                    = true
+          id                         = "5eff006b-3ee5-4038-a473-2fbc1443291a"
+          type                       = "Admin"
+          user_consent_description   = null
+          user_consent_display_name  = null
+          value                      = "user_impersonation"
+        }]
+      }
+      custom_application_permissions = []
+    },
+    "apply_civil_legal_aid" = {
+      notes                        = "Enables providers to submit an application for civil legal aid."
+      service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "Apply for Civil Legal Aid"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "apply-for-civil-legal-aid"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Ben.Ashton@justice.gov.uk",
+        "Eamon.McNally@justice.gov.uk",
+        "joel.sugarman@justice.gov.uk",
+        "colin.bruce1@justice.gov.uk",
+        "adam.goldstone@justice.gov.uk",
+        "katharine.ahern@justice.gov.uk",
+        "rose.azadkhan@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-Apply-Civil-Legal-Aid"]
+      homepage_url   = "https://apply-for-legal-aid.service.justice.gov.uk/"
+      logout_url     = null
+      redirect_uris = [
+        "https://apply-for-legal-aid.service.justice.gov.uk/auth/entra_id/callback"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+      custom_application_permissions = []
+    },
+    "apply_criminal_legal_aid" = {
+      notes                        = "Apply for criminal legal aid is a service enabling providers to apply for criminal legal aid online. It is used by provider firms to submit applications on behalf of their clients, to make changes to returned applications, to provide additional evidence or to make supplementary applications when a client's circumstance change."
+      service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "Apply for Criminal Legal Aid"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "apply-for-criminal-legal-aid"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Eamon.McNally@justice.gov.uk",
+        "hibo.abdilaahi@justice.gov.uk",
+        "edwin.kruglov@justice.gov.uk",
+        "lucas.shaw@justice.gov.uk",
+        "tim.peat@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-Apply-Criminal-Legal-Aid"]
+      homepage_url   = "https://apply-for-criminal-legal-aid.service.justice.gov.uk/"
+      logout_url     = "https://apply-for-criminal-legal-aid.service.justice.gov.uk/providers/logout"
+      redirect_uris = [
+        "https://apply-for-criminal-legal-aid.service.justice.gov.uk/providers/auth/entra/callback"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+      custom_application_permissions = []
+    },
+    "manage_providers_data" = {
+      notes                        = "Application used to manage legal aid provider's data in CWA."
+      service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "Manage a Provider''s Data"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "manage-providers-data"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Eamon.McNally@justice.gov.uk",
+        "stephanie.dejong@justice.gov.uk",
+        "ben.millar@justice.gov.uk",
+        "william.clarke@justice.gov.uk",
+        "said.shire@justice.gov.uk",
+        "kyle.obrien@justice.gov.uk",
+        "javid.ali2@justice.gov.uk"
+      ]
+      allowed_groups                 = ["APPREG-User-Access-LAAD-Manage-Providers-Data"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = []
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = null,
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
+      }
+      custom_application_permissions = []
+    },
+    "submit_a_crime_form" = {
+      notes                        = "Allowing legal providers to submit applications and claims for CRM4s and CRM7s respectively."
+      service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "Submit A Crime Form"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "submit-a-crime-form"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Ivan.Yohuno@justice.gov.uk",
+        "robin.skilling@justice.gov.uk",
+        "robin.booth@justice.gov.uk",
+        "Lauren.Henry@justice.gov.uk",
+        "Christopher.Rose1@justice.gov.uk",
+        "nscc@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-Submit-Crime-Form"]
+      homepage_url   = "https://submit-crime-forms.service.justice.gov.uk/"
+      logout_url     = "https://submit-crime-forms.service.justice.gov.uk/providers/logout"
+      redirect_uris = [
+        "https://submit-crime-forms.service.justice.gov.uk/providers/auth/entra_id/callback"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+      custom_application_permissions = []
+    },
+    "laad_silas_claim_enrichment_api" = {
+      notes                        = "Legal Aid Single Sign in Experience API for Claim Enrichment to downstream LAA Services."
+      service_management_reference = "IDAM-2974"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "laad-silas-claim-enrichment-api"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "laad-silas-claim-enrichment-api"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Eamon.McNally@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk"
+      ]
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = []
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = ["CustomAuthenticationExtension.Receive.Payload"]
+      graph_delegated_permissions    = []
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = []
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = null,
+        requested_access_token_version = null,
+        oauth2_permission_scope        = []
+      }
+      custom_application_permissions = []
+    },
+    "pui" = {
+      notes                        = "Client and Cost Management System."
+      service_management_reference = "IDAM-3912"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "PUI"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "pui"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Eamon.McNally@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk",
+        "harry.henry@justice.gov.uk"
+      ]
+      allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
+      homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
+      logout_url                   = null
+      redirect_uris                = ["https://ccms-pui.laa.service.justice.gov.uk/civil/login/saml2/sso"]
+      mobile_desktop_redirect_uris = null
+      app_roles = [
+        {
+          allowed_member_types  = ["User"]
+          description           = "User"
+          display_name          = "User"
+          id                    = "18d14569-c3bd-439b-9a66-3a2aee01d14f"
+          value                 = null
+          access_package_hidden = true
+        },
+        {
+          allowed_member_types  = ["User"]
+          description           = "msiam_access"
+          display_name          = "msiam_access"
+          id                    = "b9632174-c057-4f7e-951b-be3adc52bfe6"
+          value                 = null
+          access_package_hidden = true
+        }
+      ]
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = ["eamon-mcnally-admin@TestJusticeUKExternal.onmicrosoft.com"]
+        preferred_single_sign_on_mode = "saml"
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = true
+      }
+      identifier_uris = ["PUI"]
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = true
+        requested_access_token_version = 2
+        oauth2_permission_scope = [{
+          admin_consent_description  = "Access PUI"
+          admin_consent_display_name = "Access PUI"
+          enabled                    = true
+          id                         = "214e223c-3269-4f48-8298-b052acbd6860"
+          type                       = "User"
+          user_consent_description   = "Allow the application to access PUI on your behalf."
+          user_consent_display_name  = "Access PUI"
+          value                      = "user_impersonation"
+        }]
+      }
+      custom_application_permissions = []
+    },
+    "submit_a_bulk_claim" = {
+      notes                        = "TBC: Submit a Bulk Claim."
+      service_management_reference = "IDAM-4517"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "Submit a Bulk Claim"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "submit-a-bulk-claim"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "ArunKumar.Madesh@justice.gov.uk",
+        "Jamie.Briggs@justice.gov.uk",
+        "Michael.Farrell@justice.gov.uk",
+        "Phil.Payne@justice.gov.uk",
+        "Rohan.Salunkhe1@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-Submit-A-Bulk-Claim"]
+      homepage_url   = "https://submit-a-bulk-claim.laa.service.justice.gov.uk/"
+      logout_url     = null
+      redirect_uris = [
+        "https://submit-a-bulk-claim.laa.service.justice.gov.uk/login/oauth2/code/silas-identity"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+      custom_application_permissions = []
+    },
+    "ccms_case_transfer_requests" = {
+      notes                        = "Requests to transfer CCMS cases."
+      service_management_reference = "IDAM-4521"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "CCMS case transfer requests"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "ccms-case-transfer-requests"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Harry.Henry@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk",
+        "Callum.Brett@justice.gov.uk",
+        "Sankavi.Mohanraj@justice.gov.uk",
+        "Dibyatanu.Deb1@justice.gov.uk",
+        "deborah.ojomo@justice.gov.uk",
+        "Scott.Armstrong@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-CCMS transfer requests"]
+      homepage_url   = "https://prd.laa-ccms-user-data-transfer.service.justice.gov.uk/"
+      logout_url     = null
+      redirect_uris = [
+        "https://prd.laa-ccms-user-data-transfer.service.justice.gov.uk/login/oauth2/code/azure"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+      custom_application_permissions = []
+    },
+    "civil_decide" = {
+      notes                        = "The decision making service within the civil application journey."
+      service_management_reference = "IDAM-4612"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "LAA Civil Decide"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "laa-civil-decide"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "ant.roy@justice.gov.uk",
+        "Samera.Naji@Justice.gov.uk",
+        "Mark.Dodson1@justice.gov.uk",
+        "hev.magnier-ashton@justice.gov.uk",
+        "Gabriele.Bernotaite@justice.gov.uk",
+        "david.fabby@justice.gov.uk",
+        "otilia.stack@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-LAA-Civil-Decide"]
+      homepage_url   = "https://laa-civil-decide-production.cloud-platform.service.justice.gov.uk"
+      logout_url     = null
+      redirect_uris = [
+        "https://laa-civil-decide-production.cloud-platform.service.justice.gov.uk/auth/redirect"
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+      custom_application_permissions = []
+    },
+    "amend_a_claim" = {
+      notes                        = "Amend a claim submitted by providers using the Submit a bulk claim service. This is for internal users only."
+      service_management_reference = "IDAM-4612"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "Amend a claim for contracted work"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "laa-amend-a-claim"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Rohan.Salunkhe1@justice.gov.uk",
+        "Suma.Challa@justice.gov.uk",
+        "Jack.Heslop@justice.gov.uk",
+        "Ben.Millar@justice.gov.uk",
+        "Michael.Boyd1@justice.gov.uk",
+        "Spencer.Howe@justice.gov.uk",
+        "Sohail.Ahmad@justice.gov.uk"
+      ]
+      allowed_groups = ["APPREG-User-Access-LAAD-Amend-a-claim"]
+      homepage_url   = "https://amend-a-claim.laa.service.justice.gov.uk"
+      logout_url     = null
+      redirect_uris  = [
+        "https://amend-a-claim.laa.service.justice.gov.uk/login/oauth2/code/azure",
+      ]
+      mobile_desktop_redirect_uris   = null
+      app_roles                      = []
+      graph_application_permissions  = ["User.Read.All"]
+      graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = null
+      }
+      identifier_uris = null
+      api = {
+        known_client_applications      = null,
+        mapped_claims_enabled          = true,
+        requested_access_token_version = 2,
+        oauth2_permission_scope        = []
+      }
+      custom_application_permissions = []
+    },
+    "secure_browser_pui" = {
+      notes                        = "AWS Secure Browser to access the PUI service securely."
+      service_management_reference = "IDAM-4851"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "AWS Secure Browser Instance 1 - PUI"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "secure-browser-1"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Scott.Armstrong@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk",
+        "Callum.Brett@justice.gov.uk"
+      ]
+      allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
+      homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
+      logout_url                   = "https://8969ca0a-66ab-42d2-9a45-eef3ccda764d.auth.eu-west-2.amazoncognito.com/saml2/logout"
+      redirect_uris                = ["https://8969ca0a-66ab-42d2-9a45-eef3ccda764d.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
+      mobile_desktop_redirect_uris = null
+      app_roles = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = ["John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+        preferred_single_sign_on_mode = "saml"
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = true
+      }
+      identifier_uris = [
+          "urn:amazon:cognito:sp:eu-west-2_5EQ2PbVIR",
+      ]
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = true
+        requested_access_token_version = 2
+        oauth2_permission_scope = []
+      }
+      custom_application_permissions = []
+    },
+    "secure_browser_pui_2" = {
+      notes                        = "AWS Secure Browser to access the PUI service securely."
+      service_management_reference = "IDAM-4851"
+      logo_image                   = "./assets/laa-square-icon-215x215.jpg"
+      display_name                 = "AWS Secure Browser Instance 2 - PUI"
+      department_name              = "justice-digital"
+      team_name                    = "laa"
+      application_name             = "secure-browser-2"
+      create_access_package        = false
+      access_package_reviewers     = []
+      owners                       = ["John.nolan_JusticeUK.onmicrosoft.com#EXT#@JusticeUKExternal.onmicrosoft.com", "John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+      application_contacts = [
+        "Scott.Armstrong@justice.gov.uk",
+        "Ben.Ashton@justice.gov.uk",
+        "Callum.Brett@justice.gov.uk"
+      ]
+      allowed_groups               = ["APPREG-User-Access-LAAD-PUI"]
+      homepage_url                 = "https://account.activedirectory.windowsazure.com:444/applications/default.aspx?metadata=customappsso|ISV9.1|primary|z"
+      logout_url                   = "https://6d5f6413-a396-4b07-b9ba-6534e35291ad.auth.eu-west-2.amazoncognito.com/saml2/logout"
+      redirect_uris                = ["https://6d5f6413-a396-4b07-b9ba-6534e35291ad.auth.eu-west-2.amazoncognito.com/saml2/idpresponse"]
+      mobile_desktop_redirect_uris = null
+      app_roles = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["PRODEXTERNAL"]
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
+      federated_identity_credentials = []
+      tags = ["Business unit: LAA"]
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = ["John.Nolan@JusticeUKExternal.onmicrosoft.com"]
+        preferred_single_sign_on_mode = "saml"
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = true
+        custom_single_sign_on         = true
+      }
+      identifier_uris = [
+          "urn:amazon:cognito:sp:eu-west-2_lsztuA0Z1",
+      ]
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = true
+        requested_access_token_version = 2
+        oauth2_permission_scope = []
+      }
+      custom_application_permissions = []
+    },
+  }
+}
