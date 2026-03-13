@@ -19,23 +19,23 @@ module "application-registration" {
   department_name                = each.value.department_name
   team_name                      = each.value.team_name
   owners                         = each.value.owners
+  application_contacts           = each.value.application_contacts
   allowed_groups                 = each.value.allowed_groups
   homepage_url                   = each.value.homepage_url
   logout_url                     = each.value.logout_url
   redirect_uris                  = each.value.redirect_uris
   mobile_desktop_redirect_uris   = each.value.mobile_desktop_redirect_uris
   app_roles                      = each.value.app_roles
-  resource_access                = each.value.custom_application_permissions
   graph_application_permissions  = each.value.graph_application_permissions
   graph_delegated_permissions    = each.value.graph_delegated_permissions
+  access_token_issuance_enabled  = each.value.access_token_issuance_enabled
+  id_token_issuance_enabled      = each.value.id_token_issuance_enabled
   federated_identity_credentials = each.value.federated_identity_credentials
   service_principle              = each.value.service_principle
   identifier_uris                = each.value.identifier_uris
-  application_contacts           = each.value.application_contacts
   api                            = each.value.api
-  access_token_issuance_enabled  = each.value.access_token_issuance_enabled
-  id_token_issuance_enabled      = each.value.id_token_issuance_enabled
   tags                           = each.value.tags
+  resource_access                = each.value.custom_application_permissions
 }
 #endregion
 
