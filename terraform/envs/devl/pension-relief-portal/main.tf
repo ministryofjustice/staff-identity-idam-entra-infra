@@ -154,10 +154,10 @@ locals {
       notes                        = "Used to deploy Pension Relief infrastructure and code to dev resource group"
       service_management_reference = "IDAM-5926"
       logo_image                   = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                 = "MoJO-DEVL-rg-eucs-pensionrelief-001"
+      display_name                 = "Pension Relief Portal - Development Pipeline Application"
       department_name              = "EUCS"
       team_name                    = "Application-Platforms"
-      application_name             = "Pension Relief - Dev"
+      application_name             = "MoJO-DEVL-rg-eucs-pensionrelief-001"
       owners                       = ["ccowen-admin@devl.justice.gov.uk"]
       application_contacts = [
         "Cameron Cowen",
@@ -178,7 +178,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags = ["Business unit: EUCS", "authPattern: ClientCredentials"]
+      tags = ["Business unit: EUCS", "authPattern: DevelopmentPipeline"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
