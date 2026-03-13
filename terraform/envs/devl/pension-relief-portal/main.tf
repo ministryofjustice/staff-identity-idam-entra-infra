@@ -10,7 +10,7 @@ resource "random_uuid" "application_role_id_access_read" {} # Scope exposed by I
 
 #region Application Registrations
 module "application-registration" {
-  source                         = "../../../modules/application-registrationV1.8.1"
+  source                         = "../../../modules/application-registrationV1.8.2"
   for_each                       = local.applications
   notes                          = each.value.notes
   logo_image                     = each.value.logo_image
@@ -18,25 +18,24 @@ module "application-registration" {
   display_name                   = each.value.display_name
   department_name                = each.value.department_name
   team_name                      = each.value.team_name
-  application_name               = each.value.application_name
   owners                         = each.value.owners
+  application_contacts           = each.value.application_contacts
   allowed_groups                 = each.value.allowed_groups
   homepage_url                   = each.value.homepage_url
   logout_url                     = each.value.logout_url
   redirect_uris                  = each.value.redirect_uris
   mobile_desktop_redirect_uris   = each.value.mobile_desktop_redirect_uris
   app_roles                      = each.value.app_roles
-  resource_access                = each.value.custom_application_permissions
   graph_application_permissions  = each.value.graph_application_permissions
   graph_delegated_permissions    = each.value.graph_delegated_permissions
+  access_token_issuance_enabled  = each.value.access_token_issuance_enabled
+  id_token_issuance_enabled      = each.value.id_token_issuance_enabled
   federated_identity_credentials = each.value.federated_identity_credentials
   service_principle              = each.value.service_principle
   identifier_uris                = each.value.identifier_uris
-  application_contacts           = each.value.application_contacts
   api                            = each.value.api
-  access_token_issuance_enabled  = each.value.access_token_issuance_enabled
-  id_token_issuance_enabled      = each.value.id_token_issuance_enabled
   tags                           = each.value.tags
+  resource_access                = each.value.custom_application_permissions
 }
 #endregion
 
@@ -49,7 +48,6 @@ locals {
       display_name                 = "Pension Relief Portal - Auth0 Client"
       department_name              = "eucs"
       team_name                    = "idam"
-      application_name             = "pension-relief-portal-auth0-client"
       owners                       = ["jnolan-admin@devl.justice.gov.uk", "ccowen-admin@devl.justice.gov.uk"]
       application_contacts = [
         "john.nolan@justice.gov.uk",
@@ -67,7 +65,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags = ["Business unit: EUCS", "authPattern: ClientCredentials"]
+      tags = ["Business unit: EUCS", "authPattern: ClientCredentials", "project: PensionReliefPortal"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = ["jnolan-admin@devl.justice.gov.uk"]
@@ -104,7 +102,6 @@ locals {
       display_name                 = "Pension Relief Portal - Allowlist API"
       department_name              = "eucs"
       team_name                    = "idam"
-      application_name             = "pension-relief-portal-allowlist-api"
       owners                       = ["jnolan-admin@devl.justice.gov.uk", "ccowen-admin@devl.justice.gov.uk"]
       application_contacts = [
         "john.nolan@justice.gov.uk",
@@ -130,7 +127,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags = ["Business unit: EUCS", "authPattern: ClientCredentials"]
+      tags = ["Business unit: EUCS", "authPattern: ClientCredentials", "project: PensionReliefPortal"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
@@ -154,10 +151,9 @@ locals {
       notes                        = "Used to deploy Pension Relief infrastructure and code to dev resource group"
       service_management_reference = "IDAM-5926"
       logo_image                   = "assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                 = "Pension Relief Portal - Development Pipeline Application"
+      display_name                 = "MoJO-DEVL-rg-eucs-pensionrelief-001"
       department_name              = "EUCS"
       team_name                    = "Application-Platforms"
-      application_name             = "MoJO-DEVL-rg-eucs-pensionrelief-001"
       owners                       = ["ccowen-admin@devl.justice.gov.uk"]
       application_contacts = [
         "Cameron Cowen",
@@ -178,7 +174,7 @@ locals {
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
-      tags = ["Business unit: EUCS", "authPattern: DevelopmentPipeline"]
+      tags = ["Business unit: EUCS", "authPattern: DevelopmentPipeline", "project: PensionReliefPortal"]
       service_principle = {
         login_url                     = null
         notification_email_addresses  = []
