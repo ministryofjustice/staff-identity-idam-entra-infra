@@ -164,7 +164,8 @@ locals {
       logout_url     = "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk/providers/logout"
       redirect_uris = [
         "https://laa-apply-for-criminal-legal-aid.test/providers/auth/entra/callback",
-        "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk/providers/auth/entra/callback"
+        "https://staging.apply-for-criminal-legal-aid.service.justice.gov.uk/providers/auth/entra/callback",
+        "https://laa-apply-for-criminal-legal-aid-staging.beta.cloud-platform.service.justice.gov.uk/providers/auth/entra/callback"
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
