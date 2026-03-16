@@ -4,69 +4,27 @@ variable "location" {
   default     = "uksouth"
 }
 
-variable "applications" {
-  description = "Map of application details"
-  type = map(object({
-    notes                        = string
-    service_management_reference = string
-    display_name                 = string
-    department_name              = string
-    team_name                    = string
-    application_name             = string
-    create_access_package        = bool
-    access_package_reviewers     = list(string)
-    owners                       = list(string)
-    allowed_groups               = list(string)
-    homepage_url                 = string
-    logout_url                   = string
-    redirect_uris                = list(string)
-    app_roles = list(object({
-      allowed_member_types  = list(string)
-      description           = string
-      display_name          = string
-      id                    = string
-      value                 = string
-      access_package_hidden = bool
-    }))
-    graph_application_permissions = list(string)
-    graph_delegated_permissions   = list(string)
-    tenants_required              = list(string)
-    federated_identity_credentials = list(object({
-      repo_name      = string
-      display_name   = string
-      description    = string
-      subject_suffix = string
-    }))
-    service_principle = object({
-      login_url                     = string
-      notification_email_addresses  = list(string)
-      preferred_single_sign_on_mode = string
-      app_role_assignment_required  = bool
-      account_enabled               = bool
-      application_template_name     = string
-      hide                          = bool
-    })
-    identifier_uris = list(string)
-  }))
-  default = {
+locals {
+  applications = {
     "STG-AI-Justice-Transcribe-Prod" = {
       notes                          = "Justice AI Transcribe Prod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Justice-Transcribe-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Justice-Transcribe-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["JusticeTranscribeTeam", "JusticeTranscribeUsers"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://justicetranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://transcription.service.justice.gov.uk/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -76,27 +34,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Justice-Transcribe-Pre-Prod" = {
       notes                          = "Justice AI Transcribe Pre Prod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Justice-Transcribe-Pre-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Justice-Transcribe-Pre-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["JusticeTranscribeTeam"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://justicetranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -106,27 +74,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Justice-Transcribe-Dev" = {
       notes                          = "Justice AI Transcribe Dev App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Justice-Transcribe-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Justice-Transcribe-Dev"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["JusticeTranscribeTeam"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://justicetranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -136,27 +114,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Langfuse-Prod" = {
       notes                          = "Justice AI Langfuse Prod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Langfuse-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Langfuse-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://langfuse-ai.justice.gov.uk/api/auth/callback/azure-ad"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -166,27 +154,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Langfuse-Pre-Prod" = {
       notes                          = "Justice AI Langfuse Pre Prod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Langfuse-Pre-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Langfuse-Pre-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -196,27 +194,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Langfuse-Dev" = {
       notes                          = "Justice AI Langfuse Dev App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Langfuse-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Langfuse-Dev"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -226,27 +234,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Prompt-Hub-Prod" = {
       notes                          = "Justice AI Prompt Hub App Prod"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Prompt-Hub-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Prompt-Hub-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prompthub-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://ai-for-all.justice.gov.uk/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -256,27 +274,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Prompt-Hub-Preprod" = {
       notes                          = "Justice AI Prompt Hub App Pre prod"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Prompt-Hub-Preprod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Prompt-Hub-Preprod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -286,27 +314,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Prompt-Hub-Dev" = {
       notes                          = "Justice AI Prompt Hub App Dev"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Prompt-Hub-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Prompt-Hub-Dev"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prompthub-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -316,27 +354,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Redbox-Tracker-Prod" = {
       notes                          = "Justice AI Redbox Tracker App Prod"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Redbox-Tracker-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Redbox-Tracker-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["STG-AI-Redbox-Tracker-Prod-Group"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://redbox-tracker-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -346,27 +394,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Redbox-Tracker-Preprod" = {
       notes                          = "Justice AI Redbox Tracker App Pre Prod"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Redbox-Tracker-Preprod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Redbox-Tracker-Preprod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = []
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -376,27 +434,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Redbox-Tracker-Dev" = {
       notes                          = "Justice AI Redbox Tracker App Dev"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Redbox-Tracker-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Redbox-Tracker-Dev"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://redbox-tracker-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -406,34 +474,44 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Deployed-Cookiecutter" = {
       notes                          = "Justice AI Deployed Cookiecutter App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Deployed-Cookiecutter"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Deployed-Cookiecutter"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.webb1@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.webb1@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = [
-                                          "https://deployedcookiecutter-prod-frontend.azurewebsites.net/.auth/login/aad/callback",
-                                          "https://deployedcookiecutter-prod-frontend.azurewebsites.net/.auth/login/aad/callback",
-                                          "https://deployedcookiecutter-preprod-frontend.azurewebsites.net/.auth/login/aad/callback",
-                                          "https://deployedcookiecutter-preprod-frontend.azurewebsites.net/.auth/login/aad/callback",
-                                          "https://deployedcookiecutter-dev-frontend.azurewebsites.net/.auth/login/aad/callback",
-                                          "https://deployedcookiecutter-dev-frontend.azurewebsites.net/.auth/login/aad/callback"
-                                      ]
+        "https://deployedcookiecutter-prod-frontend.azurewebsites.net/.auth/login/aad/callback",
+        "https://deployedcookiecutter-prod-frontend.azurewebsites.net/.auth/login/aad/callback",
+        "https://deployedcookiecutter-preprod-frontend.azurewebsites.net/.auth/login/aad/callback",
+        "https://deployedcookiecutter-preprod-frontend.azurewebsites.net/.auth/login/aad/callback",
+        "https://deployedcookiecutter-dev-frontend.azurewebsites.net/.auth/login/aad/callback",
+        "https://deployedcookiecutter-dev-frontend.azurewebsites.net/.auth/login/aad/callback"
+      ]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -443,27 +521,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Smartinbox-Prod" = {
       notes                          = "Justice AI Smartinbox Prod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Smartinbox-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Smartinbox-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["smartinbox-prod-users"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://smartinbox-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://courtlistings-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -473,27 +561,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Smartinbox-Preprod" = {
       notes                          = "Justice AI Smartinbox Preprod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Smartinbox-Preprod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Smartinbox-Preprod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://smartinbox-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -503,27 +601,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Smartinbox-Dev" = {
       notes                          = "Justice AI Smartinbox Dev App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Smartinbox-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Smartinbox-Dev"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://smartinbox-dev-frontend.azurewebsites.net/.auth/login/aad/callback", "https://courtlistings-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -533,27 +641,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Courts-Transcribe-Prod" = {
       notes                          = "Justice AI Courts Transcribe Prod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Courts-Transcribe-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Courts-Transcribe-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["CourtsTranscribe", "Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://courtstranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -563,27 +681,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Courts-Transcribe-Preprod" = {
       notes                          = "Justice AI Courts Transcribe Pre Prod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Courts-Transcribe-Preprod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Courts-Transcribe-Preprod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["CourtsTranscribe", "Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://courtstranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -593,27 +721,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Courts-Transcribe-Dev" = {
       notes                          = "Justice AI Courts Transcribe Dev App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Courts-Transcribe-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Courts-Transcribe-Dev"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["CourtsTranscribe", "Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://courtstranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -623,27 +761,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Prison-Transcribe-Dev" = {
       notes                          = "Justice AI Prison Transcribe Dev App"
       service_management_reference   = "IDAM-5630"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Prison-Transcribe-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Prison-Transcribe-Dev"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prisontranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -653,27 +801,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Prison-Transcribe-Preprod" = {
       notes                          = "Justice AI Prison Transcribe PreProd App"
       service_management_reference   = "IDAM-5630"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Prison-Transcribe-Preprod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Prison-Transcribe-Preprod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prisontranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -683,27 +841,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Prison-Transcribe-Prod" = {
       notes                          = "Justice AI Prison Transcribe Prod App"
       service_management_reference   = "IDAM-5630"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Prison-Transcribe-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Prison-Transcribe-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["elmley-pin"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prison.transcription.service.justice.gov.uk/.auth/login/aad/callback", "https://prisontranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -713,27 +881,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Caselaw-Verification-Dev" = {
       notes                          = "Justice AI Caselaw Verification Dev App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Caselaw-Verification-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Caselaw-Verification-Dev"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://caselawverification-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -743,27 +921,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Caselaw-Verification-Preprod" = {
       notes                          = "Justice AI Caselaw Verification Pre Prod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Caselaw-Verification-Preprod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Caselaw-Verification-Preprod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://caselawverification-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -773,27 +961,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "STG-AI-Caselaw-Verification-Prod" = {
       notes                          = "Justice AI Caselaw Verification Prod App"
       service_management_reference   = "IDAM-5036"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-AI-Caselaw-Verification-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Caselaw-Verification-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://caselawverification-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -803,27 +1001,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "MOJ-Command-Centre-Frontend-Prod" = {
       notes                          = "MOJ Command Centre Frontend Production App"
       service_management_reference   = "IDAM-XXXX"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "MOJ Command Centre Frontend - Production"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "MOJ-Command-Centre-Frontend-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["http://localhost:3000/"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -833,27 +1041,37 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     },
     "MOJ-Prototype-Command-Centre-Frontend-Prod" = {
       notes                          = "MOJ Prototype Command Centre Frontend Production App"
       service_management_reference   = "IDAM-XXXX"
+      logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "MOJ Prototype Command Centre Frontend - Production"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "MOJ-Prototype-Command-Centre-Frontend-Prod"
-      create_access_package          = false
-      access_package_reviewers       = []
+      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       allowed_groups                 = ["MoJO - Users - All"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["http://localhost:3000/"]
+      mobile_desktop_redirect_uris   = []
+      access_token_issuance_enabled  = false
+      id_token_issuance_enabled      = false
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
-      tenants_required               = ["LIVE"]
       federated_identity_credentials = []
       service_principle = {
         login_url                     = null
@@ -863,8 +1081,17 @@ variable "applications" {
         account_enabled               = true
         application_template_name     = null
         hide                          = null
+        custom_single_sign_on         = null
       }
-      identifier_uris = null
+      identifier_uris                = null
+      api = {
+        known_client_applications      = []
+        mapped_claims_enabled          = false
+        requested_access_token_version = null
+        oauth2_permission_scope        = []
+      }
+      tags                           = []
+      custom_application_permissions = []
     }
   }
 }
