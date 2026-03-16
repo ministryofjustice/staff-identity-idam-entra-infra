@@ -34,5 +34,6 @@ module "application-registration" {
   api                            = each.value.api
   tags                           = each.value.tags
   resource_access                = each.value.custom_application_permissions
+  spa_redirect_uris              = each.value.spa_redirect_uris
 }
 #endregion
