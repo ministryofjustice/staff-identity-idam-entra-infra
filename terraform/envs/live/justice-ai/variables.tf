@@ -389,7 +389,7 @@ variable "applications" {
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
-      allowed_groups                 = ["Justice-ai-unit-staff"]
+      allowed_groups                 = ["Justice-ai-unit-staff", "STG-AI-Redbox-Tracker-Dev-Group"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://redbox-tracker-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
