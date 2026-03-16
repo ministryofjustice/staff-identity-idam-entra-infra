@@ -21,7 +21,7 @@ locals {
       redirect_uris                  = ["https://justicetranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://transcription.service.justice.gov.uk/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
@@ -61,7 +61,7 @@ locals {
       redirect_uris                  = ["https://justicetranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
@@ -101,7 +101,7 @@ locals {
       redirect_uris                  = ["https://justicetranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
@@ -141,7 +141,7 @@ locals {
       redirect_uris                  = ["https://langfuse-ai.justice.gov.uk/api/auth/callback/azure-ad"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -181,7 +181,7 @@ locals {
       redirect_uris                  = []
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -221,7 +221,7 @@ locals {
       redirect_uris                  = []
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -261,7 +261,7 @@ locals {
       redirect_uris                  = ["https://prompthub-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://ai-for-all.justice.gov.uk/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -301,7 +301,7 @@ locals {
       redirect_uris                  = []
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -341,7 +341,7 @@ locals {
       redirect_uris                  = ["https://prompthub-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -381,7 +381,7 @@ locals {
       redirect_uris                  = ["https://redbox-tracker-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -421,7 +421,7 @@ locals {
       redirect_uris                  = []
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -461,7 +461,7 @@ locals {
       redirect_uris                  = ["https://redbox-tracker-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -508,7 +508,7 @@ locals {
       ]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -548,7 +548,7 @@ locals {
       redirect_uris                  = ["https://smartinbox-prod-frontend.azurewebsites.net/.auth/login/aad/callback", "https://courtlistings-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -588,7 +588,7 @@ locals {
       redirect_uris                  = ["https://smartinbox-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -628,7 +628,7 @@ locals {
       redirect_uris                  = ["https://smartinbox-dev-frontend.azurewebsites.net/.auth/login/aad/callback", "https://courtlistings-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -668,7 +668,7 @@ locals {
       redirect_uris                  = ["https://courtstranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
@@ -708,7 +708,7 @@ locals {
       redirect_uris                  = ["https://courtstranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -748,7 +748,7 @@ locals {
       redirect_uris                  = ["https://courtstranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
@@ -788,7 +788,7 @@ locals {
       redirect_uris                  = ["https://prisontranscribe-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read", "offline_access"]
@@ -828,7 +828,7 @@ locals {
       redirect_uris                  = ["https://prisontranscribe-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -868,7 +868,7 @@ locals {
       redirect_uris                  = ["https://prison.transcription.service.justice.gov.uk/.auth/login/aad/callback", "https://prisontranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -908,7 +908,7 @@ locals {
       redirect_uris                  = ["https://caselawverification-dev-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -948,7 +948,7 @@ locals {
       redirect_uris                  = ["https://caselawverification-preprod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -988,7 +988,7 @@ locals {
       redirect_uris                  = ["https://caselawverification-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -1028,7 +1028,7 @@ locals {
       redirect_uris                  = ["http://localhost:3000/"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
@@ -1068,7 +1068,7 @@ locals {
       redirect_uris                  = ["http://localhost:3000/"]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
+      id_token_issuance_enabled      = true
       app_roles                      = []
       graph_application_permissions  = []
       graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
