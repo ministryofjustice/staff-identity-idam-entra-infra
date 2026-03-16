@@ -409,6 +409,43 @@ variable "applications" {
       }
       identifier_uris = null
     },
+    "STG-AI-Deployed-Cookiecutter" = {
+      notes                          = "Justice AI Deployed Cookiecutter App"
+      service_management_reference   = "IDAM-5036"
+      display_name                   = "STG-AI-Deployed-Cookiecutter"
+      department_name                = "Justice-Digital"
+      team_name                      = "AI"
+      application_name               = "STG-AI-Deployed-Cookiecutter"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.webb1@justice.gov.uk"]
+      allowed_groups                 = ["Justice-ai-unit-staff"]
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = [
+                                          "https://deployedcookiecutter-prod-frontend.azurewebsites.net/.auth/login/aad/callback",
+                                          "https://deployedcookiecutter-prod-frontend.azurewebsites.net/.auth/login/aad/callback",
+                                          "https://deployedcookiecutter-preprod-frontend.azurewebsites.net/.auth/login/aad/callback",
+                                          "https://deployedcookiecutter-preprod-frontend.azurewebsites.net/.auth/login/aad/callback",
+                                          "https://deployedcookiecutter-dev-frontend.azurewebsites.net/.auth/login/aad/callback",
+                                          "https://deployedcookiecutter-dev-frontend.azurewebsites.net/.auth/login/aad/callback"
+                                      ]
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = ["email", "openid", "profile", "User.Read"]
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
+    },
     "STG-AI-Smartinbox-Prod" = {
       notes                          = "Justice AI Smartinbox Prod App"
       service_management_reference   = "IDAM-5036"
