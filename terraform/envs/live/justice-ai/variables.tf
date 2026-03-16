@@ -328,7 +328,7 @@ variable "applications" {
       application_name               = "STG-AI-Redbox-Tracker-Prod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "louisa.subramaniam@justice.gov.uk", "beatrice.sederman@justice.gov.uk"]
       allowed_groups                 = ["STG-AI-Redbox-Tracker-Prod-Group"]
       homepage_url                   = null
       logout_url                     = null
@@ -358,7 +358,7 @@ variable "applications" {
       application_name               = "STG-AI-Redbox-Tracker-Preprod"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "louisa.subramaniam@justice.gov.uk", "beatrice.sederman@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
@@ -388,7 +388,7 @@ variable "applications" {
       application_name               = "STG-AI-Redbox-Tracker-Dev"
       create_access_package          = false
       access_package_reviewers       = []
-      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
+      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "louisa.subramaniam@justice.gov.uk", "beatrice.sederman@justice.gov.uk"]
       allowed_groups                 = ["Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
