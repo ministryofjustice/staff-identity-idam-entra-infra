@@ -1,0 +1,6 @@
+*   @ministryofjustice/eucs-idam-admins
+
+terraform/envs/devl/alz-ai                      @ministryofjustice/cloud-ops-alz-admins
+terraform/envs/**/eucs-application-platforms-*  @ministryofjustice/eucs-victor-senior-devs
+terraform/envs/**/eucs-power-platform           @ministryofjustice/eucs-victor-senior-devs
+terraform/envs/live/justice-ai                  @ministryofjustice/justice-ai-unit
