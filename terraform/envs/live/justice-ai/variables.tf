@@ -409,13 +409,13 @@ variable "applications" {
       }
       identifier_uris = null
     },
-    "STG-AI-Deployed-Cookiecutter-Prod" = {
-      notes                          = "Justice AI Deployed Cookiecutter Prod App"
+    "STG-AI-Deployed-Cookiecutter" = {
+      notes                          = "Justice AI Deployed Cookiecutter App"
       service_management_reference   = "IDAM-5036"
-      display_name                   = "STG-AI-Deployed-Cookiecutter-Prod"
+      display_name                   = "STG-AI-Deployed-Cookiecutter"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_name               = "STG-AI-Deployed-Cookiecutter-Prod"
+      application_name               = "STG-AI-Deployed-Cookiecutter"
       create_access_package          = false
       access_package_reviewers       = []
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.webb1@justice.gov.uk"]
