@@ -45,6 +45,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Justice-Transcribe-Pre-Prod" = {
       notes                          = "Justice AI Transcribe Pre Prod App"
@@ -85,6 +86,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Justice-Transcribe-Dev" = {
       notes                          = "Justice AI Transcribe Dev App"
@@ -125,6 +127,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Langfuse-Prod" = {
       notes                          = "Justice AI Langfuse Prod App"
@@ -165,6 +168,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Langfuse-Pre-Prod" = {
       notes                          = "Justice AI Langfuse Pre Prod App"
@@ -205,6 +209,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Langfuse-Dev" = {
       notes                          = "Justice AI Langfuse Dev App"
@@ -245,6 +250,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Prompt-Hub-Prod" = {
       notes                          = "Justice AI Prompt Hub App Prod"
@@ -285,6 +291,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Prompt-Hub-Preprod" = {
       notes                          = "Justice AI Prompt Hub App Pre prod"
@@ -325,6 +332,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Prompt-Hub-Dev" = {
       notes                          = "Justice AI Prompt Hub App Dev"
@@ -365,6 +373,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Redbox-Tracker-Prod" = {
       notes                          = "Justice AI Redbox Tracker App Prod"
@@ -405,6 +414,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Redbox-Tracker-Preprod" = {
       notes                          = "Justice AI Redbox Tracker App Pre Prod"
@@ -445,6 +455,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Redbox-Tracker-Dev" = {
       notes                          = "Justice AI Redbox Tracker App Dev"
@@ -485,6 +496,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Deployed-Cookiecutter" = {
       notes                          = "Justice AI Deployed Cookiecutter App"
@@ -529,6 +541,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Smartinbox-Prod" = {
       notes                          = "Justice AI Smartinbox Prod App"
@@ -569,6 +582,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Smartinbox-Preprod" = {
       notes                          = "Justice AI Smartinbox Preprod App"
@@ -609,6 +623,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Smartinbox-Dev" = {
       notes                          = "Justice AI Smartinbox Dev App"
@@ -649,6 +664,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Courts-Transcribe-Prod" = {
       notes                          = "Justice AI Courts Transcribe Prod App"
@@ -689,6 +705,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Courts-Transcribe-Preprod" = {
       notes                          = "Justice AI Courts Transcribe Pre Prod App"
@@ -729,6 +746,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Courts-Transcribe-Dev" = {
       notes                          = "Justice AI Courts Transcribe Dev App"
@@ -769,6 +787,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Prison-Transcribe-Dev" = {
       notes                          = "Justice AI Prison Transcribe Dev App"
@@ -809,6 +828,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Prison-Transcribe-Preprod" = {
       notes                          = "Justice AI Prison Transcribe PreProd App"
@@ -849,6 +869,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Prison-Transcribe-Prod" = {
       notes                          = "Justice AI Prison Transcribe Prod App"
@@ -889,6 +910,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Caselaw-Verification-Dev" = {
       notes                          = "Justice AI Caselaw Verification Dev App"
@@ -929,6 +951,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Caselaw-Verification-Preprod" = {
       notes                          = "Justice AI Caselaw Verification Pre Prod App"
@@ -969,6 +992,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "STG-AI-Caselaw-Verification-Prod" = {
       notes                          = "Justice AI Caselaw Verification Prod App"
@@ -1009,6 +1033,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "MOJ-Command-Centre-Frontend-Prod" = {
       notes                          = "MOJ Command Centre Frontend Production App"
@@ -1049,6 +1074,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = ["https://opg-cc6ef07d83.orangegrass-6c4d5bd3.uksouth.azurecontainerapps.io/"]
     },
     "MOJ-Prototype-Command-Centre-Frontend-Prod" = {
       notes                          = "MOJ Prototype Command Centre Frontend Production App"
@@ -1089,6 +1115,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = ["https://prototype-cc30b2408e.orangegrass-6c4d5bd3.uksouth.azurecontainerapps.io/"]
     }
   }
 }

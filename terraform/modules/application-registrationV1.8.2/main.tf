@@ -141,6 +141,10 @@ resource "azuread_application" "entra_app_reg" {
   public_client {
     redirect_uris = var.mobile_desktop_redirect_uris
   }
+
+  single_page_application {
+    redirect_uris = var.spa_redirect_uris
+  }
 }
 
 resource "azuread_service_principal" "entra_app_service_principle" {
