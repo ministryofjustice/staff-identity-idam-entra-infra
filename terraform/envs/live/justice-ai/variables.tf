@@ -512,10 +512,7 @@ locals {
       logout_url                     = null
       redirect_uris                  = [
         "https://deployedcookiecutter-prod-frontend.azurewebsites.net/.auth/login/aad/callback",
-        "https://deployedcookiecutter-prod-frontend.azurewebsites.net/.auth/login/aad/callback",
         "https://deployedcookiecutter-preprod-frontend.azurewebsites.net/.auth/login/aad/callback",
-        "https://deployedcookiecutter-preprod-frontend.azurewebsites.net/.auth/login/aad/callback",
-        "https://deployedcookiecutter-dev-frontend.azurewebsites.net/.auth/login/aad/callback",
         "https://deployedcookiecutter-dev-frontend.azurewebsites.net/.auth/login/aad/callback"
       ]
       mobile_desktop_redirect_uris   = []
