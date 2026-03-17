@@ -1033,6 +1033,7 @@ locals {
       }
       tags                           = []
       custom_application_permissions = []
+      spa_redirect_uris              = []
     },
     "MOJ-Command-Centre-Frontend-Prod" = {
       notes                          = "MOJ Command Centre Frontend Production App"
