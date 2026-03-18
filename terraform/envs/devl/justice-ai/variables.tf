@@ -13,8 +13,8 @@ locals {
       display_name                   = "STG-AI-Justice-Transcribe-Devl"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
-      application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
-      owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
+      application_contacts           = ["Harry.Waterman@devl.justice.gov.uk", "Luke.Plausin@devl.justice.gov.uk"]
+      owners                         = ["Harry.Waterman@devl.justice.gov.uk", "Luke.Plausin@devl.justice.gov.uk"]
       allowed_groups                 = ["JusticeTranscribeTeam"]
       homepage_url                   = null
       logout_url                     = null
