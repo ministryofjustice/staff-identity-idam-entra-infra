@@ -88,6 +88,12 @@ variable "mobile_desktop_redirect_uris" {
   type        = list(string)
 }
 
+variable "spa_redirect_uris" {
+  description = "The redirect URIs for single-page application (SPA) authentication. Unlike web redirect URIs, SPA redirect URIs do not use a client secret and support PKCE."
+  type        = list(string)
+  default     = []
+}
+
 variable "app_roles" {
   description = "App roles are custom roles to assign permissions to users or apps. The application defines and publishes the app roles and interprets them as permissions during authorization."
   type = list(object({

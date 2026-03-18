@@ -55,7 +55,7 @@ locals {
       allowed_groups                 = []
       homepage_url                   = "https://cases.civillegaladvice.service.gov.uk/"
       logout_url                     = null
-      redirect_uris                  = ["https://cases.civillegaladvice.service.gov.uk/auth/entra-callback"]
+      redirect_uris                  = ["https://cases.civillegaladvice.service.gov.uk/auth/entra-callback", "http://localhost:8000/auth/entra-callback"]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
       resource_access                = [
