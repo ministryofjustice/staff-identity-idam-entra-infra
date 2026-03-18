@@ -1,8 +1,8 @@
 *   @ministryofjustice/eucs-idam-admins
 
-terraform/envs/devl/alz-ai                                  @ministryofjustice/cloud-ops-alz-admins
 terraform/envs/**/eucs-application-platforms-*              @ministryofjustice/eucs-victor-senior-devs
 terraform/envs/**/eucs-power-platform                       @ministryofjustice/eucs-victor-senior-devs
+terraform/envs/devl/alz-ai                                  @ministryofjustice/cloud-ops-alz-admins
 terraform/envs/live/justice-ai                              @ministryofjustice/justice-ai-unit
 terraform/envs/live/eucs-vds                                @ministryofjustice/mojo-vds-team
 terraform/envs/live/hmpps-electronic-monitoring-data-store  @ministryofjustice/hmpps-electronic-monitoring-data-store
@@ -10,3 +10,8 @@ terraform/envs/live/justice-ai                              @ministryofjustice/j
 terraform/envs/live/laa                                     @ministryofjustice/laa-submit-a-bulk-claim
 terraform/envs/live/laa-cyber-security-team                 @ministryofjustice/laa-cyber-security-team
 terraform/envs/live/laa-data-stewardship                    @ministryofjustice/laa-data-stewardship-cse-team
+terraform/envs/live/office-of-the-cto                       @ministryofjustice/data-platform-engineering
+terraform/envs/nle/laa-cala                                 @ministryofjustice/laa-get-access
+terraform/envs/**/laa-cala-clah                             @ministryofjustice/laa-get-access
+terraform/envs/nleexternal/laa                              @ministryofjustice/laa-crime-forms-team @ministryofjustice/laa-portal-stabilisation-tech @ministryofjustice/laa-apply-for-legal-aid @ministryofjustice/laa-amend-a-claim
+terraform/envs/prodexternal/laa                             @ministryofjustice/laa-crime-forms-team @ministryofjustice/laa-portal-stabilisation-tech @ministryofjustice/laa-apply-for-legal-aid @ministryofjustice/laa-amend-a-claim
