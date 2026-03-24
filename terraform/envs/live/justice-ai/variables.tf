@@ -1039,7 +1039,7 @@ locals {
       notes                          = "Justice AI Onboarding Optimisation Prod App"
       service_management_reference   = "IDAM-5036"
       logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                   = "STG-AI-Caselaw-Verification-Prod"
+      display_name                   = "STG-AI-Onboarding-Optimisation-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
       application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.Webb1@justice.gov.uk", "Luke.Plausin@justice.gov.uk"]
@@ -1080,7 +1080,7 @@ locals {
       notes                          = "Justice AI Onboarding Optimisation Dev App"
       service_management_reference   = "IDAM-5036"
       logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                   = "STG-AI-Caselaw-Verification-Prod"
+      display_name                   = "STG-AI-Onboarding-Optimisation-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
       application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.Webb1@justice.gov.uk", "Luke.Plausin@justice.gov.uk"]
@@ -1121,7 +1121,7 @@ locals {
       notes                          = "Justice AI Enhanced Reception Checks Prod App"
       service_management_reference   = "IDAM-5036"
       logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                   = "STG-AI-Caselaw-Verification-Prod"
+      display_name                   = "STG-AI-Enhanced-Reception-Checks-Prod"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
       application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.Webb1@justice.gov.uk", "Luke.Plausin@justice.gov.uk"]
@@ -1162,7 +1162,7 @@ locals {
       notes                          = "Justice AI Enhanced Reception Checks Dev App"
       service_management_reference   = "IDAM-5036"
       logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
-      display_name                   = "STG-AI-Caselaw-Verification-Prod"
+      display_name                   = "STG-AI-Enhanced-Reception-Checks-Dev"
       department_name                = "Justice-Digital"
       team_name                      = "AI"
       application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.Webb1@justice.gov.uk", "Luke.Plausin@justice.gov.uk"]
