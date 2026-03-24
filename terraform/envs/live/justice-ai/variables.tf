@@ -880,7 +880,7 @@ locals {
       team_name                      = "AI"
       application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk"]
-      allowed_groups                 = ["elmley-pin"]
+      allowed_groups                 = ["elmley-pin", "PrisonTranscribeUsers"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://prison.transcription.service.justice.gov.uk/.auth/login/aad/callback", "https://prisontranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
