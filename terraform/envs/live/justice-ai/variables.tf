@@ -1126,7 +1126,7 @@ locals {
       team_name                      = "AI"
       application_contacts           = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.Webb1@justice.gov.uk", "Luke.Plausin@justice.gov.uk"]
       owners                         = ["Sam.Lhuillier@justice.gov.uk", "Harry.Waterman@justice.gov.uk", "Ehsan.Ashouri@justice.gov.uk", "Francis.Webb1@justice.gov.uk", "Luke.Plausin@justice.gov.uk"]
-      allowed_groups                 = ["STG HMPPS Enhanced Reception Checks Prod", "Justice-ai-unit-staff"]
+      allowed_groups                 = ["STG HMPPS Enhanced Reception Checks Prod"]
       homepage_url                   = null
       logout_url                     = null
       redirect_uris                  = ["https://enhancedreceptionchecks-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
