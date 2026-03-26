@@ -678,7 +678,10 @@ locals {
       allowed_groups                 = ["CourtsTranscribe", "Justice-ai-unit-staff"]
       homepage_url                   = null
       logout_url                     = null
-      redirect_uris                  = ["https://courtstranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback"]
+      redirect_uris                  = [
+        "https://courtstranscribe-prod-frontend.azurewebsites.net/.auth/login/aad/callback",
+        "https://courts.transcription.service.justice.gov.uk/.auth/login/aad/callback"
+      ]
       mobile_desktop_redirect_uris   = []
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = true
