@@ -12,7 +12,7 @@ locals {
       logo_image                     = "./assets/MOJ_Lesser_Arms_Stacked_HEX_215x215.jpg"
       display_name                   = "STG-HMCTS-PFL-Analytics-Devl"
       department_name                = "HMCTS"
-      team_name                      = "Private Family Law"
+      team_name                      = "PFL"
       application_contacts           = ["central-digital-product-team@justice.gov.uk"]
       owners                         = ["central-digital-product-team@justice.gov.uk"]
       allowed_groups                 = []
