@@ -13,8 +13,8 @@ locals {
       display_name                   = "STG-HMCTS-PFL-Analytics-Devl"
       department_name                = "HMCTS"
       team_name                      = "PFL"
-      application_contacts           = []
-      owners                         = ["central-digital-product-team@justice.gov.uk"]
+      application_contacts           = ["central-digital-product-team@justice.gov.uk"]
+      owners                         = []
       allowed_groups                 = []
       homepage_url                   = null
       logout_url                     = null
