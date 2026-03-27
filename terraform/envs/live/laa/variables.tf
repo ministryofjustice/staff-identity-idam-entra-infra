@@ -185,59 +185,6 @@ custom_application_permissions = list(object({
         requested_access_token_version = null,
         oauth2_permission_scope = []
       }
-    },
-    "Data-Stewardship-UAT" = {
-      notes                          = "Data Stewardship app registration for app to app authentication only, this is not for SiLAS frontend login"
-      service_management_reference   = ""
-      logo_image                     = "./assets/laa-square-icon-215x215.jpg"
-      display_name                   = "DataStewardship | UAT | app2app"
-      department_name                = "laa"
-      team_name                      = "DataStewardship"
-      application_name               = "Data-Stewardship-API-UAT-app2app"
-      create_access_package          = false
-      access_package_reviewers       = []
-      owners                         = ["Saif-ul.Hussain@justice.gov.uk"]
-      application_contacts           = ["Saif-ul.Hussain@justice.gov.uk"]
-      allowed_groups                 = []
-      homepage_url                   = null
-      logout_url                     = null
-      redirect_uris                  = null
-      mobile_desktop_redirect_uris   = null
-      app_roles                      = []
-      custom_application_permissions = [
-  {
-    resource_app_id = "fb5951f7-580c-4d0b-94ef-ede2619cb319"
-    resource_access = [
-      {
-        id   = "70b6852e-1c0c-4aaa-91ef-f4f2edb86845" # LAA_SDS.ALL
-        type = "Role"                                # Application permission
-      }
-    ]
-  }
-]
-      graph_application_permissions  = []
-      graph_delegated_permissions    = ["User.Read"]
-      tenants_required               = ["LIVE"]
-      access_token_issuance_enabled  = false
-      id_token_issuance_enabled      = false
-      federated_identity_credentials = []
-      service_principle = {
-        login_url                     = null
-        notification_email_addresses  = []
-        preferred_single_sign_on_mode = null
-        app_role_assignment_required  = true
-        account_enabled               = true
-        application_template_name     = null
-        hide                          = true
-        custom_single_sign_on         = null
-      }
-      identifier_uris = null
-      api = {
-        known_client_applications      = [],
-        mapped_claims_enabled          = false,
-        requested_access_token_version = null,
-        oauth2_permission_scope = []
-      }
     }
   }
 }
