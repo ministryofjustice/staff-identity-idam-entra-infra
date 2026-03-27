@@ -761,8 +761,9 @@ locals {
       ]
       mobile_desktop_redirect_uris   = null
       app_roles                      = []
-      graph_application_permissions  = []
+      graph_application_permissions  = ["User.ReadBasic.All"]
       graph_delegated_permissions    = ["User.Read"]
+      tenants_required               = ["PRODEXTERNAL"]
       access_token_issuance_enabled  = false
       id_token_issuance_enabled      = false
       federated_identity_credentials = []
