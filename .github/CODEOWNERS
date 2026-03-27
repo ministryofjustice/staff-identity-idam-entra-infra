@@ -14,3 +14,4 @@ terraform/envs/nle/laa-cala                                 @ministryofjustice/l
 terraform/envs/**/laa-cala-clah                             @ministryofjustice/laa-get-access
 terraform/envs/nleexternal/laa                              @ministryofjustice/laa-crime-forms-team @ministryofjustice/laa-portal-stabilisation-tech @ministryofjustice/laa-apply-for-legal-aid @ministryofjustice/laa-amend-a-claim
 terraform/envs/prodexternal/laa                             @ministryofjustice/laa-crime-forms-team @ministryofjustice/laa-portal-stabilisation-tech @ministryofjustice/laa-apply-for-legal-aid @ministryofjustice/laa-amend-a-claim
+terraform/envs/devl/hmcts-private-family-law                @ministryofjustice/private-family-law-cap-cicd
