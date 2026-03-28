@@ -258,6 +258,36 @@ variable "applications" {
         hide                          = null
       }
       identifier_uris = null
+    },
+    "vds_nerdio_api_01" = {
+      notes                          = "EUCS VDS SP used for Nerdio as code via private API"
+      service_management_reference   = "eucsvds-1796"
+      display_name                   = "MoJ-OFFICIAL-Prod-EUCS-VDS-Nerdio-API"
+      department_name                = "EUCS-CORE-AVD"
+      team_name                      = "EUCS-CORE-Infrastructure-AVD"
+      application_name               = "MoJ-OFFICIAL-Prod-EUCS-VDS-Nerdio-API"
+      create_access_package          = false
+      access_package_reviewers       = []
+      owners                         = ["David.Close@JusticeUK.onmicrosoft.com", "Dragan.letic1@JusticeUK.onmicrosoft.com", "Ian.Hegarty@JusticeUK.onmicrosoft.com", "Michael.Kirkpatrick@JusticeUK.onmicrosoft.com", "Paul.Colegate@JusticeUK.onmicrosoft.com"]
+      allowed_groups                 = []
+      homepage_url                   = null
+      logout_url                     = null
+      redirect_uris                  = null
+      app_roles                      = []
+      graph_application_permissions  = []
+      graph_delegated_permissions    = []
+      tenants_required               = ["LIVE"]
+      federated_identity_credentials = []
+      service_principle = {
+        login_url                     = null
+        notification_email_addresses  = []
+        preferred_single_sign_on_mode = null
+        app_role_assignment_required  = true
+        account_enabled               = true
+        application_template_name     = null
+        hide                          = null
+      }
+      identifier_uris = null
     }
   }
 }
